@@ -1,0 +1,4 @@
+title: "Avisos 5S2M-B"
+baseurl: "" 
+plugins:
+  - jekyll-feed # plugin para generar RSS automáticamente
