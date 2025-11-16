@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Clases online 18 de noviembre
-date: 2025-11-16 20:26:00 +0100
+date: 2025-11-16 20:18:00 +0100
 author: Gonzalo
 published: true
 ---
