@@ -6,8 +6,19 @@ title: "Avisos 5S2M-B"
 Últimos avisos
 
 <ul>
+{% assign now = 'now' | date: "%s" %}
 {% for post in site.posts %}
-  <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%d %B %Y" }})</li>
+  {% assign post_expires = post.expires | date: "%s" %}
+  {% if post_expires == nil or post_expires > now %}
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> 
+      ({{ post.date | date: "%d %B %Y" }}
+      {% if post.expires %}
+        - Vigente hasta: {{ post.expires | date: "%d %B %Y" }}
+      {% endif %}
+      )
+    </li>
+  {% endif %}
 {% endfor %}
 </ul>
 
