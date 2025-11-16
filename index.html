@@ -5,8 +5,10 @@ title: "Avisos 5S2M-B"
 
 Últimos avisos
 
+<ul>
 {% for post in site.posts %}
-- [{{ post.title }}]({{ site.baseurl }}{{ post.url }}) ({{ post.date | date: "%d %B %Y" }})
+  <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%d %B %Y" }})</li>
 {% endfor %}
+</ul>
 
-Recuerda que esta web se actualiza regularmente. Puedes suscribirte al [feed RSS]({{ site.baseurl }}/feed.xml) para recibir las últimas noticias directamente en tu lector de RSS.
+<p>Recuerda que esta web se actualiza regularmente. Puedes suscribirte al <a href="{{ site.baseurl }}/feed.xml">feed RSS</a> para recibir las últimas noticias directamente en tu lector de RSS.</p>
