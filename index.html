@@ -3,14 +3,12 @@ layout: default
 title: "Inicio"
 ---
 
-<h1>{{ site.title }}</h1>
-<p>{{ site.description }}</p>
-
+<h2>Últimos posts</h2>
 <ul>
   {% for post in site.posts %}
     <li>
       <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-      <small> - {{ post.date | date: "%d %B %Y" }}</small>
+      <small>({{ post.date | date: "%d %B %Y" }})</small>
       <p>{{ post.excerpt }}</p>
     </li>
   {% endfor %}
