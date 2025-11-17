@@ -10,7 +10,7 @@ Se recuerda a todos los estudiantes de tercero del grado de Ingeniería Informá
 
 1. IA - Memoria de trabajo y código de Inteligencia Artificial, para el 26 de noviembre, vía Moodle.
 2. PDL - Memoria del Analizador Sintáctico, para el 24 de noviembre, vía Moodle.
-3. SSOO - Ejercicios Gestión de Memoria para el visado de examen, para el 22 de noviembre, vía Triqui.
+3. SSOO - Ejercicios Gestión de Memoria para el visado de examen, para el 22 de noviembre, vía Triqui y Módulo de Memoria para el 6 de diciembre.
 
 También he de recordar que debéis revisar la fecha que os han asignado para la presentación de vuestra práctica de IA de manera telemática. Consultar mensajes privados en Moodle o correos Webmail.
 
