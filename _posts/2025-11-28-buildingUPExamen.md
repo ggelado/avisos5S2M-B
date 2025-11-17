@@ -1,0 +1,23 @@
+---
+layout: post
+title: Convocatoria examen Building Up Comunication Skills
+date: 2025-11-28 00:00:00 +0100
+author: Gonzalo
+published: true
+expires: 2025-12-01 19:00:01 +0100
+---
+El examen tendrá lugar en el aula 6106 de 17 a 19 horas el próximo día 1 de diciembre de 2025.
+
+Instructions:
+1. Bring your laptop fully charged and your charger.
+2. Arrive ON TIME, or you will miss the beginning of the test.
+3. Leave a seat between you and your neighbour.
+4. Mobile phones must be off and away.
+5. Make sure you know your username/password for the platform (Moodle) and test your access.
+6. Make sure you don’t miss any question. Review!
+7. Make sure you hit “submit” at the end.
+
+
+Notificaciones y modificaciones se publicarán en [https://ggelado.github.io/avisos5S2M-B/2025/11/28/buildingUPExamen](https://ggelado.github.io/avisos5S2M-B/2025/11/28/buildingUPExamen). No se publicarán nuevos avisos en relación a este examen, se editará el aviso publicado en dicha web.
+
+Se recomienda revisar dicho enlace poco antes del examen, y revisar el Moodle de la asignatura momentos antes del examen.
