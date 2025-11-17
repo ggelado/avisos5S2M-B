@@ -5,6 +5,8 @@ date: 2025-11-28 00:00:00 +0100
 author: Gonzalo
 published: true
 expires: 2025-12-01 19:00:01 +0100
+categories:
+  - Convocatorias de Examen
 ---
 El examen tendrá lugar en el aula 6106 de 17 a 19 horas el próximo día 1 de diciembre de 2025.
 
