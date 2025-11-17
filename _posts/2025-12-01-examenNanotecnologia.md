@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Convocatoria examen Nanotecnología
-date: 2025-12-08 00:00:00 +0100
+date: 2025-12-01 00:00:00 +0100
 author: Gonzalo
 published: true
 expires: 2025-12-09 19:00:01 +0100
