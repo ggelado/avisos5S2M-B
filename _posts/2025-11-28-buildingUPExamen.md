@@ -20,6 +20,6 @@ Instructions:
 7. Make sure you hit “submit” at the end.
 
 
-Notificaciones y modificaciones se publicarán en [este mismo post en su versión online](2025-11-28-buildingUPExamen.md). No se publicarán nuevos avisos en relación a este examen, se editará el aviso publicado en dicha web. Si utiliza un lector RSS, podría no actualizarse esta publicación. Acceda a dicho enlace regularmente, y consulte el Moodle de la asignatura.
+Notificaciones y modificaciones se publicarán en [este mismo post en su versión online](#). No se publicarán nuevos avisos en relación a este examen, se editará el aviso publicado en dicha web. Si utiliza un lector RSS, podría no actualizarse esta publicación. Acceda a dicho enlace regularmente, y consulte el Moodle de la asignatura.
 
 Se recomienda revisar dicho enlace poco antes del examen, y revisar el Moodle de la asignatura momentos antes del examen.
