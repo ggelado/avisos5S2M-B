@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Convocatoria examen Building Up Comunication Skills
+title: Convocatoria examen Seguridad B1
 date: 2025-11-24 00:00:00 +0100
 author: Gonzalo
 published: true
