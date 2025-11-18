@@ -15,3 +15,5 @@ Más información sobre esta incidencia se encuentra publicada en la [web oficia
 Recuerda: No se enviarán nuevos avisos en relación con esta incidencia, pero es posible que este aviso sea editado más adelante. De ser así, su lector RSS podría no reflejar las posibles actualizaciones, por lo que se aconseja consultar la [versión online de este aviso](#).
 
 Más información en la web de Cloudflare.
+
+Actualización: El servicio está empezando a levantarse progresivamente, aunque puede haber caídas puntuales y lentitud en el servicio.
