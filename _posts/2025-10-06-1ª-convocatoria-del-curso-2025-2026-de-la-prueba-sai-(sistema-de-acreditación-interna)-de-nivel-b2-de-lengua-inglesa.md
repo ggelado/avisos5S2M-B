@@ -2,6 +2,7 @@
 author: prensa
 categories:
   - Información docente
+  - Convocatorias de Examen
 date: 2025-12-05 00:00:00
 layout: post
 title: 1ª convocatoria del curso 2025/2026 de la Prueba SAI (Sistema de Acreditación Interna) de nivel B2 de lengua inglesa
