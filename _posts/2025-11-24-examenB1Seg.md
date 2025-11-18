@@ -8,6 +8,22 @@ expires: 2025-12-02 18:30:01 +0100
 categories:
   - Convocatorias de Examen
 ---
+<div style="
+    background-color: #ff0000; 
+    color: #ffffff; 
+    font-size: 32px; 
+    font-weight: bolder; 
+    padding: 25px; 
+    border: 4px solid #ffff00; 
+    text-align: center; 
+    text-transform: uppercase; 
+    box-shadow: 0 0 20px #ffff00;
+    animation: blink 1s step-start 0s infinite;
+">
+    ¡ATENCIÓN! Los delegados NO estarán disponibles para consulta alguna durante el examen, incluyendo problemas técnicos, cierre del examen por falta de tiempo, cuelgues de Moodle... Contacte vía la Sesión de Zoom que se publicará en Moodle.
+</div>
+
+
 El examen tendrá lugar vía Moodle de 17:80 a 18:30 horas el próximo día 2 de diciembre de 2025.
 
 <div style="background-color: yellow; color: red; font-size: 24px; font-weight: bold; padding: 15px; border: 2px solid red; text-align: center;">
