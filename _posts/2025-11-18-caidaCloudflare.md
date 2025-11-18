@@ -6,6 +6,7 @@ author: Gonzalo
 published: true
 categories:
   - Incidencias de Servicio
+excerpt: Caída generalizada en un servicio ajeno a la UPM
 ---
 Con fecha Nov 18, 2025 - 11:48 UTC se ha declarado una incidencia en un centro de Cloudflare de Londres, lo que supone que muchas páginas conocidas (como puede ser ChatGPT) pueden sufrir incidencias cuelgues o lentitud en el servicio.
 
