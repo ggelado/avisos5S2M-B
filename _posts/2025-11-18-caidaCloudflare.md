@@ -16,4 +16,6 @@ Recuerda: No se enviarán nuevos avisos en relación con esta incidencia, pero e
 
 Más información en la web de Cloudflare.
 
-Actualización: El servicio está empezando a levantarse progresivamente, aunque puede haber caídas puntuales y lentitud en el servicio.
+Actualización: Se ha implementado una solución a las 14:42 tiempo universal, y desde las 16:46 tiempo universal los servicios están volviendo a la normalidad.
+
+Este aviso será eliminado una vez se confirme que todo ha vuelto a la normalidad.
