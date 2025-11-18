@@ -3,7 +3,7 @@ layout: post
 title: Caída de Cloudflare
 date: 2025-11-18 11:48:00 +0000
 author: Gonzalo
-published: true
+published: false
 categories:
   - Incidencias de Servicio
 excerpt: Caída generalizada en un servicio ajeno a la UPM
@@ -16,6 +16,6 @@ Recuerda: No se enviarán nuevos avisos en relación con esta incidencia, pero e
 
 Más información en la web de Cloudflare.
 
-Actualización: Se ha implementado una solución a las 14:42 tiempo universal, y desde las 16:46 tiempo universal los servicios están volviendo a la normalidad.
+Actualización: El servicio se encuentra restablecido a la normalidad.
 
-Este aviso será eliminado una vez se confirme que todo ha vuelto a la normalidad.
+FIN DEL AVISO.
