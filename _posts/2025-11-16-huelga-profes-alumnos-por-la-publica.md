@@ -15,4 +15,6 @@ Estén atentos a los medios de comunicación oficiales. En este muro colgaremos 
 
 Recordamos que dicha huelga se prevee que participen tanto profesores, como alumnos, e incluso decanos, por lo que, estén atentos a toda la información que pueda facilitar la escuela para ambas jornadas. 
 
+Salvo situaciones de mayor importancia no se emitirán nuevos avisos en relación a dicha huelga, la información se actualizará en este mismo post. Su lector RSS podría no actualizar esta información, por lo que se recomienda acceda regularmente a [la versión online de este aviso](2025-11-16-huelga-profes-alumnos-por-la-publica.md) y revise la información oficial que publique la escuela.
+
 Un saludo.
