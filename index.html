@@ -11,7 +11,7 @@ title: "Avisos 5S2M-B"
   {% assign post_expires = post.expires | date: "%s" %}
   {% if post_expires == nil or post_expires > now %}
     <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> 
+      <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a> 
       ({{ post.date | date: "%d %B %Y" }}
       {% if post.expires %}
         - Vigente hasta: {{ post.expires | date: "%d %B %Y" }}
