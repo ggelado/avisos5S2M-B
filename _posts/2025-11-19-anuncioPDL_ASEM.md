@@ -16,7 +16,6 @@ Avisos de PDL:
 
 > La clase tendrá lugar online en la sesión de Moodle en el Aula Virtual, y hay que estar registrado previamente e identificado en Zoom con el correo de la Universidad. 
 
-{% include warning.html content="**Recuerda**
-
-Debes iniciar sesión utilizando el SSOO de la UPM para que se registre tu asistencia, no crear una cuenta de Zoom con tu correo upm." %}
+>[!warning] Recuerda
+Debes iniciar sesión utilizando el SSOO de la UPM para que se registre tu asistencia, no crear una cuenta de Zoom con tu correo upm.
 
