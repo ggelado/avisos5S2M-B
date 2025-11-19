@@ -24,3 +24,18 @@ Recordamos que dicha huelga se prevee que participen tanto profesores, como alum
 Salvo situaciones de mayor importancia no se emitirán nuevos avisos en relación a dicha huelga, la información se actualizará en este mismo post. Su lector RSS podría no actualizar esta información, por lo que se recomienda acceda regularmente a [la versión online de este aviso](#) y revise la información oficial que publique la escuela.
 
 Un saludo.
+
+<div style="
+    background-color: #ff0000; 
+    color: #ffffff; 
+    font-size: 32px; 
+    font-weight: bolder; 
+    padding: 25px; 
+    border: 4px solid #ffff00; 
+    text-align: center; 
+    text-transform: uppercase; 
+    box-shadow: 0 0 20px #ffff00;
+    animation: blink 1s step-start 0s infinite;
+">
+    ¡ATENCIÓN! Los profesores podrían suspender la docencia de alguna asignatura con bajo o nulo aviso. Se recomienda consultar el apartado de avisos del Moodle de las distintas asignaturas antes de salir de casa.
+</div>
