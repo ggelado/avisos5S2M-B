@@ -4,5 +4,4 @@ url: "https://ggelado.github.io"
 theme: jekyll-theme-primer
 plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
-  - jekyll-gfm-admonitions
 
