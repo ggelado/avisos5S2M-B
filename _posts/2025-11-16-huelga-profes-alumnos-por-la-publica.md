@@ -16,8 +16,10 @@ Estén atentos a los medios de comunicación oficiales. En este muro colgaremos 
 Recordamos que dicha huelga se prevee que participen tanto profesores, como alumnos, e incluso decanos, por lo que, estén atentos a toda la información que pueda facilitar la escuela para ambas jornadas. 
 
 ❌ NO hay paro académico convocado en la UPM.
+
 👨‍🏫 La huelga es exclusiva de los profesores e investigadores (convocada por sindicatos contra la LESUC).
-⚠️ ¿Qué significa en la práctica? Que solo perderemos clase si vuestro profesor decide secundar la huelga individualmente .
+
+⚠️ ¿Qué significa en la práctica? Que solo perderemos clase si un profesor decide secundar la huelga individualmente .
 
 Salvo situaciones de mayor importancia no se emitirán nuevos avisos en relación a dicha huelga, la información se actualizará en este mismo post. Su lector RSS podría no actualizar esta información, por lo que se recomienda acceda regularmente a [la versión online de este aviso](#) y revise la información oficial que publique la escuela.
 
