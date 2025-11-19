@@ -1,51 +1,42 @@
 import re
 from pathlib import Path
 
-# Mapeo Obsidian -> Clase CSS
-mapping = {
+# Mapeo Obsidian -> Include Jekyll
+include_map = {
     "note": "note",
-    "info": "info",
+    "info": "note",
     "tip": "tip",
     "todo": "tip",
     "warning": "warning",
     "caution": "warning",
-    "danger": "danger",
-    "bug": "danger",
-    "quote": "quote",
+    "danger": "important",
+    "bug": "important",
+    "quote": "note",
 }
 
-# Regex callout multilinea
 CALL_RE = re.compile(
     r"^> *\[\!(\w+)\] *([^\n]*)\n((^>.*\n?)*)",
     re.MULTILINE
 )
 
-# Limpia ">"
 CLEAN_RE = re.compile(r"^> ?", re.MULTILINE)
 
 
 def convert_callouts(text):
 
     def build_html(tipo, title, body):
-        css = mapping.get(tipo, "info")
+        include = include_map.get(tipo, "note")
 
         # limpiar >
-        body = CLEAN_RE.sub("", body)
+        body = CLEAN_RE.sub("", body).strip()
 
-        # dividir en párrafos
-        paragraphs = [p.strip() for p in body.split("\n\n") if p.strip()]
+        # Juntamos todo en un único bloque
+        full_content = body if not title else f"**{title}**\n\n{body}"
 
-        html = [f'<div class="notice {css}">']
+        # Escape para comillas dobles
+        full_content = full_content.replace('"', '&quot;')
 
-        if title:
-            html.append(f'  <h4>{title}</h4>')
-
-        for p in paragraphs:
-            html.append(f'  <p>{p}</p>')
-
-        html.append('</div>\n')
-
-        return "\n".join(html)
+        return f'{{% include {include}.html content="{full_content}" %}}\n'
 
     def repl(match):
         tipo = match.group(1).lower()
