@@ -54,7 +54,7 @@ Los descifrados y demás ejercicios deben contar con "**Indicios Razonables** *
 
 Se recuerda que el comportamiento de los alumnos debe ser correcto en todo momento y acogerse a las reglas del examen, en el que **cada uno hace su examen, por sí mismo y sin la ayuda o interferencia de cualquier otra persona o fuente**
 
-Notificaciones y modificaciones se publicarán en [2025-11-24-examenB1Seg](2025-11-24-examenB1Seg.md). No se publicarán nuevos avisos en relación a este examen, se editará el aviso publicado en dicha web. Si utiliza un lector RSS, podría no actualizarse esta publicación. Acceda a dicho enlace regularmente, y consulte el Moodle de la asignatura.
+Notificaciones y modificaciones se publicarán en [la versión online de este aviso](#). No se publicarán nuevos avisos en relación a este examen, se editará el aviso publicado en dicha web. Si utiliza un lector RSS, podría no actualizarse esta publicación. Acceda a dicho enlace regularmente, y consulte el Moodle de la asignatura.
 
 Se recomienda revisar dicho enlace poco antes del examen, y revisar el Moodle de la asignatura momentos antes del examen.
 
