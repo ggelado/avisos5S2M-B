@@ -81,13 +81,14 @@ def crear_post_markdown(titulo, inicio, fin, contenido):
             return dt_str
 
     fecha_inicio_fmt = convertir_fecha(inicio)
+    now_fmt = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
     fecha_fin_fmt = convertir_fecha(fin)
 
     yaml = f"""---
 layout: post
 title: "{titulo}"
-date: {fecha_inicio_fmt}
-author: AEMET
+date: {now_fmt}
+author: AEMET - Agencia Estatal de Metereología
 published: true
 expires: {fecha_fin_fmt}
 categories:
@@ -98,7 +99,7 @@ categories:
     # Contenido final del post
     body = (
         contenido
-        + "\n\n<br><small><i>Aviso generado automáticamente.</i></small>\n"
+        + "\n\n<br><small><i>Aviso generado automáticamente de manera no supervisada.</i></small>\n"
     )
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -156,7 +157,7 @@ def formatear_aviso(info_es):
     texto = f"""
 ============================================================
 
-       ⚠️ AVISO AUTOMATIZADO – AEMET
+⚠️ AVISO AUTOMATIZADO DE FENÓMENOS METEREOLÓGICOS ADVERSOS
        
 ============================================================
 
