@@ -43,6 +43,7 @@ def leer_rss_madrid():
             enlaces.append(link.text.strip())
     return enlaces
 
+
 # ---------------------------------------------------------
 # CAP
 # ---------------------------------------------------------
@@ -62,10 +63,12 @@ def slugify(text):
     text = re.sub(r"[^a-zA-Z0-9]+", "-", text).strip("-").lower()
     return text
 
-def crear_post_markdown(titulo, inicio, fin, contenido):
-    fecha = inicio.split("T")[0]  # AAAA-MM-DD
-    slug = slugify(titulo)
-    filename = f"{fecha}-{slug}.md"
+def crear_post_markdown(titulo, inicio, fin, contenido, identifier):
+    # Fecha para el nombre del fichero (AAAA-MM-DD)
+    fecha = inicio.split("T")[0]
+
+    safe_id = slugify(identifier)
+    filename = f"{fecha}-{safe_id}.md"
     filepath = os.path.join(OUTPUT_DIR, filename)
 
     if os.path.exists(filepath):
@@ -88,15 +91,14 @@ def crear_post_markdown(titulo, inicio, fin, contenido):
 layout: post
 title: "{titulo}"
 date: {now_fmt}
-author: AEMET - Agencia Estatal de Metereología
+author: AEMET - Agencia Estatal de Meteorología
 published: true
 expires: {fecha_fin_fmt}
 categories:
-  - Alerta metereológica
+  - Alerta meteorológica
 ---
 """
 
-    # Contenido final del post
     body = (
         contenido
         + "\n\n<br><small><i>Aviso generado automáticamente de manera no supervisada.</i></small>\n"
@@ -108,6 +110,7 @@ categories:
         f.write(yaml + "\n\n" + body)
 
     print(f"✅ Generado fichero de aviso: {filename}")
+
 
 # ---------------------------------------------------------
 # FORMATEO DEL AVISO
@@ -157,7 +160,7 @@ def formatear_aviso(info_es):
     texto = f"""
 ============================================================
 
-⚠️ AVISO AUTOMATIZADO DE FENÓMENOS METEREOLÓGICOS ADVERSOS
+⚠️ AVISO AUTOMATIZADO DE FENÓMENOS METEOROLÓGICOS ADVERSOS
        
 ============================================================
 
@@ -211,6 +214,16 @@ def procesar_aviso(url):
         print(f"❌ Error parseando CAP: {e}")
         return False
 
+    # ----------------------------------------
+    # EXTRAER IDENTIFIER (clave única del aviso)
+    # ----------------------------------------
+    identifier_el = root.find("cap:identifier", NS)
+    if identifier_el is not None and identifier_el.text:
+        identifier = identifier_el.text.strip()
+    else:
+        identifier = url   # fallback seguro (siempre único)
+    # ----------------------------------------
+
     info_es = obtener_info_es(root)
     if info_es is None:
         return False
@@ -221,8 +234,9 @@ def procesar_aviso(url):
 
     contenido, titulo, inicio, fin = resultado
 
-    crear_post_markdown(titulo, inicio, fin, contenido)
+    crear_post_markdown(titulo, inicio, fin, contenido, identifier)
     return True
+
 
 # ---------------------------------------------------------
 # PRINCIPAL
