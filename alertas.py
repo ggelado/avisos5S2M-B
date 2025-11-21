@@ -105,7 +105,7 @@ categories:
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     with open(filepath, "w", encoding="utf-8") as f:
-        f.write(yaml + "\n" + body)
+        f.write(yaml + "\n\n" + body)
 
     print(f"✅ Generado fichero de aviso: {filename}")
 
