@@ -12,6 +12,8 @@ categories:
 ---
 Se recuerda a todos los alumnos que la entrega de los visados de chuletilla para el tema de memoria cerrará a las 23:59 de hoy. La entrega es vía triqui.
 
+Se recomienda revisar que el PDF que se sube no esté corrupto.
+
 Así mismo se recuerda que la entrega de la memoria de PDL (no el código) se debe realizar vía Moodle antes del lunes.
 
 Las pruebas de DRACO no son obligatorias, pero sí lo es la memoria.
