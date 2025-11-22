@@ -77,6 +77,18 @@ title: "Avisos 5S2M-B"
 
 {% raw %}
 <script>
+document.getElementById("android-link").addEventListener("click", function() {
+    gtag('event', 'app_download_click', {
+        'platform': 'android'
+    });
+});
+
+document.getElementById("ios-link").addEventListener("click", function() {
+    gtag('event', 'app_download_click', {
+        'platform': 'ios'
+    });
+});
+
 // Detectar sistema operativo
 const isAndroid = /Android/i.test(navigator.userAgent);
 const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -86,6 +98,9 @@ const shown = localStorage.getItem("appModalShown");
 
 if (!shown && (isAndroid || isIOS)) {
     document.getElementById("download-app-modal").style.display = "block";
+	gtag('event', 'modal_app_shown', {
+        'platform': isAndroid ? 'android' : 'ios'
+    });
 
     if (isAndroid) {
         document.getElementById("android-link").style.display = "block";
