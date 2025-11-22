@@ -51,13 +51,21 @@ title: "Avisos 5S2M-B"
         border-radius: 10px;
         text-align:center;
     ">
-    <h3>Descarga una app RSS</h3>
-    <p>Y podrás recibir notificaciones de los último avisos en cuanto se publiquen.</p>
-	<p>Sigue los pasos del post "inicial" para configurarla.</p>
 
-    <a href="https://play.google.com/store/apps/details?id=com.nononsenseapps.feeder.play"
-       style="display:block; margin: 15px 0; background:#4CAF50; color:white; padding:10px; border-radius:5px; text-decoration:none;">
-       Descargar Feeder
+    <h3>Descarga una app RSS</h3>
+    <p>Y podrás recibir notificaciones de los últimos avisos en cuanto se publiquen.</p>
+    <p>Sigue los pasos del post "inicial" para configurarla.</p>
+
+    <!-- Botón Android -->
+    <a id="android-link" href="https://play.google.com/store/apps/details?id=com.nononsenseapps.feeder.play"
+       style="display:none; margin: 15px 0; background:#4CAF50; color:white; padding:10px; border-radius:5px; text-decoration:none;">
+       Descargar Feeder (Android)
+    </a>
+
+    <!-- Botón iOS -->
+    <a id="ios-link" href="https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210"
+       style="display:none; margin: 15px 0; background:#007AFF; color:white; padding:10px; border-radius:5px; text-decoration:none;">
+       Descargar NetNewsWire (no probada, no tengo ios)
     </a>
 
     <button id="close-modal" style="padding:8px 20px; border:none; background:#ccc; border-radius:5px;">
@@ -68,14 +76,22 @@ title: "Avisos 5S2M-B"
 
 {% raw %}
 <script>
-// Detectar Android
+// Detectar sistema operativo
 const isAndroid = /Android/i.test(navigator.userAgent);
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 // Evitar mostrar el modal más de una vez
 const shown = localStorage.getItem("appModalShown");
 
-if (isAndroid && !shown) {
+if (!shown && (isAndroid || isIOS)) {
     document.getElementById("download-app-modal").style.display = "block";
+
+    if (isAndroid) {
+        document.getElementById("android-link").style.display = "block";
+    }
+    if (isIOS) {
+        document.getElementById("ios-link").style.display = "block";
+    }
 }
 
 // Cerrar el modal
@@ -85,3 +101,4 @@ document.getElementById("close-modal").onclick = function () {
 };
 </script>
 {% endraw %}
+
