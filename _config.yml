@@ -5,3 +5,4 @@ theme: jekyll-theme-primer
 plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
 
+google_analytics: G-HP1VJBHQL3
