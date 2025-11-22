@@ -32,3 +32,56 @@ title: "Avisos 5S2M-B"
 
 <p>>Si quieres publicar un aviso accede a <a href="https://forms.office.com/e/qCSp3qmVCL">https://forms.office.com/e/qCSp3qmVCL</a></p
 
+<!-- Modal de descarga de la app -->
+<div id="download-app-modal" style="
+    display:none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(2px);
+    z-index: 9999;
+">
+  <div style="
+        background:white;
+        width: 80%;
+        max-width: 350px;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align:center;
+    ">
+    <h3>Descarga una app RSS</h3>
+    <p>Y podrás recibir notificaciones de los último avisos en cuanto se publiquen.</p>
+	<p>Sigue los pasos del post "inicial" para configurarla.</p>
+
+    <a href="https://play.google.com/store/apps/details?id=com.nononsenseapps.feeder.play"
+       style="display:block; margin: 15px 0; background:#4CAF50; color:white; padding:10px; border-radius:5px; text-decoration:none;">
+       Descargar Feeder
+    </a>
+
+    <button id="close-modal" style="padding:8px 20px; border:none; background:#ccc; border-radius:5px;">
+      Cerrar
+    </button>
+  </div>
+</div>
+
+{% raw %}
+<script>
+// Detectar Android
+const isAndroid = /Android/i.test(navigator.userAgent);
+
+// Evitar mostrar el modal más de una vez
+const shown = localStorage.getItem("appModalShown");
+
+if (isAndroid && !shown) {
+    document.getElementById("download-app-modal").style.display = "block";
+}
+
+// Cerrar el modal
+document.getElementById("close-modal").onclick = function () {
+    localStorage.setItem("appModalShown", "true");
+    document.getElementById("download-app-modal").style.display = "none";
+};
+</script>
+{% endraw %}
