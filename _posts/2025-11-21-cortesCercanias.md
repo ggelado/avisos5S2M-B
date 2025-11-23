@@ -21,8 +21,7 @@ Renfe ha programado 9 servicios especiales de autobuses que, o bien podrán reco
 
 Las obras en la infraestructura ferroviaria que llevará a cabo Adif consisten en la renovación completa de la señalización, sustituyendo los sistemas de enclavamientos y detección de trenes, lo que incrementa la capacidad de la línea y aporta una mayor flexibilidad de la circulación y una mejora de la fiabilidad de las instalaciones.  
 
-**Tres fases de interrupción del servicio  
-**
+## Tres fases de interrupción del servicio
 
 Los cortes constarán de tres fases. La primera abarcará los días 22, 23 y 24 de noviembre y afectará a las estaciones entre Azuqueca y San Fernando (Meco, Alcalá Universidad, Alcalá de Henares, La Garena, Soto del Henares y Torrejón de Ardoz), que permanecerán cerradas. Durante los tres días habrá servicio ferroviario entre Chamartín y San Fernando con las frecuencias habituales de 5/8 minutos en hora punta y 10/14 minutos en hora valle.  
 
@@ -30,8 +29,7 @@ La segunda fase irá del 25 al 27 de noviembre, ambos inclusive, y supondrá un 
 
 La tercera fase de las obras tendrá lugar los días 28 y 29 de noviembre, en los que el corte será total entre Azuqueca y Alcalá de Henares (Meco y Alcalá Universidad, cerradas). Esos días habrá servicio de trenes entre Chamartín y Alcalá con las frecuencias habituales.  
 
-**Servicios especiales de autobuses  
-**
+## Servicios especiales de autobuses 
 
 En cuanto a los servicios especiales de autobuses, la primera fase contará con cuatro: SE 1 (Azuqueca-Meco-Alcalá Universidad-Alcalá de Henares-La Garena-Soto del Henares-Torrejón de Ardoz-San Fernando), SE2 (Azuqueca-San Fernando directo), SE3 (Alcalá-San Fernando directo) y SE4 (Torrejón-San Fernando directo).  
 
@@ -41,14 +39,13 @@ Finalmente, la tercera fase de las obras tendrá dos servicios especiales de bus
 
 Las paradas se ubicarán en las estaciones o en las proximidades de los accesos a estas. Personal de atención al viajero indicará la ubicación exacta de las paradas, que contarán con carteles con los recorridos a realizar por cada una de las líneas especiales programadas.   
 
-**Lanzadera y Civis los días laborables  
-**
+## Lanzadera y Civis los días laborables 
 
 Durante las tres fases del corte habrá un tren lanzadera que recorrerá el tramo entre Guadalajara y Azuqueca cada 15 minutos. Asimismo, los servicios de Civis en días laborables no partirán desde Guadalajara, como habitualmente, hasta Chamartín por la vía de contorno, sino que lo harán desde San Fernando (24 de noviembre), desde Torrejón (del 25 al 27) y desde Alcalá (día 28). Habrá un tren Civis a la hora del 24 al 28 de noviembre.  
 
 Desde finales del mes de octubre, Renfe se ha reunido con los ayuntamientos de las localidades afectadas por el corte para informarles de esta interrupción del servicio por obras de mejora y del plan alternativo de transporte diseñado por la compañía para garantizar la movilidad de los viajeros.
 
-### **Más información**
+# Más información
 
 **FASE 1.** Del 22 al 24 de noviembre corte total entre Azuqueca – San Fernando.
 
@@ -109,7 +106,7 @@ Línea especial urbana que comunica la estación de Azuqueca con la estación de
 SE2 Azuqueca – Alcalá de Henares directo  
 Línea especial urbana que comunica la estación de Azuqueca con la estación de Alcalá de Henares (sin paradas intermedias). El horario de inicio será a las 05.05 h. del día 28 de noviembre, y la finalización a las 01.30 h. del día 30 de noviembre, con una frecuencia de entre 10 y 20 minutos en laborable y de entre 15 y 20 minutos en sábado.
 
-**Tiempos reales y kilómetros de viaje**
+## Tiempos reales y kilómetros de viaje
 
 El itinerario lo hicimos iniciando el recorrido el San Fernando de Henares.
 
