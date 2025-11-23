@@ -56,21 +56,15 @@ title: "Avisos 5S2M-B"
         text-align:center;
     ">
 
-    <h3>Descarga una app RSS</h3>
-    <p>Y podrás recibir notificaciones de los últimos avisos en cuanto se publiquen.</p>
-    <p>Utiliza el enlace del feed RSS y ACTIVA LAS NOTIFICACIONES.</p>
-	<p>Si tienes Telegram, puedes utilizar el bot @FeedRiverBot.</p>
+    <h3>Activa las notificaciones en tu navegador</h3>
+    <p>Y podrás recibir avisos en cuanto se publiquen.</p>
+    <p>Versión en pruebas, la web puede tardar unos segundos en cargar.</p>
+    <p>Recuerda pulsar "SUSCRIBIRME" y dar permiso a las notificaciones.</p>
 
-    <!-- Botón Android -->
-    <a id="android-link" href="https://play.google.com/store/apps/details?id=com.nononsenseapps.feeder.play"
-       style="display:none; margin: 15px 0; background:#4CAF50; color:white; padding:10px; border-radius:5px; text-decoration:none;">
-       Descargar Feeder (Android)
-    </a>
-
-    <!-- Botón iOS -->
-    <a id="ios-link" href="https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210"
-       style="display:none; margin: 15px 0; background:#007AFF; color:white; padding:10px; border-radius:5px; text-decoration:none;">
-       Descargar NetNewsWire (no probada, no tengo ios)
+    <!-- Botón universal -->
+    <a id="universal-link" href="https://notifierpushrss.onrender.com/"
+       style="margin: 15px 0; background:#4A90E2; color:white; padding:10px; border-radius:5px; text-decoration:none; display:block;">
+       Activar notificaciones
     </a>
 
     <button id="close-modal" style="padding:8px 20px; border:none; background:#ccc; border-radius:5px;">
@@ -81,22 +75,11 @@ title: "Avisos 5S2M-B"
 
 {% raw %}
 <script>
-// Detectar sistema operativo
-const isAndroid = /Android/i.test(navigator.userAgent);
-const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
 // Evitar mostrar el modal más de una vez
 const shown = localStorage.getItem("appModalShown");
 
-if (!shown && (isAndroid || isIOS)) {
+if (!shown) {
     document.getElementById("download-app-modal").style.display = "block";
-
-    if (isAndroid) {
-        document.getElementById("android-link").style.display = "block";
-    }
-    if (isIOS) {
-        document.getElementById("ios-link").style.display = "block";
-    }
 }
 
 // Cerrar el modal
@@ -106,6 +89,3 @@ document.getElementById("close-modal").onclick = function () {
 };
 </script>
 {% endraw %}
-
-
-
