@@ -3,7 +3,7 @@ layout: post
 title: Publicadas notas SSOO
 date: 2025-11-24 11:26:00 +0100
 author: DATSI
-published: true
+published: false
 expires: 2025-11-24 23:59:59 +0100
 excerpt: https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgiPublicadas notas SSOO en
 categories:
