@@ -45,3 +45,6 @@ Un saludo.
 ">
     ¡ATENCIÓN! Los profesores podrían suspender la docencia de alguna asignatura con bajo o nulo aviso. Se recomienda consultar el apartado de avisos del Moodle de las distintas asignaturas antes de salir de casa.
 </div>
+
+
+¿Sabes de profesores que hayan confirmado su intención de hacer / no hacer huelga? Edita el aviso [aquí](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2025-11-16-huelga-profes-alumnos-por-la-publica.md).
