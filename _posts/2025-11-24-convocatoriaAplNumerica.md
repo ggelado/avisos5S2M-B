@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Convocatoria examen Building Up Comunication Skills
+title: Convocatoria examen Aplicaciones Numéricas de la Informática
 date: 2025-11-24 09:31:00 +0100
 author: Gonzalo (Colabora Haodi)
 published: true
