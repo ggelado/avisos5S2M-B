@@ -6,6 +6,11 @@ author: Iván
 published: true
 expires: 2025-11-27 23:59:59 +0100
 ---
+**ACTUALIZACIÓN 24 DE NOVIEMBRE**:
+- El profesor de SegTI ha suspendido la docencia del día 26 de noviembre de 2025.
+- El profesor de IA ha confirmado su intención de **NO** llevar a cabo huelga.
+
+
 Buenas noches:
 Se recuerda a los estudiantes que se mantiene la huelga por la baja financiación de la CAM a la Universidad Pública, convocada por los sindicatos para el día 26 y 27 de noviembre. 
 
