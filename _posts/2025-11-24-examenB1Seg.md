@@ -24,7 +24,7 @@ categories:
 </div>
 
 
-El examen tendrá lugar vía Moodle de 17:80 a 18:30 horas el próximo día 2 de diciembre de 2025.
+El examen tendrá lugar vía Moodle de 17:30 a 18:30 horas el próximo día 2 de diciembre de 2025.
 
 <div style="background-color: yellow; color: red; font-size: 24px; font-weight: bold; padding: 15px; border: 2px solid red; text-align: center;">
     ⚠️ Revisa que en Moodle figure correctamente tu grupo de matrícula O NO PODRÁS HACER EL EXAMEN. NO SE ATIENDEN CONSULTAS DE ESTE TIPO EN EL MOMENTO DEL EXAMEN. 
