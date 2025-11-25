@@ -140,7 +140,8 @@ En cuanto se detectó que había un bucle infinito, se ordenó un paro inmediato
 # Medidas tomadas
 
 1. Para asegurar que no haya más incidencias a corto plazo se ha modificado el código que hacía push, forzando la introducción de cambios y evitando que se generen conflictos.
-2. Entre parseo y parseo se establece una espera OBLIGATORIA de 300 segundos, lo que permitiría detectar y parar la máquina a tiempo en caso necesario,
+2. Entre parseo y parseo se establece una espera OBLIGATORIA de 300 segundos, lo que permitiría detectar y parar la máquina a tiempo en caso necesario.
+3. UPDATE: Desde el 25 de noviembre se ha migrado el sistema a una base de datos que evite los errores y conflictos de la concurrencia, haciendo uso de un SGBD en condiciones.
 
 ### ¿Por qué no estaba ese código en un bloque con captura de excepciones?
 
@@ -166,6 +167,4 @@ Gran parte de los posts son automáticos, y están programados para lanzarse de 
 
 ## Medidas a tomar
 
-Se vuelve necesario el uso de una Base de Datos que gestione adecuadamente la concurrencia y evite conflictos, para evitar que esto vuelva a suceder.
-
-Por el momento trato de apañarme como pueda, utilizando Git como una base de datos y ficheros JSON.
+No debería volver a suceder este error, pero se mantiene el estado BETA del servicio hasta futuras comprobaciones.
