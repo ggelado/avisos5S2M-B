@@ -139,7 +139,8 @@ En cuanto se detectó que había un bucle infinito, se ordenó un paro inmediato
 
 # Medidas tomadas
 
-Para asegurar que no haya más incidencias a corto plazo se ha modificado el código que hacía push, forzando la introducción de cambios y evitando que se generen conflictos.
+1. Para asegurar que no haya más incidencias a corto plazo se ha modificado el código que hacía push, forzando la introducción de cambios y evitando que se generen conflictos.
+2. Entre parseo y parseo se establece una espera OBLIGATORIA de 300 segundos, lo que permitiría detectar y parar la máquina a tiempo en caso necesario,
 
 ### ¿Por qué no estaba ese código en un bloque con captura de excepciones?
 
