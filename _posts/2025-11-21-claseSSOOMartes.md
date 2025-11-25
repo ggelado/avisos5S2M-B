@@ -3,7 +3,7 @@ layout: post
 title: Clase SSOO Martes
 date: 2025-11-21 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-11-25 10:00:01 +0100
 excerpt: Clase de SSOO el martes 25/11 a las 9:00
 ---
