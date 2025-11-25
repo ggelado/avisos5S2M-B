@@ -10,6 +10,7 @@ expires: 2025-11-27 23:59:59 +0100
 - El profesor de SegTI ha suspendido la docencia del día 26 de noviembre de 2025.
 - El profesor de IA ha confirmado su intención de **NO** llevar a cabo huelga.
 - La clase de videojuegos del miércoles ha sido suspendida.
+- La videollamada de PdL no se verá afectada.
 
 
 Buenas noches:
