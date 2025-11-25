@@ -10,8 +10,6 @@ categories:
 ---
 El examen tendrá lugar en el aula 6106 de 17 a 19 horas el próximo día 1 de diciembre de 2025.
 
-El simulacro tendrá lugar mañana 24 de noviembre en las mismas condiciones, horarios y aulas que el examen normal.
-
 Instructions:
 1. Bring your laptop fully charged and your charger.
 2. Arrive ON TIME, or you will miss the beginning of the test.
