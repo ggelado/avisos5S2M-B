@@ -3,7 +3,7 @@ layout: post
 title: Entregas más próximas
 date: 2025-11-16 00:00:00 +0100
 author: Iván
-published: true
+published: false
 expires: 2025-11-26 23:59:59 +0100
 ---
 Se recuerda a todos los estudiantes de tercero del grado de Ingeniería Informática que las entregas con fechas próximas son las siguientes:
