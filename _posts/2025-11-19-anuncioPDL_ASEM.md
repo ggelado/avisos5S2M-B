@@ -3,7 +3,7 @@ layout: post
 title: Clase práctica Analizador Semántico
 date: 2025-11-18 23:00:00 +0000
 author: Iván
-published: true
+published: false
 expires: 2025-11-26 17:00:00 +0100
 ---
 Avisos de PDL:
