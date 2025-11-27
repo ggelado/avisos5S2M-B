@@ -2,6 +2,8 @@ title: "Avisos 5S2M-B"
 baseurl: "/avisos5S2M-B" 
 url: "https://ggelado.github.io"
 theme: jekyll-theme-primer
+locale: es_ES.UTF-8
 plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
+
 
