@@ -3,7 +3,9 @@ baseurl: "/avisos5S2M-B"
 url: "https://ggelado.github.io"
 theme: jekyll-theme-primer
 locale: es_ES.UTF-8
+lang: es-ES
 plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
+
 
 
