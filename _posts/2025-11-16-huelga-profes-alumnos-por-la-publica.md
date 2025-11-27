@@ -3,7 +3,7 @@ layout: post
 title: Huelga de Universidades Públicas de Madrid
 date: 2025-11-19 17:03:00 +0100
 author: Iván
-published: true
+published: false
 expires: 2025-11-27 23:59:59 +0100
 ---
 # ACTUALIZACIÓN 24 DE NOVIEMBRE:
