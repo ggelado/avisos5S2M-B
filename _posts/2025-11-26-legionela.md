@@ -11,7 +11,7 @@ excerpt: Detectado brote de Legionela en Instalaciones Deportivas. Clausuradas.
 ---
 Buenas tardes
 
-Esta mañana he tenido conocimiento de un posible brote de Legionella en las instalaciones deportivas de Montegancedo. Desde la escuela **NO SE HA NOTIFICADO** a todo el mundo a través de los canales disponibles.
+Esta mañana he tenido conocimiento de un posible brote de Legionella en las instalaciones deportivas de Montegancedo. 
 
 A las 14 horas he notificado a la Delegación de Alumnos y he pedido se notifique mediante los canales oficiales de la Dirección de la Escuela (probablemente la huelga haya afectado).
 
