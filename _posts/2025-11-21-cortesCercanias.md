@@ -3,7 +3,7 @@ layout: post
 title: Obras en cercanías C2/C7/C8
 date: 2025-11-20 00:00:00 +0100
 author: Cercanías Renfe - Ministerio de Transportes y Movilidad Sostenible - Gobierno de España
-published: true
+published: false
 expires: 2025-11-29 23:30:01 +0100
 excerpt: Obras 22-29 NOV C2. C7. C8. Azuqueca - S. Fernando Henares
 categories:
