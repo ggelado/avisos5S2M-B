@@ -87,10 +87,9 @@ Se recomienda revisar dicho enlace poco antes del examen, y revisar el Moodle de
         text-align:center;
     ">
 
-    <h3>Activa las notificaciones en tu navegador</h3>
+    <h4>Activa las notificaciones en tu navegador</h4>
     <p>Y podrás recibir avisos en cuanto se publiquen.</p>
     <p>La web puede tardar unos segundos en cargar.</p>
-    <p>Recuerda pulsar "SUSCRIBIRME" y dar permiso a las notificaciones.</p>
 
     <!-- Botón universal -->
     <a id="universal-link" href="https://notifierpushrss.onrender.com/"
