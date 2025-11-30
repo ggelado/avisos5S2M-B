@@ -2,6 +2,7 @@
 
 Cualquier vulnerabilidad de seguridad detectada debe notificarse a través de los medios **PRIVADOS** que facilita GitHub para notificaciones de seguridad o (preferentemente) a través de la dirección gonzalo.gelado@alumnos.upm.es con la siguientes clave PGP:
 
+```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 xsFNBGkoM+wBEACnvwT8orxKM5SxTm/QAgvRCneyUAUjOgRzp4VAxuQt9ljnKiN+
@@ -54,3 +55,4 @@ VOJm/i4otE1dwH7OAQE1UpDGqpBupucdg9e0PQbZHFabUtliRQuU2GZiLkO2c59w
 Zwufrk+e3PxmU/oxCrlGJsfF1kT5CcqKq/c=
 =7uYm
 -----END PGP PUBLIC KEY BLOCK-----
+```
