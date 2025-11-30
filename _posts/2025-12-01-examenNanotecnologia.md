@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-09 19:00:01 +0100
 categories:
   - Convocatorias de Examen
+excerpt: Presentaciones nanotecnología 9/12/25 17hrs
 ---
 Recuerda que el próximo día 9 de diciembre a las 17:00 tendrán lugar las presentaciones de la asignatura Nanotecnología.
 

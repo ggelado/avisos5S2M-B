@@ -8,6 +8,7 @@ expires: 2025-12-18 12:00:01 +0100
 categories:
   - Convocatorias de Examen
   - IA
+excerpt: Instrucciones para las presentaciones de IA
 ---
 Indicaciones para las presentaciones:
 

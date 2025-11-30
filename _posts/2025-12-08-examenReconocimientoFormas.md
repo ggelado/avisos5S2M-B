@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-16 19:00:01 +0100
 categories:
   - Convocatorias de Examen
+excerpt: Ex Rec. Formas 16/12 17 hrs
 ---
 Recuerda que el próximo día 16 de diciembre a las 17:00 tendrá lugar el examen de la asignatura Reconocimiento de Formas.
 

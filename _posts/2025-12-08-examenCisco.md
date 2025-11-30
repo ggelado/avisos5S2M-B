@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-19 14:00:01 +0100
 categories:
   - Convocatorias de Examen
+excerpt: Ex Cisco 19/12
 ---
 Recuerda que el próximo día 19 de diciembre a las 12:00 tendrán lugar el examen de la asignatura Tecnologías de Red Cisco: CCNA.
 
