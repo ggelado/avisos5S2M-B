@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-02 17:50:01 +0100
 categories:
   - Convocatorias de Examen
+excerpt: LOS DELEGADOS NO ESTARÁN DISPONIBLES PARA CONSULTAS DURANTE LA PRUEBA, TAMPOCO EN CASO DE URGENCIA.
 ---
 <div style="
     background-color: #ff0000; 
