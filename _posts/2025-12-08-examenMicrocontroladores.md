@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-18 17:00:01 +0100
 categories:
   - Convocatorias de Examen
+excerpt: Ex Microcontroladores 18/12 15hrs
 ---
 Recuerda que el próximo día 18 de diciembre a las 15:00 tendrán lugar las presentaciones de la asignatura Información y Computación Cuántica.
 

@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-08 21:00:01 +0100
 categories:
   - Aviso de festivos
+excerpt: El próximo lunes 8/12 es festivo
 ---
 El próximo lunes 8 de diciembre de 2025 tiene la condición de día festivo en la Escuela, por lo que se suspenderá la docencia dicho día.
 

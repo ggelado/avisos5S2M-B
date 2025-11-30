@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-12 14:00:01 +0100
 categories:
   - Convocatorias de Examen
+excerpt: Ex EADP 12/12/25 10hrs
 ---
 Recuerda que el próximo día 12 de diciembre a las 10:00 tendrá lugar el examen de la asignatura El Arte de Programar.
 

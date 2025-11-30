@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-15 19:00:01 +0100
 categories:
   - Convocatorias de Examen
+excerpt: Pres cuántica 15/12/25 17hrs
 ---
 Recuerda que el próximo día 15 de diciembre a las 17:00 tendrán lugar las presentaciones de la asignatura Información y Computación Cuántica.
 
