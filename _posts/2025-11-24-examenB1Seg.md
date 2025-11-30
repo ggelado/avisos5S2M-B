@@ -32,6 +32,9 @@ El examen tendrá lugar vía Moodle de 17:00 a 17:50 horas el próximo día 2 de
 SI NO APARECES EN TU GRUPO <a href=mailto:mariadelsocorro.bernardos@upm.es?subject=Grupo%20incorrecto%20Moodle&body=Hola%0D%0A%0D%0AMi%20nombre%20es%3A%20%5BRELLENAR%5D.%20En%20Moodle%20aparezco%20en%20el%20grupo%20%5BRELLENAR%5D%20%2F%20no%20aparezco%20en%20ning%C3%BAn%20grupo%2C%20pero%20deber%C3%ADa%20aparecer%20en%20el%20grupo%20%5BRELLENAR%5D.%0D%0A%0D%0AUn%20saludo>PULSA AQUÍ</a> O ESCRIBE A LOS PROFESORES DE LA ASIGNATURA.
 </div>
   
+
+CONVOCATORIA PUBLICADA EN [https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=13683](https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=13683).
+
 En la página de la asignatura podéis encontrar las normas para el examen.
 
 [Aviso sobre identificación de estudiantes en pruebas de evaluación no orales](https://serviciosgate.upm.es/gate/sites/default/files/2020-05/cartelexamenidentificar.pdf)
