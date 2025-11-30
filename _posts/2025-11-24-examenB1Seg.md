@@ -66,4 +66,58 @@ Se recomienda revisar dicho enlace poco antes del examen, y revisar el Moodle de
 
 <div style="background-color: yellow; color: red; font-size: 24px; font-weight: bold; padding: 15px; border: 2px solid red; text-align: center;">
     Los delegados no estarán disponibles para consulta alguna durante el examen, incluyendo problemas técnicos, cierre del examen por falta de tiempo, cuelgues de Moodle... Deberá contactarse vía la Sesión de Zoom que se publicará en Moodle.
+
+  <!-- Modal de descarga de la app -->
+<div id="download-app-modal" style="
+    display:none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(2px);
+    z-index: 9999;
+">
+  <div style="
+        background:white;
+        width: 80%;
+        max-width: 350px;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align:center;
+    ">
+
+    <h3>Activa las notificaciones en tu navegador</h3>
+    <p>Y podrás recibir avisos en cuanto se publiquen.</p>
+    <p>La web puede tardar unos segundos en cargar.</p>
+    <p>Recuerda pulsar "SUSCRIBIRME" y dar permiso a las notificaciones.</p>
+
+    <!-- Botón universal -->
+    <a id="universal-link" href="https://notifierpushrss.onrender.com/"
+       style="margin: 15px 0; background:#4A90E2; color:white; padding:10px; border-radius:5px; text-decoration:none; display:block;">
+       Activar notificaciones
+    </a>
+
+    <button id="close-modal" style="padding:8px 20px; border:none; background:#ccc; border-radius:5px;">
+      Cerrar
+    </button>
+  </div>
+</div>
+
+{% raw %}
+<script>
+// Evitar mostrar el modal más de una vez
+const shown = localStorage.getItem("appModalShown");
+
+if (!shown) {
+    document.getElementById("download-app-modal").style.display = "block";
+}
+
+// Cerrar el modal
+document.getElementById("close-modal").onclick = function () {
+    localStorage.setItem("appModalShown", "true");
+    document.getElementById("download-app-modal").style.display = "none";
+};
+</script>
+{% endraw %}
 </div>
