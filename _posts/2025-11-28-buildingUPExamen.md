@@ -3,7 +3,7 @@ layout: post
 title: Convocatoria examen Building Up Comunication Skills
 date: 2025-11-23 19:30:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-01 19:00:01 +0100
 categories:
   - Convocatorias de Examen
