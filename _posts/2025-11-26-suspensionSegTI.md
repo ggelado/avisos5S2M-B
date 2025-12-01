@@ -3,7 +3,7 @@ layout: post
 title: Suspensión de clase SegTI 1/12/2025
 date: 2025-11-26 10:34:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-01 12:00:01 +0100
 excerpt: Suspendida clase SegTI 1 diciembre
 categories:
