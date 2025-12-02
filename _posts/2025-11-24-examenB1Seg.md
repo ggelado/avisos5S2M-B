@@ -3,7 +3,7 @@ layout: post
 title: Convocatoria examen Seguridad B1
 date: 2025-11-24 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-02 17:50:01 +0100
 categories:
   - Convocatorias de Examen
