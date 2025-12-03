@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Presentaciones de IA
+title: Presentaciones de IA y Fin de Docencia
 date: 2025-12-01 00:00:00 +0100
 author: Gonzalo
 published: true
@@ -8,8 +8,10 @@ expires: 2025-12-18 12:00:01 +0100
 categories:
   - Convocatorias de Examen
   - IA
-excerpt: Instrucciones para las presentaciones de IA
+excerpt: Fin docencia IA
 ---
+# SE RECUERDA QUE YA HA FINALIZADO LA DOCENCIA DE INTELIGENCIA ARTIFICIAL
+
 Indicaciones para las presentaciones:
 
 1. Recuerda consultar tu grupo, fecha, hora y enlace de la presentación en [https://moodle.upm.es/titulaciones/oficiales/mod/forum/view.php?id=122255](https://moodle.upm.es/titulaciones/oficiales/mod/forum/view.php?id=122255)
