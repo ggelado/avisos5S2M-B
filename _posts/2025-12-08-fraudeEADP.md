@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Convocatoria examen Información y Computación Cuántica
+title: Fraude Académico EADP
 date: 2025-12-03 00:00:00 +0100
 author: Gonzalo
 published: true
