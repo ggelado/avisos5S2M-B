@@ -78,7 +78,7 @@ IMPORTANTE: **Si no aparece** en el listado **y pretende presentarse**, comun
 </TD></TR>
 </TABLE>
 
-<iframe frameborder="0" width="100%" height="50%" src="aula-alumno.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listado">
+<iframe frameborder="0" width="100%" height="50%" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listado">
 <A href="aula-alumno.cgi"           >Listado de alumnos</A>
 </iframe>
 
