@@ -15,30 +15,6 @@ Se ha publicado la [distribución de alumnos por aulas para el tercer y cuarto 
 
 IMPORTANTE: **Si no aparece** en el listado **y pretende presentarse**, comuníqueselo cuanto antes a Francisco Rosales <frosal@fi.upm.es>.
 
-|Horario|Actividad|
-|---|---|
-|17:15  <br>a  <br>19:15|Tercer Parcial (Memoria)  <br>y  <br>Cuarto Parcial (SinCom.)|
-
-|   |
-|---|
-|**Traiga documentación acreditativa de su identidad.**  <br>**Acuda con tiempo** y siéntese en el AULA, ZONA, FILA y ASIENTO que le corresponde según el siguiente [listado de alumnos](https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/#listado).  <br>**Si no aparece** en este listado **y pretende presentarse** al parcial comuníqueselo cuanto antes a Francisco Rosales <frosal@fi.upm.es>.|
-
----
-
-<H5>
-	Distribución de alumnos para
-	el Tercer y Cuarto parciales
-<!--	
-	el Primer parcial
-	el Segundo parcial
-	el Primer y Segundo parciales
-	SO4-GII itinerario antiguo<br>
-	SO5-GII itinerario nuevo<br>
-	SO7-GII+ADE doble grado<br>
- -->
-	de Sistemas Operativos:<br>
-	SO-Grados, miércoles 10 de Diciembre de 2025
-</H5>
 <TABLE border="1" id="horario">
 <TR><TH>Horario</TH><TH>Actividad</TH></TR>
 <TR><TD align="center">17:15<br>a<br>19:15</TD><TD align="center">Tercer Parcial (Memoria)<br>y<br>Cuarto Parcial (SinCom.)</TD></TR>
@@ -78,7 +54,7 @@ IMPORTANTE: **Si no aparece** en el listado **y pretende presentarse**, comun
 </TD></TR>
 </TABLE>
 
-<iframe frameborder="0" width="100%" height="50%" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listado">
+<iframe frameborder="0" width="100%" height="500px" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listado">
 <A href="aula-alumno.cgi"           >Listado de alumnos</A>
 </iframe>
 
