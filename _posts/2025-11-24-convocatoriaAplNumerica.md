@@ -3,7 +3,7 @@ layout: post
 title: Convocatoria examen Aplicaciones Numéricas de la Informática
 date: 2025-11-24 09:31:00 +0100
 author: Gonzalo (Colabora Haodi)
-published: true
+published: false
 expires: 2025-12-05 12:00:01 +0100
 categories:
   - Convocatorias de Examen
