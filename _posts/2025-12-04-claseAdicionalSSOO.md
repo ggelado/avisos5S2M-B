@@ -11,7 +11,7 @@ excerpt: Para repasar SSOO (ejercicios tipo de Memoria). Debes inscribirte previ
 ---
 # Propuesta de tutoría de SSOO
 
-**ESTE FORMULARIO CIERRA MAÑANA VIERNES A LAS 17 HORAS**
+**ESTE FORMULARIO CIERRA MAÑANA VIERNES A LAS 14 HORAS**
 
 Se ha propuesto una clase adicional centrada en el tema de Memoria, de carácter telemático, y centrada en ejercicios tipo que pudieran caer en el examen.
 
