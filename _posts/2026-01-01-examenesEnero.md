@@ -4,7 +4,7 @@ title: Aulas exámenes de Enero
 date: 2026-01-01 00:00:00 +0100
 author: Gonzalo
 published: true
-expires: 2025-12-10 19:15:01 +0100
+expires: 2026-01-26 12:00:01 +0100
 categories:
   - Convocatorias de Examen
 excerpt: Aulas de exámenes de enero
