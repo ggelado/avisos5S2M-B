@@ -38,3 +38,4 @@ Y como regalo de año nuevo, la lista de aulas de los exámenes:
 
 A través del Moodle de las diferentes asignaturas se publicarán las convocatorias de los exámenes. Para evitar colapsar a avisos, no enviaré un aviso por cada convocatoria, sino que editaré este mismo aviso. Tu lector RSS podría no reflejar estas actualizaciones, por lo que se recomienda la consulta [de este aviso en su versión web](#).
 
+No curso todas las optativas, así que si quieres colaborar publicando las convocatorias de los distintos exámenes, puedes hacerlo [desde aquí](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md).
