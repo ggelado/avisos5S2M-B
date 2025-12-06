@@ -19,6 +19,7 @@ Revise regularmente su correo electrónico.
 </iframe>
 
 ## Detalle de los votos presentados:
+
 | Primera opción                         | Segunda opción                         | Tercera opción                         | Cuarta opción                          | Quinta opción                          | Sexta opción                           | Séptima opción                         | Octava opción                          | Novena opción                          |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Miércoles 10 horas                     | Pedirle (improbable) el lunes mañana   | Pedirle (improbable) el domingo mañana | Pedirle (improbable) el sábado mañana  | Martes 15 horas                        | Pedirle (improbable) el domingo tarde  | Martes 17 horas                        | Pedirle (improbable) el sábado tarde   | Pedirle (improbable) el lunes tarde    |
