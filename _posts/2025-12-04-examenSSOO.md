@@ -68,3 +68,11 @@ IMPORTANTE: **Si no aparece** en el listado **y pretende presentarse**, comun
 </TABLE>
 
 # Se recomienda encarecidamente visualizar este aviso en su versión [web](#), al haber contenido interactivo.
+
+
+
+<embed 
+    src="https://www.upm.es/comun_gauss/publico/guias/2025-26/1S/GA_10II_105000156_1S_2025-26.pdf#page=13" 
+    type="application/pdf" 
+    width="100%" 
+    height="400px" />
