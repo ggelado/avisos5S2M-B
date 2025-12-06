@@ -3,7 +3,7 @@ layout: post
 title: Legionela en Instalaciones Deportivas
 date: 2025-11-26 10:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-10 23:59:59 +0100
 categories:
   - SALUD PÚBLICA
