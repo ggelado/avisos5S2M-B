@@ -1,0 +1,17 @@
+{% if site.data.alerts and site.data.alerts.size > 0 %}
+<div style="
+    background:#b90000;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+    font-size:1.1em;
+    position:sticky;
+    top:0;
+    z-index:9999;">
+IGNORA ESTA PRUEBA:
+{% for alerta in site.data.alerts %}
+  {{ alerta.event }}{% unless forloop.last %}, {% endunless %}
+{% endfor %}
+</div>
+{% endif %}

@@ -2,17 +2,19 @@
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
-import re
-import os
-import unicodedata
+import json
 
+# -----------------------------
+# CONFIG
+# -----------------------------
 RSS_MADRID = "https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAC72_RSS.xml"
 NS = {"cap": "urn:oasis:names:tc:emergency:cap:1.2"}
-OUTPUT_DIR = "_posts"   # Carpeta típica de Jekyll
+DATA_DIR = "_data"
+ALERTS_FILE = f"{DATA_DIR}/alerts.json"
 
-# ---------------------------------------------------------
+# -----------------------------
 # DESCARGA
-# ---------------------------------------------------------
+# -----------------------------
 def descargar(url):
     try:
         with urllib.request.urlopen(url) as resp:
@@ -21,9 +23,9 @@ def descargar(url):
         print(f"❌ Error al descargar {url}: {e}")
         return None
 
-# ---------------------------------------------------------
+# -----------------------------
 # LECTURA RSS
-# ---------------------------------------------------------
+# -----------------------------
 def leer_rss_madrid():
     xml_data = descargar(RSS_MADRID)
     if not xml_data:
@@ -43,10 +45,9 @@ def leer_rss_madrid():
             enlaces.append(link.text.strip())
     return enlaces
 
-
-# ---------------------------------------------------------
+# -----------------------------
 # CAP
-# ---------------------------------------------------------
+# -----------------------------
 def obtener_info_es(root):
     infos = root.findall("cap:info", NS)
     for info in infos:
@@ -55,84 +56,16 @@ def obtener_info_es(root):
             return info
     return None
 
-# ---------------------------------------------------------
-# GENERAR MARKDOWN JEKYLL
-# ---------------------------------------------------------
-def slugify(text):
-    text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
-    text = re.sub(r"[^a-zA-Z0-9]+", "-", text).strip("-").lower()
-    return text
-
-def crear_post_markdown(titulo, inicio, fin, contenido, identifier):
-    # Fecha para el nombre del fichero (AAAA-MM-DD)
-    fecha = inicio.split("T")[0]
-
-    safe_id = slugify(identifier)
-    filename = f"{fecha}-{safe_id}.md"
-    filepath = os.path.join(OUTPUT_DIR, filename)
-
-    if os.path.exists(filepath):
-        print(f"ℹ️ El aviso '{titulo}' ya existe ({filename}). No se genera archivo.")
-        return
-
-    # Convertir fechas CAP (UTC) a formato Jekyll (+0100)
-    def convertir_fecha(dt_str):
-        try:
-            dt = datetime.fromisoformat(dt_str.replace("Z", "+00:00"))
-            return dt.astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
-        except:
-            return dt_str
-
-    fecha_inicio_fmt = convertir_fecha(inicio)
-    now_fmt = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
-    fecha_fin_fmt = convertir_fecha(fin)
-
-    yaml = f"""---
-layout: post
-title: "{titulo}"
-date: {now_fmt}
-author: AEMET - Agencia Estatal de Meteorología
-published: true
-expires: {fecha_fin_fmt}
-categories:
-  - Alerta meteorológica
----
-"""
-
-    body = (
-        contenido
-        + "\n\n<br><small><i>Aviso generado automáticamente de manera no supervisada.</i></small>\n"
-    )
-
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write(yaml + "\n\n" + body)
-
-    print(f"✅ Generado fichero de aviso: {filename}")
-
-
-# ---------------------------------------------------------
-# FORMATEO DEL AVISO
-# ---------------------------------------------------------
+# -----------------------------
+# FORMATEO Y FILTRO DE AVISO
+# -----------------------------
 def formatear_aviso(info_es):
     def get(tag):
         el = info_es.find(f"cap:{tag}", NS)
         return el.text.strip() if el is not None and el.text else ""
 
-    evento = get("event")
     inicio = get("onset")
     fin = get("expires")
-    titular = get("headline")
-    descripcion = get("description")
-    instrucciones = get("instruction")
-
-    area = info_es.find("cap:area/cap:areaDesc", NS)
-    area = area.text.strip() if area is not None else "Zona no especificada"
-
-    # Ignorar avisos de la Sierra de Madrid
-    if "Sierra de Madrid" in area:
-        return None
 
     # Ignorar avisos expirados
     try:
@@ -140,120 +73,75 @@ def formatear_aviso(info_es):
         if expires_dt <= datetime.now(timezone.utc):
             return None
     except Exception:
-        pass
+        return None
 
-    parametros = {
-        p.find("cap:valueName", NS).text.strip(): p.find("cap:value", NS).text.strip()
-        for p in info_es.findall("cap:parameter", NS)
-        if p.find("cap:valueName", NS) is not None and p.find("cap:value", NS) is not None
+    return {
+        "event": get("event")
     }
 
-    nivel = parametros.get("AEMET-Meteoalerta nivel", "No especificado")
-    prob = parametros.get("AEMET-Meteoalerta probabilidad", None)
+# -----------------------------
+# ACTUALIZAR JSON
+# -----------------------------
+def actualizar_alertas_json(alertas):
+    import os
+    os.makedirs(DATA_DIR, exist_ok=True)
 
-    explicacion_nivel = {
-        "amarillo": "Fenómeno no habitual. Riesgo bajo, pero se recomienda precaución.",
-        "naranja": "Riesgo importante. Fenómenos adversos con impacto notable.",
-        "rojo": "Riesgo extremo. Fenómeno meteorológico excepcional. Evite actividades al aire libre."
-    }.get(nivel.lower(), "")
+    # Deduplicar por evento
+    alertas_unicas = []
+    vistos = set()
+    for alerta in alertas:
+        ev = alerta["event"]
+        if ev not in vistos:
+            vistos.add(ev)
+            alertas_unicas.append(alerta)
 
-    texto = f"""
-============================================================
+    with open(ALERTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(alertas_unicas, f, ensure_ascii=False, indent=2)
 
-⚠️ AVISO AUTOMATIZADO DE FENÓMENOS METEOROLÓGICOS ADVERSOS
-       
-============================================================
+    print(f"🔄 Actualizado {ALERTS_FILE} con {len(alertas_unicas)} alerta(s)")
 
-🔔 *Fenómeno previsto:* {evento}
-
-🗺️ *Zona afectada:* {area}
-
-🟨 *Nivel de aviso:* {nivel.capitalize()}
-
-{f"📊 *Probabilidad estimada:* {prob}" if prob else ""}
-
-
-📆 *Periodo de validez:*
-
-   • Inicio → {inicio}
-   
-   • Fin    → {fin}
-
-📝 *Tipo:* {titular}
-
-📄 *Descripción:*
-
-{descripcion}
-
-ℹ️ *Nivel de riesgo:*
-
-{explicacion_nivel}
-
-📌 *Recomendaciones oficiales:*
-
-{instrucciones}
-
-============================================================
-
-Tenga en cuenta que puede suponer afectaciones al transporte. Planifique en consecuencia.
-""".strip()
-
-    return texto, titular, inicio, fin
-
-# ---------------------------------------------------------
-# PROCESAR AVISO INDIVIDUAL
-# ---------------------------------------------------------
+# -----------------------------
+# PROCESAR CADA AVISO
+# -----------------------------
 def procesar_aviso(url):
     xml_data = descargar(url)
     if not xml_data:
-        return False
+        return None
 
     try:
         root = ET.fromstring(xml_data)
     except Exception as e:
         print(f"❌ Error parseando CAP: {e}")
-        return False
-
-    # ----------------------------------------
-    # EXTRAER IDENTIFIER (clave única del aviso)
-    # ----------------------------------------
-    identifier_el = root.find("cap:identifier", NS)
-    if identifier_el is not None and identifier_el.text:
-        identifier = identifier_el.text.strip()
-    else:
-        identifier = url   # fallback seguro (siempre único)
-    # ----------------------------------------
+        return None
 
     info_es = obtener_info_es(root)
     if info_es is None:
-        return False
+        return None
 
     resultado = formatear_aviso(info_es)
     if not resultado:
-        return False
+        return None
 
-    contenido, titulo, inicio, fin = resultado
+    return resultado
 
-    crear_post_markdown(titulo, inicio, fin, contenido, identifier)
-    return True
-
-
-# ---------------------------------------------------------
-# PRINCIPAL
-# ---------------------------------------------------------
+# -----------------------------
+# MAIN
+# -----------------------------
 def main():
     enlaces = leer_rss_madrid()
+    alertas = []
+
     if not enlaces:
         print("Consulta realizada: no hay alertas.")
+        actualizar_alertas_json([])
         return
 
-    generados = 0
     for url in enlaces:
-        if procesar_aviso(url):
-            generados += 1
+        aviso = procesar_aviso(url)
+        if aviso:
+            alertas.append(aviso)
 
-    if generados == 0:
-        print("Consulta realizada: no hay alertas nuevas.")
+    actualizar_alertas_json(alertas)
 
 if __name__ == "__main__":
     main()
