@@ -18,4 +18,6 @@ Id. de reunión: 321 850 555 096 42
 Código de acceso: nZ7Uf6KU
 
 
-MARTES A LAS 15 HORAS Y 30 MINUTOS
+MARTES A LAS 15 HORAS Y 30 MINUTOS.
+
+Más información en el correo remitido a los que rellenaron la encuesta. Está abierta para todo el mundo, aunque no se rellenara la encuesta.
