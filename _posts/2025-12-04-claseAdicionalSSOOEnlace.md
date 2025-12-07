@@ -21,3 +21,11 @@ Código de acceso: nZ7Uf6KU
 MARTES A LAS 15 HORAS Y 30 MINUTOS.
 
 Más información en el correo remitido a los que rellenaron la encuesta. Está abierta para todo el mundo, aunque no se rellenara la encuesta.
+
+**SE RECUERDA QUE ATENDIENDO A LA NORMATIVA DE LA UPM NO SE GRABARÁ ESTA LLAMADA SALVO QUE EL PROFESOR ESTÉ DE ACUERDO EN ELLO (LO CUAL HABITUALMENTE DUDO)**
+
+<embed 
+    src="https://serviciosgate.upm.es/gate/sites/default/files/2020-12/normas%20sobre%20grabacion%20de%20clases%20virtuales.pdf" 
+    type="application/pdf" 
+    width="100%" 
+    height="400px" />
