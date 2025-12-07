@@ -14,7 +14,7 @@
     max-width: 90%;
     margin: 10px auto;
     line-height: 1.4;">
-   <strong>AVISO AUTOMATIZADO DE FENÓMENOS METEOROLÓGICOS ADVERSOS PRUEBA PRUEBA PRUEBA:</strong>
+   <strong>AVISO AUTOMATIZADO DE FENÓMENOS METEOROLÓGICOS ADVERSOS:</strong>
   {% for alerta in site.data.alerts %}
     {{ alerta.event }}{% unless forloop.last %}, {% endunless %}
   {% endfor %}
