@@ -3,7 +3,7 @@ layout: post
 title: El próximo lunes es festivo
 date: 2025-12-05 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-08 21:00:01 +0100
 categories:
   - Aviso de festivos

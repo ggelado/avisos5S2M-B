@@ -3,7 +3,7 @@ layout: post
 title: Resueltos visados Sincronización y Comunicación
 date: 2025-12-08 16:53:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-08 23:59:59 +0100
 categories:
   - SSOO
