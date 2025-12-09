@@ -3,7 +3,7 @@ layout: post
 title: Clase de Recuperación SegTI
 date: 2025-12-04 10:17:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-09 19:00:01 +0100
 categories:
   - SegTI
