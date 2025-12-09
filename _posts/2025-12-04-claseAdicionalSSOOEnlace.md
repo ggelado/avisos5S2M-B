@@ -3,7 +3,7 @@ layout: post
 title: Clase adicional SSOO
 date: 2025-12-07 13:26:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-09 18:00:01 +0100
 categories:
   - SSOO
