@@ -59,3 +59,77 @@ async function checkFutbol() {
 checkFutbol();
 setInterval(checkFutbol, 120000);
 </script>
+
+<div id="lluvia-alert"></div>
+
+<script>
+
+function ahoraEnEspana() {
+    
+    const formatter = new Intl.DateTimeFormat("es-ES", {
+        timeZone: "Europe/Madrid",
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: false
+    });
+
+    const partes = formatter.formatToParts(new Date());
+    const valores = Object.fromEntries(partes.map(p => [p.type, p.value]));
+
+    return new Date(
+        valores.year,
+        valores.month - 1,
+        valores.day,
+        valores.hour,
+        valores.minute,
+        valores.second
+    );
+}
+
+function mostrarAvisoLluvia() {
+    const ahoraES = ahoraEnEspana();
+
+    
+    const fin = new Date(ahoraES);
+    fin.setHours(18, 0, 0, 0);
+
+    const div = document.getElementById("lluvia-alert");
+
+    if (ahoraES < fin) {
+        div.innerHTML = `
+            <strong>ATENCIÓN:</strong> 
+            Ante la previsión de lluvias para hoy, se podrían registrar incidencias y retenciones en carretera. 
+            Planifica en consecuencia, especialmente si vienes en coche, de cara al examen de SSOO.
+        `;
+
+        div.style.cssText = `
+            background-color:#ebf8ff;
+            border-left:5px solid #3182ce;
+            color:#2a4365;
+            padding:12px 16px;
+            font-weight:500;
+            font-size:1em;
+            position:sticky;
+            top:10px;
+            z-index:9999;
+            border-radius:4px;
+            box-shadow:0 2px 4px rgba(0,0,0,0.1);
+            max-width:90%;
+            margin:10px auto;
+            line-height:1.4;
+        `;
+    } else {
+        div.style.display = "none";
+        div.innerHTML = "";
+    }
+}
+
+// Ejecutar ya
+mostrarAvisoLluvia();
+
+setInterval(mostrarAvisoLluvia, 30000);
+</script>
