@@ -3,7 +3,7 @@ layout: post
 title: Convocatoria examen SSOO
 date: 2025-12-04 13:41:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-10 19:15:01 +0100
 categories:
   - Convocatorias de Examen
