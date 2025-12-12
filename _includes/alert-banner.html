@@ -59,7 +59,7 @@ async function checkFutbol() {
 checkFutbol();
 setInterval(checkFutbol, 120000);
 </script>
-<!--
+
 <div id="lluvia-alert"></div>
 <script>
 
@@ -94,15 +94,14 @@ function mostrarAvisoLluvia() {
 
     
     const fin = new Date(ahoraES);
-    fin.setHours(18, 0, 0, 0);
-
+    fin.setHours(11, 0, 0, 0);
     const div = document.getElementById("lluvia-alert");
 
     if (ahoraES < fin) {
         div.innerHTML = `
             <strong>ATENCIÓN:</strong> 
             Ante la previsión de lluvias para hoy, se podrían registrar incidencias y retenciones en carretera. 
-            Planifica en consecuencia, especialmente si vienes en coche, de cara al examen de SSOO.
+            Planifica en consecuencia, especialmente si vienes en coche, de cara al examen de EADP/AOP.
         `;
 
         div.style.cssText = `
@@ -132,4 +131,4 @@ mostrarAvisoLluvia();
 
 setInterval(mostrarAvisoLluvia, 30000);
 </script>
--->
+
