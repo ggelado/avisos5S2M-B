@@ -44,7 +44,7 @@ En la página de la asignatura podéis encontrar las normas para el examen.
 [Aviso sobre prohibición de grabación de exámenes o de revisiones](https://serviciosgate.upm.es/gate/sites/default/files/2020-05/Aviso%20de%20Prohibicion%20de%20Grabacion%20de%20Examenes.pdf)
 
 
-El ejercicio se cerrará automáticamente en cuanto se cumplan los 50 minutos de duración. Aquellos alumnos con adaptación, tendrán el tiempo correspondiente a su situación particular.
+El ejercicio se cerrará automáticamente en cuanto se cumplan los 60 minutos de duración. Aquellos alumnos con adaptación, tendrán el tiempo correspondiente a su situación particular.
 
 El alumno solo dispondrá de **un intento** y podrá responder las **preguntas en el orden que desee**.
 
