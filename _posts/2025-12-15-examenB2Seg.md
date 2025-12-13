@@ -76,7 +76,7 @@ Se recomienda revisar dicho enlace poco antes del examen, y revisar el Moodle de
 <iframe width="475" height="250" src="https://reloj-alarma.es/embed/temporizador/#date=2025-12-19T17:30:00&title=Examen&theme=1&ampm=0&sound=glow" frameborder="0" allowfullscreen></iframe>
 
 <div style="background-color: yellow; color: red; font-size: 24px; font-weight: bold; padding: 15px; border: 2px solid red; text-align: center;">
-    Los delegados no estarán disponibles para consulta alguna durante el examen, incluyendo problemas técnicos, cierre del examen por falta de tiempo, cuelgues de Moodle... Deberá contactarse vía la Sesión de Zoom que se publicará en Moodle.
+    Los delegados no estarán disponibles para consulta alguna durante el examen, incluyendo problemas técnicos, cierre del examen por falta de tiempo, cuelgues de Moodle... Deberá contactarse vía la Sesión de Zoom que se publicará en Moodle.</div>
 
   <!-- Modal de descarga de la app -->
 <div id="download-app-modal" style="
@@ -130,4 +130,4 @@ document.getElementById("close-modal").onclick = function () {
 };
 </script>
 {% endraw %}
-</div>
+
