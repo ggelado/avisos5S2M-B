@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Convocatoria examen Seguridad B2
-date: 2025-12-15 00:00:00 +0100
+date: 2025-12-13 16:50:00 +0100
 author: Gonzalo
 published: true
 expires: 2025-12-19 18:30:01 +0100
