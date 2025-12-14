@@ -1,0 +1,7 @@
+Contact: mailto:gonzalo.gelado@alumnos.upm.es
+Expires: 2026-08-01T01:00:00.000Z
+Encryption: https://ggelado.github.io/avisos5S2M-B/pgp.txt
+Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/A0189D7F23ADEF78845649C6620D6917DFA2384D
+Encryption: https://keys.mailvelope.com/pks/lookup?op=get&search=A0189D7F23ADEF78845649C6620D6917DFA2384D
+Preferred-Languages: en,es
+Policy: https://ggelado.github.io/avisos5S2M-B/SECURITY
