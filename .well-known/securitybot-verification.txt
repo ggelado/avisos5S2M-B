@@ -1,18 +1,1 @@
-Domain Verification Required for Avisos 5S2M-B
-
-                            We need to verify ownership of ggelado.github.io/avisos5S2M-B to start monitoring it with SecurityBot.
-
-                            Please create a verification file:
-
-                            File Location: ggelado.github.io/avisos5S2M-B/.well-known/securitybot-verification.txt
-                            File Content: EJUHIDFcrDIZZJ51e10JTlSOVewhDs7u
-
-                            Steps:
-                            1. Create the directory: .well-known (if it doesn't exist)
-                            2. Create a file named: securitybot-verification.txt
-                            3. Add the verification code above as the file's content
-                            4. Ensure the file is accessible at the URL above
-                            5. Let me know when it's complete so I can verify
-
-                            You can test if the file is accessible by visiting:
-                            ggelado.github.io/avisos5S2M-B/.well-known/securitybot-verification.txt
+EJUHIDFcrDIZZJ51e10JTlSOVewhDs7u
