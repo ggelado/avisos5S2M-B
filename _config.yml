@@ -10,4 +10,7 @@ feed:
   posts_limit: 100
 
 
+include:
+  - ".well-known"
+
 
