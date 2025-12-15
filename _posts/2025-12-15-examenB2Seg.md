@@ -25,7 +25,7 @@ excerpt: LOS DELEGADOS NO ESTARÁN DISPONIBLES PARA CONSULTAS DURANTE LA PRUEBA,
 </div>
 
 
-El examen tendrá lugar vía Moodle de 17:30 a 18:30 horas el próximo día 19 de diciembre de 2025.
+El examen tendrá lugar vía Moodle de 17:00 a 18:00 horas el próximo día 19 de diciembre de 2025.
 
 <div style="background-color: yellow; color: red; font-size: 24px; font-weight: bold; padding: 15px; border: 2px solid red; text-align: center;">
     ⚠️ Revisa que en Moodle figure correctamente tu grupo de matrícula O NO PODRÁS HACER EL EXAMEN. NO SE ATIENDEN CONSULTAS DE ESTE TIPO EN EL MOMENTO DEL EXAMEN. 
@@ -52,9 +52,9 @@ Se recuerda que el comportamiento de los alumnos debe ser correcto en todo momen
 
 Se aconseja que el alumno esté conectado a la **sesión de Zoom** habilitada en moodle para el examen por si tiene dudas o es necesario hacer una comunicación por parte del profesorado.
 
-El examen **durará 60 minutos y se deberá comenzar entre 17:30 y 17:35.**
+El examen **durará 60 minutos y se deberá comenzar entre 17:00 y 17:05.**
 
-El examen **se cerrará automáticamente** a las 18: 35 o en cuanto se cumplan los 60 minutos de duración
+El examen **se cerrará automáticamente** a las 18:05 o en cuanto se cumplan los 60 minutos de duración
 
 El alumno podrá responder las **preguntas en el orden que desee**.
 
@@ -73,7 +73,7 @@ Notificaciones y modificaciones se publicarán en [la versión online de este av
 
 Se recomienda revisar dicho enlace poco antes del examen, y revisar el Moodle de la asignatura momentos antes del examen.
 
-<iframe width="475" height="250" src="https://reloj-alarma.es/embed/temporizador/#date=2025-12-19T17:30:00&title=Examen&theme=1&ampm=0&sound=glow" frameborder="0" allowfullscreen></iframe>
+<iframe width="475" height="250" src="https://reloj-alarma.es/embed/temporizador/#date=2025-12-19T17:00:00&title=Examen&theme=1&ampm=0&sound=glow" frameborder="0" allowfullscreen></iframe>
 
 <div style="background-color: yellow; color: red; font-size: 24px; font-weight: bold; padding: 15px; border: 2px solid red; text-align: center;">
     Los delegados no estarán disponibles para consulta alguna durante el examen, incluyendo problemas técnicos, cierre del examen por falta de tiempo, cuelgues de Moodle... Deberá contactarse vía la Sesión de Zoom que se publicará en Moodle.</div>
