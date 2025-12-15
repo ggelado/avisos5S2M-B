@@ -1,25 +1,207 @@
-{% if site.data.alerts and site.data.alerts.size > 0 %}
-<div style="
-    background-color: #f9f9f9;
-    border-left: 5px solid #e55353;
-    color: #333;
-    padding: 12px 16px;
-    font-weight: 500;
-    font-size: 1em;
-    position: sticky;
-    top: 10px;
-    z-index: 9999;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    max-width: 90%;
-    margin: 10px auto;
-    line-height: 1.4;">
-   <strong>AVISO AUTOMATIZADO DE FENÓMENOS METEOROLÓGICOS ADVERSOS:</strong>
-  {% for alerta in site.data.alerts %}
-    {{ alerta.event }}{% unless forloop.last %}, {% endunless %}
-  {% endfor %}
-</div>
-{% endif %}
+<div id="alertas-container"></div>
+<script>
+// -----------------------------
+// CONFIG
+// -----------------------------
+const RSS_MADRID = "https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAC72_RSS.xml";
+const CORS_PROXY = "https://corsproxy.io/?url=";
+
+// -----------------------------
+// DESCARGA
+// -----------------------------
+async function descargar(url) {
+  try {
+    const proxiedUrl = CORS_PROXY + encodeURIComponent(url);
+    const response = await fetch(proxiedUrl);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.text();
+  } catch (error) {
+    console.error(`❌ Error al descargar ${url}:`, error);
+    return null;
+  }
+}
+
+// -----------------------------
+// LECTURA RSS
+// -----------------------------
+async function leerRssMadrid() {
+  const xmlData = await descargar(RSS_MADRID);
+  if (!xmlData) {
+    return [];
+  }
+
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(xmlData, "text/xml");
+    
+    const items = doc.querySelectorAll("item");
+    const enlaces = [];
+    
+    items.forEach(item => {
+      const link = item.querySelector("link");
+      if (link && link.textContent.trim().endsWith(".xml")) {
+        enlaces.push(link.textContent.trim());
+      }
+    });
+    
+    return enlaces;
+  } catch (error) {
+    console.error("❌ Error parseando RSS:", error);
+    return [];
+  }
+}
+
+// -----------------------------
+// CAP
+// -----------------------------
+function obtenerInfoEs(doc) {
+  const infos = doc.querySelectorAll("info");
+  
+  for (const info of infos) {
+    const lang = info.querySelector("language");
+    if (lang && lang.textContent && lang.textContent.toLowerCase().startsWith("es")) {
+      return info;
+    }
+  }
+  
+  return null;
+}
+
+// -----------------------------
+// FORMATEO Y FILTRO DE AVISO
+// -----------------------------
+function formatearAviso(infoEs) {
+  function get(tag) {
+    const el = infoEs.querySelector(tag);
+    return el && el.textContent ? el.textContent.trim() : "";
+  }
+
+  const inicio = get("onset");
+  const fin = get("expires");
+
+  // Ignorar avisos expirados
+  try {
+    const expiresDate = new Date(fin);
+    if (expiresDate <= new Date()) {
+      return null;
+    }
+  } catch (error) {
+    return null;
+  }
+
+  return {
+    event: get("event")
+  };
+}
+
+// -----------------------------
+// PROCESAR CADA AVISO
+// -----------------------------
+async function procesarAviso(url) {
+  const xmlData = await descargar(url);
+  if (!xmlData) {
+    return null;
+  }
+
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(xmlData, "text/xml");
+    
+    const infoEs = obtenerInfoEs(doc);
+    if (!infoEs) {
+      return null;
+    }
+
+    const resultado = formatearAviso(infoEs);
+    if (!resultado) {
+      return null;
+    }
+
+    return resultado;
+  } catch (error) {
+    console.error("❌ Error parseando CAP:", error);
+    return null;
+  }
+}
+
+// -----------------------------
+// OBTENER ALERTAS
+// -----------------------------
+async function obtenerAlertas() {
+  const enlaces = await leerRssMadrid();
+  const alertas = [];
+
+  if (!enlaces || enlaces.length === 0) {
+    console.log("Consulta realizada: no hay alertas.");
+    return [];
+  }
+
+  for (const url of enlaces) {
+    const aviso = await procesarAviso(url);
+    if (aviso) {
+      alertas.push(aviso);
+    }
+  }
+
+  // Deduplicar por evento
+  const alertasUnicas = [];
+  const vistos = new Set();
+
+  for (const alerta of alertas) {
+    const ev = alerta.event;
+    if (!vistos.has(ev)) {
+      vistos.add(ev);
+      alertasUnicas.push(alerta);
+    }
+  }
+
+  console.log(`🔄 Obtenidas ${alertasUnicas.length} alerta(s)`);
+  return alertasUnicas;
+}
+
+// -----------------------------
+// MOSTRAR ALERTAS EN LA PÁGINA
+// -----------------------------
+async function mostrarAlertas() {
+  try {
+    const alertas = await obtenerAlertas();
+    
+    if (alertas && alertas.length > 0) {
+      const eventos = alertas.map(a => a.event).join(', ');
+      
+      const alertDiv = `
+        <div style="
+          background-color: #f9f9f9;
+          border-left: 5px solid #e55353;
+          color: #333;
+          padding: 12px 16px;
+          font-weight: 500;
+          font-size: 1em;
+          position: sticky;
+          top: 10px;
+          z-index: 9999;
+          border-radius: 4px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          max-width: 90%;
+          margin: 10px auto;
+          line-height: 1.4;">
+          <strong>AVISO AUTOMATIZADO DE FENÓMENOS METEOROLÓGICOS ADVERSOS:</strong>
+          ${eventos}
+        </div>
+      `;
+      
+      document.getElementById('alertas-container').innerHTML = alertDiv;
+    }
+  } catch (error) {
+    console.error('Error al mostrar alertas:', error);
+  }
+}
+
+// Ejecutar cuando cargue la página
+mostrarAlertas();
+</script>
 <div id="futbol-alert"></div>
 <script>
 async function checkFutbol() {
