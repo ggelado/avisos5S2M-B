@@ -29,13 +29,34 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
   La información aquí mostrada es con carácter informativo, y podría estar desactualizada. LA ÚNICA INFORMACIÓN OFICIAL ES LA PUBLICADA MEDIANTE LOS CANALES DE COMUNICACIÓN DE LAS DISTINTAS ASIGNATURAS.
 </p>
 
+# Inteligencia Artificial
+
+- Viernes 9 de enero a las 15:00. Presencial. En papel.
+- Contenidos:
+    - Todos los alumnos: temas 4 y 5. Necesaria una calificación de al menos 0.5 sobre 3.
+    - Adicionalmente, temas 1 y 2 para aquellos que no hayan alcanzado la calificación de 0.5 puntos sobre 3 en el examen de evaluación progresiva.
+    - Opcionalmente, temas 1 y 2 para aquellos con una calificación igual o superior a 0.5 puntos pero que no hayan alcanzado 1.5 puntos sobre 3 en el examen de evaluación progresiva. Prevalece la calificación de este examen sobre la calificación anterior, debiendo el alumno alcanzar la calificación de 0.5 puntos sobre 3 para poder aprobar la asignatura en esta convocatoria. 
+- **Aulas: distribución por apellidos.** 
+    - DE: ACITORES HASTA: FERRER. Aula 3102-3103.
+    - DE: FIGUEROA HASTA: LLAMAS. Aula 3104.
+    - DE: LOPEZ HASTA: ZHUANG. Aula 3001 exámenes.
+
+1. Antes de comenzar el reparto de los ejercicios, únicamente puede haber en la mesa una calculadora, un bolígrafo azul o negro y un documento de identificación personal.
+2. Se podrá utilizar una calculadora del tipo permitido en las pruebas de evaluación de acceso a la Universidad en la Comunidad de Madrid ([https://evau.info/lista-calculadoras-evau-madrid/](https://evau.info/lista-calculadoras-evau-madrid/)). En especial, que no transmita datos, que no sea programable, que no tenga pantalla gráfica y que no almacene datos alfanuméricos.
+3. Si durante el desarrollo de la prueba de evaluación fuera necesario el uso de material adicional (una hoja en blanco, un bolígrafo adicional, etc.), deberá solicitarse al profesor encargado del aula.
+4. Los bolsos, abrigos, mochilas, carpetas, apuntes, estuches, dispositivos electrónicos, etc. deberán estar fuera de la mesa (incluida la cajonera).
+5. Los dispositivos electrónicos tales como teléfonos móviles, tabletas, relojes, inteligentes, lápices digitales, auriculares o cualquier instrumento de naturaleza análoga deberán permanecer apagados durante el desarrollo de la prueba.
 # Tecnologías de Red Cisco CCNA
+
 GII 105000087 Tecnologías de Red Cisco: CCNA 7º 10:00 Salas El Monje y Los Verdes
 # Fundamentos de Videojuegos
+
 GII 105001044 Fundamentos de Videojuegos 5º 15:00 Bloque 3 aula 3204
 # Building Up Comunication Skills
+
 GII 105000046 Building up Communications Skills 5º 15:00 Bloque 5 aula 5002
 # Español para Extranjeros
+
 105001046 Español para Extranjeros 7º 10:00 Bloque 6 aula 6001
 
 
