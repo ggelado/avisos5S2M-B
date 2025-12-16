@@ -1,177 +1,164 @@
 <div id="alertas-container"></div>
 <script>
-// -----------------------------
-// CONFIG
-// -----------------------------
-const RSS_MADRID = "https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAC72_RSS.xml";
-const CORS_PROXY = "https://corsproxy.io/?url=";
 
-// -----------------------------
-// DESCARGA
-// -----------------------------
-async function descargar(url) {
-  try {
-    const proxiedUrl = CORS_PROXY + encodeURIComponent(url);
-    const response = await fetch(proxiedUrl);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.text();
-  } catch (error) {
-    console.error(`❌ Error al descargar ${url}:`, error);
-    return null;
-  }
-}
+  const RSS_MADRID = "https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAC72_RSS.xml";
+  const CORS_PROXY = "https://corsproxy.io/?url=";
 
-// -----------------------------
-// LECTURA RSS
-// -----------------------------
-async function leerRssMadrid() {
-  const xmlData = await descargar(RSS_MADRID);
-  if (!xmlData) {
-    return [];
-  }
-
-  try {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(xmlData, "text/xml");
-    
-    const items = doc.querySelectorAll("item");
-    const enlaces = [];
-    
-    items.forEach(item => {
-      const link = item.querySelector("link");
-      if (link && link.textContent.trim().endsWith(".xml")) {
-        enlaces.push(link.textContent.trim());
+  async function descargar(url) {
+    try {
+      const proxiedUrl = CORS_PROXY + encodeURIComponent(url);
+      const response = await fetch(proxiedUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    });
-    
-    return enlaces;
-  } catch (error) {
-    console.error("❌ Error parseando RSS:", error);
-    return [];
-  }
-}
-
-// -----------------------------
-// CAP
-// -----------------------------
-function obtenerInfoEs(doc) {
-  const infos = doc.querySelectorAll("info");
-  
-  for (const info of infos) {
-    const lang = info.querySelector("language");
-    if (lang && lang.textContent && lang.textContent.toLowerCase().startsWith("es")) {
-      return info;
-    }
-  }
-  
-  return null;
-}
-
-// -----------------------------
-// FORMATEO Y FILTRO DE AVISO
-// -----------------------------
-function formatearAviso(infoEs) {
-  function get(tag) {
-    const el = infoEs.querySelector(tag);
-    return el && el.textContent ? el.textContent.trim() : "";
-  }
-
-  const inicio = get("onset");
-  const fin = get("expires");
-
-  // Ignorar avisos expirados
-  try {
-    const expiresDate = new Date(fin);
-    if (expiresDate <= new Date()) {
+      return await response.text();
+    } catch (error) {
+      console.error(`❌ Error al descargar ${url}:`, error);
       return null;
     }
-  } catch (error) {
+  }
+
+  async function leerRssMadrid() {
+    const xmlData = await descargar(RSS_MADRID);
+    if (!xmlData) {
+      return [];
+    }
+
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(xmlData, "text/xml");
+
+      const items = doc.querySelectorAll("item");
+      const enlaces = [];
+
+      items.forEach(item => {
+        const link = item.querySelector("link");
+        if (link && link.textContent.trim().endsWith(".xml")) {
+          enlaces.push(link.textContent.trim());
+        }
+      });
+
+      return enlaces;
+    } catch (error) {
+      console.error("Error parseando RSS:", error);
+      return [];
+    }
+  }
+
+
+  function obtenerInfoEs(doc) {
+    const infos = doc.querySelectorAll("info");
+
+    for (const info of infos) {
+      const lang = info.querySelector("language");
+      if (lang && lang.textContent && lang.textContent.toLowerCase().startsWith("es")) {
+        return info;
+      }
+    }
+
     return null;
   }
 
-  return {
-    event: get("event")
-  };
-}
+  function formatearAviso(infoEs) {
+    function get(tag) {
+      const el = infoEs.querySelector(tag);
+      return el && el.textContent ? el.textContent.trim() : "";
+    }
 
-// -----------------------------
-// PROCESAR CADA AVISO
-// -----------------------------
-async function procesarAviso(url) {
-  const xmlData = await descargar(url);
-  if (!xmlData) {
-    return null;
-  }
+    const inicio = get("onset");
+    const fin = get("expires");
 
-  try {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(xmlData, "text/xml");
-    
-    const infoEs = obtenerInfoEs(doc);
-    if (!infoEs) {
+    const zona = get("areaDesc");
+
+    // Omitir avisos de "Sierra de Madrid"
+    if (zona.toLowerCase().includes("sierra")) {
       return null;
     }
 
-    const resultado = formatearAviso(infoEs);
-    if (!resultado) {
+    try {
+      const expiresDate = new Date(fin);
+      if (expiresDate <= new Date()) {
+        return null; // Si está caducado, no lo proceso
+      }
+    } catch (error) {
       return null;
     }
 
-    return resultado;
-  } catch (error) {
-    console.error("❌ Error parseando CAP:", error);
-    return null;
-  }
-}
-
-// -----------------------------
-// OBTENER ALERTAS
-// -----------------------------
-async function obtenerAlertas() {
-  const enlaces = await leerRssMadrid();
-  const alertas = [];
-
-  if (!enlaces || enlaces.length === 0) {
-    console.log("Consulta realizada: no hay alertas.");
-    return [];
+    return {
+      event: get("event")
+    };
   }
 
-  for (const url of enlaces) {
-    const aviso = await procesarAviso(url);
-    if (aviso) {
-      alertas.push(aviso);
+  async function procesarAviso(url) {
+    const xmlData = await descargar(url);
+    if (!xmlData) {
+      return null;
+    }
+
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(xmlData, "text/xml");
+
+      const infoEs = obtenerInfoEs(doc);
+      if (!infoEs) {
+        return null;
+      }
+
+      const resultado = formatearAviso(infoEs);
+      if (!resultado) {
+        return null;
+      }
+
+      return resultado;
+    } catch (error) {
+      console.error("Error parseando CAP:", error);
+      return null;
     }
   }
 
-  // Deduplicar por evento
-  const alertasUnicas = [];
-  const vistos = new Set();
+  async function obtenerAlertas() {
+    const enlaces = await leerRssMadrid();
+    const alertas = [];
 
-  for (const alerta of alertas) {
-    const ev = alerta.event;
-    if (!vistos.has(ev)) {
-      vistos.add(ev);
-      alertasUnicas.push(alerta);
+    if (!enlaces || enlaces.length === 0) {
+      //console.log("Consulta realizada: no hay alertas.");
+      return [];
     }
+
+    for (const url of enlaces) {
+      const aviso = await procesarAviso(url);
+      if (aviso) {
+        alertas.push(aviso);
+      }
+    }
+
+    // Deduplicar por evento
+    const alertasUnicas = [];
+    const vistos = new Set();
+
+    for (const alerta of alertas) {
+      const ev = alerta.event;
+      if (!vistos.has(ev)) {
+        vistos.add(ev);
+        alertasUnicas.push(alerta);
+      }
+    }
+
+    //console.log(`🔄 Obtenidas ${alertasUnicas.length} alerta(s)`);
+    return alertasUnicas;
   }
 
-  console.log(`🔄 Obtenidas ${alertasUnicas.length} alerta(s)`);
-  return alertasUnicas;
-}
+  // -----------------------------
+  // MOSTRAR ALERTAS EN LA PÁGINA
+  // -----------------------------
+  async function mostrarAlertas() {
+    try {
+      const alertas = await obtenerAlertas();
 
-// -----------------------------
-// MOSTRAR ALERTAS EN LA PÁGINA
-// -----------------------------
-async function mostrarAlertas() {
-  try {
-    const alertas = await obtenerAlertas();
-    
-    if (alertas && alertas.length > 0) {
-      const eventos = alertas.map(a => a.event).join(', ');
-      
-      const alertDiv = `
+      if (alertas && alertas.length > 0) {
+        const eventos = alertas.map(a => a.event).join(', ');
+
+        const alertDiv = `
         <div style="
           background-color: #f9f9f9;
           border-left: 5px solid #e55353;
@@ -191,55 +178,55 @@ async function mostrarAlertas() {
           ${eventos}
         </div>
       `;
-      
-      document.getElementById('alertas-container').innerHTML = alertDiv;
-    }
-  } catch (error) {
-    console.error('Error al mostrar alertas:', error);
-  }
-}
 
-// Ejecutar cuando cargue la página
-mostrarAlertas();
+        document.getElementById('alertas-container').innerHTML = alertDiv;
+      }
+    } catch (error) {
+      console.error('Error al mostrar alertas:', error);
+    }
+  }
+
+  // Ejecutar cuando cargue la página
+  mostrarAlertas();
 </script>
 <div id="futbol-alert"></div>
 <script>
-async function checkFutbol() {
+  async function checkFutbol() {
     try {
-        const res = await fetch('https://corsproxy.io/?https://hayahora.futbol/estado/data.json');
-        const data = await res.json();
+      const res = await fetch('https://corsproxy.io/?https://hayahora.futbol/estado/data.json');
+      const data = await res.json();
 
-        let count = 0;
-        const ips = new Map();
-        
-        data.data.forEach(entry => {
-            if (entry.stateChanges && entry.stateChanges.length > 0) {
-                const last = entry.stateChanges[entry.stateChanges.length - 1];
-                if (last.state === true && entry.description === "Cloudflare") {
-                    ips.set(entry.ip, (ips.get(entry.ip) || 0) + 1);
-                }
-            }
-        });
-        
-        count = Array.from(ips.values()).filter(c => c > 2).length;
-        const hayFutbol = count > 10;
-        
-        const div = document.getElementById('futbol-alert');
-        
-        if (hayFutbol) {
-            div.innerHTML = '<strong>HAY BLOQUEOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs pueden no funcionar con normalidad. Este aviso solo se muestra cuando hay bloqueos activos y confirmados en este momento. Informate de tus derechos al respecto.';
-            div.style.cssText = 'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
-        } else {
-            div.style.display = 'none';
-			div.innerHTML = '';
+      let count = 0;
+      const ips = new Map();
+
+      data.data.forEach(entry => {
+        if (entry.stateChanges && entry.stateChanges.length > 0) {
+          const last = entry.stateChanges[entry.stateChanges.length - 1];
+          if (last.state === true && entry.description === "Cloudflare") {
+            ips.set(entry.ip, (ips.get(entry.ip) || 0) + 1);
+          }
         }
-    } catch(e) {
-        console.error('Error:', e);
-    }
-}
+      });
 
-checkFutbol();
-setInterval(checkFutbol, 120000);
+      count = Array.from(ips.values()).filter(c => c > 2).length;
+      const hayFutbol = count > 10;
+
+      const div = document.getElementById('futbol-alert');
+
+      if (hayFutbol) {
+        div.innerHTML = '<strong>HAY BLOQUEOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs pueden no funcionar con normalidad. Este aviso solo se muestra cuando hay bloqueos activos y confirmados en este momento. Informate de tus derechos al respecto.';
+        div.style.cssText = 'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
+      } else {
+        div.style.display = 'none';
+        div.innerHTML = '';
+      }
+    } catch (e) {
+      console.error('Error:', e);
+    }
+  }
+
+  checkFutbol();
+  setInterval(checkFutbol, 120000);
 </script>
 <!--
 <div id="lluvia-alert"></div>
