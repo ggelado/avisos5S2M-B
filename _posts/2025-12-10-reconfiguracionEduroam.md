@@ -3,7 +3,7 @@ layout: post
 title: Reconfiguración de Eduroam - Nuevos Parámetros de Seguridad
 date: 2025-12-10 00:00:00 +0100
 author: Iván
-published: true
+published: false
 expires: 2025-12-16 23:00:01 +0100
 categories:
   - Servicios UPM
