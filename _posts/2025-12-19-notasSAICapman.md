@@ -127,7 +127,6 @@ A partir de las 12:00 del 19 de diciembre estarán disponibles las notas del SAI
         <p style="font-size:20px;"><strong>Otros aspectos a tener en cuenta:</strong></p>
         <ul style="font-size:16px; color:#373a3c;">
           <li>Este servicio está disponible para candidatos matriculados a través de Capman, Centros Oficiales, Universidades y colegios asociados.</li>
-          <li>Si realizaste el examen a través de tu empresa, tu departamento de RRHH recibirá el resultado.</li>
         </ul>
       </div>
       
