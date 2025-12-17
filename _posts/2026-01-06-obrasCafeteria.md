@@ -9,6 +9,6 @@ categories:
   - Incidencias de Servicio
 excerpt: El servicio de cafetería ofrecerá bocadillos, sándwiches, hamburguesas y platos combinados en el horario habitual.
 ---
-Debido a las obras que se realizarán en la cocina de la Escuela, **durante  el periodo de trabajos que comenzaran el 19 de diciembre y durante todo el mes de enero , no se ofrecerán menús completos**.
+Debido a las obras que se realizarán en la cocina de la Escuela, **durante el periodo de trabajos que comenzaran el 19 de diciembre y durante todo el mes de enero, no se ofrecerán menús completos**.
 
 El servicio de cafetería ofrecerá bocadillos, sándwiches, hamburguesas y platos combinados en el horario habitual.
