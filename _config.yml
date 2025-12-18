@@ -6,11 +6,13 @@ locale: es_ES.UTF-8
 lang: es-ES
 plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
+  - jekyll-redirect-from
 feed:
   posts_limit: 100
 
 
 include:
   - ".well-known"
+
 
 
