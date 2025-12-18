@@ -30,6 +30,12 @@ Tenéis más información sobre el periodo de ampliación de matrícula en [http
 
 Un saludo,
 
+<td width="100%">
+<p><strong>PERIODO DE DESMATRICULACIÓN PARA ASIGNATURAS DEL SEGUNDO SEMESTRE (<span style="text-decoration: underline;">del 26&nbsp; al 30 de enero de 2026</span>)&nbsp;<br><br></strong>En el periodo de desmatriculación el/la estudiante podrá desmatricular hasta un máximo de 12 ECTS de asignaturas del segundo semestre, siempre que la desmatriculación no entre en conflicto con los artículos 5 y 9 de la Normativa de Matriculación de la UPM.&nbsp;</p>
+<p style="margin-left: 20.0px;"><strong><a href="https://upm.es/citaprevia_automatricula/">Acceso a cita previa</a> <span class="novedad">(desde las 9 h. del día 26 de enero hasta las 22 h. del 30 de enero)</span></strong><span class="novedad"><a href="https://automatricula.upm.es/jsloader/ac/matricula"><br></a></span><a href="https://automatricula.upm.es/"><strong>Acceso a automatrícula para estudiantes de Grado</strong></a></p>
+<p>&nbsp;</p>
+</td>
+
 ---
 
 Estimados estudiantes:
