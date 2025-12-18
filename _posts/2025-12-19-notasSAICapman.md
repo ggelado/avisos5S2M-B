@@ -8,6 +8,8 @@ expires: 2025-12-19 23:59:59 +0100
 categories:
   - SAI
 excerpt: Instrucciones para consulta de notas SAI
+redirect_from:
+  - /sai/2025/12/17/avisoErroneoSAI.html
 ---
 A partir de las 12:00 del 19 de diciembre estarán disponibles las notas del SAI siguiendo el siguiente procedimiento:
 
