@@ -5,6 +5,8 @@ date: 2025-12-13 16:50:00 +0100
 author: Gonzalo
 published: true
 expires: 2025-12-19 18:30:01 +0100
+redirect_from:
+  - /convocatorias%20de%20examen/2025/11/23/examenB1Seg.html
 categories:
   - Convocatorias de Examen
 excerpt: LOS DELEGADOS NO ESTARÁN DISPONIBLES PARA CONSULTAS DURANTE LA PRUEBA, TAMPOCO EN CASO DE URGENCIA.
