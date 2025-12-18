@@ -3,7 +3,7 @@ layout: post
 title: Presentaciones de IA y Fin de Docencia
 date: 2025-12-01 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-18 12:00:01 +0100
 categories:
   - Convocatorias de Examen
