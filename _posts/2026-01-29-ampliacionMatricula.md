@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ampliación de Matrícula
-date: 2026-12-29 00:00:00 +0100
+date: 2026-01-29 00:00:00 +0100
 author: Gonzalo
 published: true
 expires: 2026-02-05 23:59:59 +0100
