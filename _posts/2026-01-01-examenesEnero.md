@@ -46,15 +46,19 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 3. Si durante el desarrollo de la prueba de evaluación fuera necesario el uso de material adicional (una hoja en blanco, un bolígrafo adicional, etc.), deberá solicitarse al profesor encargado del aula.
 4. Los bolsos, abrigos, mochilas, carpetas, apuntes, estuches, dispositivos electrónicos, etc. deberán estar fuera de la mesa (incluida la cajonera).
 5. Los dispositivos electrónicos tales como teléfonos móviles, tabletas, relojes, inteligentes, lápices digitales, auriculares o cualquier instrumento de naturaleza análoga deberán permanecer apagados durante el desarrollo de la prueba.
+
 # Tecnologías de Red Cisco CCNA
 
 GII 105000087 Tecnologías de Red Cisco: CCNA 7º 10:00 Salas El Monje y Los Verdes
+
 # Fundamentos de Videojuegos
 
 GII 105001044 Fundamentos de Videojuegos 5º 15:00 Bloque 3 aula 3204
+
 # Building Up Comunication Skills
 
 GII 105000046 Building up Communications Skills 5º 15:00 Bloque 5 aula 5002
+
 # Español para Extranjeros
 
 105001046 Español para Extranjeros 7º 10:00 Bloque 6 aula 6001
