@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Publicación de notas SAI
-date: 2025-12-19 12:00:00 +0100
+date: 2025-12-19 10:30:00 +0100
 author: Gonzalo
 published: true
 expires: 2025-12-19 23:59:59 +0100
@@ -11,8 +11,7 @@ excerpt: Instrucciones para consulta de notas SAI
 redirect_from:
   - /sai/2025/12/17/avisoErroneoSAI.html
 ---
-A partir de las 12:00 del 19 de diciembre estarán disponibles las notas del SAI siguiendo el siguiente procedimiento:
-
+NOTAS YA DISPONIBLES
 <div class="field field--paragraph-field-p-text-long field--name-field-p-text-long field--type-text-long field--label-hidden field__item"><p><span style="color:#bf2543;"><strong><span style="font-size:20px;">Importante:&nbsp;</span></strong></span></p>
 <ul><li>Si tras la prueba deseas recibir la certificación oficial TOEIC, <strong>podrás&nbsp;solicitar tu Certificado Oficial.&nbsp;</strong>Os recordamos que el certificado&nbsp;TOEIC ¡no caduca!</li>
 <li>Los estudiantes interesados en adquirir el <strong>Título Oficial de TOEIC -</strong> <strong>Score Report </strong>, podrán hacerlo a través de esa misma página.</li>
