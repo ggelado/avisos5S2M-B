@@ -3,7 +3,7 @@ layout: post
 title: Actualizada librería TS (PDL)
 date: 2025-12-16 12:06:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-19 23:59:59 +0100
 categories:
   - PDL
