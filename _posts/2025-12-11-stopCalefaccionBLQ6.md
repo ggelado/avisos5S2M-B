@@ -3,7 +3,7 @@ layout: post
 title: Obras calefacción Bloque 6 (parada temporal del servicio)
 date: 2025-12-11 12:54:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-19 20:00:00 +0100
 categories:
   - Incidencias de Servicio
