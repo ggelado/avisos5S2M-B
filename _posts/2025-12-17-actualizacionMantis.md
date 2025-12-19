@@ -3,7 +3,7 @@ layout: post
 title: Aviso MANTIS
 date: 2025-12-17 17:40:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-19 19:00:00 +0100
 categories:
 excerpt: Reestructuración de Mantis para la mejora de uso
