@@ -4,7 +4,7 @@ title: Cierre de cafetería (menús)
 date: 2026-01-06 00:00:00 +0100
 author: Gonzalo
 published: true
-expires: 2026-01-26 23:59:59 +0100
+expires: 2026-01-26 19:59:59 +0100
 categories:
   - Incidencias de Servicio
 excerpt: El servicio de cafetería ofrecerá bocadillos, sándwiches, hamburguesas y platos combinados en el horario habitual.
