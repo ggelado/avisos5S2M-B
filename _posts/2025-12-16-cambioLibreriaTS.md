@@ -9,7 +9,8 @@ categories:
   - PDL
   - Práctica
 excerpt: Se ha actualizado la librería de TS-Java para corregir una pequeña errata que había a la hora de generar el fichero de tabla de símbolos.
-image: https://dlsiis.fi.upm.es/traductores/Images/draco.png
+image:
+  url: https://dlsiis.fi.upm.es/traductores/Images/draco.png
 ---
 Se ha actualizado la librería de TS-Java para corregir una pequeña errata que había a la hora de generar el fichero de tabla de símbolos.
 
