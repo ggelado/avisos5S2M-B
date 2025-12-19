@@ -8,6 +8,7 @@ expires: 2026-01-26 12:00:01 +0100
 categories:
   - Convocatorias de Examen
 excerpt: Aulas de exámenes de enero
+image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-2026-vispera-ano-nuevo_1017-60883.jpg?semt=ais_hybrid&w=740&q=80
 ---
 Feliz año.
 
