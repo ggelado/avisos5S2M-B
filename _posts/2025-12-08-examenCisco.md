@@ -3,7 +3,7 @@ layout: post
 title: "Convocatoria examen Tecnologías de Red Cisco: CCNA"
 date: 2025-12-15 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-19 14:00:01 +0100
 categories:
   - Convocatorias de Examen
