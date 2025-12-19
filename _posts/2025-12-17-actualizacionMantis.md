@@ -7,6 +7,7 @@ published: true
 expires: 2025-12-19 19:00:00 +0100
 categories:
 excerpt: Reestructuración de Mantis para la mejora de uso
+image: "\rhttps://www.fi.upm.es/incidencias/images/favicon.ico"
 ---
 Estimada comunidad de la ETSI Informáticos,
 
