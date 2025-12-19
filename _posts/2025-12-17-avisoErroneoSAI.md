@@ -3,7 +3,7 @@ layout: post
 title: Errata en aviso publicado por el DLACT
 date: 2025-12-17 19:46:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2025-12-19 12:00:00 +0100
 categories:
   - SAI
