@@ -35,7 +35,9 @@ El examen tendrá lugar vía Moodle de 17:00 a 18:00 horas el próximo día 19 d
 SI NO APARECES EN TU GRUPO ESCRIBE A LOS PROFESORES DE LA ASIGNATURA.
 </div>
   
+[Enlace del Zoom](https://moodle.upm.es/titulaciones/oficiales/mod/lti/view.php?id=511917)
 
+[Enlace del cuestionario](https://moodle.upm.es/titulaciones/oficiales/mod/quiz/view.php?id=526733) (Aquellos con adaptaciones curriculares no deben hacer uso de este enlace).
 
 En la página de la asignatura podéis encontrar las normas para el examen.
 
