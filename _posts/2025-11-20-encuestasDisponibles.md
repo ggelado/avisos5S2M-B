@@ -4,7 +4,7 @@ title: Encuestas ya disponibles
 date: 2025-11-24 19:04:00 +0100
 expires: 2025-12-20 23:59:59 +0100
 author: Gonzalo
-published: true
+published: false
 excerpt: Encuestas de profesorado ya disponibles
 ---
 Encuestas ya disponibles en [https://servicios.upm.es/encuestas/](https://servicios.upm.es/encuestas/). Quedaos a gusto, o no, pero rellenadlas.
