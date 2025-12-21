@@ -3,7 +3,7 @@ layout: post
 title: Inicio del periodo vacacional
 date: 2025-12-19 19:00:00 +0100
 author: Delegados
-published: true
+published: false
 expires: 2025-12-21 23:59:59 +0100
 categories:
   - Aviso de festivos
