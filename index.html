@@ -121,16 +121,19 @@ async function cargarEstadoCRTM() {
     // Clonamos para no mover nodos del documento remoto
     const clon = divCRTM.cloneNode(true);
 
-    // Corregir rutas relativas (imágenes y enlaces)
+    // Corregir rutas relativas de imágenes
     clon.querySelectorAll("img").forEach(img => {
-      if (img.src.startsWith("/")) {
-        img.src = "https://crtm.es" + img.getAttribute("src");
+      const src = img.getAttribute("src");
+      if (src && src.startsWith("/")) {
+        img.src = "https://crtm.es" + src;
       }
     });
 
+    // Corregir enlaces relativos
     clon.querySelectorAll("a").forEach(a => {
-      if (a.href.startsWith("/")) {
-        a.href = "https://crtm.es" + a.getAttribute("href");
+      const href = a.getAttribute("href");
+      if (href && href.startsWith("/")) {
+        a.href = "https://crtm.es" + href;
         a.target = "_blank";
         a.rel = "noopener noreferrer";
       }
@@ -148,8 +151,10 @@ async function cargarEstadoCRTM() {
 // Cargar al iniciar
 document.addEventListener("DOMContentLoaded", cargarEstadoCRTM);
 
+// Auto-refresh cada 5 minutos
 setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 </script>
+
 
 {% endraw %}
 
