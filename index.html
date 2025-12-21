@@ -28,9 +28,13 @@ title: "Avisos 5S2M-B"
 <a href="https://stats.uptimerobot.com/OuKYf98R4h" target="_blank" rel="noopener noreferrer">
   Estado de los principales servicios
 </a>
+
 <a href="https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es" target="_blank" rel="noopener noreferrer">
   Estado del Transporte Público
 </a>
+
+<div id="estado-crtm">Cargando estado del servicio…</div>
+
 
 <p>>Si quieres publicar un aviso accede a <a href="https://forms.office.com/e/qCSp3qmVCL">https://forms.office.com/e/qCSp3qmVCL</a></p
 
@@ -86,6 +90,67 @@ document.getElementById("close-modal").onclick = function () {
     document.getElementById("download-app-modal").style.display = "none";
 };
 </script>
+<script>
+async function cargarEstadoCRTM() {
+  const contenedor = document.getElementById("estado-crtm");
+  if (!contenedor) return;
+
+  const urlCRTM =
+    "https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es";
+
+  const proxyURL =
+    "https://corsproxy.io/?url=" + encodeURIComponent(urlCRTM);
+
+  try {
+    const response = await fetch(proxyURL);
+    const html = await response.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    const selector =
+      "#colCentro > div > div.brdGris2 > div.cont > div:nth-child(2)";
+
+    const divCRTM = doc.querySelector(selector);
+
+    if (!divCRTM) {
+      contenedor.innerText = "No se pudo obtener el estado del servicio";
+      return;
+    }
+
+    // Clonamos para no mover nodos del documento remoto
+    const clon = divCRTM.cloneNode(true);
+
+    // Corregir rutas relativas (imágenes y enlaces)
+    clon.querySelectorAll("img").forEach(img => {
+      if (img.src.startsWith("/")) {
+        img.src = "https://crtm.es" + img.getAttribute("src");
+      }
+    });
+
+    clon.querySelectorAll("a").forEach(a => {
+      if (a.href.startsWith("/")) {
+        a.href = "https://crtm.es" + a.getAttribute("href");
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+    });
+
+    contenedor.innerHTML = "";
+    contenedor.appendChild(clon);
+
+  } catch (err) {
+    console.error("Error CRTM:", err);
+    contenedor.innerText = "Error al cargar información del servicio";
+  }
+}
+
+// Cargar al iniciar
+document.addEventListener("DOMContentLoaded", cargarEstadoCRTM);
+
+setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
+</script>
+
 {% endraw %}
 
 
