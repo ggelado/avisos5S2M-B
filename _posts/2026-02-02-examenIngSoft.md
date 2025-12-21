@@ -7,9 +7,8 @@ published: true
 expires: 2026-02-09 14:00:01 +0100
 categories:
   - Convocatorias de Examen
-excerpt: 9 de febrero de 2026
+excerpt: Examen 9 de febrero IngSoft I
 ---
-  
 Estimados estudiantes,
 
 Os informamos de que la primera prueba de evaluación progresiva de la asignatura _Ingeniería del Software I_ tendrá lugar el lunes 9 de febrero de 2026.
