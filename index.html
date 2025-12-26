@@ -34,49 +34,67 @@ title: "Avisos 5S2M-B"
 </a>
 
 <div style="
-  max-width: 420px;
+  max-width: 900px;
   margin: 20px auto;
   padding: 12px;
   background: #f8f9fa;
   border: 1px solid #e0e0e0;
-  border-radius: 10px;
+  border-radius: 12px;
   font-family: sans-serif;
   font-size: 0.9em;
 ">
 
-  <div style="margin-bottom: 10px;">
-    <div style="
-      margin-top: 6px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #ddd;
-      height: 160px;
-    ">
-      <iframe
-        title="El tiempo AEMET"
-        src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/boadilla-del-monte-id28022?w=g2p101010011ovmffffffx4f86d9t95b6e9r0s8n1"
-        style="width:100%; height:100%; border:0;"
-        scrolling="no"
-        loading="lazy">
-      </iframe>
-    </div>
-  </div>
+  <div style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: stretch;
+  ">
 
-  <div>
+    <!-- AEMET -->
     <div style="
-      margin-top: 6px;
-      padding: 6px;
-      background: white;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      max-height: 140px;
-      overflow-y: auto;
+      flex: 1 1 260px;
+      min-width: 260px;
     ">
-      <div id="estado-crtm">Cargando estado del servicio…</div>
+      <div style="
+        margin-top: 6px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        height: 170px;
+        background: white;
+      ">
+        <iframe
+          title="El tiempo AEMET"
+          src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/boadilla-del-monte-id28022?w=g2p101010011ovmffffffx4f86d9t95b6e9r0s8n1"
+          style="width:100%; height:100%; border:0;"
+          scrolling="no"
+          loading="lazy">
+        </iframe>
+      </div>
     </div>
-  </div>
 
+    <!-- CRTM -->
+    <div style="
+      flex: 1 1 260px;
+      min-width: 260px;
+    ">
+      <div style="
+        margin-top: 6px;
+        padding: 8px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        height: 170px;
+        overflow-y: auto;
+      ">
+        <div id="estado-crtm">Cargando estado del servicio…</div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
 
 
 
@@ -207,6 +225,7 @@ setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 
 
 {% endraw %}
+
 
 
 
