@@ -33,7 +33,51 @@ title: "Avisos 5S2M-B"
   Estado del Transporte Público
 </a>
 
-<div id="estado-crtm">Cargando estado del servicio…</div>
+<div style="
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-size: 0.9em;
+">
+
+  <div style="margin-bottom: 10px;">
+    <div style="
+      margin-top: 6px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      height: 160px;
+    ">
+      <iframe
+        title="El tiempo AEMET"
+        src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/boadilla-del-monte-id28022?w=g2p101010011ovmffffffx4f86d9t95b6e9r0s8n1"
+        style="width:100%; height:100%; border:0;"
+        scrolling="no"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <div>
+    <div style="
+      margin-top: 6px;
+      padding: 6px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      max-height: 140px;
+      overflow-y: auto;
+    ">
+      <div id="estado-crtm">Cargando estado del servicio…</div>
+    </div>
+  </div>
+
+</div>
+
 
 
 <p>>Si quieres publicar un aviso accede a <a href="https://forms.office.com/e/qCSp3qmVCL">https://forms.office.com/e/qCSp3qmVCL</a></p
@@ -163,6 +207,7 @@ setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 
 
 {% endraw %}
+
 
 
 
