@@ -8,6 +8,7 @@ expires: 2026-01-15 23:59:59 +0100
 categories:
   - Matriculación
 excerpt: Nuevo procedimiento de preinscricpión de optativas. PLAZO ABIERTO 19/12 A 15/01
+image: https://www.upm.es/gsfs/SFS11846
 ---
 Estimados estudiantes:  
   
