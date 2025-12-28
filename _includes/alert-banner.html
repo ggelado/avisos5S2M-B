@@ -193,7 +193,7 @@
 <script>
   async function checkFutbol() {
     try {
-      const res = await fetch('https://corsproxy.io/?https://hayahora.futbol/estado/data.json');
+      const res = await fetch('https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json');
       const data = await res.json();
 
       let count = 0;
