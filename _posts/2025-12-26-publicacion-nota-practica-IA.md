@@ -3,7 +3,7 @@ layout: post
 title: Publicación nota práctica IA
 date: 2025-12-26 11:00:00 +0100
 author: Iván
-published: true
+published: false
 expires: 2025-12-28 23:59:59 +0100
 categories:
   - Calificaciones
