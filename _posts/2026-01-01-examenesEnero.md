@@ -48,6 +48,64 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 4. Los bolsos, abrigos, mochilas, carpetas, apuntes, estuches, dispositivos electrónicos, etc. deberán estar fuera de la mesa (incluida la cajonera).
 5. Los dispositivos electrónicos tales como teléfonos móviles, tabletas, relojes, inteligentes, lápices digitales, auriculares o cualquier instrumento de naturaleza análoga deberán permanecer apagados durante el desarrollo de la prueba.
 
+<div style="background-color: yellow; color: red; font-size: 24px; font-weight: bold; padding: 15px; border: 2px solid red; text-align: center;">
+    RECUERDA QUE NO ESTÁ PERMITIDA CUALQUIER CALCULADORA. Algunos ejemplos de <u>CALCULADORAS NO PERMITIDAS</u>.
+</div>
+
+<div style="display:flex; flex-wrap:wrap; width:100%;">
+
+  <div style="position:relative; width:50%; overflow:hidden;">
+    <img src="https://m.media-amazon.com/images/I/71mTdxjO9cL._AC_SL1500_.jpg" style="width:100%; display:block;">
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(45deg); transform-origin:center;"></div>
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(-45deg); transform-origin:center;"></div>
+  </div>
+
+  <div style="position:relative; width:50%; overflow:hidden;">
+    <img src="https://m.media-amazon.com/images/I/514Kel0a1xL._AC_SL1000_.jpg" style="width:100%; display:block;">
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(45deg); transform-origin:center;"></div>
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(-45deg); transform-origin:center;"></div>
+  </div>
+
+  <div style="position:relative; width:50%; overflow:hidden;">
+    <img src="https://m.media-amazon.com/images/I/71PcaRiFl6L._AC_SL1500_.jpg" style="width:100%; display:block;">
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(45deg); transform-origin:center;"></div>
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(-45deg); transform-origin:center;"></div>
+  </div>
+
+  <div style="position:relative; width:50%; overflow:hidden;">
+    <img src="https://m.media-amazon.com/images/I/61v44oHp1cL._AC_SL1500_.jpg" style="width:100%; display:block;">
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(45deg); transform-origin:center;"></div>
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(-45deg); transform-origin:center;"></div>
+  </div>
+
+  <div style="position:relative; width:50%; overflow:hidden;">
+    <img src="https://m.media-amazon.com/images/I/71ryiGtcr5L._AC_SL1500_.jpg" style="width:100%; display:block;">
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(45deg); transform-origin:center;"></div>
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(-45deg); transform-origin:center;"></div>
+  </div>
+
+  <div style="position:relative; width:50%; overflow:hidden;">
+    <img src="https://m.media-amazon.com/images/I/61EZKZc1R8L._AC_SL1001_.jpg" style="width:100%; display:block;">
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(45deg); transform-origin:center;"></div>
+    <div style="position:absolute; top:50%; left:-30%; width:160%; height:6px; background:red; transform:rotate(-45deg); transform-origin:center;"></div>
+  </div>
+
+</div>
+<div style="
+    background-color: #ff0000; 
+    color: #ffffff; 
+    font-size: 32px; 
+    font-weight: bolder; 
+    padding: 25px; 
+    border: 4px solid #ffff00; 
+    text-align: center; 
+    text-transform: uppercase; 
+    box-shadow: 0 0 20px #ffff00;
+    animation: blink 1s step-start 0s infinite;
+">
+    ESTOS SON EJEMPLOS DE CALCULADORAS <u>NO PERMITIDAS</u>
+</div>
+
 # Tecnologías de Red Cisco CCNA
 
 GII 105000087 Tecnologías de Red Cisco: CCNA 7º 10:00 Salas El Monje y Los Verdes
