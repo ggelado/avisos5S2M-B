@@ -5,8 +5,8 @@ date: 2025-12-31 15:01 +0100
 author: Gonzalo
 published: true
 expires: 2026-01-01 23:59 +0100
-excerpt: De momento solo salen las del 3er parcial
+excerpt: Disponibles en laurel
 categories:
   - SSOO
 ---
-Pues eso, que ya están las notas. De momento solo salen las del 3er parcial. [https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi](https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi).
+Pues eso, que ya están las notas. [https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi](https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi).
