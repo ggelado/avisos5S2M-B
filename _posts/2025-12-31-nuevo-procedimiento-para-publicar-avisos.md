@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Nuevo procedimiento para publicar avisos"
-date: 2025-12-31 15:01 +0100
+date: 2025-12-31 15:01:00 +0100
 author: Gonzalo
 published: true
-expires: 2026-01-01 23:59 +0100
+expires: 2026-01-01 23:59:59 +0100
 excerpt: "Habilitada nueva plataforma"
 
 ---
