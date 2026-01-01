@@ -1,5 +1,4 @@
 ---
-
 layout: post
 title: Aulas exámenes de Enero
 date: 2026-01-01 00:00:00 +0100
@@ -7,13 +6,10 @@ author: Gonzalo
 published: true
 expires: 2026-01-26 12:00:01 +0100
 categories:
-
 - Convocatorias de Examen
-  excerpt: Aulas de exámenes de enero
-  image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-2026-vispera-ano-nuevo_1017-60883.jpg?semt=ais_hybrid&w=740&q=80
-
+excerpt: Aulas de exámenes de enero
+image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-2026-vispera-ano-nuevo_1017-60883.jpg?semt=ais_hybrid&w=740&q=80
 ---
-
 Feliz año.
 
 Y como regalo de año nuevo, la lista de aulas de los exámenes:
