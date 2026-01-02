@@ -98,7 +98,128 @@ title: "Avisos 5S2M-B"
 
 
 
-<p>>Si quieres publicar un aviso accede a <a href="https://notifierpushrss.onrender.com/avisos.html">https://notifierpushrss.onrender.com/avisos.html</a>. La web puede tardar unos segundos en cargar.</p
+<p>>Si quieres publicar un aviso accede a <a href="https://notifierpushrss.onrender.com/avisos.html">https://notifierpushrss.onrender.com/avisos.html</a>. La web puede tardar unos segundos en cargar.</p>
+
+<section class="container-lg my-4">
+
+  <div id="status" class="text-small color-fg-muted mb-2">
+  </div>
+
+  <div id="services" class="Box">
+    <div class="Box-body p-0">
+      <ul id="arrivals" class="list-style-none m-0"></ul>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const SOURCES = [
+    {
+      url: "https://api.madridtransporte.com/stops/bus/08771/times",
+      lines: ["571", "573"]
+    },
+    {
+      url: "https://api.madridtransporte.com/stops/bus/08411/times",
+      lines: ["591"]
+    },
+    {
+      url: "https://api.madridtransporte.com/stops/bus/17573/times",
+      lines: ["865"]
+    },
+    {
+      url: "https://api.madridtransporte.com/stops/tram/29/times",
+      lines: null // metro ligero
+    }
+  ];
+
+  const arrivalsEl = document.getElementById("arrivals");
+  const statusEl = document.getElementById("status");
+
+  function minutesFromNow(timestamp) {
+    const diffMs = timestamp - Date.now();
+    return Math.max(0, Math.round(diffMs / 60000));
+  }
+
+  function uniqueSorted(arr) {
+    return [...new Set(arr)].sort((a, b) => a - b);
+  }
+
+  async function loadArrivals() {
+    const results = [];
+
+    for (const source of SOURCES) {
+      try {
+        const res = await fetch(source.url);
+        const data = await res.json();
+
+        if (!Array.isArray(data.arrives)) continue;
+
+        for (const arrival of data.arrives) {
+          if (source.lines && !source.lines.includes(arrival.line)) {
+            continue;
+          }
+
+          const times = uniqueSorted(arrival.estimatedArrives || []);
+
+          times.forEach(ts => {
+            results.push({
+              stop: data.stopName,
+              line: arrival.line,
+              destination: arrival.destination,
+              minutes: minutesFromNow(ts)
+            });
+          });
+        }
+      } catch (e) {
+        console.error("Error cargando", source.url, e);
+      }
+    }
+
+    return results.sort((a, b) => a.minutes - b.minutes);
+  }
+
+  function render(arrivals) {
+    arrivalsEl.innerHTML = "";
+
+    if (arrivals.length === 0) {
+      arrivalsEl.innerHTML = `
+        <li class="Box-row text-small color-fg-muted">
+          No hay servicios próximos
+        </li>
+      `;
+      return;
+    }
+
+    arrivals.forEach(a => {
+      const li = document.createElement("li");
+      li.className = "Box-row d-flex flex-justify-between flex-items-center";
+
+      li.innerHTML = `
+        <div>
+          <strong class="mr-2">${a.line}</strong>
+          <span class="color-fg-muted">${a.destination}</span>
+        </div>
+        <div class="text-right">
+          <span class="Label Label--accent">${a.minutes} min</span>
+        </div>
+      `;
+
+      arrivalsEl.appendChild(li);
+    });
+  }
+
+  async function refresh() {
+    statusEl.textContent = "Actualizando…";
+    const arrivals = await loadArrivals();
+    render(arrivals);
+    statusEl.textContent = "Actualizado " + new Date().toLocaleTimeString();
+  }
+
+  refresh();
+  setInterval(refresh, 60000);
+})();
+</script>
 
 <!-- Modal de descarga de la app -->
 <div id="download-app-modal" style="
