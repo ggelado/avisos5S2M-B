@@ -9,4 +9,4 @@ excerpt: "Disponibles en https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?DNI
 
 ---
 
-Se han publicado las notas de las prácticas de SSOO (minishell y módulos). Disponibles para consulta en [https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?DNI=&MAT=&Asig=ssooX&Curs=2025B&Conv=Ene&Tipo=prac](https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?DNI=&MAT=&Asig=ssooX&Curs=2025B&Conv=Ene&Tipo=prac(
+Se han publicado las notas de las prácticas de SSOO (minishell y módulos). Disponibles para consulta en [https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?DNI=&MAT=&Asig=ssooX&Curs=2025B&Conv=Ene&Tipo=prac](https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?DNI=&MAT=&Asig=ssooX&Curs=2025B&Conv=Ene&Tipo=prac)
