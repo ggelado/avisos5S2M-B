@@ -108,6 +108,10 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 
 # Sistemas Operativos
 
+13 de enero a las 15 horas
+
+<!-- PENDIENTE DE PUBLICACIÓN DE ASIGNACIÓN POR AULAS
+
 <iframe frameborder="0" width="100%" height="500px" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listado">
 <A href="aula-alumno.cgi"           >Listado de alumnos</A>
 </iframe>
@@ -115,11 +119,12 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 <TABLE border="1" id="asignacion">
 <TR><TD>
 	<FONT color="red"><B>
-	Este listado en el momento de escribir este aviso es del anterior examen, pero se actualizará más adelante con la asignación real de asientos.<BR>
-	Vuelva a consultar su asiento asignado antes de la prueba pues podría haber cambios de última hora.
+	Este listado en el momento de escribir este aviso es del anterior examen, pero se actualizará más adelante con la asignación real de asientos.<BR> 
 	</B></FONT> <BR>
 </TD></TR>
 </TABLE>
+-->
+
 # Tecnologías de Red Cisco CCNA
 
 GII 105000087 Tecnologías de Red Cisco: CCNA 7º 10:00 Salas El Monje y Los Verdes
