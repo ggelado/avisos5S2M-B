@@ -185,12 +185,3 @@ document.getElementById("close-modal").onclick = function () {
 </script>
 
 {% endraw %}
-
-<a
-  href="https://github.com/ggelado/avisos5S2M-B/edit/main/{{ page.path }}"
-  target="_blank"
-  class="edit-post"
->
-  ✏️ Editar aviso
-</a>
-
