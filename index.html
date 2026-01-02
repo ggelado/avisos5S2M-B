@@ -130,10 +130,14 @@ title: "Avisos 5S2M-B"
   };
 
   const SOURCES = [
-    { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573"] },
-    { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
-    { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
-    { url: "https://api.madridtransporte.com/stops/tram/29/times", lines: null }
+  { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573"] },
+  { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
+  { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
+  { 
+    url: "https://api.madridtransporte.com/stops/tram/29/planned", 
+    lines: null, 
+    isTram: true // marca que es metro ligero
+	}
   ];
 
   const arrivalsEl = document.getElementById("arrivals");
@@ -157,6 +161,24 @@ title: "Avisos 5S2M-B"
         const res = await fetch(source.url);
         const data = await res.json();
 
+        // --- Metro Ligero ---
+        if (source.isTram) {
+          for (const arrival of data) {
+            if (arrival.direction !== 2) continue; // solo dirección 2
+            uniqueSorted(arrival.arrives || []).forEach(ts => {
+              results.push({
+                line: arrival.lineCode,
+                lineCode: arrival.lineCode,
+                destination: arrival.destination,
+                minutes: minutesFromNow(ts),
+                isTram: true
+              });
+            });
+          }
+          continue;
+        }
+
+        // --- Buses ---
         for (const arrival of data.arrives || []) {
           if (source.lines && !source.lines.includes(arrival.line)) continue;
 
@@ -165,7 +187,8 @@ title: "Avisos 5S2M-B"
               line: arrival.line,
               lineCode: arrival.lineCode,
               destination: arrival.destination,
-              minutes: minutesFromNow(ts)
+              minutes: minutesFromNow(ts),
+              isTram: false
             });
           });
         }
@@ -174,7 +197,14 @@ title: "Avisos 5S2M-B"
       }
     }
 
-    return results.sort((a, b) => a.minutes - b.minutes);
+    // Ordenar por tiempo
+    const sorted = results.sort((a, b) => a.minutes - b.minutes);
+    
+    // Limitar metro ligero a 3 llegadas
+    const tramArrivals = sorted.filter(a => a.isTram).slice(0, 3);
+    const busArrivals = sorted.filter(a => !a.isTram);
+    
+    return [...busArrivals, ...tramArrivals].sort((a, b) => a.minutes - b.minutes);
   }
 
   // --- Cargar ubicación de buses con stopCode obligatorio ---
@@ -255,42 +285,35 @@ title: "Avisos 5S2M-B"
   }
 
   // --- Renderizar lista de llegadas ---
-  function render(arrivals) {
-    arrivalsEl.innerHTML = "";
+	function render(arrivals) {
+	  arrivalsEl.innerHTML = "";
 
-    if (!arrivals.length) {
-      arrivalsEl.innerHTML = "<li class='Box-row text-small color-fg-muted'>No hay servicios próximos</li>";
-      return;
-    }
+	  if (!arrivals.length) {
+		arrivalsEl.innerHTML = "<li class='Box-row text-small color-fg-muted'>No hay servicios próximos</li>";
+		return;
+	  }
 
-    arrivals.forEach(a => {
-      const li = document.createElement("li");
-      li.className = "Box-row";
+	  arrivals.forEach(a => {
+		const li = document.createElement("li");
+		li.className = "Box-row";
 
-      li.innerHTML = `
-        <div class="d-flex flex-justify-between flex-items-center">
-          <div>
-            <strong>${a.line}</strong>
-            <span class="color-fg-muted">→ ${a.destination}</span>
-          </div>
-          <div class="text-right">
-            <span class="Label Label--accent mr-2">${a.minutes} min</span>
-            <button
-              class="btn btn-sm btn-outline"
-              data-linecode="${a.lineCode}"
-            >Ver ubicación (beta)</button>
-          </div>
-        </div>
-        <div
-          id="map-${a.lineCode}"
-          class="d-none mt-2"
-          style="height: 300px; border-radius: 6px;"
-        ></div>
-      `;
+		li.innerHTML = `
+		  <div class="d-flex flex-justify-between flex-items-center">
+			<div>
+			  <strong>${a.line}</strong>
+			  <span class="color-fg-muted">→ ${a.destination}</span>
+			</div>
+			<div class="text-right">
+			  <span class="Label Label--accent mr-2">${a.minutes} min</span>
+			  ${a.isTram ? '' : `<button class="btn btn-sm btn-outline" data-linecode="${a.lineCode}">Ver ubicación (beta)</button>`}
+			</div>
+		  </div>
+		  ${a.isTram ? '' : `<div id="map-${a.lineCode}" class="d-none mt-2" style="height: 300px; border-radius: 6px;"></div>`}
+		`;
 
-      arrivalsEl.appendChild(li);
-    });
-  }
+		arrivalsEl.appendChild(li);
+	  });
+	}
 
   arrivalsEl.addEventListener("click", e => {
     if (e.target.tagName === "BUTTON") {
