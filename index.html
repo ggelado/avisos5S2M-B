@@ -130,6 +130,20 @@ title: "Avisos 5S2M-B"
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+// --- Servicios lanzadera (horario fijo, L-V) ---
+const SHUTTLES = [
+  {
+    line: "LZ-CIU",
+    destination: "Campus de Montegancedo → Ciudad Universitaria (PROGRAMADO)",
+    times: ["10:00", "11:00", "12:00", "13:00", "14:00"]
+  },
+  {
+    line: "LZ-BARR",
+    destination: "Campus de Montegancedo →  El Barrial – Centro Comercial Pozuelo (PROGRAMADO)",
+    times: ["08:35", "09:15", "10:00"]
+  }
+];
+
 (() => {
   // --- Paradas de referencia por línea (para el endpoint locations) ---
   const LINE_STOPS = {
@@ -158,6 +172,21 @@ title: "Avisos 5S2M-B"
   function minutesFromNow(ts) {
     return Math.max(0, Math.round((ts - Date.now()) / 60000));
   }
+  
+	function isWeekday(date = new Date()) {
+	  const d = date.getDay();
+	  return d >= 1 && d <= 5; // L-V
+	}
+
+
+function minutesUntilTodayTime(hhmm) {
+  const [h, m] = hhmm.split(":").map(Number);
+  const now = new Date();
+  const t = new Date();
+  t.setHours(h, m, 0, 0);
+  return Math.round((t - now) / 60000);
+}
+
 
   function uniqueSorted(arr) {
     return [...new Set(arr)].sort((a, b) => a - b);
@@ -207,6 +236,27 @@ title: "Avisos 5S2M-B"
         console.error("Error cargando", source.url, e);
       }
     }
+	
+	    // --- Lanzaderas programadas ---
+    if (isWeekday()) {
+      SHUTTLES.forEach(shuttle => {
+        shuttle.times.forEach(time => {
+          const minutes = minutesUntilTodayTime(time);
+
+          // solo mostrar cuando quede menos de 1h
+          if (minutes > 0 && minutes <= 60) {
+            results.push({
+              line: shuttle.line,
+              lineCode: shuttle.line,
+              destination: shuttle.destination,
+              minutes,
+              isTram: true
+            });
+          }
+        });
+      });
+    }
+
 
     // Ordenar por tiempo
     const sorted = results.sort((a, b) => a.minutes - b.minutes);
@@ -362,6 +412,20 @@ async function actualizarBusesSimplificados() {
   function minutesFromNow(ts) {
     return Math.max(0, Math.round((ts - Date.now()) / 60000));
   }
+  
+	function isWeekday(date = new Date()) {
+	  const d = date.getDay();
+	  return d >= 1 && d <= 5; // L-V
+	}
+
+
+function minutesUntilTodayTime(hhmm) {
+  const [h, m] = hhmm.split(":").map(Number);
+  const now = new Date();
+  const t = new Date();
+  t.setHours(h, m, 0, 0);
+  return Math.round((t - now) / 60000);
+}
 
   function uniqueSorted(arr) {
     return [...new Set(arr)].sort((a, b) => a - b);
@@ -397,9 +461,29 @@ async function actualizarBusesSimplificados() {
             });
           });
         }
+		
       } catch (e) {
         console.error("Error cargando", source.url, e);
       }
+    }
+	
+	    if (isWeekday()) {
+      SHUTTLES.forEach(shuttle => {
+        shuttle.times.forEach(time => {
+          const minutes = minutesUntilTodayTime(time);
+
+          // solo mostrar cuando quede menos de 1h
+          if (minutes > 0 && minutes <= 60) {
+            results.push({
+              line: shuttle.line,
+              lineCode: shuttle.line,
+              destination: shuttle.destination,
+              minutes,
+              isTram: true
+            });
+          }
+        });
+      });
     }
 
     const sorted = results.sort((a, b) => a.minutes - b.minutes);
