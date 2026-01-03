@@ -33,6 +33,7 @@ title: "Avisos 5S2M-B"
   Estado del Transporte Público
 </a>
 
+<!-- BLOQUE WIDGETS -->
 <div style="
   max-width: 900px;
   margin: 20px auto;
@@ -52,10 +53,7 @@ title: "Avisos 5S2M-B"
   ">
 
     <!-- AEMET -->
-    <div style="
-      flex: 1 1 260px;
-      min-width: 260px;
-    ">
+    <div style="flex: 1 1 260px; min-width: 260px;">
       <div style="
         margin-top: 6px;
         border-radius: 8px;
@@ -75,45 +73,37 @@ title: "Avisos 5S2M-B"
     </div>
 
     <!-- CRTM -->
-    <div style="
-		  flex: 1 1 260px;
-		  min-width: 260px;
-		">
-		  <div style="
-			margin-top: 6px;
-			padding: 8px;
-			background: white;
-			border-radius: 8px;
-			border: 1px solid #ddd;
-			height: auto;
-			overflow-x: auto;
-			overflow-y: hidden;
-		  ">
-			<div id="estado-crtm" style="
-			  white-space: nowrap;
-			  overflow-x: auto;
-			  text-align: center;
-			">Cargando estado del servicio…</div>
-		  </div>
-		  
-		  <!-- Próximos buses simplificado -->
-		  <div id="buses-simplificado" style="
-			margin-top: 8px;
-			padding: 8px;
-			background: white;
-			border-radius: 8px;
-			border: 1px solid #ddd;
-			font-size: 0.85em;
-			text-align: center;
-		  ">
-			Cargando próximos buses…
-		  </div>
-		</div>
+    <div style="flex: 1 1 260px; min-width: 260px;">
+      <div style="
+        margin-top: 6px;
+        padding: 8px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        overflow-x: auto;
+      ">
+        <div id="estado-crtm" style="text-align:center;">
+          Cargando estado del servicio…
+        </div>
+      </div>
+
+      <div id="buses-simplificado" style="
+        margin-top: 8px;
+        padding: 8px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 0.85em;
+        text-align: center;
+      ">
+        Cargando próximos transportes…
+      </div>
     </div>
 
   </div>
 </div>
-</div>
+<!-- FIN BLOQUE WIDGETS -->
+
 
 
 
