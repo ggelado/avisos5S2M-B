@@ -262,7 +262,7 @@ function minutesUntilTodayTime(hhmm) {
     const sorted = results.sort((a, b) => a.minutes - b.minutes);
     
     // Limitar metro ligero a 3 llegadas
-    const tramArrivals = sorted.filter(a => a.isTram).slice(0, 3);
+    const tramArrivals = sorted.filter(a => a.isTram && a.line === "ML3").slice(0, 3);
     const busArrivals = sorted.filter(a => !a.isTram);
     
     return [...busArrivals, ...tramArrivals].sort((a, b) => a.minutes - b.minutes);
