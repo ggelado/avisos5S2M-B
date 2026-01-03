@@ -336,7 +336,7 @@ title: "Avisos 5S2M-B"
     statusEl.textContent = "Actualizando…";
     const arrivals = await loadArrivals();
     render(arrivals);
-    statusEl.textContent = "Actualizado " + new Date().toLocaleTimeString() + ". Es la API del CRTM, no va muy bien, rogamos comprensión.";
+    statusEl.textContent = "Actualizado " + new Date().toLocaleTimeString() + ". Es la API del CRTM, no va muy bien, rogamos comprensión. Las líneas no mostradas son por no recibir respuesta en la API.";
   }
 
   refresh();
@@ -418,7 +418,7 @@ async function actualizarBusesSimplificados() {
     
   } catch (err) {
     console.error('Error actualizando buses simplificados:', err);
-    contenedor.innerHTML = 'Error al cargar';
+    contenedor.innerHTML = 'API CRTM caída. Actualiza la web.';
   }
 }
 
@@ -540,7 +540,7 @@ async function cargarEstadoCRTM() {
 
   } catch (err) {
     console.error("Error CRTM:", err);
-    contenedor.innerText = "Error al cargar información del servicio";
+    contenedor.innerText = "Consulta al CRTM fallida. Recarga la web y vuelve a intentarlo,";
   }
 }
 
