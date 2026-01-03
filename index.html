@@ -76,25 +76,68 @@ title: "Avisos 5S2M-B"
 
     <!-- CRTM -->
     <div style="
-      flex: 1 1 260px;
-      min-width: 260px;
-    ">
-      <div style="
-        margin-top: 6px;
-        padding: 8px;
-        background: white;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        height: 170px;
-        overflow-y: auto;
-      ">
-        <div id="estado-crtm">Cargando estado del servicio…</div>
-      </div>
+		  flex: 1 1 260px;
+		  min-width: 260px;
+		">
+		  <div style="
+			margin-top: 6px;
+			padding: 8px;
+			background: white;
+			border-radius: 8px;
+			border: 1px solid #ddd;
+			height: auto;
+			overflow-x: auto;
+			overflow-y: hidden;
+		  ">
+			<div id="estado-crtm" style="
+			  white-space: nowrap;
+			  overflow-x: auto;
+			  text-align: center;
+			">Cargando estado del servicio…</div>
+		  </div>
+		  
+		  <!-- Próximos buses simplificado -->
+		  <div id="buses-simplificado" style="
+			margin-top: 8px;
+			padding: 8px;
+			background: white;
+			border-radius: 8px;
+			border: 1px solid #ddd;
+			font-size: 0.85em;
+			text-align: center;
+		  ">
+			Cargando próximos buses…
+		  </div>
+		</div>
     </div>
 
   </div>
 </div>
+<style>
+/* Forzar que todo el contenido del CRTM quede en línea */
+#estado-crtm * {
+  display: inline-block !important;
+  vertical-align: middle;
+}
 
+#estado-crtm img {
+  max-height: 40px;
+  width: auto;
+  margin: 0 2px;
+}
+
+#estado-crtm .BarraVertical {
+  width: 1px;
+  height: 30px;
+  background-color: #ccc;
+  margin: 0 8px;
+}
+
+/* Asegurar que no haya saltos de línea */
+#estado-crtm div {
+  white-space: nowrap;
+}
+</style>
 
 
 
@@ -331,6 +374,91 @@ title: "Avisos 5S2M-B"
   refresh();
   setInterval(refresh, 60000);
 })();
+</script>
+<script>
+async function actualizarBusesSimplificados() {
+  const contenedor = document.getElementById('buses-simplificado');
+  if (!contenedor) return;
+
+  const SOURCES = [
+    { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573"] },
+    { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
+    { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
+    { 
+      url: "https://api.madridtransporte.com/stops/tram/29/planned", 
+      lines: null, 
+      isTram: true
+    }
+  ];
+
+  function minutesFromNow(ts) {
+    return Math.max(0, Math.round((ts - Date.now()) / 60000));
+  }
+
+  function uniqueSorted(arr) {
+    return [...new Set(arr)].sort((a, b) => a - b);
+  }
+
+  try {
+    const results = [];
+
+    for (const source of SOURCES) {
+      try {
+        const res = await fetch(source.url);
+        const data = await res.json();
+
+        if (source.isTram) {
+          for (const arrival of data) {
+            if (arrival.direction !== 2) continue;
+            uniqueSorted(arrival.arrives || []).forEach(ts => {
+              results.push({
+                line: arrival.lineCode,
+                minutes: minutesFromNow(ts)
+              });
+            });
+          }
+          continue;
+        }
+
+        for (const arrival of data.arrives || []) {
+          if (source.lines && !source.lines.includes(arrival.line)) continue;
+          uniqueSorted(arrival.estimatedArrives || []).forEach(ts => {
+            results.push({
+              line: arrival.line,
+              minutes: minutesFromNow(ts)
+            });
+          });
+        }
+      } catch (e) {
+        console.error("Error cargando", source.url, e);
+      }
+    }
+
+    const sorted = results.sort((a, b) => a.minutes - b.minutes);
+    
+    if (sorted.length === 0) {
+      contenedor.innerHTML = 'No hay buses próximos';
+      return;
+    }
+
+    const primerosLlegadas = sorted.slice(0, 5);
+    const html = primerosLlegadas.map(a => 
+      `<span><strong>${a.line}</strong>: <span class="bus-time">${a.minutes}'</span></span>`
+    ).join(' · ');
+    
+    contenedor.innerHTML = html;
+    
+  } catch (err) {
+    console.error('Error actualizando buses simplificados:', err);
+    contenedor.innerHTML = 'Error al cargar';
+  }
+}
+
+// Actualizar al cargar y cada minuto
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(actualizarBusesSimplificados, 1000);
+  setInterval(actualizarBusesSimplificados, 60000);
+});
 </script>
 
 <!-- Modal de descarga de la app -->
