@@ -135,12 +135,13 @@ title: "Avisos 5S2M-B"
   const LINE_STOPS = {
     "8__571___": "08771",
     "8__573___": "08771",
+    "8_N_905___": "08771",
     "8__591___": "08411",
     "8__865___": "17573"
   };
 
   const SOURCES = [
-  { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573"] },
+  { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
   { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
   { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
   { 
@@ -348,7 +349,7 @@ async function actualizarBusesSimplificados() {
   if (!contenedor) return;
 
   const SOURCES = [
-    { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573"] },
+    { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
     { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
     { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
     { 
