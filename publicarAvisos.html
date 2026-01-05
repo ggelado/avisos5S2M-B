@@ -114,7 +114,7 @@
 window.addEventListener('load', async () => {
   const submitBtn = document.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
-  submitBtn.textContent = "Encendiendo servidor…";
+  submitBtn.textContent = "Encendiendo servidor… (paciencia, puede tardar)";
 
   try {
     const res = await fetch('https://notifierpushrss.onrender.com/health');
