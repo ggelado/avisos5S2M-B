@@ -20,3 +20,5 @@ En relación al aviso publicado [aquí](https://ggelado.github.io/avisos5S2M-B/c
 - Aquellos alumnos que teniendo aprobada la parte teórica de otros años (no han hecho parciales en esta convocatoria) o bien han decidido renunciar en esta convocatoria a la parte teórica (por haber alcanzado una mala calificación en los parciales **Y NO TENER INTENCIÓN DE PRESENTARSE AL EXAMEN FINAL (RECUPERACIÓN)**) deben marcar la opción `Evaluación: Renuncia_a/no_precisa evaluar la parte teórica`.
 
 Esperamos que con ello las consultas que pudierais tener hayan quedado aclaradas. En cualquier caso si tenéis más dudas podéis consultarlas [aquí](mailto:frosal@fi.upm.es?subject=Consulta%20sobre%20encuesta%20Moodle&body=Hola%0D%0A%0D%0AMi%20nombre%20es%20%5BCOMPLETAR%5D%0D%0A%0D%0AEn%20relaci%C3%B3n%20a%20la%20encuesta%20publicada%20en%20Moodle%2C%20tengo%20la%20siguiente%20consulta%3A%0D%0A%0D%0A%5BEXPONER%20LA%20CONSULTA%5D%0D%0A%0D%0A%C2%BFQu%C3%A9%20deber%C3%ADa%20marcar%20en%20la%20encuesta%3F%0D%0A%0D%0AUn%20saludo%20y%20muchas%20gracias%20de%20antemano.).
+
+Recordamos que el ranking se publicará el día 9, y la encuesta cierra el día 10. 
