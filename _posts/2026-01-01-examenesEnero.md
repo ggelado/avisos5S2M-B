@@ -10,6 +10,149 @@ categories:
 excerpt: Aulas de exámenes de enero
 image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-2026-vispera-ano-nuevo_1017-60883.jpg?semt=ais_hybrid&w=740&q=80
 ---
+
+{% raw %}
+<div id="buses-simplificado" style="
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin-top: 8px;
+  padding: 8px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.85em;
+  text-align: center;
+">
+  Cargando próximos transportes…
+</div>
+<script>
+
+// --- Lanzaderas (L-V) ---
+const SHUTTLES = [
+  {
+    line: "LZ-CIU",
+    times: ["10:00", "11:00", "12:00", "13:00", "14:00"]
+  },
+  {
+    line: "LZ-BARR",
+    times: ["08:35", "09:15", "10:00"]
+  }
+];
+
+// --- Fuentes CRTM ---
+const SOURCES = [
+  { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
+  { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
+  { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
+  { url: "https://api.madridtransporte.com/stops/tram/29/planned", isTram: true }
+];
+
+// --- Utilidades ---
+function minutesFromNow(ts) {
+  return Math.max(0, Math.round((ts - Date.now()) / 60000));
+}
+
+function uniqueSorted(arr) {
+  return [...new Set(arr)].sort((a, b) => a - b);
+}
+
+function isWeekday(date = new Date()) {
+  const d = date.getDay();
+  return d >= 1 && d <= 5;
+}
+
+function minutesUntilTodayTime(hhmm) {
+  const [h, m] = hhmm.split(":").map(Number);
+  const now = new Date();
+  const t = new Date();
+  t.setHours(h, m, 0, 0);
+  return Math.round((t - now) / 60000);
+}
+
+// --- Actualización principal ---
+async function actualizarBusesSimplificados() {
+  const contenedor = document.getElementById("buses-simplificado");
+  if (!contenedor) return;
+
+  try {
+    const results = [];
+
+    // --- CRTM ---
+    for (const source of SOURCES) {
+      try {
+        const res = await fetch(source.url);
+        const data = await res.json();
+
+        // Metro Ligero
+        if (source.isTram) {
+          for (const a of data) {
+            if (a.direction !== 2) continue;
+            uniqueSorted(a.arrives || []).forEach(ts => {
+              results.push({
+                line: a.lineCode,
+                minutes: minutesFromNow(ts)
+              });
+            });
+          }
+          continue;
+        }
+
+        // Buses
+        for (const a of data.arrives || []) {
+          if (source.lines && !source.lines.includes(a.line)) continue;
+          uniqueSorted(a.estimatedArrives || []).forEach(ts => {
+            results.push({
+              line: a.line,
+              minutes: minutesFromNow(ts)
+            });
+          });
+        }
+      } catch (_) {}
+    }
+
+    // --- Lanzaderas ---
+    if (isWeekday()) {
+      SHUTTLES.forEach(s => {
+        s.times.forEach(t => {
+          const min = minutesUntilTodayTime(t);
+          if (min > 0 && min <= 60) {
+            results.push({
+              line: s.line,
+              minutes: min
+            });
+          }
+        });
+      });
+    }
+
+    // --- Render ---
+    const sorted = results.sort((a, b) => a.minutes - b.minutes).slice(0, 10);
+
+    if (!sorted.length) {
+      contenedor.textContent = "No hay servicios próximos";
+      return;
+    }
+
+    contenedor.innerHTML = sorted
+      .map(b => `<span><strong>${b.line}</strong>: <span class="bus-time">${b.minutes}'</span></span>`)
+      .join(" · ");
+
+  } catch (e) {
+    contenedor.textContent = "API CRTM caída. Actualiza la web.";
+  }
+}
+
+// --- Arranque ---
+document.addEventListener("DOMContentLoaded", () => {
+  actualizarBusesSimplificados();
+  setInterval(actualizarBusesSimplificados, 60000);
+});
+</script>
+
+{% endraw %}
+
+
 Feliz año.
 
 Y como regalo de año nuevo, la lista de aulas de los exámenes:
