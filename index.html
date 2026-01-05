@@ -250,7 +250,7 @@ function minutesUntilTodayTime(hhmm) {
               lineCode: shuttle.line,
               destination: shuttle.destination,
               minutes,
-              isTram: true
+              isShuttle: true
             });
           }
         });
@@ -262,10 +262,19 @@ function minutesUntilTodayTime(hhmm) {
     const sorted = results.sort((a, b) => a.minutes - b.minutes);
     
     // Limitar metro ligero a 3 llegadas
-    const tramArrivals = sorted.filter(a => a.isTram && a.line === "ML3").slice(0, 3);
-    const busArrivals = sorted.filter(a => !a.isTram);
-    
-    return [...busArrivals, ...tramArrivals].sort((a, b) => a.minutes - b.minutes);
+	const tramArrivals = sorted
+	  .filter(a => a.isTram && a.line === "ML3")
+	  .slice(0, 3);
+
+	// Buses normales
+	const busArrivals = sorted.filter(a => !a.isTram && !a.isShuttle);
+
+	// Lanzaderas
+	const shuttleArrivals = sorted.filter(a => a.isShuttle);
+
+	return [...busArrivals, ...shuttleArrivals, ...tramArrivals]
+	  .sort((a, b) => a.minutes - b.minutes);
+
   }
 
   // --- Cargar ubicación de buses con stopCode obligatorio ---
@@ -366,10 +375,10 @@ function minutesUntilTodayTime(hhmm) {
 			</div>
 			<div class="text-right">
 			  <span class="Label Label--accent mr-2">${a.minutes} min</span>
-			  ${a.isTram ? '' : `<button class="btn btn-sm btn-outline" data-linecode="${a.lineCode}">Ver ubicación (beta)</button>`}
+			  ${(a.isTram || a.isShuttle) ? '' : `<button class="btn btn-sm btn-outline" data-linecode="${a.lineCode}">Ver ubicación (beta)</button>`}
 			</div>
 		  </div>
-		  ${a.isTram ? '' : `<div id="map-${a.lineCode}" class="d-none mt-2" style="height: 300px; border-radius: 6px;"></div>`}
+		  ${(a.isTram || a.isShuttle) ? '' : `<div id="map-${a.lineCode}" class="d-none mt-2" style="height: 300px; border-radius: 6px;"></div>`}
 		`;
 
 		arrivalsEl.appendChild(li);
