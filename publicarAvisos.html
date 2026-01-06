@@ -240,6 +240,20 @@ window.addEventListener('load', async () => {
         const result = await res.json();
 
         if (res.ok && result.success) {
+			// Crear un blob con el contenido del archivo
+			const blob = new Blob([result.data.fileContent], { type: 'text/markdown' });
+			
+			// Crear un enlace temporal para la descarga
+			const link = document.createElement('a');
+			link.href = URL.createObjectURL(blob);
+			link.download = result.data.filename;
+			
+			// "Clicarlo" automáticamente
+			link.click();
+			
+			// Liberar el objeto URL después de la descarga
+			URL.revokeObjectURL(link.href);
+
           // Mostrar mensaje de éxito con enlace a la PR
           responseDiv.innerHTML = `
             <strong>✅ ${result.message}</strong>
