@@ -2,5 +2,20 @@
   "name": "Avisos 5S2M-B",
   "short_name": "Avisos 5S2M-B",
   "start_url": "/avisos5S2M-B/",
-  "display": "standalone"
+  "scope": "/avisos5S2M-B/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00ace9",
+  "icons": [
+    {
+      "src": "/avisos5S2M-B/icons/192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/avisos5S2M-B/icons/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
