@@ -191,46 +191,74 @@
 </script>
 <div id="futbol-alert"></div>
 <script>
-  async function checkFutbol() {
-    try {
-      const res = await fetch('https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json');
-      const data = await res.json();
+async function checkFutbol() {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout
 
-      let count = 0;
-      const ips = new Map();
+  try {
+    const res = await fetch(
+      'https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json',
+      { signal: controller.signal }
+    );
 
-      data.data.forEach(entry => {
-        if (entry.stateChanges && entry.stateChanges.length > 0) {
-          const last = entry.stateChanges[entry.stateChanges.length - 1];
-          if (last.state === true && entry.description === "Cloudflare") {
-            ips.set(entry.ip, (ips.get(entry.ip) || 0) + 1);
-          }
+    clearTimeout(timeoutId);
+
+    // ❌ Si es 4xx o 5xx, NO mostramos irregularidades
+    if (!res.ok) {
+      console.warn('HTTP error:', res.status);
+      return;
+    }
+
+    const data = await res.json();
+
+    const ips = new Map();
+
+    data.data.forEach(entry => {
+      if (entry.stateChanges?.length > 0) {
+        const last = entry.stateChanges.at(-1);
+        if (last.state === true && entry.description === "Cloudflare") {
+          ips.set(entry.ip, (ips.get(entry.ip) || 0) + 1);
         }
-      });
+      }
+    });
 
-      count = Array.from(ips.values()).filter(c => c > 2).length;
-      const hayFutbol = count > 10;
+    const count = [...ips.values()].filter(c => c > 2).length;
+    const hayFutbol = count > 10;
+
+    const div = document.getElementById('futbol-alert');
+
+    if (hayFutbol) {
+      div.innerHTML =
+        '<strong>HAY BLOQUEOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs pueden no funcionar con normalidad...';
+      div.style.cssText =
+        'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
+    } else {
+      div.style.display = 'none';
+      div.innerHTML = '';
+    }
+
+  } catch (e) {
+    clearTimeout(timeoutId);
+
+    if (e.name === 'AbortError' || e instanceof TypeError) {
+      console.error('Network/timeout error:', e);
 
       const div = document.getElementById('futbol-alert');
-
-      if (hayFutbol) {
-        div.innerHTML = '<strong>HAY BLOQUEOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs pueden no funcionar con normalidad. Este aviso solo se muestra cuando hay bloqueos activos y confirmados en este momento. Informate de tus derechos al respecto.';
-        div.style.cssText = 'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
-      } else {
-        div.style.display = 'none';
-        div.innerHTML = '';
-      }
-    } catch (e) {
-      console.error('Error:', e);
-	  const div = document.getElementById('futbol-alert');
-	  div.innerHTML = '<strong>TÚ CONEXIÓN A INTERNET PRESENTA IRREGULARIDADES:</strong> Tu conexión a varios scripts (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Es muy probable que se trate de los bloqueos indiscriminados de LaLiga, pero no podemos asegurarlo. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.';
-      div.style.cssText = 'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
+      div.innerHTML =
+        '<strong>TU CONEXIÓN A INTERNET PRESENTA IRREGULARIDADES:</strong> Tu conexión a varios scripts (alojados en Cloudflare) ha fallado...';
+      div.style.cssText =
+        'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
+    } else {
+      // Otros errores → no hacer nada
+      console.warn('Ignored error:', e);
     }
   }
+}
 
-  checkFutbol();
-  setInterval(checkFutbol, 120000);
+checkFutbol();
+setInterval(checkFutbol, 120000);
 </script>
+
 <!--
 <div id="navidades"
      style="
