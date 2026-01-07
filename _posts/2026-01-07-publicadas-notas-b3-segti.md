@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Publicadas notas B3 SEGTI"
-date: 2026-01-07 09:20 +0100
+date: 2026-01-07 09:20:00 +0100
 author: Gonzalo
 published: true
 expires: 2026-01-08 23:59:59 +0100
