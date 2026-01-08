@@ -23,11 +23,12 @@
   // --- Paradas de referencia por línea ---
   const LINE_STOPS = {
     "8__571___": "08458",
+	"8_N_905___": "08458",
     "8__591___": "08458"
   };
 
   const SOURCES = [
-    { url: "https://api.madridtransporte.com/stops/bus/08458/times", lines: ["571", "591"] }
+    { url: "https://api.madridtransporte.com/stops/bus/08458/times", lines: ["571", "591", "N905"] }
   ];
 
   const arrivalsEl = document.getElementById("arrivals");
