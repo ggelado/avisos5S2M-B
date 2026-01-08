@@ -1,8 +1,8 @@
 # Principales Orígenes:
 
-- [Intercambiador de Aluche](comoLlegar/aluche.html)
-- [Colonia Jardín](comoLlegar/colonia.html)
-- [Moncloa (y Ciudad Universitaria)](comoLlegar/moncloa-ciu.html)
-- [Campamento](comoLlegar/campamento.html)
-- [Lanzadera El Barrial](comoLlegar/barrial.html)
-- [Príncipe Pío (temporalmente no disponible)](comoLlegar/principePio.md)
+- [Intercambiador de Aluche](/avisos5S2M-B/comoLlegar/aluche.html)
+- [Colonia Jardín](/avisos5S2M-B/comoLlegar/colonia.html)
+- [Moncloa (y Ciudad Universitaria)](/avisos5S2M-B/comoLlegar/moncloa-ciu.html)
+- [Campamento](/avisos5S2M-B/comoLlegar/campamento.html)
+- [Lanzadera El Barrial](/avisos5S2M-B/comoLlegar/barrial.html)
+- [Príncipe Pío (temporalmente no disponible)](/avisos5S2M-B/comoLlegar/principePio.html)
