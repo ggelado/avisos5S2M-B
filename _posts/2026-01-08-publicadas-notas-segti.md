@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Publicadas notas B3 SEGTI
+title: Publicadas notas SEGTI
 date: 2026-01-08 10:13:00 +0100
 author: Gonzalo
 published: true
