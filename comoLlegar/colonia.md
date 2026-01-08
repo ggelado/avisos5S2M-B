@@ -28,7 +28,7 @@
   };
 
   const SOURCES = [
-    { url: "https://api.madridtransporte.com/stops/bus/08409/times", lines: ["571", "591", "N905"], }
+    { url: "https://api.madridtransporte.com/stops/bus/08409/times", lines: ["571", "591", "N905"] },
     {
       url: "https://api.madridtransporte.com/stops/tram/29/planned",
       lines: null,
@@ -72,7 +72,7 @@
 
         if (source.isTram) {
           for (const arrival of data) {
-            if (arrival.direction !== 2) continue;
+            if (arrival.direction !== 1) continue;
             uniqueSorted(arrival.arrives || []).forEach(ts => {
               results.push({
                 line: arrival.lineCode,
@@ -109,10 +109,10 @@
       .filter(a => a.isTram && a.line === "ML3")
       .slice(0, 3);
 
-    const busArrivals = sorted.filter(a => !a.isTram && !a.isShuttle);
-    const shuttleArrivals = sorted.filter(a => a.isShuttle);
+    const busArrivals = sorted.filter(a => !a.isTram);
 
-    return [...busArrivals, ...shuttleArrivals, ...tramArrivals]
+
+    return [...busArrivals, ...tramArrivals]
       .sort((a, b) => a.minutes - b.minutes);
   }
 
