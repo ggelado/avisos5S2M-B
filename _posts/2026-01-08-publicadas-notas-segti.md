@@ -83,3 +83,53 @@ Han sido publicadas todas las notas de SegTI y se encuentran disponibles en el a
                             </div>
                         </div>
                     </div>
+
+Tras hacer gestiones desde el Equipo de Delegados del 5S2M-B, ha publicado lo siguiente:
+
+<div class="d-flex border p-2 mb-2 forumpost focus-target  " aria-label="Re: Calificación evaluación progresiva por SEBASTIAN LOMBRAÑA ALBERTO JUAN" data-post-id="27523" data-content="forum-post">
+                        
+                
+                        <div class="d-flex flex-column w-100" data-region-content="forum-post-core">
+                            <header id="post-header-27523-69600b29a9bb169600b299113e5" class="mb-2 header row d-flex">
+                                        <div class="me-2" style="width: 45px;">
+                                                <img class="rounded-circle w-100" src="https://moodle.upm.es/titulaciones/oficiales/theme/image.php/boost/core/1765865634/u/f1" alt="Imagen de SEBASTIAN LOMBRAÑA ALBERTO JUAN" aria-hidden="true" title="Imagen de SEBASTIAN LOMBRAÑA ALBERTO JUAN">
+                                        </div>
+                                <div class="d-flex flex-column">
+                                        <span class="sr-only">En respuesta a BERNARDOS GALINDO MARIA DEL SOCORRO</span>
+                                        <h3 class="h6 font-weight-bold mb-0" data-region-content="forum-post-core-subject" data-reply-subject="Re: Calificación evaluación progresiva">Re: Calificación evaluación progresiva</h3>
+                                        <div class="mb-3" tabindex="-1">
+                                            de <a href="https://moodle.upm.es/titulaciones/oficiales/user/view.php?id=3642&amp;course=1521">SEBASTIAN LOMBRAÑA ALBERTO JUAN</a> - <time datetime="2026-01-08T20:48:48+01:00">jueves, 8 de enero de 2026, 20:48</time>
+                        </div>
+                                </div>
+                            </header>
+                
+                            <div class="d-flex body-content-container">
+                                        <div class="me-2 author-groups-container" style="width: 45px; flex-shrink: 0">
+                                        </div>
+                
+                                <div class="no-overflow w-100 content-alignment-container">
+                                    <div id="post-content-27523" class="post-content-container">
+                                        <div class="text_to_html">Buenas tardes,<br><br>como me ha pedido uno de vuestros delegados, he hecho visibles las calificaciones de las entregas por separado, que deberían aparecer ahora como otro ítem más de calificación. El peso de cada una de los cuatro ítems es el mismo (tres entregas y un cuestionario). Podéis escribirme al correo aj.sebastian@upm.es para cualquier duda relativa al Bloque III, bloque práctico, de la asignatura.<br><br>Saludos,<br>Alberto.</div>
+                                    </div>
+                
+                
+                
+                                        
+                
+                
+                                            <div class="d-flex flex-wrap">
+                                                    <div class="post-actions d-flex align-self-end justify-content-end flex-wrap ms-auto p-1" data-region="post-actions-container" role="menubar" aria-label="Re: Calificación evaluación progresiva por SEBASTIAN LOMBRAÑA ALBERTO JUAN" aria-controls="p27523">
+                                                                <a data-region="post-action" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=18651#p27523" class="btn btn-link" title="Enlace permanente a esta publicación" aria-label="Enlace permanente a esta publicación" role="menuitem" tabindex="0">
+                                                                    Enlace permanente
+                                                                </a>
+                                                                <a data-region="post-action" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=18651#p27472" class="btn btn-link" title="Enlace permanente al padre de esta publicación" aria-label="Enlace permanente al padre de esta publicación" role="menuitem" tabindex="-1">
+                                                                    Mostrar mensaje anterior
+                                                                </a>
+                                                    </div>
+                                            </div>
+                
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
