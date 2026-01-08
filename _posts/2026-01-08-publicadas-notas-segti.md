@@ -35,8 +35,51 @@ Han sido publicadas todas las notas de SegTI y se encuentran disponibles en el a
 <p class="MsoNormal" style="margin-left:18pt;">Recordatorio: El examen del <strong>19 de enero</strong> solo es para los alumnos con la <strong>asignatura suspensa</strong>, y solo pueden presentarse al examen del<strong> bloque (o bloques) que hayan suspendido</strong>.</p>
                         </div>
 
-### Re: Calificación evaluación progresiva
-
-de [BERNARDOS GALINDO MARIA DEL SOCORRO](https://moodle.upm.es/titulaciones/oficiales/user/view.php?id=912&course=1521) - jueves, 8 de enero de 2026, 13:56
-
-<div class="text_to_html">Hola:<br><br>Hemos detectado que la combinación de las notas de los distintos bloques ha sido errónea. Por favor, n<span style="color:#ef4540;"><strong>o tengáis en cuenta vuestras notas hasta que os avise</strong></span> de que ya hemos corregido los errores.<br><br>Un saludo,<br><br>Socorro</div>
+<div class="d-flex border p-2 mb-2 forumpost focus-target  " aria-label="Re: Calificación evaluación progresiva por BERNARDOS GALINDO MARIA DEL SOCORRO" data-post-id="27472" data-content="forum-post" id="yui_3_18_1_1_1767886027986_177">
+                        
+                
+                        <div class="d-flex flex-column w-100" data-region-content="forum-post-core" id="yui_3_18_1_1_1767886027986_176">
+                            <header id="post-header-27472-695fcccb38118695fcccb20bd65" class="mb-2 header row d-flex">
+                                        <div class="me-2" style="width: 45px;">
+                                                <img class="rounded-circle w-100" src="https://moodle.upm.es/titulaciones/oficiales/theme/image.php/boost/core/1765865634/u/f1" alt="Imagen de BERNARDOS GALINDO MARIA DEL SOCORRO" aria-hidden="true" title="Imagen de BERNARDOS GALINDO MARIA DEL SOCORRO">
+                                        </div>
+                                <div class="d-flex flex-column">
+                                        <span class="sr-only">En respuesta a BERNARDOS GALINDO MARIA DEL SOCORRO</span>
+                                        <h3 class="h6 font-weight-bold mb-0" data-region-content="forum-post-core-subject" data-reply-subject="Re: Calificación evaluación progresiva">Re: Calificación evaluación progresiva</h3>
+                                        <div class="mb-3" tabindex="-1">
+                                            de <a href="https://moodle.upm.es/titulaciones/oficiales/user/view.php?id=912&amp;course=1521">BERNARDOS GALINDO MARIA DEL SOCORRO</a> - <time datetime="2026-01-08T16:24:50+01:00">jueves, 8 de enero de 2026, 16:24</time>
+                        </div>
+                                </div>
+                            </header>
+                
+                            <div class="d-flex body-content-container" id="yui_3_18_1_1_1767886027986_175">
+                                        <div class="me-2 author-groups-container" style="width: 45px; flex-shrink: 0">
+                                        </div>
+                
+                                <div class="no-overflow w-100 content-alignment-container" id="yui_3_18_1_1_1767886027986_182">
+                                    <div id="post-content-27472" class="post-content-container">
+                                        <div class="text_to_html">Hola:<br><br>Ya hemos <strong>actualizado las notas de los bloques y de la asignatura</strong>.</div>
+<div class="text_to_html" id="yui_3_18_1_1_1767886027986_181">Por favor, volved a mirar vuestra calificación y mandad las solicitudes de revisión que correspondan de nuevo.&nbsp;<strong>Descartaremos las solicitudes de revisión previas a este momento y tomaremos en cuenta solo las que lleguen a partir de ahora</strong>. El plazo de solicitud se amplia <strong>hasta la media noche del 9 de enero</strong>.<br><br>Un saludo,<br><br>Socorro</div>
+                                    </div>
+                
+                
+                
+                                        
+                
+                
+                                            <div class="d-flex flex-wrap">
+                                                    <div class="post-actions d-flex align-self-end justify-content-end flex-wrap ms-auto p-1" data-region="post-actions-container" role="menubar" aria-label="Re: Calificación evaluación progresiva por BERNARDOS GALINDO MARIA DEL SOCORRO" aria-controls="p27472">
+                                                                <a data-region="post-action" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=18651#p27472" class="btn btn-link" title="Enlace permanente a esta publicación" aria-label="Enlace permanente a esta publicación" role="menuitem" tabindex="0">
+                                                                    Enlace permanente
+                                                                </a>
+                                                                <a data-region="post-action" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=18651#p27439" class="btn btn-link" title="Enlace permanente al padre de esta publicación" aria-label="Enlace permanente al padre de esta publicación" role="menuitem" tabindex="-1">
+                                                                    Mostrar mensaje anterior
+                                                                </a>
+                                                    </div>
+                                            </div>
+                
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
