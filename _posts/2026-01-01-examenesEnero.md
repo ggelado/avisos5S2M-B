@@ -337,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Ignora el primero y aplica a todos los demás
   allH1.forEach((h1, index) => {
-    if (index === 0) return; // Saltar el primer h1
+    if (index === 0 || index === allH1.length - 1) return; // Saltar el primer y último h1
 
     // Crea un contenedor para todo el contenido hasta el siguiente h1
     let container = document.createElement("div");
