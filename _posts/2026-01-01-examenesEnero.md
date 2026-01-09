@@ -333,7 +333,12 @@ Ya no se encuentran en estado beta.
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   // Selecciona todos los h1
-  document.querySelectorAll("h1").forEach(h1 => {
+  const allH1 = document.querySelectorAll("h1");
+
+  // Ignora el primero y aplica a todos los demás
+  allH1.forEach((h1, index) => {
+    if (index === 0) return; // Saltar el primer h1
+
     // Crea un contenedor para todo el contenido hasta el siguiente h1
     let container = document.createElement("div");
     container.style.display = "none";
