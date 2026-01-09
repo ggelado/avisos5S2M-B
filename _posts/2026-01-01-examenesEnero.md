@@ -330,7 +330,42 @@ Ya no se encuentran en estado beta.
 </div>
 
 {% raw %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Selecciona todos los h1
+  document.querySelectorAll("h1").forEach(h1 => {
+    // Crea un contenedor para todo el contenido hasta el siguiente h1
+    let container = document.createElement("div");
+    container.style.display = "none";
+    container.style.marginLeft = "20px";
 
+    // Mueve todo lo que esté después del h1 hasta el siguiente h1 dentro del container
+    let next = h1.nextElementSibling;
+    while (next && next.tagName !== "H1") {
+      let temp = next.nextElementSibling;
+      container.appendChild(next);
+      next = temp;
+    }
+
+    h1.insertAdjacentElement("afterend", container);
+
+    // Agrega símbolo de flecha
+    h1.textContent = "► " + h1.textContent;
+
+    // Evento click para mostrar/ocultar
+    h1.style.cursor = "pointer";
+    h1.addEventListener("click", () => {
+      if (container.style.display === "none") {
+        container.style.display = "block";
+        h1.textContent = "▼ " + h1.textContent.replace(/^►\s*/, "");
+      } else {
+        container.style.display = "none";
+        h1.textContent = "► " + h1.textContent.replace(/^▼\s*/, "");
+      }
+    });
+  });
+});
+</script>
 <script>
 // Evitar mostrar el modal más de una vez
 const shown = localStorage.getItem("appModalShown");
