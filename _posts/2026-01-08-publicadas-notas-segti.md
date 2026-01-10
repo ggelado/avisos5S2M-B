@@ -3,7 +3,7 @@ layout: post
 title: Publicadas notas SEGTI
 date: 2026-01-08 10:13:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-10 23:59:59 +0100
 excerpt: Disponibles en aptdo calificaciones Moodle
 categories:
