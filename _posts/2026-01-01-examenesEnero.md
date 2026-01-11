@@ -269,7 +269,9 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 
 16 horas
 
-
+<iframe frameborder="0" width="100%" height="500px" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno-EFS.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listadoEFS">
+<A href="aula-alumno.cgi"           >Listado de alumnos</A>
+</iframe>
 
 
 ## Examen del minishell
@@ -292,7 +294,9 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 </td></tr>
 </tbody></table>
 
-
+<iframe frameborder="0" width="100%" height="500px" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno-Pr3.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listado">
+<A href="aula-alumno.cgi"           >Listado de alumnos</A>
+</iframe>
 
 
 
