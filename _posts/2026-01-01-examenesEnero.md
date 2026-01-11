@@ -283,8 +283,8 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 <tr><td>
 
 	Sólo podrán accecer a la Pr3 aquellos alumnos <b>con un 1 en la columna DrchPr3</b>
-	de la lista <a href="https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?Asig=ssooX&amp;Curs=2025A&amp;Conv=Jul&amp;Tipo=prac">
-	Calificación Prácticas Diseño y Análisis a Julio 2025 </a>.<br>
+	de la lista <a href="https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?Asig=ssooX&amp;Curs=2025B&amp;Conv=Ene&amp;Tipo=prac">
+	Calificación Prácticas Diseño y Análisis a Enero 2025B </a>.<br>
 
 	Siéntese en el asiento que le corresponde según el <a href="#listado">listado de alumnos</a> adjunto.<br>
 	<font color="red"><b>
