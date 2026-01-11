@@ -251,22 +251,54 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 
 # Sistemas Operativos
 
-13 de enero a las 15 horas
+13 de enero. Más info [https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/](https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/).
 
-<!-- PENDIENTE DE PUBLICACIÓN DE ASIGNACIÓN POR AULAS
+<table border="1">
+<tbody><tr><th>Instrucciones para los Estudiantes</th></tr>
+<tr><td><ul>
+	<li>No se permite el uso del móvil. Deberá mantenerlo apagado y fuera de la vista/acceso.</li>
+	<li>Deberá poner visible sobre la mesa <b>documentación acreditativa de su identidad</b>.</li>
+	<li>Deberá identificarse en la cabecera de cada hoja: Nombre, Apellidos, DNI y número de hoja sobre hojas en total.</li>
+	<li>Deberá identificarse en los Tests. Su DNI y la CLAVE de examen son fundamentales para poder corregir.</li>
+	<li>Si necesita justificante solicíteselo al profesor durante la prueba.</li>
+	<li>Para el Examen Final podrá utilizar como material de consulta solamente los resúmenes manuscritos de los temas para los que en el pasado haya ganado el visado (y no lo haya perdido por comportamiento fraudulento).</li>
+</ul></td></tr>
+</tbody></table>
+
+## Examen final de semestre
+
+16 horas
+
+<iframe frameborder="0" width="100%" height="500px" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno-EFS.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listadoEFS">
+<A href="aula-alumno.cgi"           >Listado de alumnos</A>
+</iframe>
+
+
+## Examen del minishell
+
+15 horas
+
+<table border="1" id="asignacion">
+<tbody><tr><th>Asignación de asiento por alumno para la Pr3</th></tr>
+<tr><td>
+
+	Sólo podrán accecer a la Pr3 aquellos alumnos <b>con un 1 en la columna DrchPr3</b>
+	de la lista <a href="https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?Asig=ssooX&amp;Curs=2025A&amp;Conv=Jul&amp;Tipo=prac">
+	Calificación Prácticas Diseño y Análisis a Julio 2025 </a>.<br>
+
+	Siéntese en el asiento que le corresponde según el <a href="#listado">listado de alumnos</a> adjunto.<br>
+	<font color="red"><b>
+	Si NO aparece en esta lista entonces NO tiene asiento asignado y por lo tanto NO podría acceder a la prueba.<br>
+	Vuelva a consultar su asiento asignado antes de la prueba pues podría haber cambios de última hora.
+	</b></font><br>
+</td></tr>
+</tbody></table>
 
 <iframe frameborder="0" width="100%" height="500px" src="https://laurel.datsi.fi.upm.es/~ssoo/RepartoAulas/SO/aula-alumno.cgi" scrolling="auto" border="0" valign="top" target="_blank" name="listado" id="listado">
 <A href="aula-alumno.cgi"           >Listado de alumnos</A>
 </iframe>
 
-<TABLE border="1" id="asignacion">
-<TR><TD>
-	<FONT color="red"><B>
-	Este listado en el momento de escribir este aviso es del anterior examen, pero se actualizará más adelante con la asignación real de asientos.<BR> 
-	</B></FONT> <BR>
-</TD></TR>
-</TABLE>
--->
+
 
 # Tecnologías de Red Cisco CCNA
 
