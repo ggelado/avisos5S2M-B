@@ -3,7 +3,7 @@ layout: post
 title: Aclaración sobre la solicitud para presentarse al examen de SSOO
 date: 2026-01-05 14:22:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-10 23:59:59 +0100
 excerpt: Aquellos que no contesten renuncian a presentarse al Examen Final del Semestre
 categories:
