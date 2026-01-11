@@ -26,6 +26,8 @@ image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-
 ">
   Cargando próximos transportes…
 </div>
+<script>
+
 <style>
 #sistemas-operativos {
   display: none;
@@ -36,10 +38,6 @@ image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-
   display: block;
 }
 </style>
-
-<script>
-
-
 
 
 // --- Lanzaderas (L-V) ---
