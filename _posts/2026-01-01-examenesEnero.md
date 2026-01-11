@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function() {
         h1.textContent = "► " + originalText;
       }
 
-      gtag("event", "toggle_bloque", {
+      gtag("event", "consultaExamen", {
         action: isOpening ? "expand" : "collapse",
         bloque_titulo: originalText,
         bloque_posicion: index
