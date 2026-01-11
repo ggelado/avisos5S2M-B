@@ -387,18 +387,28 @@ document.addEventListener("DOMContentLoaded", function() {
     h1.insertAdjacentElement("afterend", container);
 
     // Agrega símbolo de flecha
-    h1.textContent = "► " + h1.textContent;
 
     // Evento click para mostrar/ocultar
+    const originalText = h1.textContent;
+    h1.textContent = "► " + originalText;
     h1.style.cursor = "pointer";
+
     h1.addEventListener("click", () => {
-      if (container.style.display === "none") {
+      const isOpening = container.style.display === "none";
+
+      if (isOpening) {
         container.style.display = "block";
-        h1.textContent = "▼ " + h1.textContent.replace(/^►\s*/, "");
+        h1.textContent = "▼ " + originalText;
       } else {
         container.style.display = "none";
-        h1.textContent = "► " + h1.textContent.replace(/^▼\s*/, "");
+        h1.textContent = "► " + originalText;
       }
+
+      gtag("event", "toggle_bloque", {
+        action: isOpening ? "expand" : "collapse",
+        bloque_titulo: originalText,
+        bloque_posicion: index
+      });
     });
   });
 });
