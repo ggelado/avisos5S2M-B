@@ -4,7 +4,7 @@ title: "Revisión del Bloque II de SegTI"
 date: 2026-01-11 13:49 +0100
 author: Iván
 published: true
-expires: 2026-01-13 11:45 +0100
+expires: 2026-01-13 11:45:00 +0100
 excerpt: "Día 13 en el despacho 5206 a partir de las 9:00"
 categories:
   - SegTI
