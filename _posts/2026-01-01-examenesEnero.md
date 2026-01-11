@@ -28,6 +28,18 @@ image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-
 </div>
 <script>
 
+<style>
+#sistemas-operativos {
+  display: none;
+  margin-left: 20px;
+}
+
+#sistemas-operativos:target {
+  display: block;
+}
+</style>
+
+
 // --- Lanzaderas (L-V) ---
 const SHUTTLES = [
   {
