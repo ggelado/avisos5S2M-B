@@ -171,7 +171,7 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 
 <p style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba; font-weight: bold; font-size: 1.1em;">
 <span style="text-decoration: underline;">AVISO:</span> 
-  La información aquí mostrada es con carácter informativo, y podría estar desactualizada. LA ÚNICA INFORMACIÓN OFICIAL ES LA PUBLICADA MEDIANTE LOS CANALES DE COMUNICACIÓN DE LAS DISTINTAS ASIGNATURAS.
+  La información aquí mostrada es con carácter informativo, y podría estar desactualizada. LA ÚNICA INFORMACIÓN OFICIAL ES LA PUBLICADA MEDIANTE LOS CANALES DE COMUNICACIÓN DE LAS DISTINTAS ASIGNATURAS. Si encuentras alguna información faltante o que se encuentra desactualizada, rogamos la edites directamente <a href="https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md">aquí</a> o nos lo hagas saber a través de los medios de contacto de los delegados.
 </p>
 
 # Inteligencia Artificial
