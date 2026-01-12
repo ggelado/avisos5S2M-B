@@ -3,7 +3,7 @@ layout: post
 title: "Evaluación de Programming for Mobile Devices"
 date: 2026-01-07 16:45 +0100
 author: Iván Arias
-published: true
+published: false
 expires: 2026-01-12 15:00:01 +0100
 excerpt: "Evaluación y procedimiento para presentar la práctica."
 categories:
