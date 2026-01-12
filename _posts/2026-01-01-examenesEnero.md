@@ -299,6 +299,9 @@ No curso todas las optativas, así que si quieres colaborar publicando las convo
 </iframe>
 
 
+# Reconocimiento de Formas
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
 
 # Tecnologías de Red Cisco CCNA
 
@@ -336,9 +339,25 @@ GII 105001044 Fundamentos de Videojuegos 5º 15:00 Bloque 3 aula 3204
 
 Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
 
+# Fundamentos Cloud
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
+
+# Seguridad de las Tecnologías de la Información y la Comunicación
+
+PENDIENTE DE PUBLICACIÓN DE CONVOCATORIA. SI DISPONES DE ELLA, AGRADECEMOS CONTRIBUYAS SUBIÉNDOLA EN [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md).
+
+# Introducción a la Biocomputación
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
+
 # Building Up Comunication Skills
 
 GII 105000046 Building up Communications Skills 5º 15:00 Bloque 5 aula 5002
+
+# Información y Computación Cuántica
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
 
 # Diseño con Microcontroladores
 
@@ -350,6 +369,18 @@ Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, acced
 # Investigación Operativa
 
 Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
+
+# Técnicas de Computación Científica
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
+
+# El Arte de Programar
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
+
+# Procesadores de Lenguajes
+
+PENDIENTE DE PUBLICACIÓN DE CONVOCATORIA. SI DISPONES DE ELLA, AGRADECEMOS CONTRIBUYAS SUBIÉNDOLA EN [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md).
 
 # NOTIFICACIONES PUSH
 
