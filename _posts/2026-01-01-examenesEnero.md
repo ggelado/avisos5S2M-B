@@ -332,13 +332,24 @@ Juan Robles
 
 GII 105001044 Fundamentos de Videojuegos 5º 15:00 Bloque 3 aula 3204
 
+# Ecuaciones Diferenciales, Métodos y Modelos
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
+
 # Building Up Comunication Skills
 
 GII 105000046 Building up Communications Skills 5º 15:00 Bloque 5 aula 5002
 
+# Diseño con Microcontroladores
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
 # Español para Extranjeros
 
 105001046 Español para Extranjeros 7º 10:00 Bloque 6 aula 6001
+
+# Investigación Operativa
+
+Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
 
 # NOTIFICACIONES PUSH
 
