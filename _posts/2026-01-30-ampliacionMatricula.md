@@ -32,4 +32,4 @@ Durante el periodo de ampliación de matrícula, del 31 de enero al 5 de febrero
 
 Importante: Nota.- Si un/a estudiante tiene un interés especial en cursar una asignatura para la cual no ha obtenido permiso de matrícula, podrá contactar con el/la profesor/a de la misma. Jefatura de Estudios procederá a incluir al/a la estudiante en el listado de autorizados a matricularse en tal asignatura siempre que el profesor/a de la misma lo estime oportuno y lo solicite por escrito al Jefe de Estudios.
 
-Se han enviado ya los oportunos listados de admitidos en la preinscripción de optativas.
+Se han enviado ya (espero, este mensaje lo he dejado programado) los oportunos listados de admitidos en la preinscripción de optativas.
