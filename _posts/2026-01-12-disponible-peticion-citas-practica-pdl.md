@@ -3,7 +3,7 @@ layout: post
 title: "Disponible petición citas práctica PdL"
 date: 2026-01-12 00:08 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-14 22:59:00 +0100
 excerpt: "+ info web asignatura https://dlsiis.fi.upm.es/procesadores/GruposPracticas/gestionarCita_logIn.php?idCurso=27"
 categories:
