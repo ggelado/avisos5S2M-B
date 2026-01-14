@@ -3,7 +3,7 @@ layout: post
 title: "Publicación Notas IA"
 date: 2026-01-13 17:29 +0100
 author: Iván
-published: true
+published: false
 expires: 2026-01-14 23:59:59 +0100
 excerpt: "Publicación de las notas de IA correspondiente al Tema 4 y 5, convocatoria de Enero."
 categories:
