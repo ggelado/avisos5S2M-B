@@ -3,7 +3,7 @@ layout: post
 title: Ampliación de Matrícula - Preinscripción de optativas
 date: 2025-12-18 20:35:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-15 23:59:59 +0100
 categories:
   - Matriculación
