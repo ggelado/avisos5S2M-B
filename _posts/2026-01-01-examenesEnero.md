@@ -345,7 +345,23 @@ Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, acced
 
 # Seguridad de las Tecnologías de la Información y la Comunicación
 
-PENDIENTE DE PUBLICACIÓN DE CONVOCATORIA. SI DISPONES DE ELLA, AGRADECEMOS CONTRIBUYAS SUBIÉNDOLA EN [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md).
+<div id="post-content-28596" class="post-content-container">
+                            <p class="MsoNormal">Aquí tenéis la información y normas sobre el examen del<strong> 19 de enero</strong>.</p>
+<p class="MsoNormal">Aula: <strong>A-3001</strong>(aula de exámenes, antigua biblioteca)</p>
+<p class="MsoNormal">Horario:</p>
+<ul style="margin-top:0cm;" type="disc">
+<li class="MsoNormal">Bloque I: 15:00-15:55</li>
+<li class="MsoNormal">Bloque II: 16:00-16:55</li>
+<li class="MsoNormal">Bloque III 17:00-17:55</li>
+</ul>
+<p class="MsoNormal">Los exámenes del Bloque I y III se contestarán en las hojas del enunciado, en el espacio reservado para ello; el del Bloque II, puede contestarse en hojas aparte.</p>
+<p class="MsoNormal">Sobre la mesa debe haber un <strong>documento identificativo </strong>del alumno y adicionalmente, papeles en blanco y bolígrafos. <strong>No</strong> se pueden usar <strong>dispositivos</strong> electrónicos de ningún tipo.</p>
+<p class="MsoNormal">Se recuerda que solo los alumnos <strong>con la asignatura suspensa pueden presentarse a las pruebas del 19 de enero, y únicamente a los exámenes de los bloques que tengan suspensos</strong>.</p>
+<p class="MsoNormal">Se recuerda también que para el cálculo de la calificación final, para cada bloque se usará la nota del último examen al que se haya presentado el alumno en este curso, y que el peso de cada bloque será del 42% para los bloques I y II, y 16% para el bloque III.</p>
+<p class="MsoNormal">Un saludo,</p>
+<p class="MsoNormal">Socorro</p>
+<p class="MsoNormal">&nbsp;</p>
+                        </div>
 
 # Introducción a la Biocomputación
 
