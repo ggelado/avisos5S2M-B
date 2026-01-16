@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Publicación notas del Minishell"
-date: 2026-01-14 11:15 +0100
+date: 2026-01-14 11:15:00 +0100
 author: Iván
 published: false
 expires: 2026-01-15 23:59:59 +0100
