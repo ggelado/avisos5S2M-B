@@ -13,7 +13,15 @@
   {% include alert-banner.html %}
     <div class="container-lg px-3 my-5 markdown-body">
       {% if site.title and site.title != page.title %}
-      <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
+<h1>
+  <a href="{{ "/" | absolute_url }}">
+    {{ site.title }}
+	<img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/SimboloLuto.jpg" 
+         alt="Símbolo de luto por el accidente de Adamuz" 
+         style="width:30px; height:30px; vertical-align:middle; margin-right:8px;">
+  </a>
+</h1>
+
       {% endif %}
 
       {{ content }}
