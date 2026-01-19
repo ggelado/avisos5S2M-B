@@ -371,6 +371,8 @@ Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, acced
 
 GII 105000046 Building up Communications Skills 5º 15:00 Bloque 5 aula 5002
 
+Recuerda que debes escribir a Almudena Díaz García para poder acudir al examen.
+
 # Información y Computación Cuántica
 
 Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
