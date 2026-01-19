@@ -12,7 +12,7 @@ categories:
 
 Se recuerda a todo el mundo que deben contactar con la docente Almudena Díaz García para poder comparecer en el examen de mañana de Building-up communication skills - Preparation to TOEIC.
 
-Aquellos que asistieran al examen de diciembre NO DEBEN COMPARECER EN ESTE EXAMEN.
+Aquellos que asistieran al examen de diciembre NO DEBEN COMPARECER EN ESTE EXAMEN (como norma general salvo excepciones).
 
 🗓 20/01/26
 
