@@ -4,7 +4,7 @@ title: "Sobre las presentaciones de la práctica de PdL"
 date: 2026-01-19 17:18:10 +0100
 author: Gonzalo
 published: true
-expires: 2026-01-21 20:00 +0100
+expires: 2026-01-21 20:00:00 +0100
 excerpt: "Información sobre la conexión a Zoom."
 categories:
   - PdL

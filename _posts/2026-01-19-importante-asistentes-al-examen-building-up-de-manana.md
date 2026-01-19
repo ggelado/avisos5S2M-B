@@ -4,7 +4,7 @@ title: "IMPORTANTE ASISTENTES AL EXAMEN BUILDING UP DE MAÑANA"
 date: 2026-01-19 16:35:20 +0100
 author: Gonzalo
 published: true
-expires: 2026-01-20 15:00 +0100
+expires: 2026-01-20 15:00:00 +0100
 excerpt: "Es necesario apuntarse por correo electrónico para poder comparecer en el examen."
 categories:
   - Building-Up

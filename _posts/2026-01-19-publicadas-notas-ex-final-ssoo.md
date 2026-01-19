@@ -4,7 +4,7 @@ title: "Publicadas notas ex final ssoo"
 date: 2026-01-19 15:02 +0100
 author: Gonzalo
 published: true
-expires: 2026-01-20 23:59 +0100
+expires: 2026-01-20 23:59:00 +0100
 excerpt: "Disponibles en https://laurel.datsi.fi.upm.es/~ssoo/consultaBD.cgi?DNI=&MAT=&Asig=ssooX&Curs=2025B&Conv=Ene&Tipo=susp"
 categories:
   - SSOO
