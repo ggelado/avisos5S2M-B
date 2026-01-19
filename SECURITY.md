@@ -1,6 +1,6 @@
 # Security Policy
 
-Cualquier vulnerabilidad de seguridad detectada debe notificarse a través de los medios **PRIVADOS** que facilita GitHub para notificaciones de seguridad o (preferentemente) a través de la dirección gonzalo.gelado@alumnos.upm.es con la siguiente clave PGP o por una clave PGP que haya sido certificada con esta:
+Cualquier vulnerabilidad de seguridad detectada debe notificarse a través de los medios **PRIVADOS** que facilita [GitHub](https://github.com/ggelado/avisos5S2M-B/security/advisories/new) para notificaciones de seguridad o (preferentemente) a través de la dirección gonzalo.gelado@alumnos.upm.es con la siguiente clave PGP o por una clave PGP que haya sido certificada con esta:
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -63,3 +63,5 @@ ID `0x620D6917DFA2384D`
 
 
 TODOS LOS MENSAJES ENVIADOS IRÁN FIRMADOS POR ESTA CLAVE, INDEPENDIENTEMENTE DE QUE SE HAYA O NO CIFRADO EL MENSAJE Y TENGA O NO CARACTER CONFIDENCIAL.
+
+Si no tienes PGP utiliza [este medio](https://github.com/ggelado/avisos5S2M-B/security/advisories/new).
