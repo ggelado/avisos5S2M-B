@@ -407,8 +407,6 @@ RECUERDA ACTIVAR LAS NOTIFICACIONES PUSH [DESDE AQUÍ](https://notifierpushrss.o
 SE INTENTAN ENVIAR POCOS AVISOS PARA EVITAR SATURAR, PERO SIEMPRE PUEDES DARLOS DE BAJA.
 
 Ya no se encuentran en estado beta.
-
-Pruebas: {{ page.last_modified_at }}
   <!-- Modal de descarga de la app -->
 
 <div id="download-app-modal" style="
