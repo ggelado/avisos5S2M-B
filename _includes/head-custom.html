@@ -17,20 +17,3 @@
 
 <!-- Icono iOS -->
 <link rel="apple-touch-icon" href="/avisos5S2M-B/icons/180.png">
-
-<!-- Páginas no vistas (para resaltados) -->
-<script>
-const SEEN_KEY = "seenPosts";
-
-function getSeenPosts() {
-  try {
-    return new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || "[]"));
-  } catch {
-    return new Set();
-  }
-}
-
-function saveSeenPosts(set) {
-  localStorage.setItem(SEEN_KEY, JSON.stringify([...set]));
-}
-</script>

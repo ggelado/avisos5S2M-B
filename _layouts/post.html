@@ -27,16 +27,3 @@ layout: default
     </a>
   </p>
 </div>
-
-<!-- Marco post como visto para el resaltado en página principal -->
-<script>
-(() => {
-  const seen = getSeenPosts();
-  const url = location.pathname; // SIN query params
-
-  if (!seen.has(url)) {
-    seen.add(url);
-    saveSeenPosts(seen);
-  }
-})();
-</script>
