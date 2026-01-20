@@ -3,7 +3,7 @@ layout: post
 title: Cierre de cafetería (menús)
 date: 2026-01-06 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-26 19:59:59 +0100
 categories:
   - Incidencias de Servicio
