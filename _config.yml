@@ -7,6 +7,7 @@ lang: es-ES
 plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
   - jekyll-redirect-from
+  - jekyll-last-modified-at
 feed:
   posts_limit: 100
 
