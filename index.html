@@ -11,7 +11,7 @@ title: "Avisos 5S2M-B"
 {% for post in site.posts %}
   {% assign post_expires = post.expires | date: "%s" %}
   {% if post_expires == nil or post_expires > now %}
-    <li>
+    <li data-post-url="{{ post.url }}>
       <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
 ({{ post.date | date: "%d %B %Y" }}{% if post.expires %} - Vigente hasta: {{ post.expires | date: "%d %B %Y"}}{% endif %})
     </li>
@@ -657,6 +657,35 @@ document.addEventListener("DOMContentLoaded", cargarEstadoCRTM);
 // Auto-refresh cada 5 minutos
 setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 </script>
+
+<!-- Resaltado de avisos no visualizados (inline, sin CSS externo) -->
+<script>
+(() => {
+  const seen = getSeenPosts();
+
+  document.querySelectorAll("li[data-post-url]").forEach(li => {
+    const url = li.dataset.postUrl;
+
+    if (!seen.has(url)) {
+      const link = li.querySelector("a");
+      if (!link) return;
+
+      link.style.fontWeight = "600";
+
+      const dot = document.createElement("span");
+      dot.textContent = "●";
+      dot.style.color = "#4f86d9";
+      dot.style.marginRight = "6px";
+      dot.style.fontSize = "0.8em";
+      dot.style.verticalAlign = "middle";
+
+      link.prepend(dot);
+    }
+  });
+})();
+</script>
+
+
 
 
 
