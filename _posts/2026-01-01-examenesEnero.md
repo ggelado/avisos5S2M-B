@@ -408,7 +408,7 @@ SE INTENTAN ENVIAR POCOS AVISOS PARA EVITAR SATURAR, PERO SIEMPRE PUEDES DARLOS 
 
 Ya no se encuentran en estado beta.
 
-Pruebas: {{ page.last_modified_at }}
+Pruebas: {{ page.last_modified_at }}  ;  {{ page.last_modified_at | date: '%Y:%B:%A:%d:%S:%R' }}
   <!-- Modal de descarga de la app -->
 
 <div id="download-app-modal" style="
