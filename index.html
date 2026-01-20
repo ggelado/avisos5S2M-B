@@ -658,32 +658,60 @@ document.addEventListener("DOMContentLoaded", cargarEstadoCRTM);
 setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 </script>
 
-<!-- Resaltado de avisos no visualizados (inline, sin CSS externo) -->
+<!-- Resaltado de avisos no visualizados -->
 <script>
 (() => {
-  const seen = getSeenPosts();
+  const SEEN_KEY = "seenPosts";
 
-  document.querySelectorAll("li[data-post-url]").forEach(li => {
+  // Recupera el set de posts vistos
+  function getSeenPosts() {
+    try {
+      return new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || "[]"));
+    } catch {
+      return new Set();
+    }
+  }
+
+  // Guarda el set actualizado
+  function saveSeenPosts(set) {
+    localStorage.setItem(SEEN_KEY, JSON.stringify([...set]));
+  }
+
+  const seen = getSeenPosts();
+  const items = document.querySelectorAll("li[data-post-url]");
+
+  // Limpiar el set de vistos: eliminar URLs que ya no existen en la página
+  const currentUrls = new Set([...items].map(li => li.dataset.postUrl));
+  for (const url of seen) {
+    if (!currentUrls.has(url)) seen.delete(url);
+  }
+
+  items.forEach(li => {
     const url = li.dataset.postUrl;
 
-    if (!seen.has(url)) {
-      const link = li.querySelector("a");
-      if (!link) return;
+    const link = li.querySelector("a");
+    if (!link) return;
 
+    // Si no se ha visto, resaltarlo
+    if (!seen.has(url)) {
       link.style.fontWeight = "600";
 
-      const dot = document.createElement("span");
-      dot.textContent = "★";
-      dot.style.color = "#4f86d9";
-      dot.style.marginRight = "6px";
-      dot.style.fontSize = "0.8em";
-      dot.style.verticalAlign = "middle";
+      const star = document.createElement("span");
+      star.textContent = "★";
+      star.style.color = "#4f86d9";
+      star.style.marginRight = "6px";
+      star.style.fontSize = "0.8em";
+      star.style.verticalAlign = "middle";
 
-      link.prepend(dot);
+      link.prepend(star);
     }
   });
+
+  // Guardar cambios
+  saveSeenPosts(seen);
 })();
 </script>
+
 
 
 
