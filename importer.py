@@ -2,6 +2,27 @@ import feedparser
 import frontmatter
 from datetime import datetime
 import os
+import re
+import unicodedata
+
+def slugify(text):
+    # Quitar saltos de línea y espacios extra
+    text = text.replace("\n", " ").replace("\r", " ").strip()
+
+    # Quitar acentos
+    text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
+
+    # Minúsculas
+    text = text.lower()
+
+    # Reemplazar cualquier cosa que no sea letra, número o guion
+    text = re.sub(r"[^a-z0-9\-]+", "-", text)
+
+    # Quitar guiones duplicados
+    text = re.sub(r"-+", "-", text).strip("-")
+
+    return text
+
 
 RSS_URL = "https://fi.upm.es/GestorTablon/rss2b.php?idioma=castellano&tipogt=1,3"
 OUTPUT_DIR = "jekyll_posts"
@@ -27,7 +48,7 @@ for entry in feed.entries:
     md = frontmatter.dumps(frontmatter.Post(content, **metadata))
 
     # Crear nombre de archivo tipo Jekyll: YYYY-MM-DD-titulo.md
-    slug = entry.title.lower().replace(" ", "-").replace("/", "-")
+    slug = slugify(entry.title)
     date_str = datetime(*entry.published_parsed[:6]).strftime("%Y-%m-%d")
     filename = f"{date_str}-{slug}.md"
     filepath = os.path.join(OUTPUT_DIR, filename)
