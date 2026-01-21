@@ -405,7 +405,17 @@ Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, acced
 
 # Procesadores de Lenguajes
 
-PENDIENTE DE PUBLICACIÓN DE CONVOCATORIA. SI DISPONES DE ELLA, AGRADECEMOS CONTRIBUYAS SUBIÉNDOLA EN [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md).
+El examen del día 26 tendrá lugar en las siguientes aulas según la distribución por apellidos:
+
+A-3001: A - Gi
+
+A-3102: Go - L
+
+A-3104: M - P
+
+A-3203: Q - R
+
+A-3204: S - Z
 
 # NOTIFICACIONES PUSH
 
