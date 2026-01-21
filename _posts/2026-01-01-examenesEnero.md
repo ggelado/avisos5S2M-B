@@ -387,7 +387,13 @@ Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, acced
 
 # Investigación Operativa
 
-Agradecemos que contribuyas a rellenar la convocatoria de esta asignatura, accediendo a [https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md](https://github.com/ggelado/avisos5S2M-B/edit/main/_posts/2026-01-01-examenesEnero.md)
+Estimad@s Alumn@s,
+
+Os recuerdo que el examen de Investigación Operativa es mañana jueves 22 a las 15:00h. en el aula A-3001.
+
+Un saludo,
+
+Alfonso Mateos
 
 # Técnicas de Computación Científica
 
