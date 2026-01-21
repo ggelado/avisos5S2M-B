@@ -7,7 +7,7 @@ date: 2026-01-19T23:00:00
 title: Listado de estudiantes con calificación de aptos en la prueba SAI
 expires: 2026-01-21 23:59:00 +0100
 excerpt: Publicado listado oficial de aptos
-published: true
+published: false
 ---
 Han sido considerados aptos en la prueba SAI los siguientes alumnos en todo el Grado en Ingeniería Informática. Los alumnos de GII que no están aquí listados y comparecieron el pasado 11 de diciembre NO HAN SIDO CONSIDERADOS APTOS.
 
