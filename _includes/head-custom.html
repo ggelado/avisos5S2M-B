@@ -22,26 +22,60 @@
 <script>
 const SEEN_KEY = "seenPosts";
 
-// Recupera el set de posts vistos
+// Recupera los posts vistos (ahora con timestamp de última visita)
 function getSeenPosts() {
   try {
-    return new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || "[]"));
+    const data = localStorage.getItem(SEEN_KEY);
+    if (!data) return {};
+    
+    const parsed = JSON.parse(data);
+    
+    // Migración automática: si es un array (formato antiguo), convertir a objeto
+    if (Array.isArray(parsed)) {
+      const migrated = {};
+      parsed.forEach(url => {
+        migrated[url] = new Date().toISOString();
+      });
+      saveSeenPosts(migrated);
+      return migrated;
+    }
+    
+    return parsed;
   } catch {
-    return new Set();
+    return {};
   }
 }
 
-// Guarda el set actualizado
-function saveSeenPosts(set) {
-  localStorage.setItem(SEEN_KEY, JSON.stringify([...set]));
+// Guarda el objeto actualizado { url: timestamp }
+function saveSeenPosts(obj) {
+  localStorage.setItem(SEEN_KEY, JSON.stringify(obj));
 }
 
-(function initializeSeenPosts() {
+// Marca un post como visto con la fecha actual
+function markPostAsSeen(url) {
   const seen = getSeenPosts();
-  /*if (seen.size === 0) {
-    const items = document.querySelectorAll("li[data-post-url]");
-    items.forEach(li => seen.add(li.dataset.postUrl));
-    saveSeenPosts(seen);
-  }*/
+  seen[url] = new Date().toISOString();
+  saveSeenPosts(seen);
+}
+
+// Verifica si un post ha sido modificado desde la última visita
+function isPostModifiedSinceLastVisit(url, dateModified) {
+  const seen = getSeenPosts();
+  const lastVisit = seen[url];
+  
+  if (!lastVisit) return true; // nunca visto = considerarlo "nuevo"
+  if (!dateModified) return false; // sin fecha de modificación = no modificado
+  
+  try {
+    const lastVisitDate = new Date(lastVisit);
+    const modifiedDate = new Date(dateModified);
+    return modifiedDate > lastVisitDate;
+  } catch {
+    return false;
+  }
+}
+
+// Inicialización (ejecutar migración si es necesario)
+(function initializeSeenPosts() {
+  getSeenPosts(); // esto ejecuta la migración automática si es necesario
 })();
-</script>

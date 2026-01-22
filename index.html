@@ -11,7 +11,12 @@ title: "Avisos 5S2M-B"
 {% for post in site.posts %}
   {% assign post_expires = post.expires | date: "%s" %}
   {% if post_expires == nil or post_expires > now %}
-    <li data-post-url="{{ site.baseurl }}{{ post.url }}">
+    {% if post.last_modified_at %}
+      {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
+    {% else %}
+      {% assign modified_date = post.date | date_to_xmlschema %}
+    {% endif %}
+    <li data-post-url="{{ site.baseurl }}{{ post.url }}" data-date-modified="{{ modified_date }}">
       <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
 ({{ post.date | date: "%d %B %Y" }}{% if post.expires %} - Vigente hasta: {{ post.expires | date: "%d %B %Y"}}{% endif %})
     </li>
@@ -661,39 +666,24 @@ setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 <!-- Resaltado de avisos no visualizados -->
 <script>
 (() => {
-  const SEEN_KEY = "seenPosts";
-
-  // Recupera el set de posts vistos
-  function getSeenPosts() {
-    try {
-      return new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || "[]"));
-    } catch {
-      return new Set();
-    }
-  }
-
-  // Guarda el set actualizado
-  function saveSeenPosts(set) {
-    localStorage.setItem(SEEN_KEY, JSON.stringify([...set]));
-  }
-
   const seen = getSeenPosts();
   const items = document.querySelectorAll("li[data-post-url]");
 
-  // Limpiar el set de vistos: eliminar URLs que ya no existen en la página
+  // Limpiar el objeto de vistos: eliminar URLs que ya no existen en la página
   const currentUrls = new Set([...items].map(li => li.dataset.postUrl));
-  for (const url of seen) {
-    if (!currentUrls.has(url)) seen.delete(url);
+  for (const url in seen) {
+    if (!currentUrls.has(url)) delete seen[url];
   }
 
   items.forEach(li => {
     const url = li.dataset.postUrl;
+    const dateModified = li.dataset.dateModified; // Necesitamos añadir este atributo
 
     const link = li.querySelector("a");
     if (!link) return;
 
-    // Si no se ha visto, resaltarlo
-    if (!seen.has(url)) {
+    // Si no se ha visto o ha sido modificado desde la última visita, resaltarlo
+    if (isPostModifiedSinceLastVisit(url, dateModified)) {
       link.style.fontWeight = "600";
 
       const star = document.createElement("span");
@@ -707,7 +697,7 @@ setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
     }
   });
 
-  // Guardar cambios
+  // Guardar cambios (limpiar URLs eliminadas)
   saveSeenPosts(seen);
 })();
 </script>
