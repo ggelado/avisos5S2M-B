@@ -8,7 +8,7 @@ expires: 2026-01-23 23:59:59 +0100
 excerpt: Puedes consultar instrucciones para revisión
 categories:
   - SegTI
-last_modified_at: 2026-01-21 13:52:00 +0100
+last_modified_at: 2026-01-23 12:11:00 +0100
 ---
 <div role="main"><h2 class="discussionname">Calificaciones del examen del 19 de enero</h2><div id="discussion-container-6970cbee31ad16970cbeded00a7" data-content="forum-discussion">
     <div class="discussion-nav clearfix"><ul><li class="prev-discussion"><a aria-label="Debate anterior: Examen 19 de enero" class="btn btn-link" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=19552">◄ Examen 19 de enero</a></li></ul></div>
@@ -224,3 +224,51 @@ last_modified_at: 2026-01-21 13:52:00 +0100
 
 <div class="discussion-nav clearfix"><ul><li class="prev-discussion"><a aria-label="Debate anterior: Examen 19 de enero" class="btn btn-link" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=19552">◄ Examen 19 de enero</a></li></ul></div>
 </div></div>
+<div class="d-flex border p-2 mb-2 forumpost focus-target  firstpost starter" aria-label="Revisión del examen del bloque II por BERNARDOS GALINDO MARIA DEL SOCORRO" data-post-id="29973" data-content="forum-post">
+            
+    
+            <div class="d-flex flex-column w-100" data-region-content="forum-post-core">
+                <header id="post-header-29973-697356c5c44ad697356c57e6a35" class="mb-2 header row d-flex">
+                            <div class="me-2" style="width: 45px;">
+                                    <img class="rounded-circle w-100" src="https://moodle.upm.es/titulaciones/oficiales/theme/image.php/boost/core/1765865634/u/f1" alt="Imagen de BERNARDOS GALINDO MARIA DEL SOCORRO" aria-hidden="true" title="Imagen de BERNARDOS GALINDO MARIA DEL SOCORRO">
+                            </div>
+                    <div class="d-flex flex-column">
+                            <h3 class="h6 font-weight-bold mb-0" data-region-content="forum-post-core-subject" data-reply-subject="Re: Revisión del examen del bloque II">Revisión del examen del bloque II</h3>
+                            <div class="mb-3" tabindex="-1">
+                                de <a href="https://moodle.upm.es/titulaciones/oficiales/user/view.php?id=912&amp;course=1521">BERNARDOS GALINDO MARIA DEL SOCORRO</a> - <time datetime="2026-01-23T11:43:18+01:00">viernes, 23 de enero de 2026, 11:43</time>
+                        </div>
+                            <span class="sr-only">Número de respuestas: 0</span>
+                    </div>
+                </header>
+    
+                <div class="d-flex body-content-container">
+                            <div class="me-2 author-groups-container" style="width: 45px; flex-shrink: 0">
+                            </div>
+    
+                    <div class="no-overflow w-100 content-alignment-container">
+                        <div id="post-content-29973" class="post-content-container">
+                            <p>Hola:</p>
+<p>La revisión del examen del bloque II tendrá lugar el lunes 26 de enero en el despacho 5206 a partir de las 12:15.</p>
+<p>Un saludo,</p>
+<p>Socorro</p>
+                        </div>
+    
+    
+    
+                            
+    
+    
+                                <div class="d-flex flex-wrap">
+                                        <div class="post-actions d-flex align-self-end justify-content-end flex-wrap ms-auto p-1" data-region="post-actions-container" role="menubar" aria-label="Revisión del examen del bloque II por BERNARDOS GALINDO MARIA DEL SOCORRO" aria-controls="p29973">
+                                                    <a data-region="post-action" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=20617#p29973" class="btn btn-link" title="Enlace permanente a esta publicación" aria-label="Enlace permanente a esta publicación" role="menuitem" tabindex="0">
+                                                        Enlace permanente
+                                                    </a>
+                                        </div>
+                                </div>
+    
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        
