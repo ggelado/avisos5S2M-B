@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Desmatriculación de asignaturas segundo cuatrimestre
-date: 2026-01-24 22:00:00 +0100
+date: 2026-01-23 19:18:00 +0100
 author: Gonzalo
 published: true
 expires: 2026-01-30 22:00:00 +0100
 categories:
   - Matriculación
-excerpt: Plazo del 26/01 al 30/01
+excerpt: Perdón por tantos avisos, se me acumulan. Plazo del 26/01 al 30/01
 redirect_from:
   - /matriculación/2025/12/18/optativas.html
 ---
