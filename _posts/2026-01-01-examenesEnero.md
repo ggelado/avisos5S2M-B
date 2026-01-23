@@ -5,9 +5,9 @@ date: 2026-01-01 00:00:00 +0100
 author: Gonzalo
 published: true
 expires: 2026-01-26 12:00:01 +0100
-last_modified_at: 2026-01-22 12:27:20 +0100
+last_modified_at: 2026-01-22 11:58:30 +0100
 categories:
-- Convocatorias de Examen
+  - Convocatorias de Examen
 excerpt: Aulas de exámenes de enero
 image: https://img.freepik.com/vector-gratis/texto-estilo-logotipo-estilo-papel-2026-vispera-ano-nuevo_1017-60883.jpg?semt=ais_hybrid&w=740&q=80
 ---
@@ -416,6 +416,8 @@ A-3104: M - P
 A-3203: Q - R
 
 A-3204: S - Z
+
+Para la realización del examen solamente se podrá utilizar papel en blanco y útiles de escritura. Se recuerda que no se permiten calculadoras ni documentación, y está totalmente prohibido el uso de cualquier tipo de teléfono móvil, tableta electrónica, reloj inteligente, lápiz digital, auriculares, gafas inteligentes, cámaras, dispositivos de escaneado, dispositivos de audio o video, ni ningún instrumento de naturaleza análoga, que deberán permanecer totalmente apagados –no solo silenciados- y fuera del alcance. Se recuerda que los pabellones auditivos deben estar visibles durante toda la prueba o enseñarlos cuando se requiera.
 
 # NOTIFICACIONES PUSH
 
