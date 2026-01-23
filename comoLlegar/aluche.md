@@ -2,6 +2,13 @@
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
+<style>
+/* Fix para los marcadores de Leaflet */
+.markdown-body .leaflet-marker-icon,
+.markdown-body .leaflet-marker-shadow {
+    background-color: transparent !important;
+}
+</style>
 
 <section class="container-lg my-4">
 
