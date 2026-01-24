@@ -7,6 +7,7 @@ published: true
 expires: 2026-02-09 14:00:01 +0100
 categories:
   - Convocatorias de Examen
+  - IngSoftI
 excerpt: Examen 9 de febrero IngSoft I
 ---
 Estimados estudiantes,
