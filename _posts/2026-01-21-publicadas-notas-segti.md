@@ -3,7 +3,7 @@ layout: post
 title: Publicadas notas SegTI
 date: 2026-01-21 12:17:39 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-23 23:59:59 +0100
 excerpt: Puedes consultar instrucciones para revisión
 categories:
