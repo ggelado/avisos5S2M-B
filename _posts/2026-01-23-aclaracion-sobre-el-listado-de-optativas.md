@@ -3,7 +3,7 @@ layout: post
 title: "Aclaración sobre el listado de optativas"
 date: 2026-01-23 18:39:17 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-25 23:59:59 +0100
 excerpt: "Ante las múltiples consultas recibidas"
 

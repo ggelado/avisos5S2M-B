@@ -4,7 +4,7 @@ title: "Cierre de DRACO"
 date: 2026-01-25 00:03 +0100
 author: Gonzalo
 published: true
-expires: 2026-01-28 23:59 +0100
+expires: 2026-01-28 23:59:00 +0100
 excerpt: "DRACO cierra el próximo día 28."
 categories:
   - PdL
