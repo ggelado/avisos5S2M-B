@@ -3,7 +3,7 @@ layout: post
 title: Aulas exámenes de Enero
 date: 2026-01-01 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-26 12:00:01 +0100
 last_modified_at: 2026-01-23 12:01:00 +0100
 categories:
