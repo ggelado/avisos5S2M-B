@@ -3,7 +3,7 @@ layout: post
 title: "Reanudación del servicio de menús en Cafetería"
 date: 2026-01-20 09:31 +0100
 author: Iván
-published: true
+published: false
 expires: 2026-01-26 23:59:59 +0100
 excerpt: "A partir del día 21 de enero el servicio de cafetería vuelve a la normalidad"
 
