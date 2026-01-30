@@ -3,7 +3,7 @@ layout: post
 title: Periodo no lectivo
 date: 2026-01-26 12:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-30 23:59:59 +0100
 excerpt: 27 al 30 de enero
 ---
