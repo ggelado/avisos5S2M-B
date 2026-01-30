@@ -3,7 +3,7 @@ layout: post
 title: Desmatriculación de asignaturas segundo cuatrimestre
 date: 2026-01-23 19:18:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-30 22:00:00 +0100
 categories:
   - Matriculación
