@@ -3,7 +3,7 @@ layout: post
 title: "Publicados exámenes 2o cuatrimestre"
 date: 2026-01-22 00:38 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-01-31 23:59:00 +0100
 excerpt: "Ya está disponible la lista de exámenes en https://www.fi.upm.es/docs/estudios/grado/901_GII_actividades_evaluacion_25_26_semestre_par.pdf"
 
