@@ -615,7 +615,7 @@ async function cargarEstadoCRTM() {
     "https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es";
 
   const proxyURL =
-    "https://corsproxy.io/?url=" + encodeURIComponent(urlCRTM);
+    "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(urlCRTM);
 
   try {
     const response = await fetch(proxyURL);
