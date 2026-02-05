@@ -272,7 +272,6 @@ setInterval(checkFutbol, 120000);
     <strong>Equipo de Delegados</strong> podrían tardar más de lo habitual en ser contestadas.
     Felices Fiestas.
 </div>
--->
 
 <div id="lluvia-alert"></div>
 <script>
@@ -308,14 +307,14 @@ function mostrarAvisoLluvia() {
 
     
     const fin = new Date(ahoraES);
-    fin.setHours(20, 0, 0, 0);
+    fin.setHours(11, 0, 0, 0);
     const div = document.getElementById("lluvia-alert");
 
     if (ahoraES < fin) {
         div.innerHTML = `
-            <strong>INUCAM ACTIVADO:</strong> 
+            <strong>ATENCIÓN:</strong> 
             Ante la previsión de lluvias para hoy, se podrían registrar incidencias y retenciones en carretera. 
-            Planifica en consecuencia, especialmente si vienes en coche, o utilizas paradas de Metro habitualmente inundables.
+            Planifica en consecuencia, especialmente si vienes en coche, de cara al examen de EADP/AOP.
         `;
 
         div.style.cssText = `
@@ -347,7 +346,7 @@ setInterval(mostrarAvisoLluvia, 30000);
 </script>
 
 
-<!--
+
 <div id="navidad-notice-modal" style="
     display:none;
     position: fixed;
