@@ -62,3 +62,91 @@ Después de enviar el cuestionario, deberá **permanecer sentado en su puesto**,
 Saludos, 
 
 los profesores de la asignatura.
+
+---
+
+<main class="col-md-8 ms-sm-auto col-lg-9 px-md-4 mt-4" id="main">
+
+	<section id="contenido">
+		<p>
+			Para realizar cuestionarios en Moodle configurados para que sólo puedan contestarse utilizando Safe Exam Browser (SEB),
+			es imprescindible haberlo instalado previamente en los PCs, MACs o dispositivos iOS, no se pueden usar en sistemas operativos
+			Linux ni dispositivos Android.
+		</p>
+
+		<p>
+			Si no se ha instalado con anterioridad, al acceder al cuestionario, existe un botón que enlaza a la
+			<a target="_blank" rel="noopener noreferrer"
+			   href="https://safeexambrowser.org/download_en.html">
+				página de descarga
+			</a>.
+		</p>
+
+		<figure class="image">
+			<img src="https://serviciosgate.upm.es/recursos/img/media/19/thump_1749119136.png">
+		</figure>
+
+		<p>Se pulsa sobre el botón de descarga y se instala en nuestro ordenador.</p>
+
+		<figure class="image">
+			<img src="https://serviciosgate.upm.es/recursos/img/media/19/thump_1749120614.png">
+		</figure>
+
+		<figure class="image">
+			<img src="https://serviciosgate.upm.es/recursos/img/media/19/thump_1749122930.png">
+		</figure>
+
+		<p>
+			Una vez instalado no será necesario volverlo a hacer para la realización de futuros cuestionarios con el navegador SEB.
+		</p>
+
+		<p>Para iniciar un cuestionario con SEB:</p>
+
+		<ol>
+			<li>Acceder al cuestionario.</li>
+			<li>
+				Pulsar en <strong>“Descargar configuración”</strong>.
+				Se obtendrá el archivo <code>config.seb</code>.
+			</li>
+		</ol>
+
+		<figure class="image">
+			<img src="https://serviciosgate.upm.es/recursos/img/media/19/thump_1742286795.png"
+			     alt="Inicio del navegador Safe Exam Browser descargando la configuración">
+		</figure>
+
+		<ol start="3">
+			<li>
+				Ejecutar el archivo descargado. Esto iniciará el programa SEB y se mostrará la pantalla de inicio de Moodle.
+				Antes de comenzar el intento, informa al estudiante de que se cierran todas las aplicaciones abiertas.
+			</li>
+		</ol>
+
+		<figure class="image">
+			<img src="https://serviciosgate.upm.es/recursos/img/media/19/thump_1741705725.png"
+			     alt="Información de cierre de aplicaciones no permitidas">
+		</figure>
+
+		<ol start="4">
+			<li>Navegar hasta el cuestionario.</li>
+			<li>Pulsar <strong>“Intento de cuestionario”</strong> para comenzar.</li>
+		</ol>
+
+		<figure class="image">
+			<img src="https://serviciosgate.upm.es/recursos/img/media/19/thump_1741706123.png"
+			     alt="Vista del estudiante en el navegador Safe Exam Browser">
+		</figure>
+	</section>
+
+	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h2 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+			Sobre este documento
+		</h2>
+	</div>
+
+	<section id="informacion">
+		<p><span class="fw-bold">Última modificación:</span> Jul-2025</p>
+	</section>
+
+
+</main>
