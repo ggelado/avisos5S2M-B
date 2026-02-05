@@ -3,7 +3,7 @@ layout: post
 title: Asignación de optativas
 date: 2026-01-23 17:50:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-05 23:59:59 +0100
 excerpt: Ver el aviso en web para consultar la lista - El anterior listado era poco legible
 ---
