@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "No hay clase Sistemas Inteligentes"
+title: No hay clase Sistemas Inteligentes
 date: 2026-02-06 11:22:59 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-06 17:00 +0100
-excerpt: "No hay clase Sistemas Inteligentes"
+excerpt: No hay clase Sistemas Inteligentes
 categories:
   - SisInt
 ---
