@@ -9,7 +9,16 @@ excerpt: Convocatoria del examen IngSoftI
 categories:
   - Convocatorias de Examen
   - IngSoftI
+last_modified_at: 2026-02-07 21:17:00
 ---
+**¿Cómo llegar a mi examen?**:
+
+- [MONJE](https://www.fi.upm.es/?pagina=110), [VERDES](https://www.fi.upm.es/?pagina=130) Y [NERJA](https://www.fi.upm.es/?pagina=300) AL LADO DE DONDE ESTABA EL LABORATORIO DE FÍSICA (Entrais como hacia la cafetería, pero en vez de bajar, vais al otro lado, como si fuerais al museo pero sin bajar. Hay un locker de amazon).
+- [ALTAMIRA](https://www.fi.upm.es/?pagina=301): Id a la 5102 y la veis directamente
+- [COGULL](https://www.fi.upm.es/?pagina=126): Igual que Altamira pero una planta más abajo
+
+---
+
 El primer examen de evaluación progresiva de la asignatura, correspondiente al tema Introducción a la Ingeniería del Software, se celebrará el lunes 9 de febrero. **Lea atentamente este mensaje con las instrucciones para la realización del examen**.
 
 **LUGAR Y HORA**
