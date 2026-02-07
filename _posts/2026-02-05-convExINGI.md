@@ -9,7 +9,7 @@ excerpt: Convocatoria del examen IngSoftI
 categories:
   - Convocatorias de Examen
   - IngSoftI
-last_modified_at: 2026-02-07 21:17:00
+last_modified_at: 2026-02-07 21:17:00 +0100
 ---
 **¿Cómo llegar a mi examen?**:
 
