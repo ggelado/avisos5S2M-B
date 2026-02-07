@@ -195,54 +195,100 @@ async function checkFutbol() {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 10000);
 
+  const CF_CRITICAL_IPS = ["188.114.96.5", "188.114.97.5"];
+  const div = document.getElementById("futbol-alert");
+
   try {
     const res = await fetch(
-      'https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json',
+      "https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json",
       { signal: controller.signal }
     );
 
     clearTimeout(timeoutId);
-
     if (!res.ok) return;
 
-    const data = await res.json();
+    const json = await res.json();
+    if (!json?.data) return;
 
-    const ips = new Map();
+    const ipCounts = new Map();
+    const criticalHits = new Set();
 
-    data.data.forEach(entry => {
-      if (entry.stateChanges?.length) {
-        const last = entry.stateChanges.at(-1);
-        if (last.state === true && entry.description === "Cloudflare") {
-          ips.set(entry.ip, (ips.get(entry.ip) || 0) + 1);
+    json.data.forEach(entry => {
+      if (!entry.stateChanges?.length) return;
+
+      const last = entry.stateChanges.at(-1);
+
+      if (last.state === true && entry.description === "Cloudflare") {
+        const count = (ipCounts.get(entry.ip) || 0) + 1;
+        ipCounts.set(entry.ip, count);
+
+        if (CF_CRITICAL_IPS.includes(entry.ip)) {
+          criticalHits.add(entry.ip);
         }
       }
     });
 
-    const count = [...ips.values()].filter(c => c > 2).length;
-    const hayFutbol = count > 10;
+    // IPs con 3 o más bloqueos
+    const repeatedBlockedIps = [...ipCounts.values()].filter(v => v > 2).length;
 
-    const div = document.getElementById('futbol-alert');
+    // ¿están bloqueadas las dos IPs críticas?
+    const criticalPairBlocked =
+      CF_CRITICAL_IPS.every(ip => criticalHits.has(ip));
 
-    if (hayFutbol) {
-      div.innerHTML = '<strong>HAY BLOQUEOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs pueden no funcionar con normalidad. Este aviso solo se muestra cuando hay bloqueos activos y confirmados en este momento. Informate de tus derechos al respecto.';
-      div.style.cssText =
-        'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
+    const hayBloqueos = repeatedBlockedIps > 3 || criticalPairBlocked;
+
+    if (hayBloqueos) {
+      div.innerHTML = `
+        <strong>HAY BLOQUEOS ACTIVOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs (incluida esta) pueden no funcionar con normalidad. Este aviso solo se muestra cuando hay bloqueos activos y confirmados en este momento. Informate de tus derechos al respecto. `;
+
+      div.style.cssText = `
+        background-color:#fff5f5;
+        border-left:5px solid #e53e3e;
+        color:#742a2a;
+        padding:12px 16px;
+        font-weight:500;
+        font-size:1em;
+        position:sticky;
+        top:10px;
+        z-index:9999;
+        border-radius:4px;
+        box-shadow:0 2px 4px rgba(0,0,0,0.1);
+        max-width:90%;
+        margin:10px auto;
+        line-height:1.4;
+      `;
     } else {
-      div.style.display = 'none';
-      div.innerHTML = '';
+      div.style.display = "none";
+      div.innerHTML = "";
     }
 
   } catch (e) {
     clearTimeout(timeoutId);
 
-    if (e.name === 'AbortError' || e instanceof TypeError) {
-      const div = document.getElementById('futbol-alert');
-      div.innerHTML = '<strong>TÚ CONEXIÓN A INTERNET PRESENTA IRREGULARIDADES:</strong> Tu conexión a varios scripts (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Es muy probable que se trate de los bloqueos indiscriminados de LaLiga, pero no podemos asegurarlo. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.';
-      div.style.cssText =
-        'background-color:#fff5f5;border-left:5px solid #e53e3e;color:#742a2a;padding:12px 16px;font-weight:500;font-size:1em;position:sticky;top:10px;z-index:9999;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1);max-width:90%;margin:10px auto;line-height:1.4;';
+    if (e.name === "AbortError" || e instanceof TypeError) {
+      div.innerHTML = `
+        <strong>TÚ CONEXIÓN A INTERNET PRESENTA IRREGULARIDADES:</strong> Tu conexión a varios scripts (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Es muy probable que se trate de los bloqueos indiscriminados de LaLiga, pero no podemos asegurarlo. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.`;
+
+      div.style.cssText = `
+        background-color:#fff5f5;
+        border-left:5px solid #e53e3e;
+        color:#742a2a;
+        padding:12px 16px;
+        font-weight:500;
+        font-size:1em;
+        position:sticky;
+        top:10px;
+        z-index:9999;
+        border-radius:4px;
+        box-shadow:0 2px 4px rgba(0,0,0,0.1);
+        max-width:90%;
+        margin:10px auto;
+        line-height:1.4;
+      `;
     }
   }
 }
+
 
 checkFutbol();
 setInterval(checkFutbol, 120000);
