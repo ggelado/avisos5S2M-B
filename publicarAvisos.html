@@ -12,6 +12,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Solicitud de Aviso 5S2M-B</title>
+  
+  <!-- EasyMDE Editor -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+  
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -65,10 +70,16 @@
       color: white;
       border-radius: 6px;
       transition: background 0.2s;
+      font-weight: bold;
     }
 
     button:hover {
       background: #005fcc;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
     }
 
     #formResponse {
@@ -108,6 +119,87 @@
     .pr-info {
       margin-top: 10px;
       font-size: 0.95rem;
+    }
+
+    /* Estilos personalizados para EasyMDE */
+    .EasyMDEContainer {
+        margin-top: 5px;
+    }
+
+    .EasyMDEContainer .CodeMirror {
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        min-height: 250px;
+        font-size: 14px;
+    }
+
+    .EasyMDEContainer .CodeMirror-focused {
+        border-color: #0078ff;
+        box-shadow: 0 0 0 2px rgba(0,120,255,0.15);
+    }
+
+    .editor-toolbar {
+        border-radius: 6px 6px 0 0;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        background: #f8f9fa;
+        opacity: 1 !important;
+    }
+
+    .editor-toolbar button {
+        margin: 0 !important;
+        padding: 8px !important;
+        width: auto !important;
+        display: inline-block !important;
+        background: transparent !important;
+        color: #333 !important;
+        border: none !important;
+        border-radius: 3px !important;
+        cursor: pointer !important;
+        font-size: 14px !important;
+        font-weight: normal !important;
+        transition: background 0.2s !important;
+    }
+
+    .editor-toolbar button:hover {
+        background: #e9ecef !important;
+        color: #333 !important;
+    }
+
+    .editor-toolbar button.active {
+        background: #dae0e5 !important;
+    }
+
+    .editor-toolbar i.separator {
+        border-left: 1px solid #d9d9d9;
+        border-right: 1px solid #fff;
+        margin: 0 6px;
+        display: inline-block;
+        height: 24px;
+    }
+
+    .editor-toolbar.fullscreen {
+        background: #f8f9fa;
+    }
+
+    .editor-preview {
+        padding: 10px;
+    }
+
+    .editor-statusbar {
+        padding: 8px 10px;
+        font-size: 12px;
+        color: #959ca3;
+        text-align: right;
+    }
+
+    .CodeMirror-fullscreen {
+        z-index: 9999;
+    }
+
+    .editor-toolbar.fullscreen::before,
+    .editor-toolbar.fullscreen::after {
+        display: none;
     }
   </style>
 <script>
@@ -168,16 +260,40 @@ window.addEventListener('load', async () => {
     <label for="metadata">Metadatos YAML (opcional)</label>
     <textarea id="metadata" name="metadata" rows="3" placeholder="key: value"></textarea>
 
-    <label for="body">Cuerpo del aviso</label>
-    <textarea id="body" name="body" rows="6" required></textarea>
+    <label for="body">Cuerpo del aviso (Markdown)</label>
+    <textarea id="body" name="body"></textarea>
 
     <button type="submit">Enviar aviso</button>
-    <p>Por favor, no lo pulses varias veces. Espera un momento a que te salga la confirmación.</p>
+    <p style="text-align: center; font-size: 0.9rem; color: #666;">Por favor, no lo pulses varias veces. Espera un momento a que te salga la confirmación.</p>
   </form>
 
   <div id="formResponse"></div>
 
   <script>
+    // Inicializar EasyMDE para el campo de cuerpo
+    const easyMDE = new EasyMDE({
+      element: document.getElementById('body'),
+      placeholder: 'Escribe el contenido del aviso en Markdown...',
+      spellChecker: false,
+      autosave: {
+        enabled: true,
+        uniqueId: 'notice-body',
+        delay: 1000,
+      },
+      toolbar: [
+        'bold', 'italic', 'heading', '|',
+        'quote', 'unordered-list', 'ordered-list', '|',
+        'link', 'image', '|',
+        'preview', 'side-by-side', 'fullscreen', '|',
+        'guide'
+      ],
+      status: ['lines', 'words', 'cursor'],
+      renderingConfig: {
+        singleLineBreaks: false,
+        codeSyntaxHighlighting: true,
+      }
+    });
+
     const form = document.getElementById('noticeForm');
     const responseDiv = document.getElementById('formResponse');
 
@@ -227,7 +343,7 @@ window.addEventListener('load', async () => {
         startDate: form.startDate.value,
         endDate: form.endDate.value,
         metadata: finalMetadata.trim(),
-        body: form.body.value.trim()
+        body: easyMDE.value().trim() // Obtener el valor del editor
       };
 
       try {
@@ -277,6 +393,8 @@ window.addEventListener('load', async () => {
           `;
           responseDiv.className = "success";
           form.reset();
+          easyMDE.value(''); // Limpiar el editor
+          easyMDE.clearAutosavedValue(); // Limpiar autosave
         } else {
           responseDiv.innerHTML = `<strong>❌ ${result.error || "Error al enviar el aviso."}</strong>`;
           responseDiv.className = "error";
@@ -285,6 +403,10 @@ window.addEventListener('load', async () => {
         console.error("Error:", error);
         responseDiv.innerHTML = "<strong>❌ Error de conexión con el servidor.</strong> AVISA AL EQUIPO DE DELEGADOS.";
         responseDiv.className = "error";
+      } finally {
+        // Reactivar el botón después del proceso
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar aviso";
       }
     });
   </script>
