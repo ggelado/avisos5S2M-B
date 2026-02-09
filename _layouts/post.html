@@ -2,8 +2,9 @@
 layout: default
 ---
 {% if page.expires %}
+  {% assign expires_utc = page.expires | date: "%Y-%m-%d %H:%M:%S %z" | date: "%s" | date: "%d/%m/%Y a las %H:%M (UTC)" %}
   <p class="post-expires">
-    Este aviso dejará de ser válido el {{ page.expires | date: "%d/%m/%Y a las %H:%M (Tiempo Universal UTC)" }}
+    Este aviso dejará de ser válido el {{ expires_utc }}
   </p>
 {% endif %}
 
