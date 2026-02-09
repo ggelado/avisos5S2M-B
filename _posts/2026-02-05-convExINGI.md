@@ -3,7 +3,7 @@ layout: post
 title: Convocatoria IngSoftI (1)
 date: 2026-02-05 10:40 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-09 12:59:59 +0100
 excerpt: Convocatoria del examen IngSoftI
 categories:
