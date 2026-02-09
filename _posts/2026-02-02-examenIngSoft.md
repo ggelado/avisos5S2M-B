@@ -3,8 +3,8 @@ layout: post
 title: 1er examen IngSoft I
 date: 2026-02-02 00:00:00 +0100
 author: Gonzalo
-published: true
-expires: 2026-02-09 14:00:01 +0100
+published: false
+expires: 2026-02-09 11:59:59 +0100
 categories:
   - Convocatorias de Examen
   - IngSoftI
