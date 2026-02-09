@@ -1,6 +1,14 @@
 ---
 layout: default
 ---
+{% if page.expires %}
+  <p class="post-expires">
+    Este aviso dejará de ser válido el {{ page.expires | date: "%d/%m/%Y a las %H:%M (Tiempo Universal UTC)" }}
+  </p>
+{% endif %}
+
+<hr>
+
 {{ content }}
 <hr>
 
