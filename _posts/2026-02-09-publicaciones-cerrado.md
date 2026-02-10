@@ -3,7 +3,7 @@ layout: post
 title: "Publicaciones cerrado"
 date: 2026-02-09 14:25:34 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-11 23:59:59 +0100
 excerpt: "SIN PLAZO DEFINIDO, HASTA NUEVO AVISO."
 categories:
