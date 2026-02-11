@@ -8,6 +8,7 @@ plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
   - jekyll-redirect-from
   - jekyll-last-modified-at
+  - jekyll-seo-tag
 feed:
   posts_limit: 100
 
