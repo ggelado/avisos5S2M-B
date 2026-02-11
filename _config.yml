@@ -12,6 +12,8 @@ plugins:
 feed:
   posts_limit: 100
 
+logo: https://ggelado.github.io/avisos5S2M-B/icons/512.png
+
 
 include:
   - ".well-known"
