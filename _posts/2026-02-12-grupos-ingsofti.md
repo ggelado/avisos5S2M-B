@@ -20,3 +20,5 @@ Además, se ha habilitado un foro que podéis utilizar para poner anuncios y cre
 Saludos, 
 
 los profesores de la asignatura.
+
+<meta http-equiv="refresh" content="10; url=https://ggelado.github.io/avisos5S2M-B/grupos_isofti">
