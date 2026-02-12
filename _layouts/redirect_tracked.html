@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="1; url={{ page.redirect_url }}">
+    <link rel="canonical" href="{{ page.redirect_url }}">
+    <meta name="robots" content="noindex">
+    
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <h1>Redirigiendo...</h1>
+    <p>Si no eres redirigido automáticamente, <a href="{{ page.redirect_url }}">haz clic aquí</a>.</p>
+    
+    <script>
+      setTimeout(function() {
+        window.location.href = "{{ page.redirect_url }}";
+      }, 500);
+    </script>
+  </body>
+</html>
