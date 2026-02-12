@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Grupos IngSofTi"
+title: "Grupos IngSoftI"
 date: 2026-02-12 14:15 +0100
 author: Gonzalo
 published: true
