@@ -4,7 +4,7 @@ title: "Grupos IngSoftI"
 date: 2026-02-12 14:15 +0100
 author: Gonzalo
 published: true
-expires: 2026-02-15 22:59 +0100
+expires: 2026-02-15 23:59:59 +0100
 excerpt: "Escoge grupo desde https://moodle.upm.es/titulaciones/oficiales/mod/choicegroup/view.php?id=466327"
 
 categories:
