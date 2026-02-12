@@ -12,7 +12,7 @@ categories:
 ---
 
 Hola a Tod@s,
-se ha habilitado una tarea en [Moodle](https://moodle.upm.es/titulaciones/oficiales/mod/choicegroup/view.php?id=466327) para la formación de grupos de trabajo correspondientes a las actividades en grupo que deberéis realizar a lo largo del curso.
+se ha habilitado una tarea en [Moodle](https://ggelado.github.io/avisos5S2M-B/grupos_isofti) para la formación de grupos de trabajo correspondientes a las actividades en grupo que deberéis realizar a lo largo del curso.
 * La fecha límite para la formación de los grupos es el viernes 27 de febrero.
 * Los grupos deben estar formados por cuatro estudiantes, que pueden pertenecer a cualquier grupo (6F1M, 6F1M-B, 6F1M-ADE, 6F2M, 6F2M-B, etc). 
 Además, se ha habilitado un foro que podéis utilizar para poner anuncios y crear grupos.
@@ -20,5 +20,3 @@ Además, se ha habilitado un foro que podéis utilizar para poner anuncios y cre
 Saludos, 
 
 los profesores de la asignatura.
-
-<meta http-equiv="refresh" content="10; url=https://ggelado.github.io/avisos5S2M-B/grupos_isofti">
