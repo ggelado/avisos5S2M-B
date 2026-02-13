@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cambio temporal de aula"
+title: "Cambio temporal de aula SISTEMAS DISTRIBUIDOS"
 date: 2026-02-13 16:44:01 +0100
 author: Gonzalo
 published: true
