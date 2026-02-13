@@ -3,8 +3,8 @@ permalink: /poblados
 title: Atascos Av. Poblados
 ---
 <section>
-  <h1>Estado de Atascos en Avenida Poblados</h1>
   <p>Última actualización: <span id="ultima-actualizacion">Cargando…</span></p>
+  <p>Constan posibles retenciones / atascos en: (datos obtenidos del Ayto de Madrid)</p>
   <ul id="lista-atascos">
     <li>Cargando información (puede tardar varios minutos)…</li>
   </ul>
@@ -33,7 +33,7 @@ async function cargarAtascosPoblados() {
     ul.innerHTML = '';
     data.atascos.forEach(atasco => {
       const li = document.createElement('li');
-      li.textContent = `${atasco.descripcion} — Estado: ${atasco.descripcionEstado}, Intensidad: ${atasco.intensidad}, Ocupación: ${atasco.ocupacion}%`;
+      li.textContent = `${atasco.descripcion}
       ul.appendChild(li);
     });
 
