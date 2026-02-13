@@ -508,11 +508,28 @@ setInterval(mostrarAvisoLluvia, 30000);
       return;
     }
 
-    const tramos = graves.map(r => {
-      return `km ${r.km_inicio}-${r.km_fin} (${r.sentido}, tráfico ${r.tipo_trafico})`;
+    // Agrupar tramos por km_inicio-km_fin
+    const tramosMap = new Map();
+
+    graves.forEach(r => {
+      const key = `${r.km_inicio}-${r.km_fin}`;
+      if (!tramosMap.has(key)) {
+        tramosMap.set(key, new Set());
+      }
+      tramosMap.get(key).add(r.sentido);
     });
 
-    texto.textContent = `Atasco grave en ${data.carretera}: ${tramos.join(" · ")}`;
+    // Construir texto
+    const tramosTexto = [];
+    tramosMap.forEach((sentidos, tramo) => {
+      let sentidoTexto = "ambos";
+      if (sentidos.size === 1) {
+        sentidoTexto = Array.from(sentidos)[0];
+      }
+      tramosTexto.push(`${tramo} (${sentidoTexto}, tráfico ${graves[0].tipo_trafico})`);
+    });
+
+    texto.textContent = `Atasco grave en ${data.carretera}: ${tramosTexto.join(" · ")}`;
     banner.style.display = "block";
 
   } catch (e) {
