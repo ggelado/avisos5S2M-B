@@ -452,9 +452,23 @@ async function verificarAtasco() {
       return;
     }
 
-    // Tomar el atasco más cercano o el primero
-    const atasco = data.atascos[0];
-    
+    // Prioridad de gravedad
+    const prioridad = {
+      'lowest': 1,
+      'low': 2,
+      'medium': 3,
+      'high': 4,
+      'highest': 5
+    };
+
+    // Buscar el atasco más grave
+    const atasco = data.atascos.reduce((max, actual) => {
+      return (prioridad[actual.gravedad] || 0) >
+             (prioridad[max.gravedad] || 0)
+        ? actual
+        : max;
+    }, data.atascos[0]);
+
     const nivelTexto = {
       'lowest': 'muy leve',
       'low': 'leve',
@@ -472,12 +486,12 @@ async function verificarAtasco() {
   }
 }
 
-// Verificar al cargar y cada 2 minutos
 document.addEventListener('DOMContentLoaded', () => {
   verificarAtasco();
-  setInterval(verificarAtasco, 120000); // 2 minutos
+  setInterval(verificarAtasco, 120000);
 });
 </script>
+
 <script>
   async function actualizarBusesSimplificados() {
     const contenedor = document.getElementById('buses-simplificado');
