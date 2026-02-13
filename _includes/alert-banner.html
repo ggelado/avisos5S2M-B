@@ -13,7 +13,7 @@
       }
       return await response.text();
     } catch (error) {
-      console.error(`❌ Error al descargar ${url}:`, error);
+      console.error(`Error al descargar ${url}:`, error);
       return null;
     }
   }
@@ -490,42 +490,36 @@ setInterval(mostrarAvisoLluvia, 30000);
     const banner = document.getElementById("banner-trafico-anormal");
     const texto = document.getElementById("banner-trafico-anormal-texto");
 
-    console.log("🔍 Iniciando carga de M40...");
 
     try {
       const res = await fetch(ENDPOINT);
       if (!res.ok) throw new Error(`HTTP status ${res.status}`);
 
       const data = await res.json();
-      console.log("📊 Datos recibidos:", data);
 
       if (!data || !data.trafico_anormal || !Array.isArray(data.trafico_anormal.registros)) {
-        console.warn("Respuesta inválida de M40:", data);
         return;
       }
 
-      const graves = data.trafico_anormal.registros.filter(r => r.gravedad === "medium");
-      console.log("⚠️ Registros graves encontrados:", graves.length);
+      const graves = data.trafico_anormal.registros;
 
       if (graves.length === 0) {
         banner.style.display = "none";
         return;
       }
 
-      console.log("🚗 Construyendo banner...");
 
       // Agrupar tramos por km_inicio-km_fin
       const tramosMap = new Map();
 
       graves.forEach(r => {
-        const key = `${r.km_inicio}-${r.km_fin}`;
+        const key = `km ${r.km_inicio}-${r.km_fin}`;
         if (!tramosMap.has(key)) {
           tramosMap.set(key, new Set());
         }
         tramosMap.get(key).add(r.sentido);
       });
 
-      console.log("🗺️ Tramos agrupados:", tramosMap);
 
       // Construir texto
       const tramosTexto = [];
@@ -537,13 +531,9 @@ setInterval(mostrarAvisoLluvia, 30000);
         tramosTexto.push(`${tramo} (${sentidoTexto}, tráfico ${graves[0].tipo_trafico})`);
       });
 
-      console.log("📝 Texto construido:", tramosTexto);
 
-      texto.textContent = `Atasco grave en ${data.carretera}: ${tramosTexto.join(" · ")}`;
-      console.log("✅ Banner text set:", texto.textContent);
-
+      texto.textContent = `Atasco en ${data.carretera}: ${tramosTexto.join(" · ")}`;
       banner.style.display = "block";
-      console.log("👁️ Banner display:", banner.style.display);
 
     } catch (e) {
       console.error("Error al obtener datos de M40:", e);
