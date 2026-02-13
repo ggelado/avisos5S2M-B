@@ -5,32 +5,36 @@ title: "Avisos 5S/6F 2M-B"
 <h1>Últimos avisos</h1>
 
 <ul>
-{% assign now = 'now' | date: "%s" %}
-{% for post in site.posts %}
+  {% assign now = 'now' | date: "%s" %}
+  {% for post in site.posts %}
   {% assign post_expires = post.expires | date: "%s" %}
   {% if post_expires == nil or post_expires > now %}
-    {% if post.last_modified_at %}
-      {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
-    {% else %}
-      {% assign modified_date = post.date | date_to_xmlschema %}
-    {% endif %}
-    <li data-post-url="{{ site.baseurl }}{{ post.url }}" data-date-modified="{{ modified_date }}">
-      <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
-({{ post.date | date: "%d %B %Y" }}{% if post.expires %} - Vigente hasta: {{ post.expires | date: "%d %B %Y"}}{% endif %})
-    </li>
+  {% if post.last_modified_at %}
+  {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
+  {% else %}
+  {% assign modified_date = post.date | date_to_xmlschema %}
   {% endif %}
-{% endfor %}
-	<li>
-	  <a href="https://github.com/ggelado/avisos5S2M-B/tree/main/_posts" target="_blank" rel="noopener noreferrer">
-		Avisos retirados (podrían contener información desactualizada, consultar con cautela)
-	  </a>
-	</li>
+  <li data-post-url="{{ site.baseurl }}{{ post.url }}" data-date-modified="{{ modified_date }}">
+    <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
+    ({{ post.date | date: "%d %B %Y" }}{% if post.expires %} - Vigente hasta: {{ post.expires | date: "%d %B %Y"}}{%
+    endif %})
+  </li>
+  {% endif %}
+  {% endfor %}
+  <li>
+    <a href="https://github.com/ggelado/avisos5S2M-B/tree/main/_posts" target="_blank" rel="noopener noreferrer">
+      Avisos retirados (podrían contener información desactualizada, consultar con cautela)
+    </a>
+  </li>
 </ul>
 
-<p>Recuerda que esta web se actualiza regularmente. Puedes suscribirte al <a href="{{ site.baseurl }}/feed.xml">feed RSS</a> para recibir las últimas noticias directamente en tu lector de RSS.</p>
-<p style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba; font-weight: bold; font-size: 1.1em;">
-  Nuevo sistema de notificaciones push 
-  <a href="https://notifierpushrss.onrender.com/" target="_blank" rel="noopener noreferrer" style="color: #0056b3; font-weight: bold;">Accede aquí</a>.
+<p>Recuerda que esta web se actualiza regularmente. Puedes suscribirte al <a href="{{ site.baseurl }}/feed.xml">feed
+    RSS</a> para recibir las últimas noticias directamente en tu lector de RSS.</p>
+<p
+  style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba; font-weight: bold; font-size: 1.1em;">
+  Nuevo sistema de notificaciones push
+  <a href="https://notifierpushrss.onrender.com/" target="_blank" rel="noopener noreferrer"
+    style="color: #0056b3; font-weight: bold;">Accede aquí</a>.
 </p>
 
 
@@ -39,7 +43,8 @@ title: "Avisos 5S/6F 2M-B"
   Estado de los principales servicios
 </a>
 
-<a href="https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es" target="_blank" rel="noopener noreferrer">
+<a href="https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es" target="_blank"
+  rel="noopener noreferrer">
   Estado del Transporte Público
 </a>
 
@@ -72,12 +77,9 @@ title: "Avisos 5S/6F 2M-B"
         height: 170px;
         background: white;
       ">
-        <iframe
-          title="El tiempo AEMET"
+        <iframe title="El tiempo AEMET"
           src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/boadilla-del-monte-id28022?w=g2p101010011ovmffffffx4f86d9t95b6e9r0s8n1"
-          style="width:100%; height:100%; border:0;"
-          scrolling="no"
-          loading="lazy">
+          style="width:100%; height:100%; border:0;" scrolling="no" loading="lazy">
         </iframe>
       </div>
     </div>
@@ -108,7 +110,7 @@ title: "Avisos 5S/6F 2M-B"
       ">
         Cargando próximos transportes…
       </div>
-	  <div style="
+      <div style="
         margin-top: 4px;
         text-align: center;
         font-size: 0.75em;
@@ -132,21 +134,21 @@ title: "Avisos 5S/6F 2M-B"
 
 <p>>Si quieres publicar un aviso accede <a href="/avisos5S2M-B/publicarAvisos.html">aquí</a>.</p>
 
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
-/* Fix para los marcadores de Leaflet */
-.markdown-body .leaflet-marker-icon,
-.markdown-body .leaflet-marker-shadow {
+  /* Fix para los marcadores de Leaflet */
+  .markdown-body .leaflet-marker-icon,
+  .markdown-body .leaflet-marker-shadow {
     background-color: transparent !important;
-}
+  }
 </style>
 
 <section class="container-lg my-4">
 
   <div id="status" class="text-small color-fg-muted mb-2">
+  </div>
+
+  <div id="aviso-atasco" class="text-small color-fg-muted mb-2" style="display: none;">
   </div>
 
   <div class="Box">
@@ -157,249 +159,251 @@ title: "Avisos 5S/6F 2M-B"
 </section>
 
 <p> <strong>Novedad:</strong> Abono transporte digital (ya no está en beta).
-<p><iframe src="https://crtm.es/images/videos/virtualizacion_abono.mp4" width="100%" height="360" frameborder="0" allowfullscreen="" alt="Te explicamos cómo digitalizar tu Tarjeta Transporte Público Personal" title=""></iframe></p>
+<p><iframe src="https://crtm.es/images/videos/virtualizacion_abono.mp4" width="100%" height="360" frameborder="0"
+    allowfullscreen="" alt="Te explicamos cómo digitalizar tu Tarjeta Transporte Público Personal" title=""></iframe>
+</p>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-// --- Servicios lanzadera (horario fijo, L-V) ---
-const SHUTTLES = [
-  {
-    line: "LZ-CIU",
-    destination: "Campus de Montegancedo → Ciudad Universitaria (PROGRAMADO. SOLO DÍAS LECTIVOS)",
-    times: ["10:00", "11:00", "12:00", "13:00", "14:00"]
-  },
-  {
-    line: "LZ-BARR",
-    destination: "Campus de Montegancedo →  El Barrial – Centro Comercial Pozuelo (PROGRAMADO, SOLO DÍAS LECTIVOS)",
-    times: ["08:35", "09:15", "10:00"]
-  }
-];
-
-(() => {
-  // --- Paradas de referencia por línea (para el endpoint locations) ---
-  const LINE_STOPS = {
-    "8__571___": "08771",
-    "8__573___": "08771",
-    "8_N_905___": "08771",
-    "8__591___": "08411",
-    "8__865___": "17573"
-  };
-
-  const SOURCES = [
-  { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
-  { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
-  { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
-  { 
-    url: "https://api.madridtransporte.com/stops/tram/29/planned", 
-    lines: null, 
-    isTram: true // marca que es metro ligero
-	}
+  // --- Servicios lanzadera (horario fijo, L-V) ---
+  const SHUTTLES = [
+    {
+      line: "LZ-CIU",
+      destination: "Campus de Montegancedo → Ciudad Universitaria (PROGRAMADO. SOLO DÍAS LECTIVOS)",
+      times: ["10:00", "11:00", "12:00", "13:00", "14:00"]
+    },
+    {
+      line: "LZ-BARR",
+      destination: "Campus de Montegancedo →  El Barrial – Centro Comercial Pozuelo (PROGRAMADO, SOLO DÍAS LECTIVOS)",
+      times: ["08:35", "09:15", "10:00"]
+    }
   ];
 
-  const arrivalsEl = document.getElementById("arrivals");
-  const statusEl = document.getElementById("status");
-  const maps = {}; // lineCode -> { map, markers }
+  (() => {
+    // --- Paradas de referencia por línea (para el endpoint locations) ---
+    const LINE_STOPS = {
+      "8__571___": "08771",
+      "8__573___": "08771",
+      "8_N_905___": "08771",
+      "8__591___": "08411",
+      "8__865___": "17573"
+    };
 
-  function minutesFromNow(ts) {
-    return Math.max(0, Math.round((ts - Date.now()) / 60000));
-  }
-  
-	function isWeekday(date = new Date()) {
-	  const d = date.getDay();
-	  return d >= 1 && d <= 5; // L-V
-	}
+    const SOURCES = [
+      { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
+      { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
+      { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
+      {
+        url: "https://api.madridtransporte.com/stops/tram/29/planned",
+        lines: null,
+        isTram: true // marca que es metro ligero
+      }
+    ];
+
+    const arrivalsEl = document.getElementById("arrivals");
+    const statusEl = document.getElementById("status");
+    const maps = {}; // lineCode -> { map, markers }
+
+    function minutesFromNow(ts) {
+      return Math.max(0, Math.round((ts - Date.now()) / 60000));
+    }
+
+    function isWeekday(date = new Date()) {
+      const d = date.getDay();
+      return d >= 1 && d <= 5; // L-V
+    }
 
 
-function minutesUntilTodayTime(hhmm) {
-  const [h, m] = hhmm.split(":").map(Number);
-  const now = new Date();
-  const t = new Date();
-  t.setHours(h, m, 0, 0);
-  return Math.round((t - now) / 60000);
-}
+    function minutesUntilTodayTime(hhmm) {
+      const [h, m] = hhmm.split(":").map(Number);
+      const now = new Date();
+      const t = new Date();
+      t.setHours(h, m, 0, 0);
+      return Math.round((t - now) / 60000);
+    }
 
 
-  function uniqueSorted(arr) {
-    return [...new Set(arr)].sort((a, b) => a - b);
-  }
+    function uniqueSorted(arr) {
+      return [...new Set(arr)].sort((a, b) => a - b);
+    }
 
-  // --- Cargar próximas llegadas ---
-  async function loadArrivals() {
-    const results = [];
+    // --- Cargar próximas llegadas ---
+    async function loadArrivals() {
+      const results = [];
 
-    for (const source of SOURCES) {
-      try {
-        const res = await fetch(source.url);
-        const data = await res.json();
+      for (const source of SOURCES) {
+        try {
+          const res = await fetch(source.url);
+          const data = await res.json();
 
-        // --- Metro Ligero ---
-        if (source.isTram) {
-          for (const arrival of data) {
-            if (arrival.direction !== 2) continue; // solo dirección 2
-            uniqueSorted(arrival.arrives || []).forEach(ts => {
+          // --- Metro Ligero ---
+          if (source.isTram) {
+            for (const arrival of data) {
+              if (arrival.direction !== 2) continue; // solo dirección 2
+              uniqueSorted(arrival.arrives || []).forEach(ts => {
+                results.push({
+                  line: arrival.lineCode,
+                  lineCode: arrival.lineCode,
+                  destination: arrival.destination,
+                  minutes: minutesFromNow(ts),
+                  isTram: true
+                });
+              });
+            }
+            continue;
+          }
+
+          // --- Buses ---
+          for (const arrival of data.arrives || []) {
+            if (source.lines && !source.lines.includes(arrival.line)) continue;
+
+            uniqueSorted(arrival.estimatedArrives || []).forEach(ts => {
               results.push({
-                line: arrival.lineCode,
+                line: arrival.line,
                 lineCode: arrival.lineCode,
                 destination: arrival.destination,
                 minutes: minutesFromNow(ts),
-                isTram: true
+                isTram: false
               });
             });
           }
-          continue;
+        } catch (e) {
+          console.error("Error cargando", source.url, e);
         }
+      }
 
-        // --- Buses ---
-        for (const arrival of data.arrives || []) {
-          if (source.lines && !source.lines.includes(arrival.line)) continue;
+      // --- Lanzaderas programadas ---
+      if (isWeekday()) {
+        SHUTTLES.forEach(shuttle => {
+          shuttle.times.forEach(time => {
+            const minutes = minutesUntilTodayTime(time);
 
-          uniqueSorted(arrival.estimatedArrives || []).forEach(ts => {
-            results.push({
-              line: arrival.line,
-              lineCode: arrival.lineCode,
-              destination: arrival.destination,
-              minutes: minutesFromNow(ts),
-              isTram: false
-            });
+            // solo mostrar cuando quede menos de 1h
+            if (minutes > 0 && minutes <= 60) {
+              results.push({
+                line: shuttle.line,
+                lineCode: shuttle.line,
+                destination: shuttle.destination,
+                minutes,
+                isShuttle: true
+              });
+            }
           });
-        }
+        });
+      }
+
+
+      // Ordenar por tiempo
+      const sorted = results.sort((a, b) => a.minutes - b.minutes);
+
+      // Limitar metro ligero a 3 llegadas
+      const tramArrivals = sorted
+        .filter(a => a.isTram && a.line === "ML3")
+        .slice(0, 3);
+
+      // Buses normales
+      const busArrivals = sorted.filter(a => !a.isTram && !a.isShuttle);
+
+      // Lanzaderas
+      const shuttleArrivals = sorted.filter(a => a.isShuttle);
+
+      return [...busArrivals, ...shuttleArrivals, ...tramArrivals]
+        .sort((a, b) => a.minutes - b.minutes);
+
+    }
+
+    // --- Cargar ubicación de buses con stopCode obligatorio ---
+    async function loadBusLocations(lineCode) {
+      const stopCode = LINE_STOPS[lineCode];
+      if (!stopCode) return [];
+
+      const url = `https://api.madridtransporte.com/lines/bus/${lineCode}/locations/2?stopCode=${stopCode}`;
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        return data.locations || [];
       } catch (e) {
-        console.error("Error cargando", source.url, e);
+        console.error("Error cargando ubicación de buses", lineCode, e);
+        return [];
       }
     }
-	
-	    // --- Lanzaderas programadas ---
-    if (isWeekday()) {
-      SHUTTLES.forEach(shuttle => {
-        shuttle.times.forEach(time => {
-          const minutes = minutesUntilTodayTime(time);
 
-          // solo mostrar cuando quede menos de 1h
-          if (minutes > 0 && minutes <= 60) {
-            results.push({
-              line: shuttle.line,
-              lineCode: shuttle.line,
-              destination: shuttle.destination,
-              minutes,
-              isShuttle: true
-            });
-          }
-        });
-      });
+    function createMap(container, locations) {
+      const map = L.map(container).setView(
+        [locations[0].coordinates.latitude, locations[0].coordinates.longitude],
+        13
+      );
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap"
+      }).addTo(map);
+
+      return map;
     }
 
+    function renderBuses(map, markers, locations) {
+      markers.forEach(m => m.remove());
+      markers.length = 0;
 
-    // Ordenar por tiempo
-    const sorted = results.sort((a, b) => a.minutes - b.minutes);
-    
-    // Limitar metro ligero a 3 llegadas
-	const tramArrivals = sorted
-	  .filter(a => a.isTram && a.line === "ML3")
-	  .slice(0, 3);
-
-	// Buses normales
-	const busArrivals = sorted.filter(a => !a.isTram && !a.isShuttle);
-
-	// Lanzaderas
-	const shuttleArrivals = sorted.filter(a => a.isShuttle);
-
-	return [...busArrivals, ...shuttleArrivals, ...tramArrivals]
-	  .sort((a, b) => a.minutes - b.minutes);
-
-  }
-
-  // --- Cargar ubicación de buses con stopCode obligatorio ---
-  async function loadBusLocations(lineCode) {
-    const stopCode = LINE_STOPS[lineCode];
-    if (!stopCode) return [];
-
-    const url = `https://api.madridtransporte.com/lines/bus/${lineCode}/locations/2?stopCode=${stopCode}`;
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      return data.locations || [];
-    } catch (e) {
-      console.error("Error cargando ubicación de buses", lineCode, e);
-      return [];
-    }
-  }
-
-  function createMap(container, locations) {
-    const map = L.map(container).setView(
-      [locations[0].coordinates.latitude, locations[0].coordinates.longitude],
-      13
-    );
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "© OpenStreetMap"
-    }).addTo(map);
-
-    return map;
-  }
-
-  function renderBuses(map, markers, locations) {
-    markers.forEach(m => m.remove());
-    markers.length = 0;
-
-    locations.forEach(bus => {
-      const m = L.marker([bus.coordinates.latitude, bus.coordinates.longitude])
-        .addTo(map)
-        .bindPopup(`
+      locations.forEach(bus => {
+        const m = L.marker([bus.coordinates.latitude, bus.coordinates.longitude])
+          .addTo(map)
+          .bindPopup(`
           <strong>Bus ${bus.codVehicle}</strong><br>
           Servicio: ${bus.service || "—"}
         `);
-      markers.push(m);
-    });
+        markers.push(m);
+      });
 
-    if (markers.length) {
-      const group = L.featureGroup(markers);
-      map.fitBounds(group.getBounds().pad(0.25));
-    }
-  }
-
-  // --- Toggle mapa por línea ---
-  async function toggleMap(btn) {
-    const lineCode = btn.dataset.linecode;
-    const container = document.getElementById(`map-${lineCode}`);
-
-    if (container.classList.contains("d-none")) {
-      container.classList.remove("d-none");
-      btn.textContent = "Ocultar mapa";
-
-      if (!maps[lineCode]) {
-        const locations = await loadBusLocations(lineCode);
-        if (!locations.length) {
-          container.innerHTML = "<div class='p-3 text-small'>No hay buses en ruta</div>";
-          return;
-        }
-
-        const map = createMap(container, locations);
-        const markers = [];
-        renderBuses(map, markers, locations);
-
-        maps[lineCode] = { map, markers };
+      if (markers.length) {
+        const group = L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.25));
       }
-    } else {
-      container.classList.add("d-none");
-      btn.textContent = "Ver ubicación (beta)";
     }
-  }
 
-  // --- Renderizar lista de llegadas ---
-	function render(arrivals) {
-	  arrivalsEl.innerHTML = "";
+    // --- Toggle mapa por línea ---
+    async function toggleMap(btn) {
+      const lineCode = btn.dataset.linecode;
+      const container = document.getElementById(`map-${lineCode}`);
 
-	  if (!arrivals.length) {
-		arrivalsEl.innerHTML = "<li class='Box-row text-small color-fg-muted'>No hay servicios próximos</li>";
-		return;
-	  }
+      if (container.classList.contains("d-none")) {
+        container.classList.remove("d-none");
+        btn.textContent = "Ocultar mapa";
 
-	  arrivals.forEach(a => {
-		const li = document.createElement("li");
-		li.className = "Box-row";
+        if (!maps[lineCode]) {
+          const locations = await loadBusLocations(lineCode);
+          if (!locations.length) {
+            container.innerHTML = "<div class='p-3 text-small'>No hay buses en ruta</div>";
+            return;
+          }
 
-		li.innerHTML = `
+          const map = createMap(container, locations);
+          const markers = [];
+          renderBuses(map, markers, locations);
+
+          maps[lineCode] = { map, markers };
+        }
+      } else {
+        container.classList.add("d-none");
+        btn.textContent = "Ver ubicación (beta)";
+      }
+    }
+
+    // --- Renderizar lista de llegadas ---
+    function render(arrivals) {
+      arrivalsEl.innerHTML = "";
+
+      if (!arrivals.length) {
+        arrivalsEl.innerHTML = "<li class='Box-row text-small color-fg-muted'>No hay servicios próximos</li>";
+        return;
+      }
+
+      arrivals.forEach(a => {
+        const li = document.createElement("li");
+        li.className = "Box-row";
+
+        li.innerHTML = `
 		  <div class="d-flex flex-justify-between flex-items-center">
 			<div>
 			  <strong>${a.line}</strong>
@@ -413,145 +417,185 @@ function minutesUntilTodayTime(hhmm) {
 		  ${(a.isTram || a.isShuttle) ? '' : `<div id="map-${a.lineCode}" class="d-none mt-2" style="height: 300px; border-radius: 6px;"></div>`}
 		`;
 
-		arrivalsEl.appendChild(li);
-	  });
-	}
-
-  arrivalsEl.addEventListener("click", e => {
-    if (e.target.tagName === "BUTTON") {
-      toggleMap(e.target);
+        arrivalsEl.appendChild(li);
+      });
     }
-  });
 
-  async function refresh() {
-    statusEl.textContent = "Actualizando…";
-    const arrivals = await loadArrivals();
-    render(arrivals);
-    statusEl.textContent = "Actualizado " + new Date().toLocaleTimeString() + ". Es la API del CRTM, no va muy bien, rogamos comprensión. Las líneas no mostradas son por no recibir respuesta en la API.";
-  }
+    arrivalsEl.addEventListener("click", e => {
+      if (e.target.tagName === "BUTTON") {
+        toggleMap(e.target);
+      }
+    });
 
-  refresh();
-  setInterval(refresh, 60000);
-})();
+    async function refresh() {
+      statusEl.textContent = "Actualizando…";
+      const arrivals = await loadArrivals();
+      render(arrivals);
+      statusEl.textContent = "Actualizado " + new Date().toLocaleTimeString() + ". Es la API del CRTM, no va muy bien, rogamos comprensión. Las líneas no mostradas son por no recibir respuesta en la API.";
+    }
+
+    refresh();
+    setInterval(refresh, 60000);
+  })();
 </script>
 <script>
-async function actualizarBusesSimplificados() {
-  const contenedor = document.getElementById('buses-simplificado');
-  if (!contenedor) return;
-
-  const SOURCES = [
-    { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
-    { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
-    { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
-    { 
-      url: "https://api.madridtransporte.com/stops/tram/29/planned", 
-      lines: null, 
-      isTram: true
-    }
-  ];
-
-  function minutesFromNow(ts) {
-    return Math.max(0, Math.round((ts - Date.now()) / 60000));
-  }
-  
-	function isWeekday(date = new Date()) {
-	  const d = date.getDay();
-	  return d >= 1 && d <= 5; // L-V
-	}
-
-
-function minutesUntilTodayTime(hhmm) {
-  const [h, m] = hhmm.split(":").map(Number);
-  const now = new Date();
-  const t = new Date();
-  t.setHours(h, m, 0, 0);
-  return Math.round((t - now) / 60000);
-}
-
-  function uniqueSorted(arr) {
-    return [...new Set(arr)].sort((a, b) => a - b);
-  }
+async function verificarAtasco() {
+  const avisoEl = document.getElementById('aviso-atasco');
+  if (!avisoEl) return;
 
   try {
-    const results = [];
+    const res = await fetch('https://notifierpushrss.onrender.com/api/m511');
+    const data = await res.json();
 
-    for (const source of SOURCES) {
-      try {
-        const res = await fetch(source.url);
-        const data = await res.json();
+    if (data.total_atascos === 0) {
+      avisoEl.style.display = 'none';
+      return;
+    }
 
-        if (source.isTram) {
-          for (const arrival of data) {
-            if (arrival.direction !== 2) continue;
-            uniqueSorted(arrival.arrives || []).forEach(ts => {
+    // Tomar el atasco más cercano o el primero
+    const atasco = data.atascos[0];
+    
+    const nivelTexto = {
+      'lowest': 'muy leve',
+      'low': 'leve',
+      'medium': 'medio',
+      'high': 'grave',
+      'highest': 'muy grave'
+    }[atasco.gravedad] || atasco.nivel_gravedad;
+
+    avisoEl.textContent = `Hay atasco ${nivelTexto} en Colonia Jardín.`;
+    avisoEl.style.display = 'block';
+
+  } catch (err) {
+    console.error('Error verificando atasco:', err);
+    avisoEl.style.display = 'none';
+  }
+}
+
+// Verificar al cargar y cada 2 minutos
+document.addEventListener('DOMContentLoaded', () => {
+  verificarAtasco();
+  setInterval(verificarAtasco, 120000); // 2 minutos
+});
+</script>
+<script>
+  async function actualizarBusesSimplificados() {
+    const contenedor = document.getElementById('buses-simplificado');
+    if (!contenedor) return;
+
+    const SOURCES = [
+      { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
+      { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
+      { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
+      {
+        url: "https://api.madridtransporte.com/stops/tram/29/planned",
+        lines: null,
+        isTram: true
+      }
+    ];
+
+    function minutesFromNow(ts) {
+      return Math.max(0, Math.round((ts - Date.now()) / 60000));
+    }
+
+    function isWeekday(date = new Date()) {
+      const d = date.getDay();
+      return d >= 1 && d <= 5; // L-V
+    }
+
+
+    function minutesUntilTodayTime(hhmm) {
+      const [h, m] = hhmm.split(":").map(Number);
+      const now = new Date();
+      const t = new Date();
+      t.setHours(h, m, 0, 0);
+      return Math.round((t - now) / 60000);
+    }
+
+    function uniqueSorted(arr) {
+      return [...new Set(arr)].sort((a, b) => a - b);
+    }
+
+    try {
+      const results = [];
+
+      for (const source of SOURCES) {
+        try {
+          const res = await fetch(source.url);
+          const data = await res.json();
+
+          if (source.isTram) {
+            for (const arrival of data) {
+              if (arrival.direction !== 2) continue;
+              uniqueSorted(arrival.arrives || []).forEach(ts => {
+                results.push({
+                  line: arrival.lineCode,
+                  minutes: minutesFromNow(ts)
+                });
+              });
+            }
+            continue;
+          }
+
+          for (const arrival of data.arrives || []) {
+            if (source.lines && !source.lines.includes(arrival.line)) continue;
+            uniqueSorted(arrival.estimatedArrives || []).forEach(ts => {
               results.push({
-                line: arrival.lineCode,
+                line: arrival.line,
                 minutes: minutesFromNow(ts)
               });
             });
           }
-          continue;
-        }
 
-        for (const arrival of data.arrives || []) {
-          if (source.lines && !source.lines.includes(arrival.line)) continue;
-          uniqueSorted(arrival.estimatedArrives || []).forEach(ts => {
-            results.push({
-              line: arrival.line,
-              minutes: minutesFromNow(ts)
-            });
-          });
+        } catch (e) {
+          console.error("Error cargando", source.url, e);
         }
-		
-      } catch (e) {
-        console.error("Error cargando", source.url, e);
       }
-    }
-	
-	    if (isWeekday()) {
-      SHUTTLES.forEach(shuttle => {
-        shuttle.times.forEach(time => {
-          const minutes = minutesUntilTodayTime(time);
 
-          // solo mostrar cuando quede menos de 1h
-          if (minutes > 0 && minutes <= 60) {
-            results.push({
-              line: shuttle.line,
-              lineCode: shuttle.line,
-              destination: shuttle.destination,
-              minutes,
-              isTram: true
-            });
-          }
+      if (isWeekday()) {
+        SHUTTLES.forEach(shuttle => {
+          shuttle.times.forEach(time => {
+            const minutes = minutesUntilTodayTime(time);
+
+            // solo mostrar cuando quede menos de 1h
+            if (minutes > 0 && minutes <= 60) {
+              results.push({
+                line: shuttle.line,
+                lineCode: shuttle.line,
+                destination: shuttle.destination,
+                minutes,
+                isTram: true
+              });
+            }
+          });
         });
-      });
-    }
+      }
 
-    const sorted = results.sort((a, b) => a.minutes - b.minutes);
-    
-    if (sorted.length === 0) {
-      contenedor.innerHTML = 'No hay buses próximos';
-      return;
-    }
+      const sorted = results.sort((a, b) => a.minutes - b.minutes);
 
-    const primerosLlegadas = sorted.slice(0, 5);
-    const html = primerosLlegadas.map(a => 
-      `<span><strong>${a.line}</strong>: <span class="bus-time">${a.minutes}'</span></span>`
-    ).join(' · ');
-    
-    contenedor.innerHTML = html;
-    
-  } catch (err) {
-    console.error('Error actualizando buses simplificados:', err);
-    contenedor.innerHTML = 'API CRTM caída. Actualiza la web.';
+      if (sorted.length === 0) {
+        contenedor.innerHTML = 'No hay buses próximos';
+        return;
+      }
+
+      const primerosLlegadas = sorted.slice(0, 5);
+      const html = primerosLlegadas.map(a =>
+        `<span><strong>${a.line}</strong>: <span class="bus-time">${a.minutes}'</span></span>`
+      ).join(' · ');
+
+      contenedor.innerHTML = html;
+
+    } catch (err) {
+      console.error('Error actualizando buses simplificados:', err);
+      contenedor.innerHTML = 'API CRTM caída. Actualiza la web.';
+    }
   }
-}
 
-// Actualizar al cargar y cada minuto
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(actualizarBusesSimplificados, 1000);
-  setInterval(actualizarBusesSimplificados, 60000);
-});
+  // Actualizar al cargar y cada minuto
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(actualizarBusesSimplificados, 1000);
+    setInterval(actualizarBusesSimplificados, 60000);
+  });
 </script>
 
 <!-- Modal de descarga de la app -->
@@ -581,8 +625,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Botón universal -->
     <a id="universal-link" href="https://notifierpushrss.onrender.com/"
-       style="margin: 15px 0; background:#4A90E2; color:white; padding:10px; border-radius:5px; text-decoration:none; display:block;">
-       Activar notificaciones
+      style="margin: 15px 0; background:#4A90E2; color:white; padding:10px; border-radius:5px; text-decoration:none; display:block;">
+      Activar notificaciones
     </a>
 
     <button id="close-modal" style="padding:8px 20px; border:none; background:#ccc; border-radius:5px;">
@@ -593,126 +637,126 @@ document.addEventListener('DOMContentLoaded', () => {
 
 {% raw %}
 <script>
-// Evitar mostrar el modal más de una vez
-const shown = localStorage.getItem("appModalShown");
+  // Evitar mostrar el modal más de una vez
+  const shown = localStorage.getItem("appModalShown");
 
-if (!shown) {
+  if (!shown) {
     document.getElementById("download-app-modal").style.display = "block";
-}
+  }
 
-// Cerrar el modal
-document.getElementById("close-modal").onclick = function () {
+  // Cerrar el modal
+  document.getElementById("close-modal").onclick = function () {
     localStorage.setItem("appModalShown", "true");
     document.getElementById("download-app-modal").style.display = "none";
-};
+  };
 </script>
 <script>
-async function cargarEstadoCRTM() {
-  const contenedor = document.getElementById("estado-crtm");
-  if (!contenedor) return;
+  async function cargarEstadoCRTM() {
+    const contenedor = document.getElementById("estado-crtm");
+    if (!contenedor) return;
 
-  const urlCRTM =
-    "https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es";
+    const urlCRTM =
+      "https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es";
 
-  const proxyURL =
-    "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(urlCRTM);
+    const proxyURL =
+      "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(urlCRTM);
 
-  try {
-    const response = await fetch(proxyURL);
-    const html = await response.text();
+    try {
+      const response = await fetch(proxyURL);
+      const html = await response.text();
 
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
 
-    const selector =
-      "#colCentro > div > div.brdGris2 > div.cont > div:nth-child(2)";
+      const selector =
+        "#colCentro > div > div.brdGris2 > div.cont > div:nth-child(2)";
 
-    const divCRTM = doc.querySelector(selector);
+      const divCRTM = doc.querySelector(selector);
 
-    if (!divCRTM) {
-      contenedor.innerText = "No se pudo obtener el estado del servicio";
-      return;
+      if (!divCRTM) {
+        contenedor.innerText = "No se pudo obtener el estado del servicio";
+        return;
+      }
+
+      // Clonamos para no mover nodos del documento remoto
+      const clon = divCRTM.cloneNode(true);
+
+      // Corregir rutas relativas de imágenes
+      clon.querySelectorAll("img").forEach(img => {
+        const src = img.getAttribute("src");
+        if (src && src.trim().startsWith("/")) {
+          img.src = "https://crtm.es" + src.trim();
+        }
+      });
+
+      // Corregir rutas relativas de enlaces
+      clon.querySelectorAll("a").forEach(a => {
+        let href = a.getAttribute("href");
+        if (!href) return;
+
+        href = href.trim(); // elimina espacios y saltos de línea
+
+        if (href.startsWith("/")) {
+          a.href = "https://crtm.es" + href;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      });
+
+      // Limpiar y agregar el contenido
+      contenedor.innerHTML = "";
+      contenedor.appendChild(clon);
+
+    } catch (err) {
+      console.error("Error CRTM:", err);
+      contenedor.innerText = "Consulta al CRTM fallida. Recarga la web y vuelve a intentarlo,";
     }
-
-    // Clonamos para no mover nodos del documento remoto
-    const clon = divCRTM.cloneNode(true);
-
-    // Corregir rutas relativas de imágenes
-    clon.querySelectorAll("img").forEach(img => {
-      const src = img.getAttribute("src");
-      if (src && src.trim().startsWith("/")) {
-        img.src = "https://crtm.es" + src.trim();
-      }
-    });
-
-    // Corregir rutas relativas de enlaces
-    clon.querySelectorAll("a").forEach(a => {
-      let href = a.getAttribute("href");
-      if (!href) return;
-
-      href = href.trim(); // elimina espacios y saltos de línea
-
-      if (href.startsWith("/")) {
-        a.href = "https://crtm.es" + href;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-      }
-    });
-
-    // Limpiar y agregar el contenido
-    contenedor.innerHTML = "";
-    contenedor.appendChild(clon);
-
-  } catch (err) {
-    console.error("Error CRTM:", err);
-    contenedor.innerText = "Consulta al CRTM fallida. Recarga la web y vuelve a intentarlo,";
   }
-}
 
-// Cargar al iniciar
-document.addEventListener("DOMContentLoaded", cargarEstadoCRTM);
+  // Cargar al iniciar
+  document.addEventListener("DOMContentLoaded", cargarEstadoCRTM);
 
-// Auto-refresh cada 5 minutos
-setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
+  // Auto-refresh cada 5 minutos
+  setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 </script>
 
 <!-- Resaltado de avisos no visualizados -->
 <script>
-(() => {
-  const seen = getSeenPosts();
-  const items = document.querySelectorAll("li[data-post-url]");
+  (() => {
+    const seen = getSeenPosts();
+    const items = document.querySelectorAll("li[data-post-url]");
 
-  // Limpiar el objeto de vistos: eliminar URLs que ya no existen en la página
-  const currentUrls = new Set([...items].map(li => li.dataset.postUrl));
-  for (const url in seen) {
-    if (!currentUrls.has(url)) delete seen[url];
-  }
-
-  items.forEach(li => {
-    const url = li.dataset.postUrl;
-    const dateModified = li.dataset.dateModified; // Necesitamos añadir este atributo
-
-    const link = li.querySelector("a");
-    if (!link) return;
-
-    // Si no se ha visto o ha sido modificado desde la última visita, resaltarlo
-    if (isPostModifiedSinceLastVisit(url, dateModified)) {
-      link.style.fontWeight = "600";
-
-      const star = document.createElement("span");
-      star.textContent = "★";
-      star.style.color = "#4f86d9";
-      star.style.marginRight = "6px";
-      star.style.fontSize = "0.8em";
-      star.style.verticalAlign = "middle";
-
-      link.prepend(star);
+    // Limpiar el objeto de vistos: eliminar URLs que ya no existen en la página
+    const currentUrls = new Set([...items].map(li => li.dataset.postUrl));
+    for (const url in seen) {
+      if (!currentUrls.has(url)) delete seen[url];
     }
-  });
 
-  // Guardar cambios (limpiar URLs eliminadas)
-  saveSeenPosts(seen);
-})();
+    items.forEach(li => {
+      const url = li.dataset.postUrl;
+      const dateModified = li.dataset.dateModified; // Necesitamos añadir este atributo
+
+      const link = li.querySelector("a");
+      if (!link) return;
+
+      // Si no se ha visto o ha sido modificado desde la última visita, resaltarlo
+      if (isPostModifiedSinceLastVisit(url, dateModified)) {
+        link.style.fontWeight = "600";
+
+        const star = document.createElement("span");
+        star.textContent = "★";
+        star.style.color = "#4f86d9";
+        star.style.marginRight = "6px";
+        star.style.fontSize = "0.8em";
+        star.style.verticalAlign = "middle";
+
+        link.prepend(star);
+      }
+    });
+
+    // Guardar cambios (limpiar URLs eliminadas)
+    saveSeenPosts(seen);
+  })();
 </script>
 
 
@@ -721,10 +765,3 @@ setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
 
 
 {% endraw %}
-
-
-
-
-
-
-
