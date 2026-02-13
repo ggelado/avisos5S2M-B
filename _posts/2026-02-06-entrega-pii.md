@@ -3,7 +3,7 @@ layout: post
 title: "Entrega PII"
 date: 2026-02-06 13:58:29 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-12 23:59:59 +0100
 excerpt: "Información relevante sobre 1eras entregas."
 categories:
