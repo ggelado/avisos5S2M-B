@@ -33,7 +33,7 @@ async function cargarAtascosPoblados() {
     ul.innerHTML = '';
     data.atascos.forEach(atasco => {
       const li = document.createElement('li');
-      li.textContent = `${atasco.descripcion}
+      li.textContent = `${atasco.descripcion}`
       ul.appendChild(li);
     });
 
