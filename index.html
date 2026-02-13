@@ -156,6 +156,9 @@ title: "Avisos 5S/6F 2M-B"
       <ul id="arrivals" class="list-style-none m-0"></ul>
     </div>
   </div>
+
+  <div id="link-atascos" style="text-align:center; font-size:0.75em; margin-top:4px; display:none;">
+</div>
 </section>
 
 <p> <strong>Novedad:</strong> Abono transporte digital (ya no está en beta).
@@ -164,7 +167,39 @@ title: "Avisos 5S/6F 2M-B"
 </p>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+async function mostrarLinkAtascos() {
+  const contenedor = document.getElementById('link-atascos');
+  if (!contenedor) return;
 
+  try {
+    const res = await fetch('https://notifierpushrss.onrender.com/api/poblados');
+    if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+    const data = await res.json();
+
+    if (data.hayAtascos) {
+      // Mostrar enlace solo si hay atascos
+      contenedor.innerHTML = `<a href="/avisos5S2M-B/poblados.html" style="color:#4f86d9; text-decoration:underline;">
+        Estado del tráfico en Av. Poblados
+      </a>`;
+      contenedor.style.display = 'block';
+    } else {
+      contenedor.style.display = 'none';
+      contenedor.innerHTML = '';
+    }
+
+  } catch (err) {
+    console.error('Error consultando atascos en Poblados:', err);
+    contenedor.style.display = 'none';
+  }
+}
+
+// Ejecutar al cargar la página y refrescar cada 2 minutos
+document.addEventListener('DOMContentLoaded', () => {
+  mostrarLinkAtascos();
+  setInterval(mostrarLinkAtascos, 120000);
+});
+</script>
 <script>
   // --- Servicios lanzadera (horario fijo, L-V) ---
   const SHUTTLES = [
