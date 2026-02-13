@@ -502,7 +502,7 @@ setInterval(mostrarAvisoLluvia, 30000);
     }
 
     // Filtrar solo registros con gravedad "high"
-    const graves = data.trafico_anormal.registros.filter(r => r.gravedad === "high");
+    const graves = data.trafico_anormal.registros.filter(r => r.gravedad === "medium");
     if (graves.length === 0) {
       banner.style.display = "none";
       return;
