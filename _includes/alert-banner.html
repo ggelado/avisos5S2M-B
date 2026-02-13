@@ -560,7 +560,7 @@ setInterval(mostrarAvisoLluvia, 30000);
         tramosTexto.push(`${tramo} (${sentidoTexto})`);
       });
 
-      const prefijoTexto = hayGrave ? "⚠️ ATASCO GRAVE EN" : "ℹ️ Tráfico lento en";
+      const prefijoTexto = hayGrave ? "ATASCO GRAVE EN" : "Tráfico lento en";
       texto.textContent = `${prefijoTexto} ${data.carretera}: ${tramosTexto.join(" · ")}`;
       banner.style.display = "block";
 
