@@ -490,19 +490,23 @@ setInterval(mostrarAvisoLluvia, 30000);
   const banner = document.getElementById("banner-trafico-anormal");
   const texto = document.getElementById("banner-trafico-anormal-texto");
 
+  console.log("🔍 Iniciando carga de M40...");
+
   try {
     const res = await fetch(ENDPOINT);
     if (!res.ok) throw new Error(`HTTP status ${res.status}`);
     
     const data = await res.json();
+    console.log("📊 Datos recibidos:", data);
 
     if (!data || !data.trafico_anormal || !Array.isArray(data.trafico_anormal.registros)) {
       console.warn("Respuesta inválida de M40:", data);
       return;
     }
 
-    // Filtrar solo registros con gravedad "high"
     const graves = data.trafico_anormal.registros.filter(r => r.gravedad === "medium");
+    console.log("⚠️ Registros graves encontrados:", graves.length);
+    
     if (graves.length === 0) {
       banner.style.display = "none";
       return;
