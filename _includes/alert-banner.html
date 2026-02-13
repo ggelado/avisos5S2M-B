@@ -191,57 +191,57 @@
 </script>
 <div id="futbol-alert"></div>
 <script>
-async function checkFutbol() {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  async function checkFutbol() {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-  const CF_CRITICAL_IPS = ["188.114.96.5", "188.114.97.5"];
-  const div = document.getElementById("futbol-alert");
+    const CF_CRITICAL_IPS = ["188.114.96.5", "188.114.97.5"];
+    const div = document.getElementById("futbol-alert");
 
-  try {
-    const res = await fetch(
-      "https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json",
-      { signal: controller.signal }
-    );
+    try {
+      const res = await fetch(
+        "https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json",
+        { signal: controller.signal }
+      );
 
-    clearTimeout(timeoutId);
-    if (!res.ok) return;
+      clearTimeout(timeoutId);
+      if (!res.ok) return;
 
-    const json = await res.json();
-    if (!json?.data) return;
+      const json = await res.json();
+      if (!json?.data) return;
 
-    const ipCounts = new Map();
-    const criticalHits = new Set();
+      const ipCounts = new Map();
+      const criticalHits = new Set();
 
-    json.data.forEach(entry => {
-      if (!entry.stateChanges?.length) return;
+      json.data.forEach(entry => {
+        if (!entry.stateChanges?.length) return;
 
-      const last = entry.stateChanges.at(-1);
+        const last = entry.stateChanges.at(-1);
 
-      if (last.state === true && entry.description === "Cloudflare") {
-        const count = (ipCounts.get(entry.ip) || 0) + 1;
-        ipCounts.set(entry.ip, count);
+        if (last.state === true && entry.description === "Cloudflare") {
+          const count = (ipCounts.get(entry.ip) || 0) + 1;
+          ipCounts.set(entry.ip, count);
 
-        if (CF_CRITICAL_IPS.includes(entry.ip)) {
-          criticalHits.add(entry.ip);
+          if (CF_CRITICAL_IPS.includes(entry.ip)) {
+            criticalHits.add(entry.ip);
+          }
         }
-      }
-    });
+      });
 
-    // IPs con 3 o más bloqueos
-    const repeatedBlockedIps = [...ipCounts.values()].filter(v => v > 2).length;
+      // IPs con 3 o más bloqueos
+      const repeatedBlockedIps = [...ipCounts.values()].filter(v => v > 2).length;
 
-    // ¿están bloqueadas las dos IPs críticas?
-    const criticalPairBlocked =
-      CF_CRITICAL_IPS.every(ip => criticalHits.has(ip));
+      // ¿están bloqueadas las dos IPs críticas?
+      const criticalPairBlocked =
+        CF_CRITICAL_IPS.every(ip => criticalHits.has(ip));
 
-    const hayBloqueos = repeatedBlockedIps > 3 || criticalPairBlocked;
+      const hayBloqueos = repeatedBlockedIps > 3 || criticalPairBlocked;
 
-    if (hayBloqueos) {
-      div.innerHTML = `
+      if (hayBloqueos) {
+        div.innerHTML = `
         <strong>HAY BLOQUEOS ACTIVOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs (incluida esta) pueden no funcionar con normalidad. Este aviso solo se muestra cuando hay bloqueos activos y confirmados en este momento. Informate de tus derechos al respecto. `;
 
-      div.style.cssText = `
+        div.style.cssText = `
         background-color:#fff5f5;
         border-left:5px solid #e53e3e;
         color:#742a2a;
@@ -257,19 +257,19 @@ async function checkFutbol() {
         margin:10px auto;
         line-height:1.4;
       `;
-    } else {
-      div.style.display = "none";
-      div.innerHTML = "";
-    }
+      } else {
+        div.style.display = "none";
+        div.innerHTML = "";
+      }
 
-  } catch (e) {
-    clearTimeout(timeoutId);
+    } catch (e) {
+      clearTimeout(timeoutId);
 
-    if (e.name === "AbortError" || e instanceof TypeError) {
-      div.innerHTML = `
+      if (e.name === "AbortError" || e instanceof TypeError) {
+        div.innerHTML = `
         <strong>TÚ CONEXIÓN A INTERNET PRESENTA IRREGULARIDADES:</strong> Tu conexión a varios scripts (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Es muy probable que se trate de los bloqueos indiscriminados de LaLiga, pero no podemos asegurarlo. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.`;
 
-      div.style.cssText = `
+        div.style.cssText = `
         background-color:#fff5f5;
         border-left:5px solid #e53e3e;
         color:#742a2a;
@@ -285,13 +285,13 @@ async function checkFutbol() {
         margin:10px auto;
         line-height:1.4;
       `;
+      }
     }
   }
-}
 
 
-checkFutbol();
-setInterval(checkFutbol, 120000);
+  checkFutbol();
+  setInterval(checkFutbol, 120000);
 </script>
 
 
@@ -485,60 +485,69 @@ setInterval(mostrarAvisoLluvia, 30000);
 </div>
 
 <script>
-(async function () {
-  const ENDPOINT = "https://notifierpushrss.onrender.com/api/m40";
-  const banner = document.getElementById("banner-trafico-anormal");
-  const texto = document.getElementById("banner-trafico-anormal-texto");
+  (async function () {
+    const ENDPOINT = "https://notifierpushrss.onrender.com/api/m40";
+    const banner = document.getElementById("banner-trafico-anormal");
+    const texto = document.getElementById("banner-trafico-anormal-texto");
 
-  console.log("🔍 Iniciando carga de M40...");
+    console.log("🔍 Iniciando carga de M40...");
 
-  try {
-    const res = await fetch(ENDPOINT);
-    if (!res.ok) throw new Error(`HTTP status ${res.status}`);
-    
-    const data = await res.json();
-    console.log("📊 Datos recibidos:", data);
+    try {
+      const res = await fetch(ENDPOINT);
+      if (!res.ok) throw new Error(`HTTP status ${res.status}`);
 
-    if (!data || !data.trafico_anormal || !Array.isArray(data.trafico_anormal.registros)) {
-      console.warn("Respuesta inválida de M40:", data);
-      return;
-    }
+      const data = await res.json();
+      console.log("📊 Datos recibidos:", data);
 
-    const graves = data.trafico_anormal.registros.filter(r => r.gravedad === "medium");
-    console.log("⚠️ Registros graves encontrados:", graves.length);
-    
-    if (graves.length === 0) {
+      if (!data || !data.trafico_anormal || !Array.isArray(data.trafico_anormal.registros)) {
+        console.warn("Respuesta inválida de M40:", data);
+        return;
+      }
+
+      const graves = data.trafico_anormal.registros.filter(r => r.gravedad === "medium");
+      console.log("⚠️ Registros graves encontrados:", graves.length);
+
+      if (graves.length === 0) {
+        banner.style.display = "none";
+        return;
+      }
+
+      console.log("🚗 Construyendo banner...");
+
+      // Agrupar tramos por km_inicio-km_fin
+      const tramosMap = new Map();
+
+      graves.forEach(r => {
+        const key = `${r.km_inicio}-${r.km_fin}`;
+        if (!tramosMap.has(key)) {
+          tramosMap.set(key, new Set());
+        }
+        tramosMap.get(key).add(r.sentido);
+      });
+
+      console.log("🗺️ Tramos agrupados:", tramosMap);
+
+      // Construir texto
+      const tramosTexto = [];
+      tramosMap.forEach((sentidos, tramo) => {
+        let sentidoTexto = "ambos";
+        if (sentidos.size === 1) {
+          sentidoTexto = Array.from(sentidos)[0];
+        }
+        tramosTexto.push(`${tramo} (${sentidoTexto}, tráfico ${graves[0].tipo_trafico})`);
+      });
+
+      console.log("📝 Texto construido:", tramosTexto);
+
+      texto.textContent = `Atasco grave en ${data.carretera}: ${tramosTexto.join(" · ")}`;
+      console.log("✅ Banner text set:", texto.textContent);
+
+      banner.style.display = "block";
+      console.log("👁️ Banner display:", banner.style.display);
+
+    } catch (e) {
+      console.error("Error al obtener datos de M40:", e);
       banner.style.display = "none";
-      return;
     }
-
-    // Agrupar tramos por km_inicio-km_fin
-    const tramosMap = new Map();
-
-    graves.forEach(r => {
-      const key = `${r.km_inicio}-${r.km_fin}`;
-      if (!tramosMap.has(key)) {
-        tramosMap.set(key, new Set());
-      }
-      tramosMap.get(key).add(r.sentido);
-    });
-
-    // Construir texto
-    const tramosTexto = [];
-    tramosMap.forEach((sentidos, tramo) => {
-      let sentidoTexto = "ambos";
-      if (sentidos.size === 1) {
-        sentidoTexto = Array.from(sentidos)[0];
-      }
-      tramosTexto.push(`${tramo} (${sentidoTexto}, tráfico ${graves[0].tipo_trafico})`);
-    });
-
-    texto.textContent = `Atasco grave en ${data.carretera}: ${tramosTexto.join(" · ")}`;
-    banner.style.display = "block";
-
-  } catch (e) {
-    console.error("Error al obtener datos de M40:", e);
-    banner.style.display = "none";
-  }
-})();
+  })();
 </script>
