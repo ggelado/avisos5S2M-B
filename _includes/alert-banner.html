@@ -497,6 +497,7 @@ setInterval(mostrarAvisoLluvia, 30000);
       const data = await res.json();
 
       if (!data || !data.trafico_anormal || !Array.isArray(data.trafico_anormal.registros)) {
+        banner.style.display = "none";
         return;
       }
 
@@ -510,18 +511,24 @@ setInterval(mostrarAvisoLluvia, 30000);
       // Verificar si hay algún registro de nivel high o highest
       const hayGrave = registros.some(r => r.nivel === 'high' || r.nivel === 'highest');
 
-      // Aplicar estilo discreto si NO hay graves
+      // --- APLICACIÓN DE ESTILOS SEGÚN GRAVEDAD ---
       if (!hayGrave) {
-        banner.style.backgroundColor = "#f7fafc";
-        banner.style.borderLeft = "3px solid #cbd5e0";
-        banner.style.color = "#718096";
-        banner.style.padding = "8px 12px";
+        // Estilo DISCRETO (No estorba, no fixed)
+        banner.style.position = "relative"; // No sigue el scroll
+        banner.style.top = "auto";
+        banner.style.backgroundColor = "#f8f9fa";
+        banner.style.borderLeft = "3px solid #dee2e6";
+        banner.style.color = "#6c757d";
+        banner.style.padding = "6px 12px";
         banner.style.fontWeight = "400";
         banner.style.fontSize = "0.85em";
-        banner.style.boxShadow = "0 1px 2px rgba(0,0,0,0.05)";
-        banner.style.opacity = "0.85";
+        banner.style.boxShadow = "none";
+        banner.style.opacity = "0.9";
+        banner.style.zIndex = "1";
       } else {
-        // Mantener estilo destacado para high/highest
+        // Estilo DESTACADO (Sticky y llamativo)
+        banner.style.position = "sticky";
+        banner.style.top = "10px";
         banner.style.backgroundColor = "#ebf8ff";
         banner.style.borderLeft = "5px solid #3182ce";
         banner.style.color = "#2a4365";
@@ -530,11 +537,11 @@ setInterval(mostrarAvisoLluvia, 30000);
         banner.style.fontSize = "1em";
         banner.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
         banner.style.opacity = "1";
+        banner.style.zIndex = "9999";
       }
 
       // Agrupar tramos por km_inicio-km_fin
       const tramosMap = new Map();
-
       registros.forEach(r => {
         const key = `km ${r.km_inicio}-${r.km_fin}`;
         if (!tramosMap.has(key)) {
@@ -553,8 +560,7 @@ setInterval(mostrarAvisoLluvia, 30000);
         tramosTexto.push(`${tramo} (${sentidoTexto})`);
       });
 
-      // Texto más discreto para medium
-      const prefijoTexto = hayGrave ? "Atasco en" : "Tráfico lento en";
+      const prefijoTexto = hayGrave ? "⚠️ ATASCO GRAVE EN" : "ℹ️ Tráfico lento en";
       texto.textContent = `${prefijoTexto} ${data.carretera}: ${tramosTexto.join(" · ")}`;
       banner.style.display = "block";
 
