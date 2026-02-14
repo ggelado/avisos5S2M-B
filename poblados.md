@@ -1,6 +1,7 @@
 ---
 permalink: /poblados
 title: Atascos Av. Poblados
+sitemap: false
 ---
 <section>
   <p>Última actualización: <span id="ultima-actualizacion">Cargando…</span></p>
