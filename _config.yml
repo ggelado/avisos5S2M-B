@@ -9,6 +9,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-last-modified-at
   - jekyll-seo-tag
+  - jekyll-sitemap
 feed:
   posts_limit: 100
 
@@ -19,6 +20,7 @@ include:
 
 authors:
   enabled: true
+
 
 
 
