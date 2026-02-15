@@ -538,6 +538,15 @@ setInterval(mostrarAvisoLluvia, 30000);
         banner.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
         banner.style.opacity = "1";
         banner.style.zIndex = "9999";
+
+        // Añadir enlace al aviso
+        const link = document.createElement('a');
+        link.href = "https://ggelado.github.io/avisos5S2M-B/descargarAviso.html";
+        link.textContent = "Más información";
+        link.style.color = "#2a4365";
+        link.style.textDecoration = "underline";
+        link.style.marginLeft = "10px";
+        texto.appendChild(link);
       }
 
       // Agrupar tramos por km_inicio-km_fin
