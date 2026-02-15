@@ -76,7 +76,7 @@ sitemap: false
     const container = document.getElementById('avisos-container');
     
     try {
-      const response = await fetch(`${API_BASE}/api/traffic`);
+      const response = await fetch(`${API_BASE}/api/m40detalle`);
       
       if (!response.ok) {
         throw new Error('Error al cargar los avisos');
