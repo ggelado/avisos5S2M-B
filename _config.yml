@@ -17,9 +17,12 @@ feed:
 
 include:
   - ".well-known"
+exclude:
+  - "*.py"
 
 authors:
   enabled: true
+
 
 
 
