@@ -396,12 +396,11 @@ window.addEventListener('load', async () => {
           easyMDE.value(''); // Limpiar el editor
           easyMDE.clearAutosavedValue(); // Limpiar autosave
         } else {
-          responseDiv.innerHTML = `<strong>❌ ${result.error || "Error al enviar el aviso."}</strong>`;
+          responseDiv.innerHTML = `<strong>${result.error || "Error al enviar el aviso."}</strong>`;
           responseDiv.className = "error";
         }
       } catch (error) {
-        console.error("Error:", error);
-        responseDiv.innerHTML = "<strong>❌ Error de conexión con el servidor.</strong> AVISA AL EQUIPO DE DELEGADOS.";
+        responseDiv.innerHTML = "<strong>Error de conexión con el servidor.</strong> AVISA AL EQUIPO DE DELEGADOS.";
         responseDiv.className = "error";
       } finally {
         // Reactivar el botón después del proceso
