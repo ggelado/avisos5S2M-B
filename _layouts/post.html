@@ -1,15 +1,6 @@
 ---
 layout: default
 ---
-{% if page.expires %}
-  {% assign expires_utc = page.expires | date: "%Y-%m-%d %H:%M:%S %z" | date: "%s" | date: "%d/%m/%Y a las %H:%M (UTC)" %}
-  <p class="post-expires">
-    Este aviso dejará de ser válido el {{ expires_utc }}
-  </p>
-
-<hr>
-
-{% endif %}
 {{ content }}
 <hr>
 
@@ -44,3 +35,33 @@ layout: default
   markPostAsSeen(url);
 })();
 </script>
+
+{% if page.expires %}
+<script>
+(() => {
+  const expires = '{{ page.expires | date: "%Y-%m-%dT%H:%M:%S%z" }}';
+  if (expires) {
+    const expiresDate = new Date(expires);
+    const now = new Date();
+
+    if (now > expiresDate) {
+      const warning = document.createElement('div');
+      warning.style.cssText = `
+        background-color: #ffcccc;
+        color: #990000;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        border: 2px solid #990000;
+        margin-bottom: 20px;
+      `;
+      warning.textContent = 'Este aviso ha caducado y no se garantiza que siga siendo válido.';
+
+      const content = document.querySelector('.post-expires') || document.body;
+      content.parentNode.insertBefore(warning, content);
+    }
+  }
+})();
+</script>
+{% endif %}
