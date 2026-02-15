@@ -1,91 +1,93 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="3; url={{ page.redirect_url }}">
-    <link rel="canonical" href="{{ page.redirect_url }}">
-    <meta name="robots" content="noindex">
-    
-    {% include head-custom.html %}
-  </head>
-  <body>
-    <h1>Redirigiendo...</h1>
-    <p>Si no eres redirigido automáticamente, <a href="{{ page.redirect_url }}">haz clic aquí</a>.</p>
-    
-    <script>
-      (function() {
-        const targetUrl = "{{ page.redirect_url }}";
-        let analyticsReady = false;
-        let startTime = Date.now();
-        const MAX_WAIT = 3000; // Máximo 3 segundos de espera
-        const MIN_WAIT = 800;  // Mínimo 0.8 segundos para asegurar carga
-        
-        // Marcar cuando GA esté listo
-        function checkAnalytics() {
-          if (window.gtag || window.ga || (window.dataLayer && window.dataLayer.length > 0)) {
-            analyticsReady = true;
-            
-            // Si gtag está disponible, enviar evento de redirección
-            if (window.gtag) {
-              try {
-                gtag('event', 'page_view', {
-                  'page_title': '{{ page.title | default: "Redirect" }}',
-                  'page_location': window.location.href,
-                  'send_to': 'G-HP1VJBHQL3'
-                });
-                gtag('event', 'redirect', {
-                  'event_category': 'navigation',
-                  'event_label': targetUrl,
-                  'transport_type': 'beacon'
-                });
-              } catch(e) {
-                console.warn('GA event error:', e);
-              }
+<html lang="{{ page.lang | default: site.lang | default: " en-US" }}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="3; url={{ page.redirect_url }}">
+  <link rel="canonical" href="{{ page.redirect_url }}">
+  <meta name="robots" content="noindex">
+
+  {% include head-custom.html %}
+</head>
+
+<body>
+  <h1>Redirigiendo...</h1>
+  <p>Si no eres redirigido automáticamente, <a href="{{ page.redirect_url }}">haz clic aquí</a>.</p>
+
+  <script>
+    (function () {
+      const targetUrl = "{{ page.redirect_url }}";
+      let analyticsReady = false;
+      let startTime = Date.now();
+      const MAX_WAIT = 3000; // Máximo 3 segundos de espera
+      const MIN_WAIT = 800;  // Mínimo 0.8 segundos para asegurar carga
+
+      // Marcar cuando GA esté listo
+      function checkAnalytics() {
+        if (window.gtag || window.ga || (window.dataLayer && window.dataLayer.length > 0)) {
+          analyticsReady = true;
+
+          // Si gtag está disponible, enviar evento de redirección
+          if (window.gtag) {
+            try {
+              gtag('event', 'page_view', {
+                'page_title': '{{ page.title | default: "Redirect" }}',
+                'page_location': window.location.href,
+                'send_to': 'G-HP1VJBHQL3'
+              });
+              gtag('event', 'redirect', {
+                'event_category': 'navigation',
+                'event_label': targetUrl,
+                'transport_type': 'beacon'
+              });
+            } catch (e) {
             }
           }
         }
-        
-        // Función de redirección
-        function redirect() {
-          const elapsed = Date.now() - startTime;
-          
-          // Esperar el mínimo de tiempo
-          if (elapsed < MIN_WAIT) {
-            setTimeout(redirect, MIN_WAIT - elapsed);
-            return;
-          }
-          
-          // Si GA está listo o ya pasó el tiempo máximo, redirigir
-          if (analyticsReady || elapsed >= MAX_WAIT) {
-            // Delay final de 100ms para asegurar envío de beacons
-            setTimeout(function() {
-              window.location.href = targetUrl;
-            }, 100);
-          } else {
-            // Reintentar en 100ms
-            setTimeout(redirect, 100);
-          }
+      }
+
+      // Función de redirección
+      function redirect() {
+        const elapsed = Date.now() - startTime;
+
+        // Esperar el mínimo de tiempo
+        if (elapsed < MIN_WAIT) {
+          setTimeout(redirect, MIN_WAIT - elapsed);
+          return;
         }
-        
-        // Chequear GA cada 100ms
-        const checkInterval = setInterval(function() {
-          checkAnalytics();
-          if (analyticsReady) {
-            clearInterval(checkInterval);
-          }
-        }, 100);
-        
-        // Iniciar chequeo inmediato
+
+        // Si GA está listo o ya pasó el tiempo máximo, redirigir
+        if (analyticsReady || elapsed >= MAX_WAIT) {
+          // Delay final de 100ms para asegurar envío de beacons
+          setTimeout(function () {
+            window.location.href = targetUrl;
+          }, 100);
+        } else {
+          // Reintentar en 100ms
+          setTimeout(redirect, 100);
+        }
+      }
+
+      // Chequear GA cada 100ms
+      const checkInterval = setInterval(function () {
         checkAnalytics();
-        
-        // Iniciar proceso de redirección
-        redirect();
-        
-        // Fallback absoluto por si algo falla
-        setTimeout(function() {
-          window.location.href = targetUrl;
-        }, 3000);
-      })();
-    </script>
-  </body>
+        if (analyticsReady) {
+          clearInterval(checkInterval);
+        }
+      }, 100);
+
+      // Iniciar chequeo inmediato
+      checkAnalytics();
+
+      // Iniciar proceso de redirección
+      redirect();
+
+      // Fallback absoluto por si algo falla
+      setTimeout(function () {
+        window.location.href = targetUrl;
+      }, 3000);
+    })();
+  </script>
+</body>
+
 </html>
