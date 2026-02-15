@@ -1,5 +1,5 @@
-title: "Avisos 5S/6F 2M-B"
-baseurl: "/avisos5S2M-B" 
+title: Avisos 5S/6F 2M-B
+baseurl: /avisos5S2M-B
 url: "https://ggelado.github.io"
 theme: jekyll-theme-primer
 locale: es_ES.UTF-8
@@ -13,17 +13,10 @@ plugins:
 feed:
   posts_limit: 100
 
-
-
 include:
-  - ".well-known"
+  - .well-known
 exclude:
   - "*.py"
 
 authors:
   enabled: true
-
-
-
-
-
