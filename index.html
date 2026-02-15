@@ -190,7 +190,6 @@ async function mostrarLinkAtascos() {
     }
 
   } catch (err) {
-    console.error('Error consultando atascos en Poblados:', err);
     contenedor.style.display = 'none';
   }
 }
@@ -305,7 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           }
         } catch (e) {
-          console.error("Error cargando", source.url, e);
         }
       }
 
@@ -360,7 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await res.json();
         return data.locations || [];
       } catch (e) {
-        console.error("Error cargando ubicación de buses", lineCode, e);
         return [];
       }
     }
@@ -517,7 +514,6 @@ async function verificarAtasco() {
     avisoEl.style.display = 'block';
 
   } catch (err) {
-    console.error('Error verificando atasco:', err);
     avisoEl.style.display = 'none';
   }
 }
@@ -598,7 +594,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
         } catch (e) {
-          console.error("Error cargando", source.url, e);
         }
       }
 
@@ -636,7 +631,6 @@ document.addEventListener('DOMContentLoaded', () => {
       contenedor.innerHTML = html;
 
     } catch (err) {
-      console.error('Error actualizando buses simplificados:', err);
       contenedor.innerHTML = 'API CRTM caída. Actualiza la web.';
     }
   }
@@ -758,7 +752,6 @@ document.addEventListener('DOMContentLoaded', () => {
       contenedor.appendChild(clon);
 
     } catch (err) {
-      console.error("Error CRTM:", err);
       contenedor.innerText = "Consulta al CRTM fallida. Recarga la web y vuelve a intentarlo,";
     }
   }
