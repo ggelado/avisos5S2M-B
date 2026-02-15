@@ -43,7 +43,7 @@ const SHUTTLES = [
 
   const SOURCES = [
     { url: "https://api.madridtransporte.com/stops/bus/11278/times", lines: ["573", "N905", "865"] }
-    
+
   ];
 
   const arrivalsEl = document.getElementById("arrivals");
@@ -115,7 +115,6 @@ const SHUTTLES = [
     }
 
     const sorted = results.sort((a, b) => a.minutes - b.minutes);
-
 
     const busArrivals = sorted.filter(a => !a.isTram && !a.isShuttle);
     const shuttleArrivals = sorted.filter(a => a.isShuttle);

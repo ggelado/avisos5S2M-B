@@ -25,7 +25,6 @@
 
 <script>
 
-
 (() => {
   // --- Paradas de referencia por línea ---
   const LINE_STOPS = {
@@ -117,7 +116,6 @@
       .slice(0, 3);
 
     const busArrivals = sorted.filter(a => !a.isTram);
-
 
     return [...busArrivals, ...tramArrivals]
       .sort((a, b) => a.minutes - b.minutes);
