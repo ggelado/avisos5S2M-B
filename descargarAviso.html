@@ -1,0 +1,187 @@
+---
+layout: default
+title: Avisos de Tráfico M-40
+sitemap: false
+---
+
+<div id="traffic-viewer">
+  <h2>Avisos de Tráfico - M-40</h2>
+  
+  <div id="loading">Cargando avisos...</div>
+  <div id="error" style="display: none; color: red;"></div>
+  
+  <div id="avisos-container"></div>
+</div>
+
+<style>
+  .aviso-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  .aviso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .aviso-id {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .aviso-time {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .aviso-details {
+    margin: 10px 0;
+  }
+  
+  .aviso-location {
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .download-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  
+  .download-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .download-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+  const API_BASE = 'https://pervertible-unadvantageously-ona.ngrok-free.dev';
+  
+  async function cargarAvisos() {
+    const loading = document.getElementById('loading');
+    const error = document.getElementById('error');
+    const container = document.getElementById('avisos-container');
+    
+    try {
+      const response = await fetch(`${API_BASE}/api/traffic`);
+      
+      if (!response.ok) {
+        throw new Error('Error al cargar los avisos');
+      }
+      
+      const data = await response.json();
+      loading.style.display = 'none';
+      
+      if (!data.situaciones || data.situaciones.length === 0) {
+        container.innerHTML = '<p>No hay avisos activos en este momento.</p>';
+        return;
+      }
+      
+      container.innerHTML = data.situaciones.map(situacion => {
+        const registro = situacion.registros[0];
+        const ubicacion = registro.ubicacion.punto;
+        const fecha = new Date(registro.tiempos.creacion);
+        
+        return `
+          <div class="aviso-card">
+            <div class="aviso-header">
+              <span class="aviso-id">Incidencia #${situacion.id}</span>
+              <span class="aviso-time">${fecha.toLocaleString('es-ES')}</span>
+            </div>
+            
+            <div class="aviso-details">
+              <p><strong>Tipo:</strong> ${obtenerDescripcionCausa(registro.causa)}</p>
+              <p class="aviso-location">
+                <strong>Ubicación:</strong> ${registro.ubicacion.info_carretera.nombre} 
+                KM ${ubicacion.kilometro} - ${ubicacion.municipio}, ${ubicacion.provincia}
+              </p>
+              <p><strong>Sentido:</strong> ${obtenerDireccion(ubicacion.direccion_tpeg)}</p>
+            </div>
+            
+            <button 
+              class="download-btn" 
+              onclick="descargarPDF('${situacion.id}')"
+            >
+              Descargar aviso
+            </button>
+          </div>
+        `;
+      }).join('');
+      
+    } catch (err) {
+      loading.style.display = 'none';
+      error.style.display = 'block';
+      error.textContent = 'Error al cargar los avisos: ' + err.message;
+    }
+  }
+  
+  function obtenerDescripcionCausa(causa) {
+    const descripciones = {
+      'vehicleStuck': 'Vehículo averiado'
+    };
+    return descripciones[causa.detalle?.tipo_obstruccion_vehiculo] || 'Obstrucción en la vía';
+  }
+  
+  function obtenerDireccion(direccion) {
+    const direcciones = {
+      'southWestBound': 'Suroeste',
+      'westBound': 'Oeste',
+      'northWestBound': 'Noroeste',
+      'northBound': 'Norte',
+      'eastBound': 'Este',
+      'southBound': 'Sur'
+    };
+    return direcciones[direccion] || direccion;
+  }
+  
+  async function descargarPDF(registroId) {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.textContent = 'Descargando...';
+    
+    try {
+      const response = await fetch(`${API_BASE}/api/pdf/${registroId}`);
+      
+      if (!response.ok) {
+        throw new Error('Error al descargar el PDF');
+      }
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `aviso-trafico-${registroId}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      
+      btn.disabled = false;
+      btn.textContent = 'Descargar aviso';
+    } catch (err) {
+      alert('Error al descargar el PDF: ' + err.message);
+      btn.disabled = false;
+      btn.textContent = 'Descargar aviso';
+    }
+  }
+  
+  // Cargar avisos al cargar la página
+  document.addEventListener('DOMContentLoaded', cargarAvisos);
+  
+  // Recargar cada 2 minutos
+  setInterval(cargarAvisos, 120000);
+</script>
