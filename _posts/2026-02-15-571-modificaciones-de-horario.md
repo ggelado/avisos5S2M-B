@@ -11,7 +11,7 @@ categories:
   - Transporte
 ---
 
-Por obras en Avenida Monte Segovia (Boadilla del Monte) la línea de autobús interurbana 571 podría pasar por la universidad unos minutos antes de lo habitual, lo que puede suponer perder el bus.
+Por obras en Avenida Monte Segovia (Boadilla del Monte) desde el 16 de febrero la línea de autobús interurbana 571 podría pasar por la universidad unos minutos antes de lo habitual, lo que puede suponer perder el bus.
 
 Se recomienda que aquellos usuarios que utilicen esta línea en horario de tarde consulten a través de las distintas herramientas el horario de paso en tiempo real de los buses, especialmente en el sentido Madrid.
 
