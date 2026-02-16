@@ -12,6 +12,14 @@ sitemap: false
   <div id="avisos-container"></div>
 </div>
 
+<p>¿Quieres certificarlo? Utiliza un prestador cualificado y pídele que ejecute un sello de tiempo a <code>https://nap.dgt.es/datex2/v3/dgt/SituationPublication/datex2_v36.xml</code>.</p>
+<p>También puedes ejecutar este comando en tu terminal linux preferida:</p>
+<pre><code class="fenced-code-block language-bash">curl 'https://freetsa.org/screenshot.php' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-raw 'delay=n&amp;screenshot=https%3A%2F%2Fnap.dgt.es%2Fdatex2%2Fv3%2Fdgt%2FSituationPublication%2Fdatex2_v36.xml' &gt; fich.pdf</code></pre>
+<p>Nota: Prestador <strong>NO CUALIFICADO eIDAS</strong>.</p>
+
+
 <style>
   .aviso-card {
     border: 1px solid #ddd;
