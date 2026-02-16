@@ -7,8 +7,8 @@ author:
   email: guillermo.vigueras@upm.es
   url: https://portalcientifico.upm.es/es/ipublic/researcher/308676
   uri: https://portalcientifico.upm.es/es/ipublic/researcher/308676
-published: true
-expires: 2026-02-16 14:00 +0100
+published: false
+expires: 2026-02-16 14:00:00 +0100
 excerpt: "16/02/2026"
 
 categories:
