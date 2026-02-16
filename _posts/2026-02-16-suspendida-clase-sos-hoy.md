@@ -2,7 +2,9 @@
 layout: post
 title: "Suspendida clase SOS hoy"
 date: 2026-02-16 11:48:30 +0100
-author: Gonzalo
+author: 
+  name: Guillermo Vigueras
+  email: guillermo.vigueras@upm.es
 published: true
 expires: 2026-02-16 14:00 +0100
 excerpt: "16/02/2026"
