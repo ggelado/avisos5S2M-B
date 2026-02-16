@@ -73,6 +73,19 @@ sitemap: false
     background-color: #ccc;
     cursor: not-allowed;
   }
+
+  .situacion-group {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-left: 4px solid #007bff;
+  }
+
+  .situacion-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff;
+  }
 </style>
 
 <script>
@@ -98,53 +111,75 @@ sitemap: false
         return;
       }
       
-      container.innerHTML = data.situaciones.map(situacion => {
-        const registro = situacion.registros[0];
-        const fecha = new Date(registro.tiempos.creacion);
-        
-        // Determinar la estructura de ubicación
-        let ubicacionTexto, coordenadas;
-        
-        if (registro.ubicacion.tipo === 'loc:PointLocation') {
-          const ubicacion = registro.ubicacion.punto;
-          ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} KM ${ubicacion.kilometro} - ${ubicacion.municipio}, ${ubicacion.provincia}`;
-          coordenadas = ubicacion.coordenadas;
-        } else if (registro.ubicacion.tipo === 'loc:SingleRoadLinearLocation') {
-          const tramo = registro.ubicacion.tramo;
-          ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} del KM ${tramo.km_inicio} al KM ${tramo.km_fin} - ${tramo.desde.municipio}, ${tramo.desde.provincia}`;
-          coordenadas = tramo.desde.coordenadas;
+      // Contar total de registros
+      const totalRegistros = data.situaciones.reduce((sum, sit) => sum + sit.registros.length, 0);
+      
+      let html = `<p><strong>Total de incidencias activas: ${totalRegistros}</strong></p>`;
+      
+      // Iterar por cada situación y sus registros
+      data.situaciones.forEach(situacion => {
+        // Si hay múltiples registros en una situación, mostrar el agrupamiento
+        if (situacion.registros.length > 1) {
+          html += `
+            <div class="situacion-group">
+              <div class="situacion-header">Situación #${situacion.id} (${situacion.registros.length} registros)</div>
+          `;
         }
         
-        // Obtener dirección
-        const direccion = registro.ubicacion.punto?.direccion_tpeg || 
-                         registro.ubicacion.tramo?.direccion_tpeg || 
-                         'No especificado';
+        // Mostrar cada registro individualmente
+        situacion.registros.forEach(registro => {
+          const fecha = new Date(registro.tiempos.creacion || registro.tiempos.actualizacion);
+          
+          // Determinar la estructura de ubicación
+          let ubicacionTexto, coordenadas;
+          
+          if (registro.ubicacion.tipo === 'loc:PointLocation') {
+            const ubicacion = registro.ubicacion.punto;
+            ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} KM ${ubicacion.kilometro} - ${ubicacion.municipio}, ${ubicacion.provincia}`;
+            coordenadas = ubicacion.coordenadas;
+          } else if (registro.ubicacion.tipo === 'loc:SingleRoadLinearLocation') {
+            const tramo = registro.ubicacion.tramo;
+            ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} del KM ${tramo.km_inicio} al KM ${tramo.km_fin} - ${tramo.desde.municipio}, ${tramo.desde.provincia}`;
+            coordenadas = tramo.desde.coordenadas;
+          }
+          
+          // Obtener dirección
+          const direccion = registro.ubicacion.punto?.direccion_tpeg || 
+                           registro.ubicacion.tramo?.direccion_tpeg || 
+                           'No especificado';
+          
+          html += `
+            <div class="aviso-card">
+              <div class="aviso-header">
+                <span class="aviso-id">Registro #${registro.registro_id} (Situación #${situacion.id})</span>
+                <span class="aviso-time">${fecha.toLocaleString('es-ES')}</span>
+              </div>
+              
+              <div class="aviso-details">
+                <p><strong>Tipo:</strong> ${obtenerDescripcionCausa(registro)}</p>
+                <p class="aviso-location">
+                  <strong>Ubicación:</strong> ${ubicacionTexto}
+                </p>
+                <p><strong>Sentido:</strong> ${obtenerDireccion(direccion)}</p>
+                ${registro.severidad ? `<p><strong>Severidad:</strong> ${registro.severidad}</p>` : ''}
+              </div>
+              
+              <button 
+                class="download-btn" 
+                onclick="descargarPDF('${registro.registro_id}')"
+              >
+                Descargar aviso de este registro
+              </button>
+            </div>
+          `;
+        });
         
-        return `
-          <div class="aviso-card">
-            <div class="aviso-header">
-              <span class="aviso-id">Incidencia #${situacion.id}</span>
-              <span class="aviso-time">${fecha.toLocaleString('es-ES')}</span>
-            </div>
-            
-            <div class="aviso-details">
-              <p><strong>Tipo:</strong> ${obtenerDescripcionCausa(registro)}</p>
-              <p class="aviso-location">
-                <strong>Ubicación:</strong> ${ubicacionTexto}
-              </p>
-              <p><strong>Sentido:</strong> ${obtenerDireccion(direccion)}</p>
-              ${registro.severidad ? `<p><strong>Severidad:</strong> ${registro.severidad}</p>` : ''}
-            </div>
-            
-            <button 
-              class="download-btn" 
-              onclick="descargarPDF('${situacion.id}')"
-            >
-              Descargar aviso
-            </button>
-          </div>
-        `;
-      }).join('');
+        if (situacion.registros.length > 1) {
+          html += `</div>`;
+        }
+      });
+      
+      container.innerHTML = html;
       
     } catch (err) {
       loading.style.display = 'none';
@@ -172,7 +207,16 @@ sitemap: false
       return descripciones[registro.causa.detalle.tipo_obstruccion_vehiculo] || 'Obstrucción vehicular';
     }
     
-    return 'Incidencia de tráfico';
+    if (registro.causa?.tipo) {
+      const descripciones = {
+        'accident': 'Accidente',
+        'abnormalTraffic': 'Tráfico anormal',
+        'obstructionOnTheRoad': 'Obstrucción en la vía'
+      };
+      return descripciones[registro.causa.tipo] || registro.causa.tipo;
+    }
+    
+    return registro.tipo || 'Incidencia de tráfico';
   }
   
   function obtenerDireccion(direccion) {
@@ -182,7 +226,9 @@ sitemap: false
       'northWestBound': 'Noroeste',
       'northBound': 'Norte',
       'eastBound': 'Este',
-      'southBound': 'Sur'
+      'southBound': 'Sur',
+      'southEastBound': 'Sureste',
+      'northEastBound': 'Noreste'
     };
     return direcciones[direccion] || direccion;
   }
@@ -210,11 +256,11 @@ sitemap: false
       document.body.removeChild(a);
       
       btn.disabled = false;
-      btn.textContent = 'Descargar aviso';
+      btn.textContent = 'Descargar aviso de este registro';
     } catch (err) {
       alert('Error al descargar el PDF: ' + err.message);
       btn.disabled = false;
-      btn.textContent = 'Descargar aviso';
+      btn.textContent = 'Descargar aviso de este registro';
     }
   }
   
