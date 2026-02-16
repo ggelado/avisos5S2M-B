@@ -537,15 +537,6 @@ setInterval(mostrarAvisoLluvia, 30000);
         banner.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
         banner.style.opacity = "1";
         banner.style.zIndex = "9999";
-
-        // Añadir enlace al aviso
-        const link = document.createElement('a');
-        link.href = "https://ggelado.github.io/avisos5S2M-B/descargarAviso.html";
-        link.textContent = "Más información";
-        link.style.color = "#2a4365";
-        link.style.textDecoration = "underline";
-        link.style.marginLeft = "10px";
-        texto.appendChild(link);
       }
 
       // Agrupar tramos por km_inicio-km_fin
@@ -569,7 +560,14 @@ setInterval(mostrarAvisoLluvia, 30000);
       });
 
       const prefijoTexto = hayGrave ? "ATASCO GRAVE EN" : "Tráfico lento en";
-      texto.textContent = `${prefijoTexto} ${data.carretera}: ${tramosTexto.join(" · ")}`;
+
+      // Incluir el enlace
+      if (hayGrave) {
+        texto.innerHTML = `<strong>${prefijoTexto} ${data.carretera}:</strong> ${tramosTexto.join(" · ")} <a href="https://ggelado.github.io/avisos5S2M-B/descargarAviso.html" style="color:#2a4365; text-decoration:underline; margin-left:10px;">Más información y descarga del aviso</a>`;
+      } else {
+        texto.textContent = `${prefijoTexto} ${data.carretera}: ${tramosTexto.join(" · ")}`;
+      }
+
       banner.style.display = "block";
 
     } catch (e) {
