@@ -100,8 +100,25 @@ sitemap: false
       
       container.innerHTML = data.situaciones.map(situacion => {
         const registro = situacion.registros[0];
-        const ubicacion = registro.ubicacion.punto;
         const fecha = new Date(registro.tiempos.creacion);
+        
+        // Determinar la estructura de ubicación
+        let ubicacionTexto, coordenadas;
+        
+        if (registro.ubicacion.tipo === 'loc:PointLocation') {
+          const ubicacion = registro.ubicacion.punto;
+          ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} KM ${ubicacion.kilometro} - ${ubicacion.municipio}, ${ubicacion.provincia}`;
+          coordenadas = ubicacion.coordenadas;
+        } else if (registro.ubicacion.tipo === 'loc:SingleRoadLinearLocation') {
+          const tramo = registro.ubicacion.tramo;
+          ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} del KM ${tramo.km_inicio} al KM ${tramo.km_fin} - ${tramo.desde.municipio}, ${tramo.desde.provincia}`;
+          coordenadas = tramo.desde.coordenadas;
+        }
+        
+        // Obtener dirección
+        const direccion = registro.ubicacion.punto?.direccion_tpeg || 
+                         registro.ubicacion.tramo?.direccion_tpeg || 
+                         'No especificado';
         
         return `
           <div class="aviso-card">
@@ -111,12 +128,12 @@ sitemap: false
             </div>
             
             <div class="aviso-details">
-              <p><strong>Tipo:</strong> ${obtenerDescripcionCausa(registro.causa)}</p>
+              <p><strong>Tipo:</strong> ${obtenerDescripcionCausa(registro)}</p>
               <p class="aviso-location">
-                <strong>Ubicación:</strong> ${registro.ubicacion.info_carretera.nombre} 
-                KM ${ubicacion.kilometro} - ${ubicacion.municipio}, ${ubicacion.provincia}
+                <strong>Ubicación:</strong> ${ubicacionTexto}
               </p>
-              <p><strong>Sentido:</strong> ${obtenerDireccion(ubicacion.direccion_tpeg)}</p>
+              <p><strong>Sentido:</strong> ${obtenerDireccion(direccion)}</p>
+              ${registro.severidad ? `<p><strong>Severidad:</strong> ${registro.severidad}</p>` : ''}
             </div>
             
             <button 
@@ -136,11 +153,26 @@ sitemap: false
     }
   }
   
-  function obtenerDescripcionCausa(causa) {
-    const descripciones = {
-      'vehicleStuck': 'Vehículo averiado'
-    };
-    return descripciones[causa.detalle?.tipo_obstruccion_vehiculo] || 'Obstrucción en la vía';
+  function obtenerDescripcionCausa(registro) {
+    if (registro.tipo === 'AbnormalTraffic') {
+      const descripciones = {
+        'slowTraffic': 'Tráfico lento',
+        'queueingTraffic': 'Tráfico con colas',
+        'stationaryTraffic': 'Tráfico detenido'
+      };
+      return descripciones[registro.trafico_anormal?.tipo] || 'Tráfico anormal';
+    }
+    
+    if (registro.causa?.detalle?.tipo_obstruccion_vehiculo) {
+      const descripciones = {
+        'vehicleStuck': 'Vehículo averiado',
+        'brokenDownVehicle': 'Vehículo averiado',
+        'vehicleOnFire': 'Vehículo en llamas'
+      };
+      return descripciones[registro.causa.detalle.tipo_obstruccion_vehiculo] || 'Obstrucción vehicular';
+    }
+    
+    return 'Incidencia de tráfico';
   }
   
   function obtenerDireccion(direccion) {
