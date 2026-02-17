@@ -3,7 +3,7 @@ layout: post
 title: "Cambio temporal de aula SISTEMAS DISTRIBUIDOS"
 date: 2026-02-13 16:44:01 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-17 11:59:59 +0100
 excerpt: "Clase del martes 17 en 5102 Sistemas Distribuidos"
 image: "https://laurel.datsi.fi.upm.es/lib/tpl/ssoo/images/logo_datsi.png"
