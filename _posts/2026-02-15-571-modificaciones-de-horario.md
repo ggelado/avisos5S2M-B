@@ -3,7 +3,7 @@ layout: post
 title: "[571] Modificaciones de horario"
 date: 2026-02-15 14:47:07 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-18 23:59:59 +0100
 excerpt: "Por obras en Boadilla, el 571 puede pasar antes en el sentido Madrid."
 
