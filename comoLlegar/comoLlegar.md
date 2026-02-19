@@ -1,3 +1,6 @@
+---
+permalink: /comoLlegar
+---
 # Principales Orígenes:
 
 - [Intercambiador de Aluche](/avisos5S2M-B/comoLlegar/aluche.html)
