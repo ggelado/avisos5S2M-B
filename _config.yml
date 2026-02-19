@@ -4,6 +4,7 @@ url: "https://ggelado.github.io"
 theme: jekyll-theme-primer
 locale: es_ES.UTF-8
 lang: es-ES
+timezone: Europe/Madrid
 plugins:
   - jekyll-feed # plugin para generar RSS automáticamente
   - jekyll-redirect-from

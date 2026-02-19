@@ -1,0 +1,41 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("blockquote").forEach(function (bq) {
+    const first = bq.querySelector("p:first-child");
+    if (!first) return;
+
+    const match = first.innerHTML.match(/^\[!(NOTE|TIP|WARNING|DANGER|INFO|SUCCESS|QUESTION|CAUTION|IMPORTANT|BUG|EXAMPLE|QUOTE)\](<br>|&lt;br&gt;)?\s*/i);
+    if (!match) return;
+
+    const type = match[1].toLowerCase();
+    first.innerHTML = first.innerHTML.replace(match[0], "");
+
+    // Extraer título personalizado si lo hay
+    // > [!NOTE] Mi título personalizado
+    const titleMatch = first.innerHTML.match(/^([^\n<]+)/);
+    const customTitle = titleMatch ? titleMatch[1].trim() : null;
+    if (customTitle) first.innerHTML = first.innerHTML.replace(customTitle, "");
+
+    const icons = {
+      note: "📝", tip: "💡", warning: "⚠️", danger: "🔥",
+      info: "ℹ️", success: "✅", question: "❓", caution: "⚠️",
+      important: "❗", bug: "🐛", example: "📋", quote: "💬"
+    };
+
+    const labels = {
+      note: "Nota", tip: "Consejo", warning: "Aviso", danger: "Peligro",
+      info: "Información", success: "Hecho", question: "Pregunta",
+      caution: "Atención", important: "Importante", bug: "Error",
+      example: "Ejemplo", quote: "Cita"
+    };
+
+    bq.classList.add("callout", "callout-" + type);
+
+    const header = document.createElement("div");
+    header.classList.add("callout-header");
+    header.innerHTML = `<span class="callout-icon">${icons[type]}</span>
+                        <span class="callout-title">${customTitle || labels[type]}</span>`;
+    bq.prepend(header);
+  });
+});
+</script>
