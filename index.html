@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Avisos 5S/6F 2M-B"
-excerpt: "Aquí se publica información de relevancia de la Delegación del Grupo 6F2M-B del Grado en Ingeniería
-Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la Universidad Politécnica de Madrid."
+excerpt: "Aquí se publica información de relevancia de la Delegación del Grupo 6F2M-B del Grado en Ingeniería Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la Universidad Politécnica de Madrid."
 ---
 <h1>Últimos avisos</h1>
 
@@ -160,41 +159,41 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
   </div>
 
   <div id="link-atascos" style="text-align:center; font-size:0.75em; margin-top:4px; display:none;">
-  </div>
+</div>
 </section>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  async function mostrarLinkAtascos() {
-    const contenedor = document.getElementById('link-atascos');
-    if (!contenedor) return;
+async function mostrarLinkAtascos() {
+  const contenedor = document.getElementById('link-atascos');
+  if (!contenedor) return;
 
-    try {
-      const res = await fetch('https://notifierpushrss.onrender.com/api/poblados');
-      if (!res.ok) throw new Error(`HTTP status ${res.status}`);
-      const data = await res.json();
+  try {
+    const res = await fetch('https://notifierpushrss.onrender.com/api/poblados');
+    if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+    const data = await res.json();
 
-      if (data.hayAtascos) {
-        // Mostrar enlace solo si hay atascos
-        contenedor.innerHTML = `<a href="/avisos5S2M-B/poblados.html" style="color:#4f86d9; text-decoration:underline;">
+    if (data.hayAtascos) {
+      // Mostrar enlace solo si hay atascos
+      contenedor.innerHTML = `<a href="/avisos5S2M-B/poblados.html" style="color:#4f86d9; text-decoration:underline;">
         Estado del tráfico en Av. Poblados
       </a>`;
-        contenedor.style.display = 'block';
-      } else {
-        contenedor.style.display = 'none';
-        contenedor.innerHTML = '';
-      }
-
-    } catch (err) {
+      contenedor.style.display = 'block';
+    } else {
       contenedor.style.display = 'none';
+      contenedor.innerHTML = '';
     }
-  }
 
-  // Ejecutar al cargar la página y refrescar cada 2 minutos
-  document.addEventListener('DOMContentLoaded', () => {
-    mostrarLinkAtascos();
-    setInterval(mostrarLinkAtascos, 120000);
-  });
+  } catch (err) {
+    contenedor.style.display = 'none';
+  }
+}
+
+// Ejecutar al cargar la página y refrescar cada 2 minutos
+document.addEventListener('DOMContentLoaded', () => {
+  mostrarLinkAtascos();
+  setInterval(mostrarLinkAtascos, 120000);
+});
 </script>
 <script>
   // --- Servicios lanzadera (horario fijo, L-V) ---
@@ -302,38 +301,6 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
         } catch (e) {
         }
       }
-
-      // --- Planned fallback para línea 591 ---
-      try {
-        const plannedRes = await fetch("https://api.madridtransporte.com/stops/bus/08411/planned");
-        const plannedData = await plannedRes.json();
-
-        for (const entry of plannedData) {
-          if (entry.lineCode !== "8__591___") continue;
-          const TOLERANCE_MS = 4 * 60 * 1000; // 4 minutos
-
-          for (const ts of (entry.arrives || [])) {
-            // ¿Ya hay un resultado real cercano a este timestamp?
-            const yaExiste = results.some(r =>
-              r.lineCode === "8__591___" && !r.isPlanned &&
-              Math.abs((Date.now() + r.minutes * 60000) - ts) < TOLERANCE_MS
-            );
-
-            if (!yaExiste) {
-              const minutes = minutesFromNow(ts);
-              if (minutes >= 0 && minutes <= 90) { // no mostrar si ya pasó o es muy lejano
-                results.push({
-                  line: "591",
-                  lineCode: "8__591___",
-                  destination: entry.destination + "* · PROG – sin datos CRTM",
-                  minutes,
-                  isPlanned: true
-                });
-              }
-            }
-          }
-        }
-      } catch (e) { }
 
       // --- Lanzaderas programadas ---
       if (isWeekday()) {
@@ -472,10 +439,10 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
 			</div>
 			<div class="text-right">
 			  <span class="Label Label--accent mr-2">${a.minutes} min</span>
-			  ${(a.isTram || a.isShuttle || a.isPlanned) ? '' : `<button class="btn btn-sm btn-outline" data-linecode="${a.lineCode}">Ver ubicación (beta)</button>`}
+			  ${(a.isTram || a.isShuttle) ? '' : `<button class="btn btn-sm btn-outline" data-linecode="${a.lineCode}">Ver ubicación (beta)</button>`}
 			</div>
 		  </div>
-		  ${(a.isTram || a.isShuttle || a.isPlanned) ? '' : `<div id="map-${a.lineCode}" class="d-none mt-2" style="height: 300px; border-radius: 6px;"></div>`}
+		  ${(a.isTram || a.isShuttle) ? '' : `<div id="map-${a.lineCode}" class="d-none mt-2" style="height: 300px; border-radius: 6px;"></div>`}
 		`;
 
         arrivalsEl.appendChild(li);
@@ -500,56 +467,56 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
   })();
 </script>
 <script>
-  async function verificarAtasco() {
-    const avisoEl = document.getElementById('aviso-atasco');
-    if (!avisoEl) return;
+async function verificarAtasco() {
+  const avisoEl = document.getElementById('aviso-atasco');
+  if (!avisoEl) return;
 
-    try {
-      const res = await fetch('https://notifierpushrss.onrender.com/api/m511');
-      const data = await res.json();
+  try {
+    const res = await fetch('https://notifierpushrss.onrender.com/api/m511');
+    const data = await res.json();
 
-      if (data.total_atascos === 0) {
-        avisoEl.style.display = 'none';
-        return;
-      }
-
-      // Prioridad de gravedad
-      const prioridad = {
-        'lowest': 1,
-        'low': 2,
-        'medium': 3,
-        'high': 4,
-        'highest': 5
-      };
-
-      // Buscar el atasco más grave
-      const atasco = data.atascos.reduce((max, actual) => {
-        return (prioridad[actual.gravedad] || 0) >
-          (prioridad[max.gravedad] || 0)
-          ? actual
-          : max;
-      }, data.atascos[0]);
-
-      const nivelTexto = {
-        'lowest': 'muy leve',
-        'low': 'leve',
-        'medium': 'medio',
-        'high': 'grave',
-        'highest': 'muy grave'
-      }[atasco.gravedad] || atasco.nivel_gravedad;
-
-      avisoEl.textContent = `Hay atasco ${nivelTexto} en Colonia Jardín.`;
-      avisoEl.style.display = 'block';
-
-    } catch (err) {
+    if (data.total_atascos === 0) {
       avisoEl.style.display = 'none';
+      return;
     }
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    verificarAtasco();
-    setInterval(verificarAtasco, 120000);
-  });
+    // Prioridad de gravedad
+    const prioridad = {
+      'lowest': 1,
+      'low': 2,
+      'medium': 3,
+      'high': 4,
+      'highest': 5
+    };
+
+    // Buscar el atasco más grave
+    const atasco = data.atascos.reduce((max, actual) => {
+      return (prioridad[actual.gravedad] || 0) >
+             (prioridad[max.gravedad] || 0)
+        ? actual
+        : max;
+    }, data.atascos[0]);
+
+    const nivelTexto = {
+      'lowest': 'muy leve',
+      'low': 'leve',
+      'medium': 'medio',
+      'high': 'grave',
+      'highest': 'muy grave'
+    }[atasco.gravedad] || atasco.nivel_gravedad;
+
+    avisoEl.textContent = `Hay atasco ${nivelTexto} en Colonia Jardín.`;
+    avisoEl.style.display = 'block';
+
+  } catch (err) {
+    avisoEl.style.display = 'none';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  verificarAtasco();
+  setInterval(verificarAtasco, 120000);
+});
 </script>
 
 <script>
@@ -624,33 +591,7 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
         } catch (e) {
         }
       }
-      // --- Planned fallback para línea 591 ---
-      try {
-        const plannedRes = await fetch("https://api.madridtransporte.com/stops/bus/08411/planned");
-        const plannedData = await plannedRes.json();
 
-        for (const entry of plannedData) {
-          if (entry.lineCode !== "8__591___") continue;
-          const TOLERANCE_MS = 4 * 60 * 1000;
-
-          for (const ts of (entry.arrives || [])) {
-            const yaExiste = results.some(r =>
-              r.line === "591" &&
-              Math.abs((Date.now() + r.minutes * 60000) - ts) < TOLERANCE_MS
-            );
-
-            if (!yaExiste) {
-              const minutes = minutesFromNow(ts);
-              if (minutes >= 0 && minutes <= 90) {
-                results.push({
-                  line: "591*",
-                  minutes
-                });
-              }
-            }
-          }
-        }
-      } catch (e) { }
       if (isWeekday()) {
         SHUTTLES.forEach(shuttle => {
           shuttle.times.forEach(time => {
