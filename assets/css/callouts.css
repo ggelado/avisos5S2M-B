@@ -11,6 +11,7 @@ blockquote.callout {
 blockquote.callout p {
   padding: 0.6em 1em;
   margin: 0;
+  color: #000000;
 }
 
 blockquote.callout p:empty {
@@ -63,4 +64,4 @@ blockquote.callout p:empty {
 .callout-example .callout-header { background: #ede9fe; color: #4c1d95; }
 
 .callout-quote   { background: #f6f8fa; border-left: 4px solid #8b949e; }
-.callout-quote   .callout-header { background: #e2e8f0; color: #374151; }
+.callout-quote   .callout-header { background: #e2e8f0; color: #1f2937; }
