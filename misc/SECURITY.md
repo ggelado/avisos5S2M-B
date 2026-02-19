@@ -1,3 +1,7 @@
+---
+permalink: /SECURITY
+title: Security Policy
+---
 # Security Policy
 
 Cualquier vulnerabilidad de seguridad detectada debe notificarse a través de los medios **PRIVADOS** que facilita [GitHub](https://github.com/ggelado/avisos5S2M-B/security/advisories/new) para notificaciones de seguridad o (preferentemente) a través de la dirección gonzalo.gelado@alumnos.upm.es con la siguiente clave PGP o por una clave PGP que haya sido certificada con esta:
