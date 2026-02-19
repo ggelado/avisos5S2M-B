@@ -17,8 +17,6 @@ IMPORTANTE: En VUESTROS EMAILS al tutor, al comienzo del ASUNTO indicad "PII Gnn
 
 [https://moodle.upm.es/titulaciones/oficiales/mod/resource/view.php?id=239991](https://moodle.upm.es/titulaciones/oficiales/mod/resource/view.php?id=239991)
 
----
 
-# Actualización 20:19
-
-Se recomienda encarecidamente revisar el correo electrónico, ya que los tutores han enviado múltiple documentación de relevancia.
+>[!note] Actualización 20:19
+>Se recomienda encarecidamente revisar el correo electrónico, ya que los tutores han enviado múltiple documentación de relevancia.
