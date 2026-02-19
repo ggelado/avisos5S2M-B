@@ -4,10 +4,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const first = bq.querySelector("p:first-child");
     if (!first) return;
 
-    const match = first.innerHTML.match(/^\[!(NOTE|TIP|WARNING|DANGER|INFO|SUCCESS|QUESTION|CAUTION|IMPORTANT|BUG|EXAMPLE|QUOTE)\](<br>|&lt;br&gt;)?\s*/i);
+    const match = first.innerHTML.match(/^\[!(NOTE|ABSTRACT|SUMMARY|TLDR|TIP|HINT|WARNING|CAUTION|ATTENTION|DANGER|FAILURE|FAIL|MISSING|ERROR|INFO|TODO|SUCCESS|CHECK|DONE|QUESTION|HELP|FAQ|IMPORTANT|BUG|EXAMPLE|QUOTE|CITE)\](<br>|&lt;br&gt;)?\s*/i);
     if (!match) return;
 
-    const type = match[1].toLowerCase();
+    // Mapear aliases a tipos principales
+    const typeMap = {
+      abstract: "note", summary: "note", tldr: "note",
+      hint: "tip", todo: "info",
+      attention: "warning", failure: "danger", fail: "danger", missing: "danger", error: "danger",
+      check: "success", done: "success",
+      help: "question", faq: "question",
+      cite: "quote"
+    };
+    
+    let type = match[1].toLowerCase();
+    type = typeMap[type] || type;
     first.innerHTML = first.innerHTML.replace(match[0], "");
 
     // Extraer título personalizado si lo hay
