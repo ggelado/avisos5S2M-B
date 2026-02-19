@@ -321,7 +321,7 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
 
             if (!yaExiste) {
               const minutes = minutesFromNow(ts);
-              if (minutes >= 0 && minutes <= 900) { // no mostrar si ya pasó o es muy lejano
+              if (minutes >= 0 && minutes <= 90) { // no mostrar si ya pasó o es muy lejano
                 results.push({
                   line: "591",
                   lineCode: "8__591___",
@@ -855,7 +855,6 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
     saveSeenPosts(seen);
   })();
 </script>
-
 
 
 
