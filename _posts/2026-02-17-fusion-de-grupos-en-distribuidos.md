@@ -3,7 +3,7 @@ layout: post
 title: "Fusión de Grupos en Distribuidos"
 date: 2026-02-17 10:54 +0100
 author: Iván Arias
-published: true
+published: false
 expires: 2026-02-20 23:59:59 +0100
 excerpt: "Se mantiene la fusión de los grupos 6F2M, 6F2M-B y 8F1M-ADE en la 5102."
 
