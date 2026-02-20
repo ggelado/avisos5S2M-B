@@ -276,8 +276,7 @@ permalink: /descargarAviso.html
 
       const response2 = await fetch(`${API_BASE}/api/screenshot-infocar`, {
         method: 'GET',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString()
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
       if (!response2.ok) throw new Error('Error al obtener el screenshot de infocar');
       const blob2 = await response2.blob();
