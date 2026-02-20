@@ -6,14 +6,15 @@ permalink: /descargarAviso.html
 ---
 
 <div id="traffic-viewer">
-  
+
   <div id="loading">Cargando avisos...</div>
   <div id="error" style="display: none; color: red;"></div>
-  
+
   <div id="avisos-container"></div>
 </div>
 
-<p>¿Quieres certificarlo? Utiliza un prestador cualificado y pídele que ejecute un sello de tiempo a <code>https://nap.dgt.es/datex2/v3/dgt/SituationPublication/datex2_v36.xml</code>.</p>
+<p>¿Quieres certificarlo? Utiliza un prestador cualificado y pídele que ejecute un sello de tiempo a
+  <code>https://nap.dgt.es/datex2/v3/dgt/SituationPublication/datex2_v36.xml</code>.</p>
 <p>También puedes ejecutar este comando en tu terminal linux preferida:</p>
 <pre><code class="fenced-code-block language-bash">curl 'https://freetsa.org/screenshot.php' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -29,33 +30,33 @@ permalink: /descargarAviso.html
     margin-bottom: 15px;
     background-color: #f9f9f9;
   }
-  
+
   .aviso-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
   }
-  
+
   .aviso-id {
     font-weight: bold;
     color: #333;
   }
-  
+
   .aviso-time {
     font-size: 0.9em;
     color: #666;
   }
-  
+
   .aviso-details {
     margin: 10px 0;
   }
-  
+
   .aviso-location {
     color: #555;
     margin: 5px 0;
   }
-  
+
   .download-btn {
     background-color: #007bff;
     color: white;
@@ -65,11 +66,11 @@ permalink: /descargarAviso.html
     cursor: pointer;
     font-size: 0.9em;
   }
-  
+
   .download-btn:hover {
     background-color: #0056b3;
   }
-  
+
   .download-btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
@@ -91,32 +92,32 @@ permalink: /descargarAviso.html
 
 <script>
   const API_BASE = 'https://notifierpushrss.onrender.com';
-  
+
   async function cargarAvisos() {
     const loading = document.getElementById('loading');
     const error = document.getElementById('error');
     const container = document.getElementById('avisos-container');
-    
+
     try {
       const response = await fetch(`${API_BASE}/api/m40detalle`);
-      
+
       if (!response.ok) {
         throw new Error('Error al cargar los avisos');
       }
-      
+
       const data = await response.json();
       loading.style.display = 'none';
-      
+
       if (!data.situaciones || data.situaciones.length === 0) {
         container.innerHTML = '<p>No hay avisos activos en este momento.</p>';
         return;
       }
-      
+
       // Contar total de registros
       const totalRegistros = data.situaciones.reduce((sum, sit) => sum + sit.registros.length, 0);
-      
+
       let html = `<p><strong>Total de incidencias activas: ${totalRegistros}</strong></p>`;
-      
+
       // Iterar por cada situación y sus registros
       data.situaciones.forEach(situacion => {
         // Si hay múltiples registros en una situación, mostrar el agrupamiento
@@ -126,14 +127,14 @@ permalink: /descargarAviso.html
               <div class="situacion-header">Situación #${situacion.id} (${situacion.registros.length} registros)</div>
           `;
         }
-        
+
         // Mostrar cada registro individualmente
         situacion.registros.forEach(registro => {
           const fecha = new Date(registro.tiempos.creacion || registro.tiempos.actualizacion);
-          
+
           // Determinar la estructura de ubicación
           let ubicacionTexto, coordenadas;
-          
+
           if (registro.ubicacion.tipo === 'loc:PointLocation') {
             const ubicacion = registro.ubicacion.punto;
             ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} KM ${ubicacion.kilometro} - ${ubicacion.municipio}, ${ubicacion.provincia}`;
@@ -143,12 +144,12 @@ permalink: /descargarAviso.html
             ubicacionTexto = `${registro.ubicacion.info_carretera.nombre} del KM ${tramo.km_inicio} al KM ${tramo.km_fin} - ${tramo.desde.municipio}, ${tramo.desde.provincia}`;
             coordenadas = tramo.desde.coordenadas;
           }
-          
+
           // Obtener dirección
-          const direccion = registro.ubicacion.punto?.direccion_tpeg || 
-                           registro.ubicacion.tramo?.direccion_tpeg || 
-                           'No especificado';
-          
+          const direccion = registro.ubicacion.punto?.direccion_tpeg ||
+            registro.ubicacion.tramo?.direccion_tpeg ||
+            'No especificado';
+
           html += `
             <div class="aviso-card">
               <div class="aviso-header">
@@ -174,21 +175,21 @@ permalink: /descargarAviso.html
             </div>
           `;
         });
-        
+
         if (situacion.registros.length > 1) {
           html += `</div>`;
         }
       });
-      
+
       container.innerHTML = html;
-      
+
     } catch (err) {
       loading.style.display = 'none';
       error.style.display = 'block';
       error.textContent = 'Error al cargar los avisos: ' + err.message;
     }
   }
-  
+
   function obtenerDescripcionCausa(registro) {
     if (registro.tipo === 'AbnormalTraffic') {
       const descripciones = {
@@ -198,7 +199,7 @@ permalink: /descargarAviso.html
       };
       return descripciones[registro.trafico_anormal?.tipo] || 'Tráfico anormal';
     }
-    
+
     if (registro.causa?.detalle?.tipo_obstruccion_vehiculo) {
       const descripciones = {
         'vehicleStuck': 'Vehículo averiado',
@@ -207,7 +208,7 @@ permalink: /descargarAviso.html
       };
       return descripciones[registro.causa.detalle.tipo_obstruccion_vehiculo] || 'Obstrucción vehicular';
     }
-    
+
     if (registro.causa?.tipo) {
       const descripciones = {
         'accident': 'Accidente',
@@ -216,10 +217,10 @@ permalink: /descargarAviso.html
       };
       return descripciones[registro.causa.tipo] || registro.causa.tipo;
     }
-    
+
     return registro.tipo || 'Incidencia de tráfico';
   }
-  
+
   function obtenerDireccion(direccion) {
     const direcciones = {
       'southWestBound': 'Suroeste',
@@ -233,19 +234,19 @@ permalink: /descargarAviso.html
     };
     return direcciones[direccion] || direccion;
   }
-  
+
   async function descargarPDF(registroId) {
     const btn = event.target;
     btn.disabled = true;
     btn.textContent = 'Descargando...';
-    
+
     try {
       const response = await fetch(`${API_BASE}/api/pdf/${registroId}`);
-      
+
       if (!response.ok) {
         throw new Error('Error al descargar el PDF');
       }
-      
+
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -255,7 +256,40 @@ permalink: /descargarAviso.html
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
-      
+
+      // Pequeña pausa para que el navegador no bloquee la segunda descarga
+      await new Promise(r => setTimeout(r, 800));
+
+      // --- PDF 2: Screenshot de infocar ---
+      const screenshotUrl = 'https://infocar.dgt.es/etraffic/Incidencias' +
+        '?ca=13&provIci=28&caracter=acontecimiento&accion_consultar=Consultar' +
+        '&IncidenciasRETENCION=IncidenciasRETENCION' +
+        '&IncidenciasMETEOROLOGICA=IncidenciasMETEOROLOGICA' +
+        '&IncidenciasEVENTOS=IncidenciasEVENTOS' +
+        '&IncidenciasOTROS=IncidenciasOTROS' +
+        '&IncidenciasRESTRICCIONES=IncidenciasRESTRICCIONES' +
+        '&ordenacion=fechahora_ini-DESC';
+
+      const formData = new URLSearchParams();
+      formData.append('delay', 'n');
+      formData.append('screenshot', screenshotUrl);
+
+      const response2 = await fetch('https://freetsa.org/screenshot.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
+      });
+      if (!response2.ok) throw new Error('Error al obtener el screenshot de infocar');
+      const blob2 = await response2.blob();
+      const url2 = window.URL.createObjectURL(blob2);
+      const a2 = document.createElement('a');
+      a2.href = url2;
+      a2.download = `infocar-m40-${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.pdf`;
+      document.body.appendChild(a2);
+      a2.click();
+      window.URL.revokeObjectURL(url2);
+      document.body.removeChild(a2);
+
       btn.disabled = false;
       btn.textContent = 'Descargar aviso de este registro';
     } catch (err) {
@@ -264,10 +298,10 @@ permalink: /descargarAviso.html
       btn.textContent = 'Descargar aviso de este registro';
     }
   }
-  
+
   // Cargar avisos al cargar la página
   document.addEventListener('DOMContentLoaded', cargarAvisos);
-  
+
   // Recargar cada 2 minutos
   setInterval(cargarAvisos, 120000);
 </script>
