@@ -170,7 +170,7 @@ permalink: /descargarAviso.html
                 class="download-btn" 
                 onclick="descargarPDF('${registro.registro_id}')"
               >
-                Descargar aviso de este registro
+                Descargar aviso de este registro (2 PDFs)
               </button>
             </div>
           `;
@@ -290,11 +290,11 @@ permalink: /descargarAviso.html
       document.body.removeChild(a2);
 
       btn.disabled = false;
-      btn.textContent = 'Descargar aviso de este registro';
+      btn.textContent = 'Descargar aviso de este registro (2 PDFs)';
     } catch (err) {
       alert('Error al descargar el PDF: ' + err.message);
       btn.disabled = false;
-      btn.textContent = 'Descargar aviso de este registro';
+      btn.textContent = 'Descargar aviso de este registro (2 PDFs)';
     }
   }
 
