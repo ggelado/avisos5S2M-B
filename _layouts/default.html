@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/callouts.css' | relative_url }}">
@@ -12,22 +11,20 @@
     {% include head-custom.html %}
   </head>
   <body>
-  {% include alert-banner.html %}
-    <div class="container-lg px-3 my-5 markdown-body">
-      {% if site.title and site.title != page.title %}
-      <header>
+    <div class="container-lg px-3 mb-5 pt-3 markdown-body">
+      <header role="banner">
+        {% include alert-banner.html %}
+        {% if site.title and site.title != page.title %}
         <h1>
           <a href="{{ "/" | absolute_url }}">
             {{ site.title }}
           </a>
         </h1>
+        {% endif %}
       </header>
-      {% endif %}
-
       <main>
         {{ content }}
       </main>
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>
