@@ -237,8 +237,7 @@
       const hayBloqueos = repeatedBlockedIps > 3 || criticalPairBlocked;
 
       if (hayBloqueos) {
-        div.innerHTML = `
-        <strong>HAY BLOQUEOS ACTIVOS DE FÚTBOL:</strong> Gracias a los bloqueos indiscriminados de LaLiga algunas webs (incluida esta) pueden no funcionar con normalidad. Este aviso solo se muestra cuando hay bloqueos activos y confirmados en este momento. Informate de tus derechos al respecto. `;
+        div.innerHTML = `Esta web puede no funcionar con normalidad debido a los bloqueos activos y confirmados en este momento.`;
 
         div.style.cssText = `
         background-color:#fff5f5;
@@ -246,7 +245,7 @@
         color:#742a2a;
         padding:12px 16px;
         font-weight:500;
-        font-size:1em;
+        font-size:0.5em;
         position:sticky;
         top:10px;
         z-index:9999;
@@ -266,7 +265,7 @@
 
       if (e.name === "AbortError" || e instanceof TypeError) {
         div.innerHTML = `
-        <strong>TÚ CONEXIÓN A INTERNET PRESENTA IRREGULARIDADES:</strong> Tu conexión a varios scripts (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Es muy probable que se trate de los bloqueos indiscriminados de LaLiga, pero no podemos asegurarlo. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.`;
+        <strong>AVISO:</strong> Tu conexión a varios servicios (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.`;
 
         div.style.cssText = `
         background-color:#fff5f5;
@@ -274,7 +273,7 @@
         color:#742a2a;
         padding:12px 16px;
         font-weight:500;
-        font-size:1em;
+        font-size:0.5em;
         position:sticky;
         top:10px;
         z-index:9999;
