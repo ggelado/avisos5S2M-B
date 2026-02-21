@@ -28,7 +28,7 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
            style="font-size:1.05em;">{{ post.title }}</a>
         <span style="font-size:0.8em; color:#666; margin-left:8px;">
           {{ post.date | date: "%d/%m/%Y" }}
-          {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y a las %H:%M +%z" }}{% endif %}
+          {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y a las %H:%M %z" }}{% endif %}
         </span>
       </div>
     {% endif %}
