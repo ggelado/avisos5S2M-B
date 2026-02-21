@@ -17,18 +17,13 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
       {% else %}
         {% assign modified_date = post.date | date_to_xmlschema %}
       {% endif %}
-      {% assign days_left = post_expires | minus: now | divided_by: 86400 %}
-      {% if days_left <= 2 and post.expires %}
-        {% assign border_color = "#f59e0b" %}
-      {% else %}
-        {% assign border_color = "#1d4ed8" %}
-      {% endif %}
       <div data-post-url="{{ site.baseurl }}{{ post.url }}" 
            data-date-modified="{{ modified_date }}"
-           style="border-left: 4px solid {{ border_color }};
-                  background: #f8faff;
+           style="border-left: 4px solid #f59e0b;
+                  background: #fffbeb;
                   padding: 12px 16px;
-                  border-radius: 6px;">
+                  border-radius: 6px;
+                  transition: border-color 0.3s, background 0.3s;">
         <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos"
            style="font-size:1.05em;">{{ post.title }}</a>
         <span style="font-size:0.8em; color:#666; margin-left:8px;">
@@ -782,39 +777,25 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- Resaltado de avisos no visualizados -->
 <script>
   (() => {
-    const seen = getSeenPosts();
     const items = document.querySelectorAll("[data-post-url]");
-
-    // Limpiar el objeto de vistos: eliminar URLs que ya no existen en la página
-    const currentUrls = new Set([...items].map(li => li.dataset.postUrl));
-    for (const url in seen) {
-      if (!currentUrls.has(url)) delete seen[url];
-    }
-
-    items.forEach(li => {
-      const url = li.dataset.postUrl;
-      const dateModified = li.dataset.dateModified; // Necesitamos añadir este atributo
-
-      const link = li.querySelector("a");
+    items.forEach(div => {
+      const url = div.dataset.postUrl;
+      const dateModified = div.dataset.dateModified;
+      const link = div.querySelector("a");
       if (!link) return;
 
-      // Si no se ha visto o ha sido modificado desde la última visita, resaltarlo
       if (isPostModifiedSinceLastVisit(url, dateModified)) {
-        link.style.fontWeight = "600";
-
+        // No leído → naranja (ya viene del estilo inline, no hace falta tocarlo)
         const star = document.createElement("span");
-        star.textContent = "★";
-        star.style.color = "#1e40af";
-        star.style.marginRight = "6px";
-        star.style.fontSize = "0.8em";
-        star.style.verticalAlign = "middle";
-
+        star.textContent = "★ ";
+        star.style.color = "#f59e0b";
         link.prepend(star);
+      } else {
+        // Leído → azul
+        div.style.borderLeftColor = "#1d4ed8";
+        div.style.background = "#f8faff";
       }
     });
-
-    // Guardar cambios (limpiar URLs eliminadas)
-    saveSeenPosts(seen);
   })();
 </script>
 
