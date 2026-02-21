@@ -9,6 +9,7 @@ categories:
   - Convocatorias de Examen
   - IngSoftI
 excerpt: Examen 04 de marzo IngSoft I
+image: https://www.dlsiis.fi.upm.es/imagenes/lsiis.png
 ---
 
 Recuerda que el próximo día 04 de marzo a las 12:00 es el examen de Ingeniería del Software I. Este aviso se editará con la convocatoria oficial una vez publicada, pero no se enviarán nuevas notificaciones en relación al mismo. Recuerda consultar el moodle oficial de la asignatura.

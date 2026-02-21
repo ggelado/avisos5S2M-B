@@ -8,6 +8,7 @@ expires: 2026-03-27 23:59:59 +0100
 categories:
   - PII
 excerpt: 27 de marzo D2.4
+image: https://www.datsi.fi.upm.es/icons/datsi_small.gif
 ---
 
 Recuerda que el próximo día 27 de marzo es la entrega de D2.4 (Termotecnia) en Proyecto de Instalación Informática. Mensaje enviado automáticamente, recuerda consultar Moodle. Esta información está basada en la planificación inicial y podría haber sufrido cambios. NO DEBERÁ TOMARSE ESTA INFORMACIÓN COMO CIERTA, SINO SOLAMENTE COMO MERO AVISO.
