@@ -47,6 +47,56 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
   </div>
 </div>
 
+
+{% assign now = 'now' | date: "%s" %}
+{% assign upcoming_posts = 0 %}
+{% for post in site.posts %}
+  {% assign post_date = post.date | date: "%s" %}
+  {% if post_date > now %}
+    {% assign upcoming_posts = upcoming_posts | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+{% if upcoming_posts > 0 %}
+<details style="margin-top:30px; margin-bottom:20px;">
+  <summary style="cursor:pointer; font-size:1.1em; font-weight:600; color:#666; padding:8px 0;">
+    Próximos avisos
+  </summary>
+  
+  <div style="display:flex; flex-direction:column; gap:8px; margin-top:12px;">
+    {% assign now = 'now' | date: "%s" %}
+    {% for post in site.posts %}
+      {% assign post_date = post.date | date: "%s" %}
+      {% if post_date > now %}
+        {% if post.last_modified_at %}
+          {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
+        {% else %}
+          {% assign modified_date = post.date | date_to_xmlschema %}
+        {% endif %}
+        <div data-post-url="{{ site.baseurl }}{{ post.url }}" 
+             style="border-left: 3px solid #d1d5db;
+                    background: #f9fafb;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    transition: border-color 0.3s, background 0.3s;
+                    font-size: 0.95em;">
+          <div style="font-size:0.95em; font-weight:500;">{{ post.title }}</div>
+          {% if post.excerpt %}
+            <div style="font-size:0.85em; color:#666; margin-top:4px; margin-bottom:4px;">
+              {{ post.excerpt | strip_html | truncatewords: 20 }}
+            </div>
+          {% endif %}
+          <span style="font-size:0.75em; color:#999;">
+            Se publicará el {{ post.date | date: "%d/%m/%Y" }}
+            {% if post.expires %} · Caducará el {{ post.expires | date: "%d/%m/%Y" }}{% endif %}
+          </span>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</details>
+{% endif %}
+
 <p>Recuerda que esta web se actualiza regularmente. Puedes suscribirte al <a href="{{ site.baseurl }}/feed.xml">feed
     RSS</a> para recibir las últimas noticias directamente en tu lector de RSS.</p>
 <p
