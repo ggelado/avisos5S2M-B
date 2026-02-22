@@ -106,7 +106,7 @@ for filename in sorted(os.listdir(POSTS_DIR)):  # sorted para orden determinista
         dt_end = dt_start
 
     # UID estable basado en el nombre del archivo, no en timestamp
-    uid = f"{filename}@avisos.com"
+    uid = f"{filename}@ggelado.github.io"
 
     now_utc = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
