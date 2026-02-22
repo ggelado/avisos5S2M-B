@@ -76,5 +76,17 @@
     "date": "2026-05-22T00:00:00+01:00",
     "excerpt": "27 de mayo D3",
     "expires": "2026-05-27 23:59:59 +0100"
+  },
+  {
+    "title": "Compensación de festivos",
+    "date": "2026-04-20T00:00:00+02:00",
+    "excerpt": "Miércoles 22: Horario de Viernes",
+    "expires": "2026-04-22 20:00:00 +0200"
+  },
+  {
+    "title": "Compensación de festivos",
+    "date": "2026-05-09T00:00:00+02:00",
+    "excerpt": "12 de mayo: Horario de viernes",
+    "expires": "2026-05-12 20:00:00 +0200"
   }
 ]
