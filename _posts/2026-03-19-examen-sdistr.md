@@ -4,6 +4,7 @@ title: Examen Sistemas Distribuidos
 date: 2026-03-19 00:00:00 +0100
 author: Gonzalo
 published: true
+event_date: 2026-03-24 10:00:00 +0100
 expires: 2026-03-24 12:00:00 +0100
 categories:
   - Convocatorias de Examen
