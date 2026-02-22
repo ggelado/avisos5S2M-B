@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Entrega D3
-date: 2026-05-22 00:00:00 +0100
+date: 2026-05-22 00:00:00 +0200
 author: Gonzalo
 published: true
-event_date: 2026-05-27 00:00:00 +0100
-expires: 2026-05-27 23:59:59 +0100
+event_date: 2026-05-27 00:00:00 +0200
+expires: 2026-05-27 23:59:59 +0200
 categories:
   - PII
 excerpt: 27 de mayo D3

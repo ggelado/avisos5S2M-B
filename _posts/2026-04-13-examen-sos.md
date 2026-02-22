@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Examen SOS
-date: 2026-04-13 00:00:00 +0100
+date: 2026-04-13 00:00:00 +0200
 author: Gonzalo
 published: true
-event_date: 2026-04-16 14:00:00 +0100
-expires: 2026-04-16 14:50:00 +0100
+event_date: 2026-04-16 14:00:00 +0200
+expires: 2026-04-16 14:50:00 +0200
 categories:
   - Convocatorias de Examen
   - SOS

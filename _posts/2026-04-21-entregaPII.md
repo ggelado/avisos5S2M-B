@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Entrega D2.5
-date: 2026-04-21 00:00:00 +0100
+date: 2026-04-21 00:00:00 +0200
 author: Gonzalo
 published: true
-event_date: 2026-04-24 23:59:59 +0100
-expires: 2026-04-24 23:59:59 +0100
+event_date: 2026-04-24 23:59:59 +0200
+expires: 2026-04-24 23:59:59 +0200
 categories:
   - PII
 excerpt: 24 de abril D2.5
