@@ -1,8 +1,9 @@
+import json
 import os
 import re
 from datetime import datetime
+
 import pytz  # Para manejar zonas horarias
-import json
 import yaml
 
 # Carpeta donde están tus posts
@@ -118,6 +119,9 @@ for filename in os.listdir(POSTS_DIR):
 # Guardar future_posts en JSON
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
+
+# Ordenar future_posts por fecha cronológicamente
+future_posts.sort(key=lambda x: x['date'])
 
 with open(os.path.join(DATA_DIR, 'future_posts.json'), 'w', encoding='utf-8') as f:
     json.dump(future_posts, f, ensure_ascii=False, indent=2)
