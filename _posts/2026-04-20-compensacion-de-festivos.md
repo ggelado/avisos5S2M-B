@@ -4,6 +4,7 @@ title: "Compensación de festivos"
 date: 2026-04-20 00:00 +0200
 author: Gonzalo
 published: true
+event_date: 2026-04-22 00:00:00 +0200
 expires: 2026-04-22 20:00:00 +0200
 excerpt: "Miércoles 22: Horario de Viernes"
 

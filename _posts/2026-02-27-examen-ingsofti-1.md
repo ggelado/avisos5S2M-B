@@ -4,7 +4,8 @@ title: Examen IngSoft I
 date: 2026-02-27 00:00:00 +0100
 author: Gonzalo
 published: true
-expires: 2026-03-04 11:59:59 +0100
+event_date: 2026-03-04 12:00:00 +0100
+expires: 2026-03-04 12:59:59 +0100
 categories:
   - Convocatorias de Examen
   - IngSoftI
