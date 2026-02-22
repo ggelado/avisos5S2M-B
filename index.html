@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
       { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
       {
-        url: "https://api.madridtransporte.com/stops/tram/29/planned",
+        url: "https://api.madridtransporte.com/stops/tram/29/times",
         lines: null,
         isTram: true // marca que es metro ligero
       }
@@ -316,11 +316,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // --- Metro Ligero ---
           if (source.isTram) {
-            for (const arrival of data) {
-              if (arrival.direction !== 2) continue; // solo dirección 2
-              uniqueSorted(arrival.arrives || []).forEach(ts => {
+            for (const arrival of data.arrives || []) {
+              if (arrival.direction !== 2) continue;
+              const times = uniqueSorted(arrival.estimatedArrives || []);
+              times.forEach(ts => {
                 results.push({
-                  line: arrival.lineCode,
+                  line: "ML3",
                   lineCode: arrival.lineCode,
                   destination: arrival.destination,
                   minutes: minutesFromNow(ts),
@@ -334,8 +335,8 @@ document.addEventListener('DOMContentLoaded', () => {
           // --- Buses ---
           for (const arrival of data.arrives || []) {
             if (source.lines && !source.lines.includes(arrival.line)) continue;
-
-            uniqueSorted(arrival.estimatedArrives || []).forEach(ts => {
+            const times = uniqueSorted(arrival.estimatedArrives || []);
+            times.forEach(ts => {
               results.push({
                 line: arrival.line,
                 lineCode: arrival.lineCode,
@@ -384,8 +385,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Lanzaderas
       const shuttleArrivals = sorted.filter(a => a.isShuttle);
 
-      return [...busArrivals, ...shuttleArrivals, ...tramArrivals]
+      const final = [...busArrivals, ...shuttleArrivals, ...tramArrivals]
         .sort((a, b) => a.minutes - b.minutes);
+      return final;
 
     }
 
@@ -474,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      arrivals.forEach(a => {
+      arrivals.forEach((a, idx) => {
         const li = document.createElement("li");
         li.className = "Box-row";
 
@@ -576,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
       { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
       {
-        url: "https://api.madridtransporte.com/stops/tram/29/planned",
+        url: "https://api.madridtransporte.com/stops/tram/29/times",
         lines: null,
         isTram: true
       }
@@ -613,11 +615,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const data = await res.json();
 
           if (source.isTram) {
-            for (const arrival of data) {
+            for (const arrival of data.arrives || []) {
               if (arrival.direction !== 2) continue;
-              uniqueSorted(arrival.arrives || []).forEach(ts => {
+              const times = uniqueSorted(arrival.estimatedArrives || []);
+              times.forEach(ts => {
                 results.push({
-                  line: arrival.lineCode,
+                  line: "ML3",
                   minutes: minutesFromNow(ts)
                 });
               });
@@ -627,7 +630,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
           for (const arrival of data.arrives || []) {
             if (source.lines && !source.lines.includes(arrival.line)) continue;
-            uniqueSorted(arrival.estimatedArrives || []).forEach(ts => {
+            const times = uniqueSorted(arrival.estimatedArrives || []);
+            times.forEach(ts => {
               results.push({
                 line: arrival.line,
                 minutes: minutesFromNow(ts)
