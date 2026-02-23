@@ -5,8 +5,10 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 ---
 <h1>Últimos avisos</h1>
 
+<!-- MODO OSCURO TEMPORALMENTE DESHABILITADO
 <div id="aviso-modo-oscuro" class="aviso-modo-oscuro" style="display: none;">
 </div>
+-->
 
 <div class="avisos-container">
   {% assign now = 'now' | date: "%s" %}
@@ -133,16 +135,18 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
   position: relative;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .widget-aemet::after {
     content: '';
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.35);
-    pointer-events: none; /* para que el iframe siga siendo clickable */
+    pointer-events: none;
     z-index: 1;
   }
 }
+*/
 
   /* Fix para los marcadores de Leaflet */
   .markdown-body .leaflet-marker-icon,
@@ -156,6 +160,7 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
     background-color: transparent !important;
   }
 
+  /* MODO OSCURO TEMPORALMENTE DESHABILITADO
   .aviso-modo-oscuro {
     display: inline-block;
     margin: 4px 0 10px;
@@ -168,6 +173,7 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
     background: #ffedd5;
     border: 1px solid #fdba74;
   }
+  */
 </style>
 
 <section class="container-lg my-4">
@@ -189,6 +195,7 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 </section>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- MODO OSCURO TEMPORALMENTE DESHABILITADO
 <script>
   // Aviso condicional para modo oscuro
   document.addEventListener("DOMContentLoaded", () => {
@@ -203,6 +210,7 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
     }
   });
 </script>
+-->
 
 <script>
 async function mostrarLinkAtascos() {

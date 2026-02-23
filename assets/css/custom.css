@@ -15,7 +15,7 @@
   --accent-danger: #990000;
 }
 
-/* Variables para modo oscuro */
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: #1a1a1a;
@@ -36,6 +36,7 @@
     color: var(--text-primary);
   }
 }
+*/
 
 html, body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -85,6 +86,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   button {
     background-color: #333;
@@ -95,6 +97,7 @@ button:focus-visible {
     background-color: #444;
   }
 }
+*/
 
 /* Contenedores de avisos */
 .avisos-container {
@@ -112,23 +115,27 @@ button:focus-visible {
   transition: border-color 0.3s, background 0.3s;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .aviso-activo {
     background: rgba(245, 158, 11, 0.1);
   }
 }
+*/
 
 .aviso-visto {
   border-left-color: #4851d8 !important;
   background: #f8faff !important;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .aviso-visto {
     border-left-color: #8b9dff !important;
     background: rgba(139, 157, 255, 0.08) !important;
   }
 }
+*/
 
 /* Bloques de código */
 pre {
@@ -159,6 +166,7 @@ pre code {
   border-radius: 6px;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   pre {
     background-color: #2d2d2d;
@@ -176,15 +184,16 @@ pre code {
     color: #e8e8e8;
   }
 
-  /* Colores de sintaxis para modo oscuro */
-  .highlight .c { color: #7f8f8f; } /* Comentario */
-  .highlight .k { color: #e3e3e3; font-weight: bold; } /* Palabra clave */
-  .highlight .n { color: #e3e3e3; } /* Nombre */
-  .highlight .s { color: #7ec699; } /* String */
-  .highlight .nb { color: #a8c5d8; } /* Built-in */
-  .highlight .m { color: #d19a66; } /* Número */
+  .highlight .c { color: #7f8f8f; }
+  .highlight .k { color: #e3e3e3; font-weight: bold; }
+  .highlight .n { color: #e3e3e3; }
+  .highlight .s { color: #7ec699; }
+  .highlight .nb { color: #a8c5d8; }
+  .highlight .m { color: #d19a66; }
 }
+*/
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .markdown-body pre,
   .markdown-body .highlight pre {
@@ -212,6 +221,7 @@ pre code {
     color: #e5e7eb !important;
   }
 }
+*/
 
 .aviso-activo a {
   font-size: 1.05em;
@@ -231,12 +241,14 @@ pre code {
   border-radius: 6px;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .sin-avisos {
     color: #86efac;
     background: rgba(22, 163, 74, 0.1);
   }
 }
+*/
 
 .avisos-retirados {
   font-size: 0.85em;
@@ -318,6 +330,7 @@ pre code {
   margin-bottom: 20px;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .notificacion-banner {
     background-color: rgba(245, 158, 11, 0.15);
@@ -325,6 +338,7 @@ pre code {
     border-color: rgba(245, 158, 11, 0.3);
   }
 }
+*/
 
 .notificacion-banner a {
   font-weight: bold;
@@ -399,6 +413,7 @@ pre code {
   z-index: 9999;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .alerta-meteo,
   .alerta-futbol,
@@ -427,6 +442,7 @@ pre code {
     color: #dbeafe;
   }
 }
+*/
 
 /* Enlaces de utilidad */
 .enlaces-utilidad {
@@ -519,6 +535,7 @@ pre code {
   background-color: #e0e0e0;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .edit-btn, .download-btn {
     background-color: #333;
@@ -528,6 +545,7 @@ pre code {
     background-color: #444;
   }
 }
+*/
 
 /* Aviso de caducidad */
 .aviso-caducado {
@@ -541,12 +559,14 @@ pre code {
   margin-bottom: 20px;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .aviso-caducado {
     background-color: rgba(255, 107, 107, 0.15);
     color: #ff9999;
   }
 }
+*/
 
 /* Modal notificaciones */
 .download-app-modal {
@@ -597,6 +617,7 @@ pre code {
   cursor: pointer;
 }
 
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .download-app-modal__dialog {
     background: #111827 !important;
@@ -614,4 +635,5 @@ pre code {
     color: #e5e7eb !important;
   }
 }
+*/
 
