@@ -126,9 +126,30 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
+.widget-aemet {
+  position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .widget-aemet::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    pointer-events: none; /* para que el iframe siga siendo clickable */
+    z-index: 1;
+  }
+}
+
   /* Fix para los marcadores de Leaflet */
   .markdown-body .leaflet-marker-icon,
   .markdown-body .leaflet-marker-shadow {
+    background-color: transparent !important;
+  }
+
+  /* Fix para iconos del widget CRTM */
+  .widget-crtm img,
+  #estado-crtm img {
     background-color: transparent !important;
   }
 </style>
@@ -768,9 +789,8 @@ document.addEventListener('DOMContentLoaded', () => {
         star.style.color = "#f59e0b";
         link.prepend(star);
       } else {
-        // Leído → azul
-        div.style.borderLeftColor = "#1d4ed8";
-        div.style.background = "#f8faff";
+        // Leído → azul/purple
+        div.classList.add('aviso-visto');
       }
     });
   })();
