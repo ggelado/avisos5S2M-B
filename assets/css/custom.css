@@ -330,6 +330,104 @@ pre code {
   font-weight: bold;
 }
 
+/* Alertas dinamicas */
+.alerta-meteo,
+.alerta-futbol,
+.banner-trafico {
+  background-color: #f9f9f9;
+  border-left: 5px solid #e55353;
+  color: #333333;
+  padding: 12px 16px;
+  font-weight: 500;
+  font-size: 1em;
+  position: sticky;
+  top: 10px;
+  z-index: 9999;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  margin: 10px auto;
+  line-height: 1.4;
+}
+
+.alerta-futbol {
+  display: none;
+  background-color: #fff5f5;
+  border-left-color: #e53e3e;
+  color: #742a2a;
+  font-size: 0.85em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alerta-futbol--active {
+  display: block;
+}
+
+.banner-trafico {
+  display: none;
+  background-color: #ebf8ff;
+  border-left-color: #3182ce;
+  color: #2a4365;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.banner-trafico--discreto {
+  position: relative;
+  top: auto;
+  background-color: #f8f9fa;
+  border-left: 3px solid #dee2e6;
+  color: #6c757d;
+  padding: 6px 12px;
+  font-weight: 400;
+  font-size: 0.85em;
+  box-shadow: none;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.banner-trafico--destacado {
+  position: sticky;
+  top: 10px;
+  background-color: #ebf8ff;
+  border-left: 5px solid #3182ce;
+  color: #2a4365;
+  padding: 12px 16px;
+  font-weight: 500;
+  font-size: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  z-index: 9999;
+}
+
+@media (prefers-color-scheme: dark) {
+  .alerta-meteo,
+  .alerta-futbol,
+  .banner-trafico {
+    background-color: #111827;
+    border-left-color: #ef4444;
+    color: #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .alerta-futbol {
+    background-color: rgba(239, 68, 68, 0.12);
+    border-left-color: #ef4444;
+    color: #fecaca;
+  }
+
+  .banner-trafico--discreto {
+    background-color: #111827;
+    border-left-color: #374151;
+    color: #9ca3af;
+  }
+
+  .banner-trafico--destacado {
+    background-color: rgba(59, 130, 246, 0.12);
+    border-left-color: #60a5fa;
+    color: #dbeafe;
+  }
+}
+
 /* Enlaces de utilidad */
 .enlaces-utilidad {
   display: flex;
