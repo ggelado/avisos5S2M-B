@@ -66,7 +66,7 @@ blockquote.callout p:empty {
 .callout-quote   { background: #f6f8fa; border-left: 4px solid #8b949e; }
 .callout-quote   .callout-header { background: #e2e8f0; color: #1f2937; }
 
-/* Modo Oscuro */
+/* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   blockquote.callout p {
     color: rgba(255, 255, 255, 0.87);
@@ -108,3 +108,4 @@ blockquote.callout p:empty {
   .callout-quote   { background: rgba(139, 148, 158, 0.1); border-left-color: #a8b5c1; }
   .callout-quote   .callout-header { background: rgba(139, 148, 158, 0.15); color: #d1d5db; }
 }
+*/
