@@ -450,3 +450,70 @@ pre code {
   }
 }
 
+/* Modal notificaciones */
+.download-app-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+}
+
+.download-app-modal__dialog {
+  background: #ffffff;
+  color: #111827;
+  width: 80%;
+  max-width: 350px;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.download-app-modal__title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.download-app-modal__primary {
+  margin: 15px 0;
+  background: #1d4ed8;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.download-app-modal__close {
+  padding: 8px 20px;
+  border: none;
+  background: #555555;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  .download-app-modal__dialog {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+    border: 1px solid #374151;
+  }
+
+  .download-app-modal__primary {
+    background: #2563eb !important;
+    color: #ffffff !important;
+  }
+
+  .download-app-modal__close {
+    background: #374151 !important;
+    color: #e5e7eb !important;
+  }
+}
+

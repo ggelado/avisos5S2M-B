@@ -683,37 +683,20 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Modal de descarga de la app -->
-<div id="download-app-modal" style="
-    display:none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(2px);
-    z-index: 9999;
-" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-  <div style="
-        background:white;
-        width: 80%;
-        max-width: 350px;
-        margin: 15% auto;
-        padding: 20px;
-        border-radius: 10px;
-        text-align:center;
-    ">
+<div id="download-app-modal" class="download-app-modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+  <div class="download-app-modal__dialog">
 
-    <p id="modal-title" style="font-size:1.3em; font-weight:bold; margin:0 0 10px 0;">Activa las notificaciones en tu navegador</p>
+    <p id="modal-title" class="download-app-modal__title">Activa las notificaciones en tu navegador</p>
     <p>Y podrás recibir avisos en cuanto se publiquen.</p>
     <p>La web puede tardar unos segundos en cargar.</p>
     <p>Recuerda pulsar "SUSCRIBIRME" y dar permiso a las notificaciones.</p>
 
     <!-- Botón universal -->
-    <a id="universal-link" href="https://notifierpushrss.onrender.com/"
-      style="margin: 15px 0; background:#1d4ed8; color:white; padding:10px; border-radius:5px; text-decoration:none; display:block;">
+    <a id="universal-link" class="download-app-modal__primary" href="https://notifierpushrss.onrender.com/">
       Activar notificaciones
     </a>
 
-    <button id="close-modal" style="padding:8px 20px; border:none; background:#555; color:white; border-radius:5px; cursor:pointer;">
+    <button id="close-modal" class="download-app-modal__close">
       Cerrar
     </button>
   </div>
