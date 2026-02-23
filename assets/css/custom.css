@@ -36,3 +36,207 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Contenedores de avisos */
+.avisos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.aviso-activo {
+  border-left: 4px solid #f59e0b;
+  background: #fffbeb;
+  padding: 12px 16px;
+  border-radius: 6px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.aviso-activo a {
+  font-size: 1.05em;
+}
+
+.aviso-fecha {
+  font-size: 0.8em;
+  color: #666;
+  margin-left: 8px;
+}
+
+.sin-avisos {
+  color: #166534;
+  background: #f0fdf4;
+  border-left: 4px solid #16a34a;
+  padding: 12px 16px;
+  border-radius: 6px;
+}
+
+.avisos-retirados {
+  font-size: 0.85em;
+  margin-top: 4px;
+}
+
+/* Próximos avisos */
+.proximos-avisos {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.proximos-avisos summary {
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #666;
+  padding: 8px 0;
+}
+
+.proximos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.futuro-aviso {
+  border-left: 3px solid #d1d5db;
+  background: #f9fafb;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: border-color 0.3s, background 0.3s;
+  font-size: 0.95em;
+}
+
+.futuro-aviso-titulo {
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.futuro-aviso-excerpt {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.futuro-aviso-fecha {
+  font-size: 0.75em;
+  color: #999;
+}
+
+/* Notificaciones */
+.notificacion-banner {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ffeeba;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.notificacion-banner a {
+  font-weight: bold;
+}
+
+/* Enlaces de utilidad */
+.enlaces-utilidad {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.enlaces-utilidad a {
+  display: inline-block;
+}
+
+/* Widgets */
+.widgets-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: sans-serif;
+  font-size: 0.9em;
+}
+
+.widgets-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.widget {
+  flex: 1 1 260px;
+  min-width: 260px;
+}
+
+.widget-contenido {
+  margin-top: 6px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.widget-aemet {
+  height: 170px;
+}
+
+.widget-crtm {
+  padding: 8px;
+  overflow-x: auto;
+}
+
+.widget-buses {
+  padding: 8px;
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.widget-buses-label {
+  margin-top: 4px;
+  text-align: center;
+  font-size: 0.75em;
+}
+
+/* Post - Editar y descargar */
+.edit-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.edit-notice p {
+  margin: 0;
+}
+
+.edit-btn, .download-btn {
+  text-decoration: none;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #333;
+  display: inline-block;
+}
+
+.edit-btn:hover, .download-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Aviso de caducidad */
+.aviso-caducado {
+  background-color: #ffcccc;
+  color: #990000;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #990000;
+  margin-bottom: 20px;
+}
+

@@ -4,24 +4,24 @@ layout: default
 {{ content }}
 <hr>
 
-<div class="edit-notice" style="display: flex; justify-content: space-between; align-items: center;">
-  <p style="margin: 0;">
+<div class="edit-notice">
+  <p>
     <a
       href="https://github.com/ggelado/avisos5S2M-B/edit/main/{{ page.path }}"
       target="_blank"
       rel="noopener"
-      style="text-decoration: none; background-color: #f0f0f0; padding: 5px 10px; border-radius: 5px; color: #333;"
+      class="edit-btn"
     >
       ✏️ Editar aviso
     </a>
   </p>
 
-  <p style="margin: 0;">
+  <p>
     <a
       href="https://notifierpushrss.onrender.com/generarPDF/{{ page.path }}"
       target="_blank"
       rel="noopener"
-      style="text-decoration: none; background-color: #f0f0f0; padding: 5px 10px; border-radius: 5px; color: #333;"
+      class="download-btn"
     >
       📄 Descargar aviso en PDF
     </a>
@@ -46,16 +46,7 @@ layout: default
 
     if (now > expiresDate) {
       const warning = document.createElement('div');
-      warning.style.cssText = `
-        background-color: #ffcccc;
-        color: #990000;
-        padding: 20px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        border: 2px solid #990000;
-        margin-bottom: 20px;
-      `;
+      warning.className = 'aviso-caducado';
       warning.textContent = 'Este aviso ha caducado y no se garantiza que siga siendo válido.';
 
       const content = document.querySelector('.post-expires') || document.body;
