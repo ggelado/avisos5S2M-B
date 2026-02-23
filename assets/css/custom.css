@@ -185,6 +185,25 @@ pre code {
   .highlight .m { color: #d19a66; } /* Número */
 }
 
+@media (prefers-color-scheme: dark) {
+  .markdown-body pre,
+  .markdown-body code,
+  .markdown-body .highlight {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border-color: #374151;
+  }
+
+  .markdown-body pre code {
+    background-color: transparent;
+    color: inherit;
+  }
+
+  .markdown-body .fenced-code-block {
+    color: #e5e7eb;
+  }
+}
+
 .aviso-activo a {
   font-size: 1.05em;
 }
