@@ -5,7 +5,7 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 ---
 <h1>Últimos avisos</h1>
 
-<div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px;">
+<div class="avisos-container">
   {% assign now = 'now' | date: "%s" %}
   {% assign active_posts = 0 %}
   {% for post in site.posts %}
@@ -19,14 +19,9 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
       {% endif %}
       <div data-post-url="{{ site.baseurl }}{{ post.url }}" 
            data-date-modified="{{ modified_date }}"
-           style="border-left: 4px solid #f59e0b;
-                  background: #fffbeb;
-                  padding: 12px 16px;
-                  border-radius: 6px;
-                  transition: border-color 0.3s, background 0.3s;">
-        <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos"
-           style="font-size:1.05em;">{{ post.title }}</a>
-        <span style="font-size:0.8em; color:#666; margin-left:8px;">
+           class="aviso-activo">
+        <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
+        <span class="aviso-fecha">
           {{ post.date | date: "%d/%m/%Y" }}
           {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y a las %H:%M (%z)" }}{% endif %}
         </span>
@@ -34,12 +29,11 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
     {% endif %}
   {% endfor %}
   {% if active_posts == 0 %}
-    <div style="color:#166534; background:#f0fdf4; border-left:4px solid #16a34a;
-                padding:12px 16px; border-radius:6px;">
+    <div class="sin-avisos">
       Sin avisos activos en este momento.
     </div>
   {% endif %}
-  <div style="font-size:0.85em; margin-top:4px;">
+  <div class="avisos-retirados">
     <a href="https://github.com/ggelado/avisos5S2M-B/tree/main/_posts" 
        target="_blank" rel="noopener noreferrer">
       Avisos retirados (información posiblemente desactualizada)
@@ -49,26 +43,19 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 
 
 {% if site.data.future_posts and site.data.future_posts.size > 0 %}
-<details style="margin-top:30px; margin-bottom:20px;">
-  <summary style="cursor:pointer; font-size:1.1em; font-weight:600; color:#666; padding:8px 0;">
-    Próximos avisos
-  </summary>
+<details class="proximos-avisos">
+  <summary>Próximos avisos</summary>
   
-  <div style="display:flex; flex-direction:column; gap:8px; margin-top:12px;">
+  <div class="proximos-lista">
     {% for post in site.data.future_posts %}
-      <div style="border-left: 3px solid #d1d5db;
-                  background: #f9fafb;
-                  padding: 8px 12px;
-                  border-radius: 4px;
-                  transition: border-color 0.3s, background 0.3s;
-                  font-size: 0.95em;">
-        <div style="font-size:0.95em; font-weight:500;">{{ post.title }}</div>
+      <div class="futuro-aviso">
+        <div class="futuro-aviso-titulo">{{ post.title }}</div>
         {% if post.excerpt %}
-          <div style="font-size:0.85em; color:#666; margin-top:4px; margin-bottom:4px;">
+          <div class="futuro-aviso-excerpt">
             {{ post.excerpt | truncatewords: 20 }}
           </div>
         {% endif %}
-        <span style="font-size:0.75em; color:#999;">
+        <span class="futuro-aviso-fecha">
           Se publicará el {{ post.date | date: "%d/%m/%Y" }}
           {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y" }}{% endif %}
         </span>
@@ -80,53 +67,29 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 
 <p>Recuerda que esta web se actualiza regularmente. Puedes suscribirte al <a href="{{ site.baseurl }}/feed.xml">feed
     RSS</a> para recibir las últimas noticias directamente en tu lector de RSS. También puedes consultarlos desde <a href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fggelado.github.io%2Favisos5S2M-B%2Favisos.ics">Google Calendar</a> o tu <a href="webcal://ggelado.github.io/avisos5S2M-B/avisos.ics"> calendario favorito</a>.</p>
-<p
-  style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba; font-weight: bold; font-size: 1.1em;">
+<p class="notificacion-banner">
   Nuevo sistema de notificaciones push
-  <a href="https://notifierpushrss.onrender.com/" target="_blank" rel="noopener noreferrer"
-     font-weight: bold;">Accede aquí</a>.
+  <a href="https://notifierpushrss.onrender.com/" target="_blank" rel="noopener noreferrer">Accede aquí</a>.
 </p>
 
-
 <p>Enlaces de utilidad:</p>
-<a href="https://stats.uptimerobot.com/OuKYf98R4h" target="_blank" rel="noopener noreferrer">
-  Estado de los principales servicios
-</a>
+<div class="enlaces-utilidad">
+  <a href="https://stats.uptimerobot.com/OuKYf98R4h" target="_blank" rel="noopener noreferrer">
+    Estado de los principales servicios
+  </a>
 
-<a href="https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es" target="_blank"
-  rel="noopener noreferrer">
-  Estado del Transporte Público
-</a>
+  <a href="https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es" target="_blank"
+    rel="noopener noreferrer">
+    Estado del Transporte Público
+  </a>
+</div>
 
 <!-- BLOQUE WIDGETS -->
-<div style="
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 12px;
-  background: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  font-family: sans-serif;
-  font-size: 0.9em;
-">
-
-  <div style="
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: stretch;
-  ">
-
+<div class="widgets-container">
+  <div class="widgets-grid">
     <!-- AEMET -->
-    <div style="flex: 1 1 260px; min-width: 260px;">
-      <div style="
-        margin-top: 6px;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #ddd;
-        height: 170px;
-        background: white;
-      ">
+    <div class="widget">
+      <div class="widget-contenido widget-aemet">
         <iframe title="El tiempo AEMET"
           src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/boadilla-del-monte-id28022?w=g2p101010011ovmffffffx4f86d9t95b6e9r0s8n1"
           style="width:100%; height:100%; border:0;" scrolling="no" loading="lazy">
@@ -135,43 +98,22 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
     </div>
 
     <!-- CRTM -->
-    <div style="flex: 1 1 260px; min-width: 260px;">
-      <div style="
-        margin-top: 6px;
-        padding: 8px;
-        background: white;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        overflow-x: auto;
-      ">
+    <div class="widget">
+      <div class="widget-contenido widget-crtm">
         <div id="estado-crtm" style="text-align:center;">
           Cargando estado del servicio…
         </div>
       </div>
 
-      <div id="buses-simplificado" style="
-        margin-top: 8px;
-        padding: 8px;
-        background: white;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 0.85em;
-        text-align: center;
-      ">
+      <div class="widget-contenido widget-buses" id="buses-simplificado">
         Cargando próximos transportes…
       </div>
-      <div style="
-        margin-top: 4px;
-        text-align: center;
-        font-size: 0.75em;
-      ">
-        <a href="/avisos5S2M-B/comoLlegar.html";
-        ">
+      <div class="widget-buses-label">
+        <a href="/avisos5S2M-B/comoLlegar.html">
           ¿Y para ir?
         </a>
       </div>
     </div>
-
   </div>
 </div>
 <!-- FIN BLOQUE WIDGETS -->
