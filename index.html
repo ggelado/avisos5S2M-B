@@ -1,7 +1,8 @@
 ---
 layout: default
 title: "Avisos 5S/6F 2M-B"
-excerpt: "Aquí se publica información de relevancia de la Delegación del Grupo 6F2M-B del Grado en Ingeniería Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la Universidad Politécnica de Madrid."
+excerpt: "Aquí se publica información de relevancia de la Delegación del Grupo 6F2M-B del Grado en Ingeniería
+Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la Universidad Politécnica de Madrid."
 ---
 <h1>Últimos avisos</h1>
 
@@ -14,33 +15,30 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
   {% assign now = 'now' | date: "%s" %}
   {% assign active_posts = 0 %}
   {% for post in site.posts %}
-    {% assign post_expires = post.expires | date: "%s" %}
-    {% if post_expires == nil or post_expires > now %}
-      {% assign active_posts = active_posts | plus: 1 %}
-      {% if post.last_modified_at %}
-        {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
-      {% else %}
-        {% assign modified_date = post.date | date_to_xmlschema %}
-      {% endif %}
-      <div data-post-url="{{ site.baseurl }}{{ post.url }}" 
-           data-date-modified="{{ modified_date }}"
-           class="aviso-activo">
-        <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
-        <span class="aviso-fecha">
-          {{ post.date | date: "%d/%m/%Y" }}
-          {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y a las %H:%M (%z)" }}{% endif %}
-        </span>
-      </div>
-    {% endif %}
+  {% assign post_expires = post.expires | date: "%s" %}
+  {% if post_expires == nil or post_expires > now %}
+  {% assign active_posts = active_posts | plus: 1 %}
+  {% if post.last_modified_at %}
+  {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
+  {% else %}
+  {% assign modified_date = post.date | date_to_xmlschema %}
+  {% endif %}
+  <div data-post-url="{{ site.baseurl }}{{ post.url }}" data-date-modified="{{ modified_date }}" class="aviso-activo">
+    <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
+    <span class="aviso-fecha">
+      {{ post.date | date: "%d/%m/%Y" }}
+      {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y a las %H:%M (%z)" }}{% endif %}
+    </span>
+  </div>
+  {% endif %}
   {% endfor %}
   {% if active_posts == 0 %}
-    <div class="sin-avisos">
-      Sin avisos activos en este momento.
-    </div>
+  <div class="sin-avisos">
+    Sin avisos activos en este momento.
+  </div>
   {% endif %}
   <div class="avisos-retirados">
-    <a href="https://github.com/ggelado/avisos5S2M-B/tree/main/_posts" 
-       target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/ggelado/avisos5S2M-B/tree/main/_posts" target="_blank" rel="noopener noreferrer">
       Avisos retirados (información posiblemente desactualizada)
     </a>
   </div>
@@ -50,28 +48,30 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 {% if site.data.future_posts and site.data.future_posts.size > 0 %}
 <details class="proximos-avisos">
   <summary>Próximos avisos</summary>
-  
+
   <div class="proximos-lista">
     {% for post in site.data.future_posts %}
-      <div class="futuro-aviso">
-        <div class="futuro-aviso-titulo">{{ post.title }}</div>
-        {% if post.excerpt %}
-          <div class="futuro-aviso-excerpt">
-            {{ post.excerpt | truncatewords: 20 }}
-          </div>
-        {% endif %}
-        <span class="futuro-aviso-fecha">
-          Se publicará el {{ post.date | date: "%d/%m/%Y" }}
-          {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y" }}{% endif %}
-        </span>
+    <div class="futuro-aviso">
+      <div class="futuro-aviso-titulo">{{ post.title }}</div>
+      {% if post.excerpt %}
+      <div class="futuro-aviso-excerpt">
+        {{ post.excerpt | truncatewords: 20 }}
       </div>
+      {% endif %}
+      <span class="futuro-aviso-fecha">
+        Se publicará el {{ post.date | date: "%d/%m/%Y" }}
+        {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y" }}{% endif %}
+      </span>
+    </div>
     {% endfor %}
   </div>
 </details>
 {% endif %}
 
 <p>Recuerda que esta web se actualiza regularmente. Puedes suscribirte al <a href="{{ site.baseurl }}/feed.xml">feed
-    RSS</a> para recibir las últimas noticias directamente en tu lector de RSS. También puedes consultarlos desde <a href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fggelado.github.io%2Favisos5S2M-B%2Favisos.ics">Google Calendar</a> o tu <a href="webcal://ggelado.github.io/avisos5S2M-B/avisos.ics"> calendario favorito</a>.</p>
+    RSS</a> para recibir las últimas noticias directamente en tu lector de RSS. También puedes consultarlos desde <a
+    href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fggelado.github.io%2Favisos5S2M-B%2Favisos.ics">Google
+    Calendar</a> o tu <a href="webcal://ggelado.github.io/avisos5S2M-B/avisos.ics"> calendario favorito</a>.</p>
 <p class="notificacion-banner">
   Nuevo sistema de notificaciones push
   <a href="https://notifierpushrss.onrender.com/" target="_blank" rel="noopener noreferrer">Accede aquí</a>.
@@ -131,11 +131,11 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
-.widget-aemet {
-  position: relative;
-}
+  .widget-aemet {
+    position: relative;
+  }
 
-/* MODO OSCURO TEMPORALMENTE DESHABILITADO
+  /* MODO OSCURO TEMPORALMENTE DESHABILITADO
 @media (prefers-color-scheme: dark) {
   .widget-aemet::after {
     content: '';
@@ -158,6 +158,9 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
   .widget-crtm img,
   #estado-crtm img {
     background-color: transparent !important;
+    width: 29px;
+    height: 29px;
+    object-fit: contain;
   }
 
   /* MODO OSCURO TEMPORALMENTE DESHABILITADO
@@ -191,7 +194,7 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
   </div>
 
   <div id="link-atascos" style="text-align:center; font-size:0.75em; margin-top:4px; display:none;">
-</div>
+  </div>
 </section>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -213,36 +216,36 @@ excerpt: "Aquí se publica información de relevancia de la Delegación del Grup
 -->
 
 <script>
-async function mostrarLinkAtascos() {
-  const contenedor = document.getElementById('link-atascos');
-  if (!contenedor) return;
+  async function mostrarLinkAtascos() {
+    const contenedor = document.getElementById('link-atascos');
+    if (!contenedor) return;
 
-  try {
-    const res = await fetch('https://notifierpushrss.onrender.com/api/poblados');
-    if (!res.ok) throw new Error(`HTTP status ${res.status}`);
-    const data = await res.json();
+    try {
+      const res = await fetch('https://notifierpushrss.onrender.com/api/poblados');
+      if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+      const data = await res.json();
 
-    if (data.hayAtascos) {
-      // Mostrar enlace solo si hay atascos
-      contenedor.innerHTML = `<a href="/avisos5S2M-B/poblados.html">
+      if (data.hayAtascos) {
+        // Mostrar enlace solo si hay atascos
+        contenedor.innerHTML = `<a href="/avisos5S2M-B/poblados.html">
         Estado del tráfico en Av. Poblados
       </a>`;
-      contenedor.style.display = 'block';
-    } else {
+        contenedor.style.display = 'block';
+      } else {
+        contenedor.style.display = 'none';
+        contenedor.innerHTML = '';
+      }
+
+    } catch (err) {
       contenedor.style.display = 'none';
-      contenedor.innerHTML = '';
     }
-
-  } catch (err) {
-    contenedor.style.display = 'none';
   }
-}
 
-// Ejecutar al cargar la página y refrescar cada 2 minutos
-document.addEventListener('DOMContentLoaded', () => {
-  mostrarLinkAtascos();
-  setInterval(mostrarLinkAtascos, 120000);
-});
+  // Ejecutar al cargar la página y refrescar cada 2 minutos
+  document.addEventListener('DOMContentLoaded', () => {
+    mostrarLinkAtascos();
+    setInterval(mostrarLinkAtascos, 120000);
+  });
 </script>
 <script>
   // --- Servicios lanzadera (horario fijo, L-V) ---
@@ -518,56 +521,56 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 </script>
 <script>
-async function verificarAtasco() {
-  const avisoEl = document.getElementById('aviso-atasco');
-  if (!avisoEl) return;
+  async function verificarAtasco() {
+    const avisoEl = document.getElementById('aviso-atasco');
+    if (!avisoEl) return;
 
-  try {
-    const res = await fetch('https://notifierpushrss.onrender.com/api/m511');
-    const data = await res.json();
+    try {
+      const res = await fetch('https://notifierpushrss.onrender.com/api/m511');
+      const data = await res.json();
 
-    if (data.total_atascos === 0) {
+      if (data.total_atascos === 0) {
+        avisoEl.style.display = 'none';
+        return;
+      }
+
+      // Prioridad de gravedad
+      const prioridad = {
+        'lowest': 1,
+        'low': 2,
+        'medium': 3,
+        'high': 4,
+        'highest': 5
+      };
+
+      // Buscar el atasco más grave
+      const atasco = data.atascos.reduce((max, actual) => {
+        return (prioridad[actual.gravedad] || 0) >
+          (prioridad[max.gravedad] || 0)
+          ? actual
+          : max;
+      }, data.atascos[0]);
+
+      const nivelTexto = {
+        'lowest': 'muy leve',
+        'low': 'leve',
+        'medium': 'medio',
+        'high': 'grave',
+        'highest': 'muy grave'
+      }[atasco.gravedad] || atasco.nivel_gravedad;
+
+      avisoEl.textContent = `Hay atasco ${nivelTexto} en Colonia Jardín.`;
+      avisoEl.style.display = 'block';
+
+    } catch (err) {
       avisoEl.style.display = 'none';
-      return;
     }
-
-    // Prioridad de gravedad
-    const prioridad = {
-      'lowest': 1,
-      'low': 2,
-      'medium': 3,
-      'high': 4,
-      'highest': 5
-    };
-
-    // Buscar el atasco más grave
-    const atasco = data.atascos.reduce((max, actual) => {
-      return (prioridad[actual.gravedad] || 0) >
-             (prioridad[max.gravedad] || 0)
-        ? actual
-        : max;
-    }, data.atascos[0]);
-
-    const nivelTexto = {
-      'lowest': 'muy leve',
-      'low': 'leve',
-      'medium': 'medio',
-      'high': 'grave',
-      'highest': 'muy grave'
-    }[atasco.gravedad] || atasco.nivel_gravedad;
-
-    avisoEl.textContent = `Hay atasco ${nivelTexto} en Colonia Jardín.`;
-    avisoEl.style.display = 'block';
-
-  } catch (err) {
-    avisoEl.style.display = 'none';
   }
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  verificarAtasco();
-  setInterval(verificarAtasco, 120000);
-});
+  document.addEventListener('DOMContentLoaded', () => {
+    verificarAtasco();
+    setInterval(verificarAtasco, 120000);
+  });
 </script>
 
 <script>
@@ -710,7 +713,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
-{% raw %}
 <script>
   // Evitar mostrar el modal más de una vez
   const shown = localStorage.getItem("appModalShown");
@@ -756,10 +758,43 @@ document.addEventListener('DOMContentLoaded', () => {
       // Clonamos para no mover nodos del documento remoto
       const clon = divCRTM.cloneNode(true);
 
-      // Corregir rutas relativas de imágenes
+      // Mapeo: nombre de fichero original → ruta en tu web
+      const ICON_MAP = {
+        "Estado_Metro_Verde.png": "{{ site.baseurl }}/assets/crtm/metro_verde.svg",
+        "Estado_Metro_Amarillo.png": "{{ site.baseurl }}/assets/crtm/metro_amarillo.svg",
+        "Estado_Metro_Rojo.png": "{{ site.baseurl }}/assets/crtm/metro_rojo.svg",
+        "Estado_ML_Verde.png": "{{ site.baseurl }}/assets/crtm/ml_verde.svg",
+        "Estado_ML_Amarillo.png": "{{ site.baseurl }}/assets/crtm/ml_amarillo.svg",
+        "Estado_ML_Rojo.png": "{{ site.baseurl }}/assets/crtm/ml_rojo.svg",
+        "Estado_EMT_Verde.png": "{{ site.baseurl }}/assets/crtm/emt_verde.svg",
+        "Estado_EMT_Amarillo.png": "{{ site.baseurl }}/assets/crtm/emt_amarillo.svg",
+        "Estado_EMT_Rojo.png": "{{ site.baseurl }}/assets/crtm/emt_rojo.svg",
+        "Estado_Interurbano_Verde.png": "{{ site.baseurl }}/assets/crtm/interurbano_verde.svg",
+        "Estado_Interurbano_Amarillo.png": "{{ site.baseurl }}/assets/crtm/interurbano_amarillo.svg",
+        "Estado_Interurbano_Rojo.png": "{{ site.baseurl }}/assets/crtm/interurbano_rojo.svg",
+        "Estado_Cercanias_Verde.png": "{{ site.baseurl }}/assets/crtm/cercanias_verde.svg",
+        "Estado_Cercanias_Amarillo.png": "{{ site.baseurl }}/assets/crtm/cercanias_amarillo.svg",
+        "Estado_Cercanias_Rojo.png": "{{ site.baseurl }}/assets/crtm/cercanias_rojo.svg",
+        "Estado_Calidad_Aire_Verde.png": "{{ site.baseurl }}/assets/crtm/aire_verde.svg",
+        "Estado_Calidad_Aire_Amarillo.png": "{{ site.baseurl }}/assets/crtm/aire_amarillo.svg",
+        "Estado_Calidad_Aire_Rojo.png": "{{ site.baseurl }}/assets/crtm/aire_rojo.svg",
+        "Estado_Incidencias_Invernales_Verde.png": "{{ site.baseurl }}/assets/crtm/invernal_verde.svg",
+        "Estado_Incidencias_Invernales_Amarillo.png": "{{ site.baseurl }}/assets/crtm/invernal_amarillo.svg",
+        "Estado_Incidencias_Invernales_Rojo.png": "{{ site.baseurl }}/assets/crtm/invernal_rojo.svg",
+      };
+
       clon.querySelectorAll("img").forEach(img => {
         const src = img.getAttribute("src");
-        if (src && src.trim().startsWith("/")) {
+        if (!src) return;
+
+        // Extrae solo el nombre de fichero, sin la ruta
+        const fileName = src.trim().split("/").pop();
+
+        if (ICON_MAP[fileName]) {
+          // Tienes tu propia versión → úsala
+          img.src = ICON_MAP[fileName];
+        } else if (src.trim().startsWith("/")) {
+          // No la tienes → carga la original del CRTM
           img.src = "https://crtm.es" + src.trim();
         }
       });
@@ -822,7 +857,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-{% endraw %}
 
