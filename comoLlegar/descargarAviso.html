@@ -8,7 +8,7 @@ permalink: /descargarAviso.html
 <div id="traffic-viewer">
 
   <div id="loading">Cargando avisos...</div>
-  <div id="error" style="display: none; color: red;"></div>
+  <div id="error" style="display: none;"></div>
 
   <div id="avisos-container"></div>
 </div>
@@ -20,75 +20,6 @@ permalink: /descargarAviso.html
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-raw 'delay=n&amp;screenshot=https%3A%2F%2Fnap.dgt.es%2Fdatex2%2Fv3%2Fdgt%2FSituationPublication%2Fdatex2_v36.xml' &gt; fich.pdf</code></pre>
 <p>Nota: Prestador <strong>NO CUALIFICADO eIDAS</strong>.</p>
-
-
-<style>
-  .aviso-card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: #f9f9f9;
-  }
-
-  .aviso-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .aviso-id {
-    font-weight: bold;
-    color: #333;
-  }
-
-  .aviso-time {
-    font-size: 0.9em;
-    color: #666;
-  }
-
-  .aviso-details {
-    margin: 10px 0;
-  }
-
-  .aviso-location {
-    color: #555;
-    margin: 5px 0;
-  }
-
-  .download-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
-  }
-
-  .download-btn:hover {
-    background-color: #0056b3;
-  }
-
-  .download-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-
-  .situacion-group {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-left: 4px solid #007bff;
-  }
-
-  .situacion-header {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #007bff;
-  }
-</style>
 
 <script>
   const API_BASE = 'https://notifierpushrss.onrender.com';
