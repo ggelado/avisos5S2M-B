@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Inicio de servicio
 date: 2025-11-16 19:26:00 +0100
 author: Gonzalo
