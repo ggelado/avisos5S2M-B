@@ -93,81 +93,10 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
   </a>
 </div>
 
-<!-- BLOQUE WIDGETS -->
-<div class="widgets-container">
-  <div class="widgets-grid">
-    <!-- AEMET -->
-    <div class="widget">
-      <div class="widget-contenido widget-aemet">
-        <iframe title="El tiempo AEMET"
-          src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/boadilla-del-monte-id28022?w=g2p101010011ovmffffffx4f86d9t95b6e9r0s8n1"
-          style="width:100%; height:100%; border:0;" scrolling="no" loading="lazy">
-        </iframe>
-      </div>
-    </div>
-
-    <!-- CRTM -->
-    <div class="widget">
-      <div class="widget-contenido widget-crtm">
-        <div id="estado-crtm" style="text-align:center;">
-          Cargando estado del servicio…
-        </div>
-      </div>
-
-      <div class="widget-contenido widget-buses" id="buses-simplificado">
-        Cargando próximos transportes…
-      </div>
-      <div class="widget-buses-label">
-        <a href="/avisos5S2M-B/comoLlegar.html">
-          ¿Y para ir?
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- FIN BLOQUE WIDGETS -->
-
-
-
-
 
 <p>>Si quieres publicar un aviso accede <a href="/avisos5S2M-B/publicarAvisos.html">aquí</a>.</p>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<style>
-  .widget-aemet {
-    position: relative;
-  }
-
-  /* MODO OSCURO TEMPORALMENTE DESHABILITADO
-@media (prefers-color-scheme: dark) {
-  .widget-aemet::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    pointer-events: none;
-    z-index: 1;
-  }
-}
-*/
-
-
-  /* MODO OSCURO TEMPORALMENTE DESHABILITADO
-  .aviso-modo-oscuro {
-    display: inline-block;
-    margin: 4px 0 10px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    color: #7c2d12;
-    background: #ffedd5;
-    border: 1px solid #fdba74;
-  }
-  */
-</style>
+{% include widgets.html %}
 
 
 
@@ -310,7 +239,6 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
   });
 </script>
 {% include popup_notis.html %}
-{% include logica_crtm.html %}
 
 <!-- Resaltado de avisos no visualizados -->
 <script>
