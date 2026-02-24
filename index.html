@@ -684,41 +684,7 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
     setInterval(actualizarBusesSimplificados, 60000);
   });
 </script>
-
-<!-- Modal de descarga de la app -->
-<div id="download-app-modal" class="download-app-modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-  <div class="download-app-modal__dialog">
-
-    <p id="modal-title" class="download-app-modal__title">Activa las notificaciones en tu navegador</p>
-    <p>Y podrás recibir avisos en cuanto se publiquen.</p>
-    <p>La web puede tardar unos segundos en cargar.</p>
-    <p>Recuerda pulsar "SUSCRIBIRME" y dar permiso a las notificaciones.</p>
-
-    <!-- Botón universal -->
-    <a id="universal-link" class="download-app-modal__primary" href="https://notifierpushrss.onrender.com/">
-      Activar notificaciones
-    </a>
-
-    <button id="close-modal" class="download-app-modal__close">
-      Cerrar
-    </button>
-  </div>
-</div>
-
-<script>
-  // Evitar mostrar el modal más de una vez
-  const shown = localStorage.getItem("appModalShown");
-
-  if (!shown) {
-    document.getElementById("download-app-modal").style.display = "block";
-  }
-
-  // Cerrar el modal
-  document.getElementById("close-modal").onclick = function () {
-    localStorage.setItem("appModalShown", "true");
-    document.getElementById("download-app-modal").style.display = "none";
-  };
-</script>
+{% include popup-notis.html %}
 {% include logica_crtm.html %}
 
 <!-- Resaltado de avisos no visualizados -->
