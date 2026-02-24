@@ -1,5 +1,8 @@
 /*(c) ggelado 2026*/
 
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
 /* Variables para modo claro (por defecto) */
 :root {
   --bg-primary: #ffffff;
@@ -13,6 +16,17 @@
   --accent-warning: #f59e0b;
   --accent-success: #16a34a;
   --accent-danger: #990000;
+  
+  /* Tipografía */
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+  
+  /* Radios y sombras */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
 }
 
 /* MODO OSCURO TEMPORALMENTE DESHABILITADO
@@ -39,23 +53,27 @@
 */
 
 html, body {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  line-height: 1.65;
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
 }
 
 a {
   font-weight: 500;
   color: var(--link-color);
-  transition: color 0.3s ease;
+  transition: color 0.15s ease, opacity 0.15s ease;
+  text-decoration: none;
 }
 a:hover {
   color: var(--link-hover);
+  opacity: 0.75;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 h1 {
@@ -64,17 +82,17 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  padding: 0.45em 1em;
+  font-size: 0.875em;
   font-weight: 500;
-  font-family: inherit;
+  font-family: var(--font-body);
   background-color: #f9f9f9;
   color: #213547;
   cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s;
-  border: 1px solid #ccc;
+  transition: border-color 0.15s, background-color 0.15s, box-shadow 0.15s;
+  box-shadow: var(--shadow-sm);
 }
 button:hover {
   border-color: var(--link-color);
@@ -105,6 +123,7 @@ button:focus-visible {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
+  animation: fade-in-up 0.35s ease both;
 }
 
 .aviso-activo {
@@ -149,16 +168,19 @@ pre {
 }
 
 code {
+  font-family: var(--font-mono);
   background-color: #f6f8fa;
   padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-size: 0.9em;
+  border-radius: 4px;
+  font-size: 0.85em;
 }
 
 pre code {
+  font-family: var(--font-mono);
   background-color: transparent;
   padding: 0;
   border-radius: 0;
+  font-size: 0.85em;
 }
 
 .highlight {
@@ -263,14 +285,15 @@ pre code {
 
 .proximos-avisos summary {
   cursor: pointer;
-  font-size: 1.1em;
+  font-size: 0.95em;
   font-weight: 600;
   color: var(--text-primary);
   padding: 12px 16px;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 6px;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-md);
+  transition: background 0.15s, border-color 0.15s;
+  box-shadow: var(--shadow-sm);
 }
 
 .proximos-avisos summary:hover {
@@ -295,10 +318,15 @@ pre code {
 .futuro-aviso {
   border-left: 3px solid var(--border-color);
   background: var(--bg-secondary);
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: border-color 0.3s, background 0.3s;
-  font-size: 0.95em;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s;
+  font-size: 0.88em;
+  box-shadow: var(--shadow-sm);
+}
+
+.futuro-aviso:hover {
+  border-left-color: var(--link-color);
 }
 
 .futuro-aviso-titulo {
@@ -320,14 +348,22 @@ pre code {
 
 /* Notificaciones */
 .notificacion-banner {
-  background-color: #fff3cd;
-  color: #856404;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ffeeba;
-  font-weight: bold;
-  font-size: 1.1em;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  color: #92400e;
+  border: 1px solid #fde68a;
+  border-left: 4px solid var(--accent-warning);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: 0.9em;
+  font-weight: 500;
   margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  animation: fade-in-up 0.35s ease both;
+  animation-delay: 0.1s;
 }
 
 /* MODO OSCURO TEMPORALMENTE DESHABILITADO
@@ -341,7 +377,20 @@ pre code {
 */
 
 .notificacion-banner a {
-  font-weight: bold;
+  color: #92400e;
+  background: rgba(0,0,0,0.08);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.notificacion-banner a:hover {
+  background: rgba(0,0,0,0.14);
+  opacity: 1;
+  text-decoration: none;
 }
 
 /* Alertas dinamicas */
@@ -447,25 +496,51 @@ pre code {
 /* Enlaces de utilidad */
 .enlaces-utilidad {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  animation: fade-in-up 0.35s ease both;
+  animation-delay: 0.15s;
 }
 
 .enlaces-utilidad a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--bg-primary);
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+
+.enlaces-utilidad a:hover {
+  border-color: var(--link-color);
+  background: rgba(72, 81, 216, 0.08);
+  color: var(--link-color);
+  opacity: 1;
+  text-decoration: none;
 }
 
 /* Widgets */
 .widgets-container {
   max-width: 900px;
-  margin: 20px auto;
-  padding: 12px;
-  background: var(--bg-secondary);
+  margin: 24px auto;
+  padding: 16px;
+  background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
-  font-family: sans-serif;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
   font-size: 0.9em;
+  box-shadow: var(--shadow-md);
+  animation: fade-in-up 0.35s ease both;
+  animation-delay: 0.05s;
 }
 
 .widgets-grid {
@@ -482,10 +557,10 @@ pre code {
 
 .widget-contenido {
   margin-top: 6px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-color);
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
 }
 
 .widget-aemet {
@@ -585,36 +660,59 @@ pre code {
   background: #ffffff;
   color: #111827;
   width: 80%;
-  max-width: 350px;
+  max-width: 340px;
   margin: 15% auto;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
   text-align: center;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: modal-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .download-app-modal__title {
-  font-size: 1.3em;
-  font-weight: bold;
-  margin: 0 0 10px 0;
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: var(--text-primary);
 }
 
 .download-app-modal__primary {
   margin: 15px 0;
-  background: #1d4ed8;
+  background: var(--link-color);
   color: #ffffff;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
   text-decoration: none;
   display: block;
+  font-weight: 600;
+  font-size: 0.95em;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s;
+}
+
+.download-app-modal__primary:hover {
+  opacity: 0.88;
 }
 
 .download-app-modal__close {
   padding: 8px 20px;
-  border: none;
-  background: #555555;
-  color: #ffffff;
-  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.download-app-modal__close:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+  border-color: var(--border-color);
 }
 
 /* MODO OSCURO TEMPORALMENTE DESHABILITADO
@@ -636,4 +734,20 @@ pre code {
   }
 }
 */
+
+/* Animaciones de entrada suave */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.proximos-avisos {
+  animation: fade-in-up 0.35s ease both;
+  animation-delay: 0.2s;
+}
 

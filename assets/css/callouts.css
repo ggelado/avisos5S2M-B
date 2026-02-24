@@ -1,17 +1,24 @@
 /* Base */
 blockquote.callout {
   border-left: none;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   padding: 0;
   margin: 1.2em 0;
   overflow: hidden;
   font-size: 0.95em;
+  transition: box-shadow 0.2s, transform 0.15s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 blockquote.callout p {
   padding: 0.6em 1em;
   margin: 0;
   color: #1a1a1a;
+  font-family: var(--font-body);
+}
+
+blockquote.callout:hover {
+  box-shadow: var(--shadow-md);
 }
 
 blockquote.callout p:empty {
@@ -25,45 +32,66 @@ blockquote.callout p:empty {
   padding: 0.5em 1em;
   font-weight: 600;
   font-size: 0.9em;
+  font-family: var(--font-body);
+  transition: background 0.15s ease;
 }
 
-.callout-icon { font-size: 1em; }
+.callout-icon {
+  font-size: 1em;
+  transition: transform 0.2s ease;
+}
+
+blockquote.callout:hover .callout-icon {
+  transform: scale(1.05);
+}
 
 /* Tipos - Modo Claro */
-.callout-note    { background: #eef6ff; border-left: 4px solid #4493f8; }
+.callout-note    { background: #eef6ff; border-left: 4px solid #4493f8; transition: all 0.2s ease; }
+.callout-note:hover { border-left-color: #1e40af; }
 .callout-note    .callout-header { background: #dbeafe; color: #1e40af; }
 
-.callout-tip     { background: #effdf5; border-left: 4px solid #3fb950; }
+.callout-tip     { background: #effdf5; border-left: 4px solid #3fb950; transition: all 0.2s ease; }
+.callout-tip:hover { border-left-color: #14532d; }
 .callout-tip     .callout-header { background: #dcfce7; color: #14532d; }
 
-.callout-warning { background: #fffbea; border-left: 4px solid #d29922; }
+.callout-warning { background: #fffbea; border-left: 4px solid #d29922; transition: all 0.2s ease; }
+.callout-warning:hover { border-left-color: #713f12; }
 .callout-warning .callout-header { background: #fef9c3; color: #713f12; }
 
-.callout-caution { background: #fffbea; border-left: 4px solid #d29922; }
+.callout-caution { background: #fffbea; border-left: 4px solid #d29922; transition: all 0.2s ease; }
+.callout-caution:hover { border-left-color: #713f12; }
 .callout-caution .callout-header { background: #fef9c3; color: #713f12; }
 
-.callout-danger  { background: #fff1f0; border-left: 4px solid #f85149; }
+.callout-danger  { background: #fff1f0; border-left: 4px solid #f85149; transition: all 0.2s ease; }
+.callout-danger:hover { border-left-color: #7f1d1d; }
 .callout-danger  .callout-header { background: #fee2e2; color: #7f1d1d; }
 
-.callout-important { background: #fbf0ff; border-left: 4px solid #a371f7; }
+.callout-important { background: #fbf0ff; border-left: 4px solid #a371f7; transition: all 0.2s ease; }
+.callout-important:hover { border-left-color: #581c87; }
 .callout-important .callout-header { background: #f3e8ff; color: #581c87; }
 
-.callout-info    { background: #eef6ff; border-left: 4px solid #4493f8; }
+.callout-info    { background: #eef6ff; border-left: 4px solid #4493f8; transition: all 0.2s ease; }
+.callout-info:hover { border-left-color: #1e40af; }
 .callout-info    .callout-header { background: #dbeafe; color: #1e40af; }
 
-.callout-success { background: #effdf5; border-left: 4px solid #3fb950; }
+.callout-success { background: #effdf5; border-left: 4px solid #3fb950; transition: all 0.2s ease; }
+.callout-success:hover { border-left-color: #14532d; }
 .callout-success .callout-header { background: #dcfce7; color: #14532d; }
 
-.callout-question { background: #f0fdf4; border-left: 4px solid #3fb950; }
+.callout-question { background: #f0fdf4; border-left: 4px solid #3fb950; transition: all 0.2s ease; }
+.callout-question:hover { border-left-color: #14532d; }
 .callout-question .callout-header { background: #dcfce7; color: #14532d; }
 
-.callout-bug     { background: #fff1f0; border-left: 4px solid #f85149; }
+.callout-bug     { background: #fff1f0; border-left: 4px solid #f85149; transition: all 0.2s ease; }
+.callout-bug:hover { border-left-color: #7f1d1d; }
 .callout-bug     .callout-header { background: #fee2e2; color: #7f1d1d; }
 
-.callout-example { background: #f5f0ff; border-left: 4px solid #a371f7; }
+.callout-example { background: #f5f0ff; border-left: 4px solid #a371f7; transition: all 0.2s ease; }
+.callout-example:hover { border-left-color: #4c1d95; }
 .callout-example .callout-header { background: #ede9fe; color: #4c1d95; }
 
-.callout-quote   { background: #f6f8fa; border-left: 4px solid #8b949e; }
+.callout-quote   { background: #f6f8fa; border-left: 4px solid #8b949e; transition: all 0.2s ease; }
+.callout-quote:hover { border-left-color: #1f2937; }
 .callout-quote   .callout-header { background: #e2e8f0; color: #1f2937; }
 
 /* MODO OSCURO TEMPORALMENTE DESHABILITADO
