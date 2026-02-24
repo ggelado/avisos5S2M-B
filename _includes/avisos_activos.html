@@ -1,0 +1,32 @@
+<div class="avisos-container">
+  {% assign now = 'now' | date: "%s" %}
+  {% assign active_posts = 0 %}
+  {% for post in site.posts %}
+  {% assign post_expires = post.expires | date: "%s" %}
+  {% if post_expires == nil or post_expires > now %}
+  {% assign active_posts = active_posts | plus: 1 %}
+  {% if post.last_modified_at %}
+  {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
+  {% else %}
+  {% assign modified_date = post.date | date_to_xmlschema %}
+  {% endif %}
+  <div data-post-url="{{ site.baseurl }}{{ post.url }}" data-date-modified="{{ modified_date }}" class="aviso-activo">
+    <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
+    <span class="aviso-fecha">
+      {{ post.date | date: "%d/%m/%Y" }}
+      {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y a las %H:%M (%z)" }}{% endif %}
+    </span>
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% if active_posts == 0 %}
+  <div class="sin-avisos">
+    Sin avisos activos en este momento.
+  </div>
+  {% endif %}
+  <div class="avisos-retirados">
+    <a href="https://github.com/ggelado/avisos5S2M-B/tree/main/_posts" target="_blank" rel="noopener noreferrer">
+      Avisos retirados (información posiblemente desactualizada)
+    </a>
+  </div>
+</div>

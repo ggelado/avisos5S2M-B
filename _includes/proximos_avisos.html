@@ -1,0 +1,22 @@
+{% if site.data.future_posts and site.data.future_posts.size > 0 %}
+<details class="proximos-avisos">
+  <summary>Próximos avisos</summary>
+
+  <div class="proximos-lista">
+    {% for post in site.data.future_posts %}
+    <div class="futuro-aviso">
+      <div class="futuro-aviso-titulo">{{ post.title }}</div>
+      {% if post.excerpt %}
+      <div class="futuro-aviso-excerpt">
+        {{ post.excerpt | truncatewords: 20 }}
+      </div>
+      {% endif %}
+      <span class="futuro-aviso-fecha">
+        Se publicará el {{ post.date | date: "%d/%m/%Y" }}
+        {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y" }}{% endif %}
+      </span>
+    </div>
+    {% endfor %}
+  </div>
+</details>
+{% endif %}
