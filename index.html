@@ -11,62 +11,7 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
 </div>
 -->
 
-<div class="avisos-container">
-  {% assign now = 'now' | date: "%s" %}
-  {% assign active_posts = 0 %}
-  {% for post in site.posts %}
-  {% assign post_expires = post.expires | date: "%s" %}
-  {% if post_expires == nil or post_expires > now %}
-  {% assign active_posts = active_posts | plus: 1 %}
-  {% if post.last_modified_at %}
-  {% assign modified_date = post.last_modified_at | date_to_xmlschema %}
-  {% else %}
-  {% assign modified_date = post.date | date_to_xmlschema %}
-  {% endif %}
-  <div data-post-url="{{ site.baseurl }}{{ post.url }}" data-date-modified="{{ modified_date }}" class="aviso-activo">
-    <a href="{{ site.baseurl }}{{ post.url }}?utm_source=web&utm_medium=link&utm_campaign=avisos">{{ post.title }}</a>
-    <span class="aviso-fecha">
-      {{ post.date | date: "%d/%m/%Y" }}
-      {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y a las %H:%M (%z)" }}{% endif %}
-    </span>
-  </div>
-  {% endif %}
-  {% endfor %}
-  {% if active_posts == 0 %}
-  <div class="sin-avisos">
-    Sin avisos activos en este momento.
-  </div>
-  {% endif %}
-  <div class="avisos-retirados">
-    <a href="https://github.com/ggelado/avisos5S2M-B/tree/main/_posts" target="_blank" rel="noopener noreferrer">
-      Avisos retirados (información posiblemente desactualizada)
-    </a>
-  </div>
-</div>
-
-
-{% if site.data.future_posts and site.data.future_posts.size > 0 %}
-<details class="proximos-avisos">
-  <summary>Próximos avisos</summary>
-
-  <div class="proximos-lista">
-    {% for post in site.data.future_posts %}
-    <div class="futuro-aviso">
-      <div class="futuro-aviso-titulo">{{ post.title }}</div>
-      {% if post.excerpt %}
-      <div class="futuro-aviso-excerpt">
-        {{ post.excerpt | truncatewords: 20 }}
-      </div>
-      {% endif %}
-      <span class="futuro-aviso-fecha">
-        Se publicará el {{ post.date | date: "%d/%m/%Y" }}
-        {% if post.expires %} · Caduca el {{ post.expires | date: "%d/%m/%Y" }}{% endif %}
-      </span>
-    </div>
-    {% endfor %}
-  </div>
-</details>
-{% endif %}
+{% include avisos.html %}
 
 <p>Recuerda que esta web se actualiza regularmente. Puedes suscribirte al <a href="{{ site.baseurl }}/feed.xml">feed
     RSS</a> para recibir las últimas noticias directamente en tu lector de RSS. También puedes consultarlos desde <a
