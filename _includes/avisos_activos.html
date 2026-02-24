@@ -30,3 +30,26 @@
     </a>
   </div>
 </div>
+<!-- Resaltado de avisos no visualizados -->
+<script>
+  (() => {
+    const items = document.querySelectorAll("[data-post-url]");
+    items.forEach(div => {
+      const url = div.dataset.postUrl;
+      const dateModified = div.dataset.dateModified;
+      const link = div.querySelector("a");
+      if (!link) return;
+
+      if (isPostModifiedSinceLastVisit(url, dateModified)) {
+        // No leído → naranja (ya viene del estilo inline, no hace falta tocarlo)
+        const star = document.createElement("span");
+        star.textContent = "★ ";
+        star.style.color = "#f59e0b";
+        link.prepend(star);
+      } else {
+        // Leído → azul/purple
+        div.classList.add('aviso-visto');
+      }
+    });
+  })();
+</script>
