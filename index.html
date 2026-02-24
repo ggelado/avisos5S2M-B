@@ -154,14 +154,6 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
     background-color: transparent !important;
   }
 
-  /* Fix para iconos del widget CRTM */
-  .widget-crtm img,
-  #estado-crtm img {
-    background-color: transparent !important;
-    width: 29px;
-    height: 29px;
-    object-fit: contain;
-  }
 
   /* MODO OSCURO TEMPORALMENTE DESHABILITADO
   .aviso-modo-oscuro {
@@ -727,107 +719,7 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
     document.getElementById("download-app-modal").style.display = "none";
   };
 </script>
-<script>
-  async function cargarEstadoCRTM() {
-    const contenedor = document.getElementById("estado-crtm");
-    if (!contenedor) return;
-
-    const urlCRTM =
-      "https://crtm.es/comunicacion/actualidad-del-servicio/avisos/informacion-actualizada?lang=es";
-
-    const proxyURL =
-      "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(urlCRTM);
-
-    try {
-      const response = await fetch(proxyURL);
-      const html = await response.text();
-
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-
-      const selector =
-        "#colCentro > div > div.brdGris2 > div.cont > div:nth-child(2)";
-
-      const divCRTM = doc.querySelector(selector);
-
-      if (!divCRTM) {
-        contenedor.innerText = "No se pudo obtener el estado del servicio";
-        return;
-      }
-
-      // Clonamos para no mover nodos del documento remoto
-      const clon = divCRTM.cloneNode(true);
-
-      // Mapeo: nombre de fichero original → ruta en tu web
-      const ICON_MAP = {
-        "Estado_Metro_Verde.png": "{{ site.baseurl }}/assets/crtm/metro_verde.svg",
-        "Estado_Metro_Amarillo.png": "{{ site.baseurl }}/assets/crtm/metro_amarillo.svg",
-        "Estado_Metro_Rojo.png": "{{ site.baseurl }}/assets/crtm/metro_rojo.svg",
-        "Estado_ML_Verde.png": "{{ site.baseurl }}/assets/crtm/ml_verde.svg",
-        "Estado_ML_Amarillo.png": "{{ site.baseurl }}/assets/crtm/ml_amarillo.svg",
-        "Estado_ML_Rojo.png": "{{ site.baseurl }}/assets/crtm/ml_rojo.svg",
-        "Estado_EMT_Verde.png": "{{ site.baseurl }}/assets/crtm/emt_verde.svg",
-        "Estado_EMT_Amarillo.png": "{{ site.baseurl }}/assets/crtm/emt_amarillo.svg",
-        "Estado_EMT_Rojo.png": "{{ site.baseurl }}/assets/crtm/emt_rojo.svg",
-        "Estado_Interurbano_Verde.png": "{{ site.baseurl }}/assets/crtm/interurbano_verde.svg",
-        "Estado_Interurbano_Amarillo.png": "{{ site.baseurl }}/assets/crtm/interurbano_amarillo.svg",
-        "Estado_Interurbano_Rojo.png": "{{ site.baseurl }}/assets/crtm/interurbano_rojo.svg",
-        "Estado_Cercanias_Verde.png": "{{ site.baseurl }}/assets/crtm/cercanias_verde.svg",
-        "Estado_Cercanias_Amarillo.png": "{{ site.baseurl }}/assets/crtm/cercanias_amarillo.svg",
-        "Estado_Cercanias_Rojo.png": "{{ site.baseurl }}/assets/crtm/cercanias_rojo.svg",
-        "Estado_Calidad_Aire_Verde.png": "{{ site.baseurl }}/assets/crtm/aire_verde.svg",
-        "Estado_Calidad_Aire_Amarillo.png": "{{ site.baseurl }}/assets/crtm/aire_amarillo.svg",
-        "Estado_Calidad_Aire_Rojo.png": "{{ site.baseurl }}/assets/crtm/aire_rojo.svg",
-        "Estado_Incidencias_Invernales_Verde.png": "{{ site.baseurl }}/assets/crtm/invernal_verde.svg",
-        "Estado_Incidencias_Invernales_Amarillo.png": "{{ site.baseurl }}/assets/crtm/invernal_amarillo.svg",
-        "Estado_Incidencias_Invernales_Rojo.png": "{{ site.baseurl }}/assets/crtm/invernal_rojo.svg",
-      };
-
-      clon.querySelectorAll("img").forEach(img => {
-        const src = img.getAttribute("src");
-        if (!src) return;
-
-        // Extrae solo el nombre de fichero, sin la ruta
-        const fileName = src.trim().split("/").pop();
-
-        if (ICON_MAP[fileName]) {
-          // Tienes tu propia versión → úsala
-          img.src = ICON_MAP[fileName];
-        } else if (src.trim().startsWith("/")) {
-          // No la tienes → carga la original del CRTM
-          img.src = "https://crtm.es" + src.trim();
-        }
-      });
-
-      // Corregir rutas relativas de enlaces
-      clon.querySelectorAll("a").forEach(a => {
-        let href = a.getAttribute("href");
-        if (!href) return;
-
-        href = href.trim(); // elimina espacios y saltos de línea
-
-        if (href.startsWith("/")) {
-          a.href = "https://crtm.es" + href;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-        }
-      });
-
-      // Limpiar y agregar el contenido
-      contenedor.innerHTML = "";
-      contenedor.appendChild(clon);
-
-    } catch (err) {
-      contenedor.innerText = "Consulta al CRTM fallida. Recarga la web y vuelve a intentarlo,";
-    }
-  }
-
-  // Cargar al iniciar
-  document.addEventListener("DOMContentLoaded", cargarEstadoCRTM);
-
-  // Auto-refresh cada 5 minutos
-  setInterval(cargarEstadoCRTM, 5 * 60 * 1000);
-</script>
+{% include logica_crtm.html %}
 
 <!-- Resaltado de avisos no visualizados -->
 <script>
