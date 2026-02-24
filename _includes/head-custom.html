@@ -75,6 +75,24 @@ function isPostModifiedSinceLastVisit(url, dateModified) {
   }
 }
 
+// Limpia los posts que ya no existen en el sitio
+function cleanupDeletedPosts(existingPostUrls) {
+  const seen = getSeenPosts();
+  const existingSet = new Set(existingPostUrls);
+  let hasChanges = false;
+  
+  for (const url in seen) {
+    if (!existingSet.has(url)) {
+      delete seen[url];
+      hasChanges = true;
+    }
+  }
+  
+  if (hasChanges) {
+    saveSeenPosts(seen);
+  }
+}
+
 // Inicialización (ejecutar migración si es necesario)
 (function initializeSeenPosts() {
   getSeenPosts(); // esto ejecuta la migración automática si es necesario
