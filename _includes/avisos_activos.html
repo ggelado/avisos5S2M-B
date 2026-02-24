@@ -34,10 +34,16 @@
 <script>
   (() => {
     const items = document.querySelectorAll("[data-post-url]");
+    const existingPostUrls = [];
+    
     items.forEach(div => {
       const url = div.dataset.postUrl;
       const dateModified = div.dataset.dateModified;
       const link = div.querySelector("a");
+      
+      // Recolecta las URLs existentes para limpiar después
+      existingPostUrls.push(url);
+      
       if (!link) return;
 
       if (isPostModifiedSinceLastVisit(url, dateModified)) {
@@ -51,5 +57,10 @@
         div.classList.add('aviso-visto');
       }
     });
+    
+    // Limpia del localStorage los posts que ya no existen
+    if (typeof cleanupDeletedPosts === 'function') {
+      cleanupDeletedPosts(existingPostUrls);
+    }
   })();
 </script>
