@@ -1,0 +1,119 @@
+<script>
+  async function actualizarBusesSimplificados() {
+    const contenedor = document.getElementById('buses-simplificado');
+    if (!contenedor) return;
+
+    const SOURCES = [
+      { url: "https://api.madridtransporte.com/stops/bus/08771/times", lines: ["571", "573", "N905"] },
+      { url: "https://api.madridtransporte.com/stops/bus/08411/times", lines: ["591"] },
+      { url: "https://api.madridtransporte.com/stops/bus/17573/times", lines: ["865"] },
+      {
+        url: "https://api.madridtransporte.com/stops/tram/29/times",
+        lines: null,
+        isTram: true
+      }
+    ];
+
+    function minutesFromNow(ts) {
+      return Math.max(0, Math.round((ts - Date.now()) / 60000));
+    }
+
+    function isWeekday(date = new Date()) {
+      const d = date.getDay();
+      return d >= 1 && d <= 5; // L-V
+    }
+
+
+    function minutesUntilTodayTime(hhmm) {
+      const [h, m] = hhmm.split(":").map(Number);
+      const now = new Date();
+      const t = new Date();
+      t.setHours(h, m, 0, 0);
+      return Math.round((t - now) / 60000);
+    }
+
+    function uniqueSorted(arr) {
+      return [...new Set(arr)].sort((a, b) => a - b);
+    }
+
+    try {
+      const results = [];
+
+      for (const source of SOURCES) {
+        try {
+          const res = await fetch(source.url);
+          const data = await res.json();
+
+          if (source.isTram) {
+            for (const arrival of data.arrives || []) {
+              if (arrival.direction !== 2) continue;
+              const times = uniqueSorted(arrival.estimatedArrives || []);
+              times.forEach(ts => {
+                results.push({
+                  line: "ML3",
+                  minutes: minutesFromNow(ts)
+                });
+              });
+            }
+            continue;
+          }
+
+          for (const arrival of data.arrives || []) {
+            if (source.lines && !source.lines.includes(arrival.line)) continue;
+            const times = uniqueSorted(arrival.estimatedArrives || []);
+            times.forEach(ts => {
+              results.push({
+                line: arrival.line,
+                minutes: minutesFromNow(ts)
+              });
+            });
+          }
+
+        } catch (e) {
+        }
+      }
+
+      if (isWeekday()) {
+        SHUTTLES.forEach(shuttle => {
+          shuttle.times.forEach(time => {
+            const minutes = minutesUntilTodayTime(time);
+
+            // solo mostrar cuando quede menos de 1h
+            if (minutes > 0 && minutes <= 60) {
+              results.push({
+                line: shuttle.line,
+                lineCode: shuttle.line,
+                destination: shuttle.destination,
+                minutes,
+                isTram: true
+              });
+            }
+          });
+        });
+      }
+
+      const sorted = results.sort((a, b) => a.minutes - b.minutes);
+
+      if (sorted.length === 0) {
+        contenedor.innerHTML = 'No hay buses próximos';
+        return;
+      }
+
+      const primerosLlegadas = sorted.slice(0, 5);
+      const html = primerosLlegadas.map(a =>
+        `<span><strong>${a.line}</strong>: <span class="bus-time">${a.minutes}'</span></span>`
+      ).join(' · ');
+
+      contenedor.innerHTML = html;
+
+    } catch (err) {
+      contenedor.innerHTML = 'API CRTM caída. Actualiza la web.';
+    }
+  }
+
+  // Actualizar al cargar y cada minuto
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(actualizarBusesSimplificados, 1000);
+    setInterval(actualizarBusesSimplificados, 60000);
+  });
+</script>
