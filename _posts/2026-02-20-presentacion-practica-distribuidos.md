@@ -3,7 +3,7 @@ layout: post
 title: Presentación Práctica Distribuidos
 date: 2026-02-20 20:04:45 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-24 12:00:00 +0100
 excerpt: 24 febrero
 image: https://www.datsi.fi.upm.es/docencia/Arquitectura_09/logo_datsi_24.png
