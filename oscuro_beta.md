@@ -103,12 +103,12 @@ sitemap: false
 }
 
 .btn-activate {
-  background: linear-gradient(135deg, #8b9dff 0%, #6b7ddf 100%);
+  background: linear-gradient(135deg, #5c7cfa 0%, #4c63d2 100%);
   color: #ffffff;
 }
 
 .btn-activate:hover {
-  background: linear-gradient(135deg, #7a8cef 0%, #5a6ccf 100%);
+  background: linear-gradient(135deg, #748dd6 0%, #3d4fb8 100%);
 }
 
 .btn-deactivate {
