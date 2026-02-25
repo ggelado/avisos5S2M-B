@@ -1,0 +1,417 @@
+/*(c) ggelado 2026 - Dark Mode Beta*/
+
+/* Variables para modo oscuro */
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #1c2128;
+  --text-primary: rgba(255, 255, 255, 0.90);
+  --text-secondary: #c9d1d9;
+  --text-muted: #8b949e;
+  --border-color: #30363d;
+  --link-color: #8b9dff;
+  --link-hover: #a8c1ff;
+  --accent-warning: #f59e0b;
+  --accent-success: #3fb950;
+  --accent-danger: #ff6b6b;
+  
+  /* Sombras para modo oscuro */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2);
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* GitHub markdown body override */
+.markdown-body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.markdown-body p,
+.markdown-body li,
+.markdown-body td,
+.markdown-body th {
+  color: var(--text-secondary) !important;
+}
+
+.markdown-body a {
+  color: var(--link-color) !important;
+}
+
+.markdown-body a:hover {
+  color: var(--link-hover) !important;
+}
+
+.markdown-body table tr {
+  background-color: var(--bg-primary) !important;
+  border-top-color: var(--border-color) !important;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: var(--bg-secondary) !important;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  border-color: var(--border-color) !important;
+}
+
+.markdown-body hr {
+  background-color: var(--border-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+.markdown-body blockquote {
+  color: var(--text-muted) !important;
+  border-left-color: var(--border-color) !important;
+}
+
+/* Botones */
+button {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+button:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--link-color);
+}
+
+/* Avisos */
+.aviso-activo {
+  background: rgba(245, 158, 11, 0.12);
+  border-left-color: var(--accent-warning);
+}
+
+.aviso-visto {
+  border-left-color: var(--link-color) !important;
+  background: rgba(139, 157, 255, 0.08) !important;
+}
+
+/* Código */
+pre {
+  background-color: #1c2128;
+  border-color: var(--border-color);
+  color: #e6edf3;
+}
+
+code {
+  background-color: #1c2128;
+  color: #e6edf3;
+}
+
+.highlight {
+  background-color: #1c2128;
+  color: #e6edf3;
+}
+
+.markdown-body pre,
+.markdown-body .highlight pre {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+  border-color: var(--border-color) !important;
+}
+
+.markdown-body code,
+.markdown-body pre code {
+  background-color: rgba(110, 118, 129, 0.15) !important;
+  color: #e6edf3 !important;
+}
+
+.markdown-body pre code {
+  background-color: transparent !important;
+}
+
+.markdown-body .highlight {
+  background-color: #1c2128 !important;
+}
+
+/* Syntax highlighting */
+.highlight .c { color: #8b949e; } /* comentarios */
+.highlight .k { color: #ff7b72; font-weight: bold; } /* keywords */
+.highlight .n { color: #e6edf3; } /* nombres */
+.highlight .s { color: #a5d6ff; } /* strings */
+.highlight .nb { color: #79c0ff; } /* built-ins */
+.highlight .m { color: #79c0ff; } /* números */
+
+/* Sin avisos */
+.sin-avisos {
+  color: #7ee787;
+  background: rgba(63, 185, 80, 0.12);
+  border-left-color: var(--accent-success);
+}
+
+/* Avisos caducados */
+.aviso-caducado {
+  background-color: rgba(255, 107, 107, 0.15);
+  color: #ff9999;
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* Notificaciones */
+.notificacion-banner {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.notificacion-banner a {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.2);
+}
+
+.notificacion-banner a:hover {
+  background: rgba(245, 158, 11, 0.3);
+}
+
+/* Alertas */
+.alerta-meteo,
+.alerta-futbol,
+.banner-trafico {
+  background-color: var(--bg-tertiary);
+  border-left-color: #ef4444;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.alerta-futbol {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-left-color: #ef4444;
+  color: #fecaca;
+}
+
+.banner-trafico--discreto {
+  background-color: var(--bg-secondary);
+  border-left-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+.banner-trafico--destacado {
+  background-color: rgba(59, 130, 246, 0.12);
+  border-left-color: #60a5fa;
+  color: #dbeafe;
+}
+
+/* Enlaces de utilidad */
+.enlaces-utilidad a {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.enlaces-utilidad a:hover {
+  border-color: var(--link-color);
+  background: rgba(139, 157, 255, 0.12);
+  color: var(--link-color);
+}
+
+/* Widgets */
+.widgets-container {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.widget-contenido {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+/* Próximos avisos */
+.proximos-avisos summary {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.proximos-avisos summary:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--link-color);
+}
+
+.futuro-aviso {
+  background: var(--bg-tertiary);
+  border-left-color: var(--border-color);
+}
+
+.futuro-aviso:hover {
+  border-left-color: var(--link-color);
+}
+
+.futuro-aviso-excerpt {
+  color: var(--text-muted);
+}
+
+/* Botones de edición */
+.edit-btn, .download-btn {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.edit-btn:hover, .download-btn:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--link-color);
+  color: var(--link-color);
+}
+
+/* Modal */
+.download-app-modal__dialog {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color);
+}
+
+.download-app-modal__title {
+  color: var(--text-primary);
+}
+
+.download-app-modal__primary {
+  background: var(--link-color) !important;
+  color: #ffffff !important;
+}
+
+.download-app-modal__close {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color);
+}
+
+.download-app-modal__close:hover {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Visor de tráfico */
+.aviso-card {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+.aviso-id {
+  color: var(--text-primary);
+}
+
+.aviso-time {
+  color: var(--text-muted);
+}
+
+.aviso-details p {
+  color: var(--text-secondary);
+}
+
+.aviso-location {
+  color: var(--text-secondary);
+  background: rgba(139, 157, 255, 0.08);
+  border-left-color: var(--link-color);
+}
+
+.download-btn {
+  background-color: var(--link-color);
+  color: #ffffff;
+}
+
+.download-btn:hover:not(:disabled) {
+  background-color: var(--link-hover);
+}
+
+.download-btn:disabled {
+  background-color: var(--text-muted);
+}
+
+.situacion-group {
+  background-color: var(--bg-secondary);
+  border-left-color: var(--link-color);
+}
+
+#loading {
+  color: var(--text-muted);
+}
+
+#error {
+  background-color: rgba(255, 107, 107, 0.15);
+  color: #ff9999;
+  border-left-color: var(--accent-danger);
+}
+
+/* Widget AEMET */
+.widget-aemet {
+  background: var(--bg-tertiary);
+}
+
+.label-when {
+  color: var(--text-muted);
+}
+
+.date-text {
+  color: var(--text-primary);
+}
+
+.widget-aemet .sep {
+  background: var(--border-color);
+}
+
+.sky-desc {
+  color: var(--text-muted);
+}
+
+.temp-max {
+  color: var(--text-primary);
+}
+
+.temp-sep {
+  color: var(--border-color);
+}
+
+.temp-min {
+  color: var(--link-color);
+}
+
+.temp-unit {
+  color: var(--text-muted);
+}
+
+.precip-pct {
+  color: var(--link-color);
+}
+
+.precip-hours {
+  color: var(--text-muted);
+}
+
+.state-msg {
+  color: var(--text-muted);
+}
+
+/* Indicador de modo beta */
+.beta-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(139, 157, 255, 0.15);
+  color: var(--link-color);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 600;
+  border: 1px solid rgba(139, 157, 255, 0.3);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

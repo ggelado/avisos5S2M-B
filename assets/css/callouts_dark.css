@@ -1,0 +1,151 @@
+/*(c) ggelado 2026 - Dark Mode Beta - Callouts*/
+
+/* Override base */
+blockquote.callout p {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Tipos - Modo Oscuro */
+.callout-note    { 
+  background: rgba(68, 147, 248, 0.1); 
+  border-left-color: #60a5fa; 
+}
+.callout-note:hover { 
+  border-left-color: #93c5fd; 
+}
+.callout-note .callout-header { 
+  background: rgba(68, 147, 248, 0.15); 
+  color: #93c5fd; 
+}
+
+.callout-tip     { 
+  background: rgba(63, 185, 80, 0.1); 
+  border-left-color: #4ade80; 
+}
+.callout-tip:hover { 
+  border-left-color: #86efac; 
+}
+.callout-tip .callout-header { 
+  background: rgba(63, 185, 80, 0.15); 
+  color: #86efac; 
+}
+
+.callout-warning { 
+  background: rgba(245, 158, 11, 0.1); 
+  border-left-color: #fbbf24; 
+}
+.callout-warning:hover { 
+  border-left-color: #fde68a; 
+}
+.callout-warning .callout-header { 
+  background: rgba(245, 158, 11, 0.15); 
+  color: #fde68a; 
+}
+
+.callout-caution { 
+  background: rgba(245, 158, 11, 0.1); 
+  border-left-color: #fbbf24; 
+}
+.callout-caution:hover { 
+  border-left-color: #fde68a; 
+}
+.callout-caution .callout-header { 
+  background: rgba(245, 158, 11, 0.15); 
+  color: #fde68a; 
+}
+
+.callout-danger  { 
+  background: rgba(248, 81, 73, 0.1); 
+  border-left-color: #ff7875; 
+}
+.callout-danger:hover { 
+  border-left-color: #ffb3b3; 
+}
+.callout-danger .callout-header { 
+  background: rgba(248, 81, 73, 0.15); 
+  color: #ffb3b3; 
+}
+
+.callout-important { 
+  background: rgba(163, 113, 247, 0.1); 
+  border-left-color: #d8b4fe; 
+}
+.callout-important:hover { 
+  border-left-color: #e9d5ff; 
+}
+.callout-important .callout-header { 
+  background: rgba(163, 113, 247, 0.15); 
+  color: #e9d5ff; 
+}
+
+.callout-info    { 
+  background: rgba(68, 147, 248, 0.1); 
+  border-left-color: #60a5fa; 
+}
+.callout-info:hover { 
+  border-left-color: #93c5fd; 
+}
+.callout-info .callout-header { 
+  background: rgba(68, 147, 248, 0.15); 
+  color: #93c5fd; 
+}
+
+.callout-success { 
+  background: rgba(63, 185, 80, 0.1); 
+  border-left-color: #4ade80; 
+}
+.callout-success:hover { 
+  border-left-color: #86efac; 
+}
+.callout-success .callout-header { 
+  background: rgba(63, 185, 80, 0.15); 
+  color: #86efac; 
+}
+
+.callout-question { 
+  background: rgba(63, 185, 80, 0.1); 
+  border-left-color: #4ade80; 
+}
+.callout-question:hover { 
+  border-left-color: #86efac; 
+}
+.callout-question .callout-header { 
+  background: rgba(63, 185, 80, 0.15); 
+  color: #86efac; 
+}
+
+.callout-bug     { 
+  background: rgba(248, 81, 73, 0.1); 
+  border-left-color: #ff7875; 
+}
+.callout-bug:hover { 
+  border-left-color: #ffb3b3; 
+}
+.callout-bug .callout-header { 
+  background: rgba(248, 81, 73, 0.15); 
+  color: #ffb3b3; 
+}
+
+.callout-example { 
+  background: rgba(163, 113, 247, 0.1); 
+  border-left-color: #d8b4fe; 
+}
+.callout-example:hover { 
+  border-left-color: #e9d5ff; 
+}
+.callout-example .callout-header { 
+  background: rgba(163, 113, 247, 0.15); 
+  color: #e9d5ff; 
+}
+
+.callout-quote   { 
+  background: rgba(139, 148, 158, 0.1); 
+  border-left-color: #a8b5c1; 
+}
+.callout-quote:hover { 
+  border-left-color: #d1d5db; 
+}
+.callout-quote .callout-header { 
+  background: rgba(139, 148, 158, 0.15); 
+  color: #d1d5db; 
+}
