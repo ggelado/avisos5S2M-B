@@ -1,0 +1,166 @@
+<!-- Widget AEMET -->
+<div class="widget-contenido widget-aemet" id="widget-aemet">
+  <span class="state-msg">cargando tiempo…</span>
+</div>
+
+<script>
+(function() {
+  const PROXY = 'https://api.allorigins.win/raw?url=';
+  const XML_URL = 'https://www.aemet.es/xml/municipios/localidad_28022.xml';
+
+  function sun() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="11" fill="#f59e0b"/><g stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"><line x1="32" y1="8" x2="32" y2="15"/><line x1="32" y1="49" x2="32" y2="56"/><line x1="8" y1="32" x2="15" y2="32"/><line x1="49" y1="32" x2="56" y2="32"/><line x1="15.5" y1="15.5" x2="20.5" y2="20.5"/><line x1="43.5" y1="43.5" x2="48.5" y2="48.5"/><line x1="48.5" y1="15.5" x2="43.5" y2="20.5"/><line x1="20.5" y1="43.5" x2="15.5" y2="48.5"/></g></svg>';
+  }
+  
+  function moon() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M38 12a20 20 0 1 0 13 34A16 16 0 0 1 38 12z" fill="#9db4d4"/></svg>';
+  }
+  
+  function fewClouds(night) {
+    var s = night ? '#9db4d4' : '#f59e0b';
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="26" r="9" fill="' + s + '" opacity="0.9"/><g stroke="' + s + '" stroke-width="2" stroke-linecap="round" opacity="0.6"><line x1="22" y1="10" x2="22" y2="14"/><line x1="22" y1="38" x2="22" y2="42"/><line x1="6" y1="26" x2="10" y2="26"/><line x1="34" y1="26" x2="38" y2="26"/></g><rect x="10" y="34" width="44" height="18" rx="9" fill="#c8d8ea"/><rect x="22" y="27" width="28" height="16" rx="8" fill="#dbe8f5"/></svg>';
+  }
+  
+  function partlyCloudy() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="34" width="52" height="20" rx="10" fill="#b8cfe0"/><rect x="16" y="24" width="38" height="20" rx="10" fill="#ccdcec"/><rect x="24" y="17" width="24" height="16" rx="8" fill="#ddeaf6"/></svg>';
+  }
+  
+  function cloudy() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="35" width="52" height="20" rx="10" fill="#a8bece"/><rect x="13" y="25" width="42" height="20" rx="10" fill="#bcd0e0"/><rect x="22" y="17" width="28" height="18" rx="9" fill="#cee0f0"/></svg>';
+  }
+  
+  function rain() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="10" width="48" height="22" rx="11" fill="#7a9ab5" opacity="0.85"/><rect x="16" y="18" width="36" height="16" rx="8" fill="#96b0c8" opacity="0.85"/><g stroke="#4851d8" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="38" x2="18" y2="50"/><line x1="32" y1="38" x2="28" y2="50"/><line x1="42" y1="38" x2="38" y2="50"/></g></svg>';
+  }
+  
+  function storm() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="52" height="22" rx="11" fill="#6a7a8a" opacity="0.85"/><path d="M36 30 l-9 16 h7 l-5 11 16-19h-8z" fill="#f59e0b"/></svg>';
+  }
+  
+  function snow() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="10" width="48" height="22" rx="11" fill="#b0c8dc" opacity="0.85"/><g stroke="#88aac8" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="38" x2="22" y2="52"/><line x1="18" y1="41" x2="26" y2="41"/><line x1="18" y1="49" x2="26" y2="49"/><line x1="32" y1="38" x2="32" y2="52"/><line x1="28" y1="45" x2="36" y2="45"/><line x1="42" y1="38" x2="42" y2="52"/><line x1="38" y1="41" x2="46" y2="41"/><line x1="38" y1="49" x2="46" y2="49"/></g></svg>';
+  }
+  
+  function fog() {
+    return '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="#a0b0c0" stroke-width="3" stroke-linecap="round"><line x1="10" y1="22" x2="54" y2="22"/><line x1="14" y1="32" x2="50" y2="32"/><line x1="10" y1="42" x2="54" y2="42"/></g></svg>';
+  }
+
+  function getIcon(code) {
+    var c = String(code || '').trim();
+    var map = {
+      '11': sun(), '11n': moon(),
+      '12': fewClouds(false), '12n': fewClouds(true),
+      '13': partlyCloudy(), '13n': partlyCloudy(),
+      '14': cloudy(), '14n': cloudy(),
+      '23': rain(), '24': rain(), '25': rain(), '26': rain(),
+      '43': rain(), '44': rain(), '45': rain(), '46': rain(),
+      '51': storm(), '52': storm(), '53': storm(), '54': storm(),
+      '33': snow(), '34': snow(), '35': snow(), '36': snow(),
+      '71': fog(), '72': fog(), '73': fog(), '74': fog(), '75': fog(), '76': fog(), '77': fog()
+    };
+    return map[c] || partlyCloudy();
+  }
+
+  function getTargetDate() {
+    var now = new Date();
+    if (now.getHours() >= 20) {
+      var tom = new Date(now);
+      tom.setDate(tom.getDate() + 1);
+      return tom.toISOString().slice(0, 10);
+    }
+    return now.toISOString().slice(0, 10);
+  }
+
+  function formatDate(d) {
+    var p = d.split('-').map(Number);
+    var dt = new Date(p[0], p[1]-1, p[2]);
+    var days = ['dom','lun','mar','mié','jue','vie','sáb'];
+    var months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    return days[dt.getDay()] + ' ' + p[2] + ' ' + months[p[1]-1];
+  }
+
+  async function loadWeather() {
+    var widget = document.getElementById('widget-aemet');
+    if (!widget) return;
+    
+    var targetDate = getTargetDate();
+    var isTomorrow = new Date().getHours() >= 20;
+
+    try {
+      var res = await fetch(PROXY + encodeURIComponent(XML_URL));
+      if (!res.ok) throw new Error('error de red');
+      var xml = new DOMParser().parseFromString(await res.text(), 'text/xml');
+      var dias = Array.from(xml.querySelectorAll('dia'));
+      var diaEl = dias.find(function(d) { return d.getAttribute('fecha') === targetDate; });
+      if (!diaEl) throw new Error('sin datos para ' + targetDate);
+
+      var tempMin = ((diaEl.querySelector('sens_termica minima') || {}).textContent || '—').trim();
+      var tempMax = ((diaEl.querySelector('sens_termica maxima') || {}).textContent || '—').trim();
+
+      var skyCode = '', skyDesc = '';
+      var skyEls = Array.from(diaEl.querySelectorAll('estado_cielo'));
+      var prefs = ['00-24','12-24','06-12','12-18'];
+      for (var i = 0; i < prefs.length; i++) {
+        var pref = prefs[i];
+        var el = skyEls.find(function(e) { return e.getAttribute('periodo') === pref && e.textContent.trim(); });
+        if (el) { skyCode = el.textContent.trim(); skyDesc = el.getAttribute('descripcion') || ''; break; }
+      }
+      if (!skyCode) {
+        var fb = skyEls.find(function(e) { return e.textContent.trim(); });
+        if (fb) { skyCode = fb.textContent.trim(); skyDesc = fb.getAttribute('descripcion') || ''; }
+      }
+
+      var labelMap = {'00-06':'madrugada','06-12':'mañana','12-18':'tarde','18-24':'noche'};
+      var maxProb = 0;
+      var slotLabels = [];
+      Array.from(diaEl.querySelectorAll('prob_precipitacion')).forEach(function(pe) {
+        var p = pe.getAttribute('periodo') || '';
+        var v = parseInt(pe.textContent);
+        if (isNaN(v) || v <= 0) return;
+        if (v > maxProb) maxProb = v;
+        if (labelMap[p] && slotLabels.indexOf(labelMap[p]) === -1) slotLabels.push(labelMap[p]);
+      });
+
+      var dropColor = maxProb > 0 ? '#4851d8' : '#c0c8d8';
+      var pctColor = maxProb > 0 ? '' : 'style="color:var(--text-muted);font-weight:400"';
+      var precipHTML =
+        '<div class="sep"></div>' +
+        '<div class="col-precip">' +
+          '<span class="precip-pct" ' + pctColor + '>' +
+            '<svg width="11" height="11" viewBox="0 0 64 64" fill="none"><path d="M32 6 C32 6 10 34 10 44a22 22 0 0 0 44 0C54 34 32 6 32 6z" fill="' + dropColor + '" opacity="0.8"/></svg>' +
+            maxProb + '%' +
+          '</span>' +
+          (slotLabels.length ? '<span class="precip-hours">' + slotLabels.join('\n') + '</span>' : '') +
+        '</div>';
+
+      widget.innerHTML =
+        '<div class="col-date">' +
+          '<span class="label-when">' + (isTomorrow ? 'mañana' : 'hoy') + '</span>' +
+          '<span class="date-text">' + formatDate(targetDate) + '</span>' +
+        '</div>' +
+        '<div class="sep"></div>' +
+        '<div class="col-sky-temp">' +
+          '<div class="col-icon">' + getIcon(skyCode) + '</div>' +
+          '<div class="col-temp">' +
+            '<span class="temp-max">' + tempMax + '</span>' +
+            '<span class="temp-unit">°C</span>' +
+            '<span class="temp-sep">/</span>' +
+            '<span class="temp-min">' + tempMin + '°</span>' +
+          '</div>' +
+          (skyDesc ? '<span class="sky-desc">' + skyDesc + '</span>' : '') +
+        '</div>' +
+        precipHTML;
+
+    } catch(e) {
+      widget.innerHTML = '<span class="state-msg">No se pudo cargar el tiempo · ' + e.message + '</span>';
+    }
+    widget.classList.add('ready');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadWeather);
+  } else {
+    loadWeather();
+  }
+})();
+</script>
