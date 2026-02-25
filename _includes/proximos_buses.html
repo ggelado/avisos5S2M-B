@@ -6,7 +6,7 @@
     background-color: transparent !important;
   }
 </style>
-<section class="container-lg my-4">
+<section class="container-lg my-4 buses-widget">
 
   <div id="status" class="text-small color-fg-muted mb-2">
   </div>
@@ -288,13 +288,19 @@
       arrivalsEl.innerHTML = "";
 
       if (!arrivals.length) {
-        arrivalsEl.innerHTML = "<li class='Box-row text-small color-fg-muted'>No hay servicios próximos</li>";
+        const li = document.createElement("li");
+        li.className = "Box-row";
+        li.style.padding = "20px 16px";
+        li.style.textAlign = "center";
+        li.innerHTML = '<span class="color-fg-muted">No hay servicios próximos</span>';
+        arrivalsEl.appendChild(li);
         return;
       }
 
       arrivals.forEach((a, idx) => {
         const li = document.createElement("li");
         li.className = "Box-row";
+        li.style.animation = `slideDown 0.15s ease-out ${idx * 30}ms both`;
 
         li.innerHTML = `
 		  <div class="d-flex flex-justify-between flex-items-center">
@@ -303,8 +309,8 @@
 			  <span class="color-fg-muted">→ ${a.destination}</span>
 			</div>
 			<div class="text-right">
-			  <span class="Label Label--accent mr-2">${a.minutes} min</span>
-			  ${(a.isTram || a.isShuttle) ? '' : `<button class="btn btn-sm btn-outline" data-linecode="${a.lineCode}">Ver ubicación (beta)</button>`}
+			  <span class="Label Label--accent">${a.minutes} min</span>
+			  ${(a.isTram || a.isShuttle) ? '' : `<button class="btn btn-outline" data-linecode="${a.lineCode}">Ver ubicación (beta)</button>`}
 			</div>
 		  </div>
 		  ${(a.isTram || a.isShuttle) ? '' : `<div id="map-${a.lineCode}" class="d-none mt-2" style="height: 300px; border-radius: 6px;"></div>`}
