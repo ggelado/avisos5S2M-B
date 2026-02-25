@@ -5,12 +5,12 @@
   --bg-primary: #0d1117;
   --bg-secondary: #161b22;
   --bg-tertiary: #1c2128;
-  --text-primary: rgba(255, 255, 255, 0.90);
-  --text-secondary: #c9d1d9;
-  --text-muted: #8b949e;
+  --text-primary: rgba(255, 255, 255, 0.94);
+  --text-secondary: #e2e8f0;
+  --text-muted: #c1c9d4;
   --border-color: #30363d;
-  --link-color: #8b9dff;
-  --link-hover: #a8c1ff;
+  --link-color: #b9c4ff;
+  --link-hover: #d2ddff;
   --accent-warning: #f59e0b;
   --accent-success: #3fb950;
   --accent-danger: #ff6b6b;
@@ -76,7 +76,7 @@ html, body {
 }
 
 .markdown-body blockquote {
-  color: var(--text-muted) !important;
+  color: var(--text-secondary) !important;
   border-left-color: var(--border-color) !important;
 }
 
@@ -171,19 +171,19 @@ code {
 /* Avisos caducados */
 .aviso-caducado {
   background-color: rgba(255, 107, 107, 0.15);
-  color: #ff9999;
+  color: #ffc1c1;
   border-color: rgba(255, 107, 107, 0.3);
 }
 
 /* Notificaciones */
 .notificacion-banner {
   background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
+  color: #ffe29c;
   border-color: rgba(245, 158, 11, 0.3);
 }
 
 .notificacion-banner a {
-  color: #fbbf24;
+  color: #ffe29c;
   background: rgba(245, 158, 11, 0.2);
 }
 
@@ -197,26 +197,26 @@ code {
 .banner-trafico {
   background-color: var(--bg-tertiary);
   border-left-color: #ef4444;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   box-shadow: var(--shadow-sm);
 }
 
 .alerta-futbol {
   background-color: rgba(239, 68, 68, 0.12);
   border-left-color: #ef4444;
-  color: #fecaca;
+  color: #ffd5d5;
 }
 
 .banner-trafico--discreto {
   background-color: var(--bg-secondary);
   border-left-color: var(--border-color);
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .banner-trafico--destacado {
   background-color: rgba(59, 130, 246, 0.12);
   border-left-color: #60a5fa;
-  color: #dbeafe;
+  color: #e6f0ff;
 }
 
 /* Enlaces de utilidad */
@@ -265,7 +265,7 @@ code {
 }
 
 .futuro-aviso-excerpt {
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 /* Botones de edición */
@@ -438,6 +438,11 @@ code {
 
 .buses-widget .d-flex .color-fg-muted {
   color: var(--text-muted);
+}
+
+.buses-widget .Label--accent {
+  background: #b9c4ff;
+  color: #0d1117;
 }
 
 .buses-widget .btn {
