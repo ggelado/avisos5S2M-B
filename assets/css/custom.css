@@ -604,7 +604,7 @@ pre code {
   margin: 0;
 }
 
-.edit-btn, .download-btn {
+.edit-btn {
   text-decoration: none;
   background-color: var(--bg-secondary);
   padding: 6px 12px;
@@ -619,7 +619,7 @@ pre code {
   box-shadow: var(--shadow-sm);
 }
 
-.edit-btn:hover, .download-btn:hover {
+.edit-btn:hover {
   background-color: rgba(72, 81, 216, 0.08);
   border-color: var(--link-color);
   color: var(--link-color);

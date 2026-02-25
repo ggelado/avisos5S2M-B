@@ -257,13 +257,13 @@ code {
 }
 
 /* Botones de edición */
-.edit-btn, .download-btn {
+.edit-btn {
   background-color: var(--bg-tertiary);
   color: var(--text-primary);
   border-color: var(--border-color);
 }
 
-.edit-btn:hover, .download-btn:hover {
+.edit-btn:hover {
   background-color: var(--bg-secondary);
   border-color: var(--link-color);
   color: var(--link-color);
@@ -281,7 +281,7 @@ code {
 }
 
 .download-app-modal__primary {
-  background: var(--link-color) !important;
+  background: linear-gradient(135deg, #5c7cfa 0%, #4c63d2 100%) !important;
   color: #ffffff !important;
 }
 
@@ -321,16 +321,19 @@ code {
 }
 
 .download-btn {
-  background-color: var(--link-color);
+  background: linear-gradient(135deg, #5c7cfa 0%, #4c63d2 100%);
   color: #ffffff;
+  border: none;
 }
 
 .download-btn:hover:not(:disabled) {
-  background-color: var(--link-hover);
+  background: linear-gradient(135deg, #748dd6 0%, #3d4fb8 100%);
+  box-shadow: var(--shadow-md);
 }
 
 .download-btn:disabled {
   background-color: var(--text-muted);
+  opacity: 0.6;
 }
 
 .situacion-group {
@@ -402,13 +405,13 @@ code {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(139, 157, 255, 0.15);
-  color: var(--link-color);
+  background: rgba(92, 124, 250, 0.25);
+  color: #e0e7ff;
   padding: 8px 14px;
   border-radius: 20px;
   font-size: 0.75em;
   font-weight: 600;
-  border: 1px solid rgba(139, 157, 255, 0.3);
+  border: 1px solid rgba(92, 124, 250, 0.5);
   z-index: 1000;
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow-sm);
