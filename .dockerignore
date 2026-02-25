@@ -1,0 +1,15 @@
+.git
+.gitignore
+.github
+.dockerignore
+.env
+.env.local
+README.md
+LICENSE
+*.pyc
+__pycache__
+.jekyll-cache
+.jekyll-metadata
+.DS_Store
+Gemfile.lock
+node_modules
