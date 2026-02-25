@@ -1,10 +1,6 @@
 /_posts/.obsidian/*
 /.obsidian
 *.pyc
-.dockerignore
-docker-compose.yml
-Dockerfile
-Gemfile
 SETUP.md
 _site/*
 Gemfile.lock
