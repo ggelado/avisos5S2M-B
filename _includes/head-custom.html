@@ -6,6 +6,44 @@
   gtag('js', new Date());
   gtag('config', 'G-HP1VJBHQL3');
 </script>
+
+<!-- Sistema de detección de Modo Oscuro Beta -->
+<script>
+(function() {
+  const DARK_MODE_KEY = 'darkModeBeta';
+  
+  function isDarkModeActive() {
+    return localStorage.getItem(DARK_MODE_KEY) === 'true';
+  }
+  
+  // Si el usuario está en beta, cargar CSS oscuros inmediatamente
+  if (isDarkModeActive()) {
+    // Cargar custom_dark.css
+    const darkCustom = document.createElement('link');
+    darkCustom.rel = 'stylesheet';
+    darkCustom.href = '{{ site.baseurl }}/assets/css/custom_dark.css';
+    document.head.appendChild(darkCustom);
+    
+    // Cargar callouts_dark.css
+    const darkCallouts = document.createElement('link');
+    darkCallouts.rel = 'stylesheet';
+    darkCallouts.href = '{{ site.baseurl }}/assets/css/callouts_dark.css';
+    document.head.appendChild(darkCallouts);
+    
+    // Añadir clase al body para identificación
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('dark-mode-beta');
+      
+      // Mostrar indicador beta (opcional)
+      const indicator = document.createElement('div');
+      indicator.className = 'beta-indicator';
+      indicator.textContent = '🌙 Beta';
+      document.body.appendChild(indicator);
+    });
+  }
+})();
+</script>
+
 <!-- Para facilitar añadir a pantalla inicio en móviles -->
 <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
 <!-- iOS PWA -->

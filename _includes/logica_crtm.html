@@ -39,29 +39,32 @@
       // Clonamos para no mover nodos del documento remoto
       const clon = divCRTM.cloneNode(true);
 
+      // Detectar si está en modo oscuro
+      const isDarkMode = localStorage.getItem('darkModeBeta') === 'true';
+
       // Mapeo: nombre de fichero original → ruta en tu web
       const ICON_MAP = {
-        "Estado_Metro_Verde.png": "{{ site.baseurl }}/assets/crtm/metro_verde.svg",
-        "Estado_Metro_Amarillo.png": "{{ site.baseurl }}/assets/crtm/metro_amarillo.svg",
-        "Estado_Metro_Rojo.png": "{{ site.baseurl }}/assets/crtm/metro_rojo.svg",
-        "Estado_ML_Verde.png": "{{ site.baseurl }}/assets/crtm/ml_verde.svg",
-        "Estado_ML_Amarillo.png": "{{ site.baseurl }}/assets/crtm/ml_amarillo.svg",
-        "Estado_ML_Rojo.png": "{{ site.baseurl }}/assets/crtm/ml_rojo.svg",
-        "Estado_EMT_Verde.png": "{{ site.baseurl }}/assets/crtm/emt_verde.svg",
-        "Estado_EMT_Amarillo.png": "{{ site.baseurl }}/assets/crtm/emt_amarillo.svg",
-        "Estado_EMT_Rojo.png": "{{ site.baseurl }}/assets/crtm/emt_rojo.svg",
-        "Estado_Interurbano_Verde.png": "{{ site.baseurl }}/assets/crtm/interurbano_verde.svg",
-        "Estado_Interurbano_Amarillo.png": "{{ site.baseurl }}/assets/crtm/interurbano_amarillo.svg",
-        "Estado_Interurbano_Rojo.png": "{{ site.baseurl }}/assets/crtm/interurbano_rojo.svg",
-        "Estado_Cercanias_Verde.png": "{{ site.baseurl }}/assets/crtm/cercanias_verde.svg",
-        "Estado_Cercanias_Amarillo.png": "{{ site.baseurl }}/assets/crtm/cercanias_amarillo.svg",
-        "Estado_Cercanias_Rojo.png": "{{ site.baseurl }}/assets/crtm/cercanias_rojo.svg",
-        "Estado_Calidad_Aire_Verde.png": "{{ site.baseurl }}/assets/crtm/aire_verde.svg",
-        "Estado_Calidad_Aire_Amarillo.png": "{{ site.baseurl }}/assets/crtm/aire_amarillo.svg",
-        "Estado_Calidad_Aire_Rojo.png": "{{ site.baseurl }}/assets/crtm/aire_rojo.svg",
-        "Estado_Incidencias_Invernales_Verde.png": "{{ site.baseurl }}/assets/crtm/invernal_verde.svg",
-        "Estado_Incidencias_Invernales_Amarillo.png": "{{ site.baseurl }}/assets/crtm/invernal_amarillo.svg",
-        "Estado_Incidencias_Invernales_Rojo.png": "{{ site.baseurl }}/assets/crtm/invernal_rojo.svg",
+        "Estado_Metro_Verde.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/metro_verde_dark.svg" : "{{ site.baseurl }}/assets/crtm/metro_verde.svg",
+        "Estado_Metro_Amarillo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/metro_amarillo_dark.svg" : "{{ site.baseurl }}/assets/crtm/metro_amarillo.svg",
+        "Estado_Metro_Rojo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/metro_rojo_dark.svg" : "{{ site.baseurl }}/assets/crtm/metro_rojo.svg",
+        "Estado_ML_Verde.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/ml_verde_dark.svg" : "{{ site.baseurl }}/assets/crtm/ml_verde.svg",
+        "Estado_ML_Amarillo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/ml_amarillo_dark.svg" : "{{ site.baseurl }}/assets/crtm/ml_amarillo.svg",
+        "Estado_ML_Rojo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/ml_rojo_dark.svg" : "{{ site.baseurl }}/assets/crtm/ml_rojo.svg",
+        "Estado_EMT_Verde.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/emt_verde_dark.svg" : "{{ site.baseurl }}/assets/crtm/emt_verde.svg",
+        "Estado_EMT_Amarillo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/emt_amarillo_dark.svg" : "{{ site.baseurl }}/assets/crtm/emt_amarillo.svg",
+        "Estado_EMT_Rojo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/emt_rojo_dark.svg" : "{{ site.baseurl }}/assets/crtm/emt_rojo.svg",
+        "Estado_Interurbano_Verde.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/interurbano_verde_dark.svg" : "{{ site.baseurl }}/assets/crtm/interurbano_verde.svg",
+        "Estado_Interurbano_Amarillo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/interurbano_amarillo_dark.svg" : "{{ site.baseurl }}/assets/crtm/interurbano_amarillo.svg",
+        "Estado_Interurbano_Rojo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/interurbano_rojo_dark.svg" : "{{ site.baseurl }}/assets/crtm/interurbano_rojo.svg",
+        "Estado_Cercanias_Verde.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/cercanias_verde_dark.svg" : "{{ site.baseurl }}/assets/crtm/cercanias_verde.svg",
+        "Estado_Cercanias_Amarillo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/cercanias_amarillo_dark.svg" : "{{ site.baseurl }}/assets/crtm/cercanias_amarillo.svg",
+        "Estado_Cercanias_Rojo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/cercanias_rojo_dark.svg" : "{{ site.baseurl }}/assets/crtm/cercanias_rojo.svg",
+        "Estado_Calidad_Aire_Verde.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/aire_verde_dark.svg" : "{{ site.baseurl }}/assets/crtm/aire_verde.svg",
+        "Estado_Calidad_Aire_Amarillo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/aire_amarillo_dark.svg" : "{{ site.baseurl }}/assets/crtm/aire_amarillo.svg",
+        "Estado_Calidad_Aire_Rojo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/aire_rojo_dark.svg" : "{{ site.baseurl }}/assets/crtm/aire_rojo.svg",
+        "Estado_Incidencias_Invernales_Verde.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/invernal_verde_dark.svg" : "{{ site.baseurl }}/assets/crtm/invernal_verde.svg",
+        "Estado_Incidencias_Invernales_Amarillo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/invernal_amarillo_dark.svg" : "{{ site.baseurl }}/assets/crtm/invernal_amarillo.svg",
+        "Estado_Incidencias_Invernales_Rojo.png": isDarkMode ? "{{ site.baseurl }}/assets/crtm/invernal_rojo_dark.svg" : "{{ site.baseurl }}/assets/crtm/invernal_rojo.svg",
       };
 
       clon.querySelectorAll("img").forEach(img => {
