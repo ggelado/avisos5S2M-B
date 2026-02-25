@@ -13,8 +13,20 @@
   </head>
   <body>
     <div class="container-lg px-3 mb-5 pt-3 markdown-body">
-      <header role="banner">
+      <header role="banner" class="site-header">
         {% include alert-banner.html %}
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro" aria-pressed="false">
+          <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" role="img" focusable="false">
+              <path d="M21.64 13.02a1 1 0 0 0-1.02-.27 7.5 7.5 0 0 1-9.37-9.37 1 1 0 0 0-1.29-1.29 9.5 9.5 0 1 0 11.68 11.68 1 1 0 0 0-.1-.75z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" role="img" focusable="false">
+              <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0-15a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm10-9a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zm14.95-6.95a1 1 0 0 1 0 1.41l-.7.7a1 1 0 1 1-1.41-1.41l.7-.7a1 1 0 0 1 1.41 0zM6.16 17.84a1 1 0 0 1 0 1.41l-.7.7a1 1 0 1 1-1.41-1.41l.7-.7a1 1 0 0 1 1.41 0zm12.09 1.41a1 1 0 0 1-1.41 0l-.7-.7a1 1 0 1 1 1.41-1.41l.7.7a1 1 0 0 1 0 1.41zM6.16 6.16a1 1 0 0 1-1.41 0l-.7-.7A1 1 0 1 1 5.46 4.05l.7.7a1 1 0 0 1 0 1.41z" fill="currentColor"/>
+            </svg>
+          </span>
+        </button>
         {% if site.title and site.title != page.title %}
         <h1>
           <a href="{{ "/" | absolute_url }}">

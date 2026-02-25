@@ -92,6 +92,18 @@ button:hover {
   border-color: var(--link-color);
 }
 
+.theme-toggle {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.theme-toggle:hover {
+  background: var(--bg-secondary);
+  border-color: var(--link-color);
+  color: var(--link-color);
+}
+
 /* Avisos */
 .aviso-activo {
   background: rgba(245, 158, 11, 0.12);
@@ -405,21 +417,3 @@ code {
   color: var(--text-muted);
 }
 
-/* Indicador de modo beta */
-.beta-indicator {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(92, 124, 250, 0.25);
-  color: #e0e7ff;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 0.75em;
-  font-weight: 600;
-  border: 1px solid rgba(92, 124, 250, 0.5);
-  z-index: 1000;
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-sm);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
