@@ -417,3 +417,53 @@ code {
   color: var(--text-muted);
 }
 
+/* ============================================================
+   WIDGET PRÓXIMOS BUSES - Dark Mode
+   ============================================================ */
+
+#aviso-atasco {
+  background: rgba(245, 158, 11, 0.12);
+  border-left-color: var(--accent-warning);
+  color: #fbbf24;
+}
+
+#arrivals .Box-row:hover {
+  background-color: #1c2128 !important;
+  color: var(--text-primary) !important;
+}
+
+.buses-widget .d-flex strong {
+  color: var(--text-primary);
+}
+
+.buses-widget .d-flex .color-fg-muted {
+  color: var(--text-muted);
+}
+
+.buses-widget .btn {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.buses-widget .btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--link-color);
+  box-shadow: 0 2px 6px rgba(139, 157, 255, 0.15);
+}
+
+.buses-widget .btn-outline {
+  background: transparent;
+}
+
+.buses-widget .btn-outline:hover {
+  background: rgba(139, 157, 255, 0.08);
+}
+
+#link-atascos a {
+  color: var(--link-color);
+}
+
+#link-atascos a:hover {
+  color: var(--link-hover);
+}
