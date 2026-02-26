@@ -4,7 +4,7 @@ title: "Presentación de los Másteres de la ETSIINF"
 date: 2026-02-26 09:37:18 +0100
 event_date: 2026-02-26 13:30:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-26 13:30:00 +0100
 excerpt: "26/02/2026 a las 13:30 en el salón de actos"
 image: "https://fi.upm.es/GestorTablon/GTuploads/5266-0-Copy_of_PRESENTACION_MASTERES_2026.png"
