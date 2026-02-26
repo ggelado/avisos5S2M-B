@@ -39,6 +39,19 @@ Y si encuentras alguna vulnerabilidad de seguridad, por favor, indícanoslo a tr
 
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  document.querySelectorAll('pre code.language-mermaid').forEach(el => {
+    // Decodifica entidades HTML (&gt; -> >, etc.)
+    const txt = document.createElement('textarea');
+    txt.innerHTML = el.innerHTML;
+    const decoded = txt.value;
+
+    const div = document.createElement('div');
+    div.className = 'mermaid';
+    div.textContent = decoded;
+    el.closest('pre').replaceWith(div);
+  });
+
   mermaid.initialize({ startOnLoad: true });
 </script>
 
