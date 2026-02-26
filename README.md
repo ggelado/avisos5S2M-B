@@ -32,3 +32,89 @@ La web está creada por alumnos y para alumnos. Bastantes cosas están muy chapu
 [Contribuir](https://github.com/ggelado/avisos5S2M-B/fork)
 
 Y si encuentras alguna vulnerabilidad de seguridad, por favor, indícanoslo a través de la pestaña [Security](https://github.com/ggelado/avisos5S2M-B/security/advisories/new) del repositorio o por los medios cifrados de contacto [disponibles aquí](https://ggelado.github.io/avisos5S2M-B/SECURITY). Por favor, insistimos en utilizar estos medios y no cualquier otro cuando se traten de vulnerabilidades o problemas de seguridad.
+
+---
+
+# ¿Cómo funciona? (POST EN REDACCIÓN)
+
+```mermaid
+sequenceDiagram
+    actor Alumno
+    actor Admin
+    participant Scraper as Scrapers (fuentes externas)
+    participant Servidor
+    participant GitHub as GitHub Repo
+    participant Jekyll as Jekyll Planificador
+    participant Feed as feed.xml
+    participant Worker as Worker RSS
+    participant DB as MySQL DB
+    participant Push as Web Push
+    participant Discord
+    actor Suscriptor
+
+    rect
+        Note over Alumno,Suscriptor: 1. PROPUESTA
+        Alumno->>Servidor: Envía aviso via formulario
+        Servidor->>Servidor: Valida datos y rate limit
+        Servidor->>GitHub: Abre Pull Request
+        Admin->>Servidor: Publica aviso directamente
+        Servidor->>GitHub: Push directo a main
+        Scraper->>Servidor: Fuente externa detecta aviso
+        Servidor->>GitHub: Abre Pull Request
+    end
+
+    rect
+        Note over Alumno,Suscriptor: 2. APROBACIÓN
+        Admin->>GitHub: Revisa y aprueba PR
+        Note right of Admin: Admin no necesita aprobación
+        alt PR aprobada
+            GitHub->>GitHub: Merge a main
+        else PR rechazada
+            GitHub-->>Alumno: Notificación de rechazo
+        end
+    end
+
+    rect
+        Note over Alumno,Suscriptor: 3. PLANIFICACIÓN (Jekyll)
+        GitHub->>Jekyll: Trigger rebuild tras merge
+        Note over Jekyll: Además, rebuild periódico programado<br/>para publicar avisos con fecha futura<br/>cuando llegue su momento
+        loop periódicamente
+            Jekyll->>Jekyll: Comprueba fecha de cada aviso
+            alt Fecha del aviso alcanzada
+                Jekyll->>Feed: Publica aviso en feed.xml
+            else Fecha futura
+                Jekyll->>Jekyll: Aviso en espera
+            end
+        end
+    end
+
+    rect
+        Note over Alumno,Suscriptor: 4. PUBLICACIÓN
+        Feed->>Feed: Aviso disponible en GitHub Pages y RSS
+    end
+
+    rect
+        Note over Alumno,Suscriptor: 5. NOTIFICACIÓN
+        loop cada 2 minutos
+            Worker->>Feed: Lee feed.xml
+            Worker->>DB: Comprueba items ya vistos
+            alt Aviso nuevo
+                Worker->>DB: Marca como visto
+                Worker->>DB: Obtiene suscripciones
+                Worker->>Push: Envía notificación push
+                Push-->>Suscriptor: Notificación en navegador
+                Worker->>Discord: Envía mensaje con embed
+            else Ya visto
+                Worker->>Worker: Omite
+            end
+        end
+    end
+
+    rect
+        Note over Alumno,Suscriptor: ALTA DE SUSCRIPTORES
+        Suscriptor->>Servidor: Solicita suscripción push
+        Servidor->>DB: Guarda suscripción
+        Servidor->>Push: Envía confirmación
+        Push-->>Suscriptor: Suscripción confirmada
+    end
+```
