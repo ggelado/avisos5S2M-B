@@ -4,7 +4,7 @@ title: "Cambio fecha examen sos"
 date: 2026-02-23 23:23:00 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-26 23:59:00 +0100
 excerpt: "Será el 16 de abril"
 
