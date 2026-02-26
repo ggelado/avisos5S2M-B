@@ -8,9 +8,11 @@ author:
   email: haodi.linsun@alumnos.upm.es
 published: true
 expires: 2026-03-01 11:33:04 +0100
-excerpt: "Para los alumnos correspondientes a Traductores de Lenguajes, se ha detectado un problema temporal en la conexión a la plataforma DRACO. Disculpen las molestias"
+excerpt: "Caída DRACO"
 categories:
   - TdL
 ---
 
-ERR_CONECTION_REFUSED
+Para los alumnos correspondientes a Traductores de Lenguajes, se ha detectado un problema temporal en la conexión a la plataforma DRACO. Ya ha sido notificado. 
+
+Agradecimientos: Haodi.
