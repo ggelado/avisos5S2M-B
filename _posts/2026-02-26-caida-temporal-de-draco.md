@@ -16,3 +16,7 @@ categories:
 Para los alumnos correspondientes a Traductores de Lenguajes, se ha detectado un problema temporal en la conexión a la plataforma DRACO. Ya ha sido notificado. 
 
 Agradecimientos: Haodi.
+
+---
+
+Actualización: Parada técnica por mantenimiento.
