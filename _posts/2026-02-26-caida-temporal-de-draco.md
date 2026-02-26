@@ -7,7 +7,7 @@ author:
   name: Haodi
   email: haodi.linsun@alumnos.upm.es
 published: true
-expires: 2026-03-01 11:33:04 +0100
+expires: 2026-02-27 23:59:59 +0100
 excerpt: "Caída DRACO"
 categories:
   - TdL
