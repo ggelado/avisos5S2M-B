@@ -52,7 +52,7 @@ sequenceDiagram
     participant Discord
     actor Suscriptor
 
-    rect
+    rect rgb(220, 235, 255)
         Note over Alumno,Suscriptor: 1. PROPUESTA
         Alumno->>Servidor: Envía aviso via formulario
         Servidor->>Servidor: Valida datos y rate limit
@@ -63,7 +63,7 @@ sequenceDiagram
         Servidor->>GitHub: Abre Pull Request
     end
 
-    rect
+    rect rgb(220, 255, 220)
         Note over Alumno,Suscriptor: 2. APROBACIÓN
         Admin->>GitHub: Revisa y aprueba PR
         Note right of Admin: Admin no necesita aprobación
@@ -74,7 +74,7 @@ sequenceDiagram
         end
     end
 
-    rect
+    rect rgb(255, 255, 210)
         Note over Alumno,Suscriptor: 3. PLANIFICACIÓN (Jekyll)
         GitHub->>Jekyll: Trigger rebuild tras merge
         Note over Jekyll: Además, rebuild periódico programado<br/>para publicar avisos con fecha futura<br/>cuando llegue su momento
@@ -88,12 +88,12 @@ sequenceDiagram
         end
     end
 
-    rect
+    rect rgb(255, 235, 210)
         Note over Alumno,Suscriptor: 4. PUBLICACIÓN
         Feed->>Feed: Aviso disponible en GitHub Pages y RSS
     end
 
-    rect
+    rect rgb(245, 220, 255)
         Note over Alumno,Suscriptor: 5. NOTIFICACIÓN
         loop cada 2 minutos
             Worker->>Feed: Lee feed.xml
@@ -110,7 +110,7 @@ sequenceDiagram
         end
     end
 
-    rect
+    rect rgb(210, 245, 245)
         Note over Alumno,Suscriptor: ALTA DE SUSCRIPTORES
         Suscriptor->>Servidor: Solicita suscripción push
         Servidor->>DB: Guarda suscripción
