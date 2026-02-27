@@ -51,6 +51,9 @@ layout: default
 
       const content = document.querySelector('.post-expires') || document.body;
       content.parentNode.insertBefore(warning, content);
+
+      fetch('https://notifierpushrss.onrender.com/api/check-caducidades')
+        .catch(err => console.error('Error al verificar caducidades:', err));
     }
   }
 })();
