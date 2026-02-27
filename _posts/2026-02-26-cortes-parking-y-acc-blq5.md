@@ -4,7 +4,7 @@ title: "Cortes parking y acc BLQ5"
 date: 2026-02-26 14:48:37 +0100
 event_date: 2026-02-27 08:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-27 14:00:00 +0100
 excerpt: "Cortes viernes 8 a 14. Más info ver aviso."
 image: "https://ggelado.github.io/avisos5S2M-B/assets/img/cortes.jpeg"
