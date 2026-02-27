@@ -4,7 +4,7 @@ title: "Colaboradores TryIt!"
 date: 2026-02-25 11:14:16 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-02-27 23:59:59 +0100
 excerpt: "Apúntate en https://forms.gle/7f1VBFwktm7SwU2SA"
 image: "https://tryit.upm.es/img/personaje-se%C3%B1alando.png"
