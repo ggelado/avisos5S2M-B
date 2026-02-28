@@ -47,3 +47,44 @@ last_modified_at: 2026-02-27 18:19:00 +0100
 <p>Un cordial saludo,</p>
 <p>los profesores de la asignatura.</p>
                         </div>
+                        
+<input type="text" id="apellido" placeholder="Escribe tu primer apellido" />
+<p id="resultado"></p>
+
+<script>
+  // Datos de los grupos del miércoles 4 de marzo
+  const aulas = [
+    { aula: "Nerja (bloque IV)", rango: ["Acitones Rich", "Franco González"] },
+    { aula: "Del Monje (bloque IV)", rango: ["Garabán Gil", "Juaranz Dominguez"] },
+    { aula: "Los Verdes (bloque IV)", rango: ["Labzae", "Rodríguez Jimenez"] },
+    { aula: "Artá (bloque VI, planta baja)", rango: ["Rojas Castaño", "Valdés Briales"] },
+    { aula: "Altamira (bloque V)", rango: ["Valera Díaz", "Zhou"] }
+  ];
+
+  const resultado = document.getElementById("resultado");
+  const input = document.getElementById("apellido");
+
+  input.addEventListener("input", () => {
+    const valor = input.value.trim().toLowerCase();
+
+    if (!valor) {
+      resultado.textContent = "";
+      return;
+    }
+
+    // Buscar aula según el primer apellido
+    let encontrado = null;
+    for (const a of aulas) {
+      const inicio = a.rango[0].toLowerCase();
+      const fin = a.rango[1].toLowerCase();
+      if (valor >= inicio && valor <= fin) {
+        encontrado = a.aula;
+        break;
+      }
+    }
+
+    resultado.textContent = encontrado 
+      ? `Tu aula es: ${encontrado}` 
+      : "Sigue escribiendo";
+  });
+</script>
