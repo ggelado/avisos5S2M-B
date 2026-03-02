@@ -1,0 +1,92 @@
+<div id="banner-trafico-anormal" class="banner-trafico">
+  <span id="banner-trafico-anormal-texto"></span>
+</div>
+
+<script>
+  (async function () {
+    const ENDPOINT = "https://notifierpushrss.onrender.com/api/m40";
+    const banner = document.getElementById("banner-trafico-anormal");
+    const texto = document.getElementById("banner-trafico-anormal-texto");
+
+    try {
+      const res = await fetch(ENDPOINT);
+      if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+
+      const data = await res.json();
+
+      if (!data || !data.trafico_anormal || !Array.isArray(data.trafico_anormal.registros)) {
+        banner.style.display = "none";
+        return;
+      }
+
+      const registros = data.trafico_anormal.registros;
+
+      if (registros.length === 0) {
+        banner.style.display = "none";
+        return;
+      }
+
+      // Verificar si hay algún registro de nivel high o highest
+      const hayGrave = registros.some(r => r.nivel === 'high' || r.nivel === 'highest');
+
+      // Calcular suma de km por sentido para registros medium
+      const sumaPorSentido = new Map();
+      registros.forEach(r => {
+        if (r.nivel === 'medium') {
+          const km = r.km_fin - r.km_inicio;
+          const actual = sumaPorSentido.get(r.sentido) || 0;
+          sumaPorSentido.set(r.sentido, actual + km);
+        }
+      });
+
+      // Verificar si algún sentido supera los 7km en atascos medium
+      const hayMediumExtendido = Array.from(sumaPorSentido.values()).some(km => km > 7);
+
+      // Considerar grave si hay high/highest O si atascos medium suman más de 7km en un sentido
+      const esGrave = hayGrave || hayMediumExtendido;
+
+      // --- APLICACIÓN DE ESTILOS SEGÚN GRAVEDAD ---
+      banner.classList.remove("banner-trafico--discreto", "banner-trafico--destacado");
+      if (!esGrave) {
+        banner.classList.add("banner-trafico--discreto");
+      } else {
+        banner.classList.add("banner-trafico--destacado");
+      }
+
+      // Agrupar tramos por km_inicio-km_fin
+      const tramosMap = new Map();
+      registros.forEach(r => {
+        const key = `km ${r.km_inicio}-${r.km_fin}`;
+        if (!tramosMap.has(key)) {
+          tramosMap.set(key, new Set());
+        }
+        tramosMap.get(key).add(r.sentido);
+      });
+
+      // Construir texto
+      const tramosTexto = [];
+      tramosMap.forEach((sentidos, tramo) => {
+        let sentidoTexto = "ambos";
+        if (sentidos.size === 1) {
+          sentidoTexto = Array.from(sentidos)[0];
+        }
+        tramosTexto.push(`${tramo} (${sentidoTexto})`);
+      });
+
+      const prefijoTexto = esGrave ? "ATASCO GRAVE EN" : "Tráfico lento en";
+
+      // Incluir el enlace
+      if (esGrave) {
+        texto.innerHTML = `<strong>${prefijoTexto} ${data.carretera}:</strong> ${tramosTexto.join(" · ")} <a href="https://ggelado.github.io/avisos5S2M-B/descargarAviso.html" style="color:#2a4365; text-decoration:underline; margin-left:10px;">Más información y descarga del aviso</a>`;
+      } else {
+        texto.textContent = `${prefijoTexto} ${data.carretera}: ${tramosTexto.join(" · ")}`;
+      }
+
+      banner.style.display = "block";
+
+    } catch (e) {
+      console.error("Error al obtener datos de M40:", e);
+      banner.style.display = "none";
+    }
+  })();
+</script>
