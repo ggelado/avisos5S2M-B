@@ -1,0 +1,176 @@
+<div id="alertas-container"></div>
+<script>
+
+  const RSS_MADRID = "https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAC72_RSS.xml";
+  const CORS_PROXY = "https://cors.eu.org/";
+
+  async function descargar(url) {
+    try {
+      const proxiedUrl = CORS_PROXY + encodeURIComponent(url);
+      const response = await fetch(proxiedUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return await response.text();
+    } catch (error) {
+      console.error(`Error al descargar ${url}:`, error);
+      return null;
+    }
+  }
+
+  async function leerRssMadrid() {
+    const xmlData = await descargar(RSS_MADRID);
+    if (!xmlData) {
+      return [];
+    }
+
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(xmlData, "text/xml");
+
+      const items = doc.querySelectorAll("item");
+      const enlaces = [];
+
+      items.forEach(item => {
+        const link = item.querySelector("link");
+        if (link && link.textContent.trim().endsWith(".xml")) {
+          enlaces.push(link.textContent.trim());
+        }
+      });
+
+      return enlaces;
+    } catch (error) {
+      console.error("Error parseando RSS:", error);
+      return [];
+    }
+  }
+
+
+  function obtenerInfoEs(doc) {
+    const infos = doc.querySelectorAll("info");
+
+    for (const info of infos) {
+      const lang = info.querySelector("language");
+      if (lang && lang.textContent && lang.textContent.toLowerCase().startsWith("es")) {
+        return info;
+      }
+    }
+
+    return null;
+  }
+
+  function formatearAviso(infoEs) {
+    function get(tag) {
+      const el = infoEs.querySelector(tag);
+      return el && el.textContent ? el.textContent.trim() : "";
+    }
+
+    const fin = get("expires");
+
+    const zona = get("areaDesc");
+
+    // Omitir avisos de "Sierra de Madrid"
+    if (zona.toLowerCase().includes("sierra")) {
+      return null;
+    }
+
+    try {
+      const expiresDate = new Date(fin);
+      if (expiresDate <= new Date()) {
+        return null; // Si está caducado, no lo proceso
+      }
+    } catch (error) {
+      return null;
+    }
+
+    return {
+      event: get("event")
+    };
+  }
+
+  async function procesarAviso(url) {
+    const xmlData = await descargar(url);
+    if (!xmlData) {
+      return null;
+    }
+
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(xmlData, "text/xml");
+
+      const infoEs = obtenerInfoEs(doc);
+      if (!infoEs) {
+        return null;
+      }
+
+      const resultado = formatearAviso(infoEs);
+      if (!resultado) {
+        return null;
+      }
+
+      return resultado;
+    } catch (error) {
+      console.error("Error parseando CAP:", error);
+      return null;
+    }
+  }
+
+  async function obtenerAlertas() {
+    const enlaces = await leerRssMadrid();
+    const alertas = [];
+
+    if (!enlaces || enlaces.length === 0) {
+      //console.log("Consulta realizada: no hay alertas.");
+      return [];
+    }
+
+    for (const url of enlaces) {
+      const aviso = await procesarAviso(url);
+      if (aviso) {
+        alertas.push(aviso);
+      }
+    }
+
+    // Deduplicar por evento
+    const alertasUnicas = [];
+    const vistos = new Set();
+
+    for (const alerta of alertas) {
+      const ev = alerta.event;
+      if (!vistos.has(ev)) {
+        vistos.add(ev);
+        alertasUnicas.push(alerta);
+      }
+    }
+
+    //console.log(`🔄 Obtenidas ${alertasUnicas.length} alerta(s)`);
+    return alertasUnicas;
+  }
+
+  // -----------------------------
+  // MOSTRAR ALERTAS EN LA PÁGINA
+  // -----------------------------
+  async function mostrarAlertas() {
+    try {
+      const alertas = await obtenerAlertas();
+
+      if (alertas && alertas.length > 0) {
+        const eventos = alertas.map(a => a.event).join(', ');
+
+        const alertDiv = `
+        <div class="alerta-meteo">
+          <strong>AVISO AUTOMATIZADO DE FENÓMENOS METEOROLÓGICOS ADVERSOS:</strong>
+          ${eventos}
+        </div>
+      `;
+
+        document.getElementById('alertas-container').innerHTML = alertDiv;
+      }
+    } catch (error) {
+      console.error('Error al mostrar alertas:', error);
+    }
+  }
+
+  // Ejecutar cuando cargue la página
+  mostrarAlertas();
+</script>

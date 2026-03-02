@@ -1,0 +1,74 @@
+<div id="bloqueos-alert"></div>
+<script>
+  async function checkBloqueos() {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+    const CF_CRITICAL_IPS = ["188.114.96.5", "188.114.97.5"];
+    const div = document.getElementById("bloqueos-alert");
+
+    try {
+      const res = await fetch(
+        "https://api.codetabs.com/v1/proxy?quest=https://hayahora.futbol/estado/data.json",
+        { signal: controller.signal }
+      );
+
+      clearTimeout(timeoutId);
+      if (!res.ok) return;
+
+      const json = await res.json();
+      if (!json?.data) return;
+
+      const ipCounts = new Map();
+      const criticalHits = new Set();
+
+      json.data.forEach(entry => {
+        if (!entry.stateChanges?.length) return;
+
+        const last = entry.stateChanges.at(-1);
+
+        if (last.state === true && entry.description === "Cloudflare") {
+          const count = (ipCounts.get(entry.ip) || 0) + 1;
+          ipCounts.set(entry.ip, count);
+
+          if (CF_CRITICAL_IPS.includes(entry.ip)) {
+            criticalHits.add(entry.ip);
+          }
+        }
+      });
+
+      // IPs con 3 o más bloqueos
+      const repeatedBlockedIps = [...ipCounts.values()].filter(v => v > 2).length;
+
+      // ¿están bloqueadas las dos IPs críticas?
+      const criticalPairBlocked =
+        CF_CRITICAL_IPS.every(ip => criticalHits.has(ip));
+
+      const hayBloqueos = repeatedBlockedIps > 3 || criticalPairBlocked;
+
+      if (hayBloqueos) {
+        div.innerHTML = `Esta web puede no funcionar con normalidad debido a los bloqueos activos y confirmados en este momento.`;
+        div.classList.add("alerta-bloqueos", "alerta-bloqueos--active");
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+        div.innerHTML = "";
+        div.classList.remove("alerta-bloqueos--active");
+      }
+
+    } catch (e) {
+      clearTimeout(timeoutId);
+
+      if (e.name === "AbortError" || e instanceof TypeError) {
+        div.innerHTML = `
+        <strong>AVISO:</strong> Tu conexión a varios servicios (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.`;
+        div.classList.add("alerta-bloqueos", "alerta-bloqueos--active");
+        div.style.display = "block";
+      }
+    }
+  }
+
+
+  checkBloqueos();
+  setInterval(checkBloqueos, 120000);
+</script>
