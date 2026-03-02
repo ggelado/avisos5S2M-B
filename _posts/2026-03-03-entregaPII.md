@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Entrega D2.1+D2.2
-date: 2026-03-03 00:00:00 +0100
+date: 2026-03-02 22:58:00 +0100
 author: Gonzalo
 published: true
 event_date: 2026-03-06 23:59:59 +0100
