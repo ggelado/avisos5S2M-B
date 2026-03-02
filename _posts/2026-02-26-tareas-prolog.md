@@ -4,7 +4,7 @@ title: "Tareas Prolog"
 date: 2026-02-26 13:27:16 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-02 23:59:59 +0100
 excerpt: "Fechas límite 2 y 9 de marzo. Vía Deliverit."
 
