@@ -193,7 +193,7 @@ code {
 
 /* Alertas */
 .alerta-meteo,
-.alerta-futbol,
+.alerta-bloqueos,
 .banner-trafico {
   background-color: var(--bg-tertiary);
   border-left-color: #ef4444;
@@ -201,7 +201,7 @@ code {
   box-shadow: var(--shadow-sm);
 }
 
-.alerta-futbol {
+.alerta-bloqueos {
   background-color: rgba(239, 68, 68, 0.12);
   border-left-color: #ef4444;
   color: #ffd5d5;
