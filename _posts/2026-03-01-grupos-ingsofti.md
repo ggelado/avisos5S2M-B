@@ -4,7 +4,7 @@ title: "Grupos IngsoftI"
 date: 2026-03-01 19:57:07 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-03 23:59:59 +0100
 excerpt: "Asignados forzosamente a aquellos que no escogieron"
 image: "https://dlsiis.fi.upm.es/imagenes/lsiis.png"
