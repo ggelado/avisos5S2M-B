@@ -150,8 +150,7 @@
           '</div>' +
           (skyDesc ? '<span class="sky-desc">' + skyDesc + '</span>' : '') +
           '</div>' +
-          precipHTML +
-          '<div style="text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:8px;">Fuente: AEMET OpenData</div>';
+          precipHTML;
 
       } catch (e) {
         widget.innerHTML = '<span class="state-msg">No se pudo cargar el tiempo · ' + e.message + '</span>';
