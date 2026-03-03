@@ -4,7 +4,7 @@ title: "Cambio clase distribuidos"
 date: 2026-02-27 13:20:01 +0100
 event_date: 2026-03-03 10:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-03 12:00:00 +0100
 excerpt: "A la 5101"
 
