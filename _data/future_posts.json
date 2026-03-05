@@ -30,6 +30,12 @@
     "expires": "2026-04-10 23:59:59 +0200"
   },
   {
+    "title": "Últimos días para SAI B2 Inglés.",
+    "date": "2026-04-12T00:00:00+02:00",
+    "excerpt": "Cierra el 15 de abril.",
+    "expires": "2026-04-15 23:59:59 +0200"
+  },
+  {
     "title": "Examen SOS",
     "date": "2026-04-13T00:00:00+02:00",
     "excerpt": "Examen 16 de abril SOS",
@@ -42,6 +48,12 @@
     "expires": "2026-04-22 20:00:00 +0200"
   },
   {
+    "title": "Formación SAI",
+    "date": "2026-04-20T00:00:00+02:00",
+    "excerpt": "Puedes solicitarla sin coste hasta el 26 de abril.",
+    "expires": "2026-04-26 23:59:59 +0200"
+  },
+  {
     "title": "Entrega D2.5",
     "date": "2026-04-21T00:00:00+02:00",
     "excerpt": "24 de abril D2.5",
@@ -52,6 +64,12 @@
     "date": "2026-04-28T00:00:00+02:00",
     "excerpt": "No hay clase el viernes",
     "expires": "2026-05-01 23:59:59 +0200"
+  },
+  {
+    "title": "SAI B2",
+    "date": "2026-05-04T00:00:00+02:00",
+    "excerpt": "El próximo 7 de mayo. + info en tu correo.",
+    "expires": "2026-05-07 23:59:59 +0200"
   },
   {
     "title": "Examen IngSoft I",
