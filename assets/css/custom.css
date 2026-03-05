@@ -78,13 +78,60 @@ a:hover {
 
 p {
   font-family: var(--font-body);
-  margin: 0 0 1em 0;
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
   color: var(--text-primary);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+
+ul, ol {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+li {
+  font-family: var(--font-body);
+}
+
+blockquote {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  border-left: 3px solid var(--border-color);
+}
+
+strong, b {
+  font-family: var(--font-body);
+}
+
+em, i {
+  font-family: var(--font-body);
+}
+
+label {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+table {
+  font-family: var(--font-body);
+}
+
+th, td {
+  font-family: var(--font-body);
+  border: 1px solid var(--border-color);
 }
 
 .site-header {
