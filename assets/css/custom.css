@@ -76,6 +76,12 @@ a:hover {
   text-underline-offset: 3px;
 }
 
+p {
+  font-family: var(--font-body);
+  margin: 0 0 1em 0;
+  color: var(--text-primary);
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
