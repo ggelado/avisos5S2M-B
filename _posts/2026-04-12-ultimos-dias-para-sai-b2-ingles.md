@@ -51,8 +51,8 @@ informarse sobre el procedimiento para la expedición del título.
 
 
 
-# Recuerda
-Una vez realizada la preinscripción, la UPM y el Departamento de Lingüística Aplicada, con
+>[!tip]
+>Una vez realizada la preinscripción, la UPM y el Departamento de Lingüística Aplicada, con
 la colaboración de Capman, os quieren ayudar facilitando UN MES DE ACCESO GRATUITO
 a una Plataforma de inglés ESPECIALIZADA en TOEIC (Atención: el siguiente enlace no
 es para preinscribirse en la prueba SAI, sino para solicitar acceso a la formación gratuita.):
