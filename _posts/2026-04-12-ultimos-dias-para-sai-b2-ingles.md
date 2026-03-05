@@ -16,6 +16,12 @@ categories:
 >[!warning] Atención
 >La inscripción para la prueba cierra el 15 de abril 
 
+<embed 
+    src="https://fi.upm.es/GestorTablon/GTuploads/5273-0-CONVOCATORIA_PRUEBA_SAI_B2_7_mayo_2026.pdf" 
+    type="application/pdf" 
+    width="100%" 
+    height="600px" 
+/>
 
 Toda la info en [https://fi.upm.es/GestorTablon/GTuploads/5273-0-CONVOCATORIA_PRUEBA_SAI_B2_7_mayo_2026.pdf](https://fi.upm.es/GestorTablon/GTuploads/5273-0-CONVOCATORIA_PRUEBA_SAI_B2_7_mayo_2026.pdf):
 
