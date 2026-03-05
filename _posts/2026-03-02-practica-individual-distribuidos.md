@@ -4,7 +4,7 @@ title: "Práctica individual distribuidos"
 date: 2026-03-02 08:07:00 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-05 23:59:00 +0100
 excerpt: "Más info ver aviso"
 image: "https://www.datsi.fi.upm.es/icons/datsi_small.gif"
