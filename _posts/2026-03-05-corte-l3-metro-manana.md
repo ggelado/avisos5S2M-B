@@ -7,7 +7,7 @@ author: Gonzalo
 published: true
 expires: 2026-03-06 23:59:59 +0100
 excerpt: "Entre Sol y Moncloa"
-last_modified_at: 2026-03-06 09:16:00 +0100
+last_modified_at: 2026-03-06 10:13:00 +0100
 
 categories:
   - Incidencias de Servicio
@@ -16,6 +16,8 @@ categories:
 >[!warning] Atención
 >Este aviso fue comunicado a la Delegación de Alumnos para su difusión por los canales de aviso que tienen establecidos, en el mismo instante que fue publicado en este portal. El mensaje fue leído por el equipo encargado **DE INMEDIATO**, pero no se difundió ningún aviso. 
 
+>[!info] Ampliación del aviso
+>Por manifestación en el p.º del Prado y Carrera de San Jerónimo, las líneas 001, 002, 5, 10, 14, 15, 20, 27, 34, 37, 45, 51, 53, 150, C03, E1, M1, M3 y Exprés Aeropuerto sufrirán retenciones y modificaciones en sus itinerarios.
 
 Desde las 06:00 horas del viernes 6 de marzo hasta el domingo 8, por trabajos de mantenimiento y renovación, el tramo entre Sol y Moncloa, queda suspendido.
 
