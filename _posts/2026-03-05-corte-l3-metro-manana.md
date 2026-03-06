@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CORTE L3 METRO + Crítica DA"
+title: "CORTE L3 METRO"
 date: 2026-03-05 20:59:26 +0100
 event_date: 2026-03-06 06:00:00 +0100
 author: Gonzalo
@@ -12,9 +12,6 @@ last_modified_at: 2026-03-06 10:13:00 +0100
 categories:
   - Incidencias de Servicio
 ---
-
->[!warning] Atención
->Este aviso fue comunicado a la Delegación de Alumnos para su difusión por los canales de aviso que tienen establecidos, en el mismo instante que fue publicado en este portal. El mensaje fue leído por el equipo encargado **DE INMEDIATO**, pero no se difundió ningún aviso. 
 
 >[!info] Ampliación del aviso
 >Por manifestación en el p.º del Prado y Carrera de San Jerónimo, las líneas 001, 002, 5, 10, 14, 15, 20, 27, 34, 37, 45, 51, 53, 150, C03, E1, M1, M3 y Exprés Aeropuerto sufrirán retenciones y modificaciones en sus itinerarios.
