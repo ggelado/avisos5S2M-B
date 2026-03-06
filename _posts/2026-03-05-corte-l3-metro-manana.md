@@ -3,6 +3,7 @@ layout: post
 title: "CORTE L3 METRO"
 date: 2026-03-05 20:59:26 +0100
 event_date: 2026-03-06 06:00:00 +0100
+image: https://crtm.es/media/4qwnmsgk/se-l3-metro-corte-marzo26.jpeg
 author: Gonzalo
 published: true
 expires: 2026-03-06 23:59:59 +0100
