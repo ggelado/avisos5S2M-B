@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CORTE L3 METRO MAÑANA"
+title: "CORTE L3 METRO"
 date: 2026-03-05 20:59:26 +0100
 event_date: 2026-03-06 06:00:00 +0100
 author: Gonzalo
