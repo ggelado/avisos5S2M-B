@@ -12,6 +12,12 @@ categories:
   - Convocatorias de Examen
   - SAI
 ---
+>[!caution] IMPORTANTE
+>Para asegurarte de enterarte de cualquier novedad sobre esta prueba, se recomienda encarecidamente que actives las notificaciones específicas de esta prueba en [https://notifierpushrss.onrender.com/topics.html](https://notifierpushrss.onrender.com/topics.html?topic=saiB2&action=subscribe).
+>
+>Se enviará información adicional **RELEVANTE** a aquellos usuarios que lo indiquen a través de dicho portal, para evitar saturar el canal principal de avisos (requiere tener las notificaciones de avisos ya activas, puedes hacerlo desde esa misma web).
+
+
 
 >[!warning] Atención
 >La inscripción para la prueba cierra el 15 de abril 
