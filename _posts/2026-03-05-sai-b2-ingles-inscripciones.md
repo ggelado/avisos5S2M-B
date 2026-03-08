@@ -1,17 +1,24 @@
 ---
 layout: post
-title: "SAI B2 Inglés - Inscripciones"
+title: SAI B2 Inglés - Inscripciones
 date: 2026-03-05 12:07:42 +0100
 event_date: 2026-03-09 09:00:00 +0100
 author: Gonzalo
 published: true
 expires: 2026-03-13 23:59:59 +0100
-excerpt: "9 de marzo a 15 de abril a través de politécnica virtual. https://capman.es/blog/sai-upm-7-de-mayo-de-2026-informacion-y-acceso-tu-resultado"
-image: "https://capman.es/sites/default/files/styles/max_1300x1300/public/images/blog/sai%20upm%20mayo%2026.png.webp?itok=bYI8NZ_X"
+excerpt: 9 de marzo a 15 de abril a través de politécnica virtual. https://capman.es/blog/sai-upm-7-de-mayo-de-2026-informacion-y-acceso-tu-resultado
+image: https://capman.es/sites/default/files/styles/max_1300x1300/public/images/blog/sai%20upm%20mayo%2026.png.webp?itok=bYI8NZ_X
 categories:
   - Convocatorias de Examen
   - SAI
+last_modified_at: 2026-03-08 11:48:00 +0100
 ---
+>[!caution] IMPORTANTE
+>Para asegurarte de enterarte de cualquier novedad sobre esta prueba, se recomienda encarecidamente que actives las notificaciones específicas de esta prueba en [https://notifierpushrss.onrender.com/topics.html](https://notifierpushrss.onrender.com/topics.html?topic=saiB2&action=subscribe).
+>
+>Se enviará información adicional **RELEVANTE** a aquellos usuarios que lo indiquen a través de dicho portal, para evitar saturar el canal principal de avisos (requiere tener las notificaciones de avisos ya activas, puedes hacerlo desde esa misma web).
+
+
 <embed 
     src="https://fi.upm.es/GestorTablon/GTuploads/5273-0-CONVOCATORIA_PRUEBA_SAI_B2_7_mayo_2026.pdf" 
     type="application/pdf" 
