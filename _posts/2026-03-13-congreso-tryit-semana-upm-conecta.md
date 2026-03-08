@@ -14,7 +14,7 @@ categories:
 ---
 
 >[!warning] Información y novedades
->Si quieres recibir notificaciones sobre este asunto, accede a [https://notifierpushrss.onrender.com/topics.html](https://notifierpushrss.onrender.com/topics.html). Para evitar saturar este canal de avisos, no enviaremos más avisos sobre este asunto, a excecpción de aquellos usuarios que se den de alta a través de ese portal.
+>Si quieres recibir notificaciones sobre este asunto, accede a [https://notifierpushrss.onrender.com/topics.html](https://notifierpushrss.onrender.com/topics.html?topic=tryitYSemanaUPM&action=subscribe). Para evitar saturar este canal de avisos, no enviaremos más avisos sobre este asunto, a excecpción de aquellos usuarios que se den de alta a través de ese portal.
 
 La próxima semana (17 a 20 de marzo) se suspende la docencia de las enseñanzas oficiales de Grado en esta escuela, a consecuencia de los siguientes eventos:
 
