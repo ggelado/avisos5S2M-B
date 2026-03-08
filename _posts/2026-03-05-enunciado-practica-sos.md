@@ -2,7 +2,9 @@
 layout: post
 title: "Enunciado práctica SOS"
 date: 2026-03-05 10:10:22 +0100
-author: Gonzalo
+author:
+  name: Sergio Medina Paraiso
+  email: sergio.paraiso@upm.es
 published: true
 expires: 2026-03-08 23:59:59 +0100
 excerpt: "Disponible en https://moodle.upm.es/titulaciones/oficiales/mod/resource/view.php?id=331371"
