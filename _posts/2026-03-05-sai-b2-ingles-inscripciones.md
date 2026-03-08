@@ -12,6 +12,8 @@ categories:
   - Convocatorias de Examen
   - SAI
 last_modified_at: 2026-03-08 11:48:00 +0100
+tags:
+  - saiB2
 ---
 >[!caution] IMPORTANTE
 >Para asegurarte de enterarte de cualquier novedad sobre esta prueba, se recomienda encarecidamente que actives las notificaciones específicas de esta prueba en [https://notifierpushrss.onrender.com/topics.html](https://notifierpushrss.onrender.com/topics.html?topic=saiB2&action=subscribe).
