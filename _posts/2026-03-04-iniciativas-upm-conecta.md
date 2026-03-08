@@ -10,8 +10,13 @@ published: true
 expires: 2026-03-20 23:59:59 +0100
 excerpt: "Durante la semana del TryIt! https://www.upmconecta.es/"
 image: "https://www.upmconecta.es/Imagenes/upmConecta_UPM.png"
+last_modified_at: 2026-03-08 11:53:00 +0100
 
 ---
+
+>[!warning] Información y novedades
+>Si quieres recibir notificaciones sobre este asunto, accede a [https://notifierpushrss.onrender.com/topics.html](https://notifierpushrss.onrender.com/topics.html?topic=tryitYSemanaUPM&action=subscribe). Para evitar saturar este canal de avisos, no enviaremos más avisos sobre este asunto, a excecpción de aquellos usuarios que se den de alta a través de ese portal.
+
 
 <div class="leftcol" role="region" aria-labelledby="aria-label-messagebody" style="margin-right: 0px;">
 <div id="message-objects">
