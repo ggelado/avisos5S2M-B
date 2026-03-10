@@ -1,0 +1,38 @@
+<script>
+  // Verificar estado de servicios
+  async function checkServicesStatus() {
+    try {
+      const response = await fetch('https://notifierpushrss.onrender.com/api/status');
+      const data = await response.json();
+      const statusDot = document.getElementById('status-dot');
+      const statusLink = document.getElementById('services-status-link');
+      
+      if (data.down && data.down.length > 0) {
+        // Hay servicios caídos
+        statusDot.classList.add('visible');
+        statusDot.classList.add('status-warning');
+        statusDot.classList.add('pulse');
+        statusLink.classList.add('status-alert');
+        statusLink.title = `⚠️ ${data.down.length} servicio(s) caído(s): ${data.down.join(', ')}`;
+      } else {
+        // Todos los servicios están arriba
+        statusDot.classList.remove('visible');
+        statusDot.classList.add('status-ok');
+        statusDot.classList.remove('pulse');
+        statusLink.classList.remove('status-alert');
+        statusLink.title = '✓ Todos los servicios están en línea';
+      }
+    } catch (error) {
+      console.error('Error checking services status:', error);
+      // En caso de error, no mostrar indicador
+      const statusDot = document.getElementById('status-dot');
+      statusDot.classList.remove('visible');
+    }
+  }
+  
+  // Ejecutar al cargar la página
+  document.addEventListener('DOMContentLoaded', checkServicesStatus);
+  
+  // Actualizar cada 5 minutos
+  setInterval(checkServicesStatus, 5 * 60 * 1000);
+</script>

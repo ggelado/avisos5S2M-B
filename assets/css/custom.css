@@ -1474,3 +1474,66 @@ pre code {
   opacity: 0.75;
   text-decoration: underline;
 }
+
+/* ============================================================
+   INDICADOR DE ESTADO DE SERVICIOS
+   ============================================================ */
+
+.status-indicator {
+  display: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.status-indicator.visible {
+  display: inline-block;
+}
+
+.status-indicator.status-ok {
+  background-color: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+}
+
+.status-indicator.status-warning {
+  background-color: #ef4444;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+}
+
+.status-indicator.status-neutral {
+  background-color: #94a3b8;
+}
+
+/* Animación de parpadeo (pulse) */
+@keyframes pulse-warning {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.status-indicator.pulse {
+  animation: pulse-warning 2s infinite;
+}
+
+/* Resaltado del enlace cuando hay servicios caídos */
+.enlaces-utilidad a#services-status-link.status-alert {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+  transition: all 0.3s ease;
+}
+
+.enlaces-utilidad a#services-status-link.status-alert:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.2);
+}
