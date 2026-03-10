@@ -1,0 +1,41 @@
+<script>
+  // Monitorear estado del transporte público (CRTM)
+  function checkTransportStatus() {
+    const transportDot = document.getElementById('transport-dot');
+    if (!transportDot) return;
+
+    const estadoCRTM = document.getElementById('estado-crtm');
+    if (!estadoCRTM) return;
+
+    // Buscar todas las imágenes en el widget CRTM
+    const images = estadoCRTM.querySelectorAll('img');
+    let hayRojo = false;
+
+    images.forEach(img => {
+      const src = img.getAttribute('src') || '';
+      // Detectar si hay imagenes con "rojo" en la ruta
+      if (src.toLowerCase().includes('rojo')) {
+        hayRojo = true;
+      }
+    });
+
+    // Aplicar/remover estilos del dot
+    if (hayRojo) {
+      transportDot.classList.add('visible');
+      transportDot.classList.add('status-warning');
+      transportDot.classList.add('pulse');
+    } else {
+      transportDot.classList.remove('visible');
+      transportDot.classList.remove('status-warning');
+      transportDot.classList.remove('pulse');
+    }
+  }
+
+  // Ejecutar al cargar la página
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(checkTransportStatus, 1500); // Esperar a que cargue el CRTM
+  });
+
+  // Revisar cada 10 segundos (el widget CRTM puede actualizarse)
+  setInterval(checkTransportStatus, 10000);
+</script>
