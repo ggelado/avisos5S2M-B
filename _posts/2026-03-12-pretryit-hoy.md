@@ -4,7 +4,7 @@ title: "Pretryit hoy"
 date: 2026-03-12 12:39:00 +0100
 event_date: 2026-03-12 14:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-12 15:00:00 +0100
 excerpt: "A las 14 horas"
 image: "https://eventos.upm.es/_files/_event/_150363/_header_img/_225006.png"
