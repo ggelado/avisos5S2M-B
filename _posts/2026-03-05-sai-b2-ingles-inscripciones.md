@@ -4,7 +4,7 @@ title: SAI B2 Inglés - Inscripciones
 date: 2026-03-05 12:07:42 +0100
 event_date: 2026-03-09 09:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-13 23:59:59 +0100
 excerpt: 9 de marzo a 15 de abril a través de politécnica virtual. https://capman.es/blog/sai-upm-7-de-mayo-de-2026-informacion-y-acceso-tu-resultado
 image: https://capman.es/sites/default/files/styles/max_1300x1300/public/images/blog/sai%20upm%20mayo%2026.png.webp?itok=bYI8NZ_X
