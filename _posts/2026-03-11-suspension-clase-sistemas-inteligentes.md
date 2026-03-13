@@ -4,7 +4,7 @@ title: "SUSPENSIÓN CLASE SISTEMAS INTELIGENTES"
 date: 2026-03-11 12:40:47 +0100
 event_date: 2026-03-13 12:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-13 14:00:00 +0100
 excerpt: "No hay clase el viernes"
 
