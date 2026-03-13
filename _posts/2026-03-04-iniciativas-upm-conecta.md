@@ -6,7 +6,7 @@ event_date: 2026-03-16 00:00:00 +0100
 author: 
     name: Marta Olea de Cárdenas
     email: vicerrectora.comunicacion@upm.es
-published: true
+published: false
 expires: 2026-03-20 23:59:59 +0100
 excerpt: "Durante la semana del TryIt! https://www.upmconecta.es/"
 image: "https://www.upmconecta.es/Imagenes/upmConecta_UPM.png"
