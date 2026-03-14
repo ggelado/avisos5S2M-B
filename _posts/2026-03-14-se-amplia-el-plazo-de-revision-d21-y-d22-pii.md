@@ -2,7 +2,8 @@
 layout: post
 title: "Se amplía el plazo de revisión D2.1 y D2.2 PII"
 date: 2026-03-14 20:35:10 +0100
-
+categories:
+  - PII
 author: Gonzalo
 published: true
 expires: 2026-03-16 23:59:59 +0100
