@@ -1,6 +1,9 @@
 ---
 layout: default
 title: Contribuir
+date: 2026-03-15 14:47:13 +0100
+author: Gonzalo
+excerpt: "Guía para contribuir al proyecto."
 permalink: /contributing/
 ---
 
