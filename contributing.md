@@ -1,3 +1,9 @@
+---
+layout: default
+title: Contribuir
+permalink: /contributing/
+---
+
 # Guia de contribucion
 
 Gracias por tu interes en contribuir a este proyecto.
