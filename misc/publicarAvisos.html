@@ -124,6 +124,14 @@ permalink: /publicarAvisos.html
       font-size: 0.95rem;
     }
 
+    .topics-container {
+      background: #f8f9fa;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      margin-top: 5px;
+    }
+
     /* Estilos personalizados para EasyMDE */
     .EasyMDEContainer {
         margin-top: 5px;
@@ -249,6 +257,9 @@ window.addEventListener('load', async () => {
     <label for="startDate">Fecha y hora de efecto</label>
     <input type="datetime-local" id="startDate" name="startDate" required step="1">
 
+    <label for="eventDate">Fecha y hora del evento (opcional)</label>
+    <input type="datetime-local" id="eventDate" name="eventDate" step="1">
+
     <label for="endDate">Fecha y hora de vencimiento</label>
     <input type="datetime-local" id="endDate" name="endDate" required step="1">
 
@@ -259,6 +270,11 @@ window.addEventListener('load', async () => {
 
     <label for="subject">Asignatura (opcional - siglas)</label>
     <input type="text" id="subject" name="subject" placeholder="Ej: SSOO, PdL, IA...">
+
+    <label style="margin-top: 20px; margin-bottom: 10px;">Topics a notificar (opcional)</label>
+    <div id="topicsContainer" class="topics-container">
+      <p style="font-size: 0.9rem; color: #999; margin: 5px 0;">Cargando topics disponibles...</p>
+    </div>
 
     <label for="metadata">Metadatos YAML (opcional)</label>
     <textarea id="metadata" name="metadata" rows="3" placeholder="key: value"></textarea>
@@ -299,6 +315,34 @@ window.addEventListener('load', async () => {
 
     const form = document.getElementById('noticeForm');
     const responseDiv = document.getElementById('formResponse');
+    const topicsContainer = document.getElementById('topicsContainer');
+
+    async function loadAvailableTopics() {
+      try {
+        const res = await fetch('https://notifierpushrss.onrender.com/api/topics');
+        const data = await res.json();
+
+        if (data.topics && data.topics.length > 0) {
+          topicsContainer.innerHTML = data.topics.map(topic => `
+            <label style="display: flex; align-items: center; margin: 8px 0; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="topics" value="${topic}" style="width: auto; margin-right: 8px; cursor: pointer;">
+              <span>${topic}</span>
+            </label>
+          `).join('') + `
+            <p style="font-size: 0.9rem; color: #666; margin: 10px 0 0 0;">
+              Si marcas topics, el aviso se notificará solo a usuarios suscritos a esos topics cuando se publique.
+              Si no marcas ninguno, se notificará a todos los usuarios.
+            </p>
+          `;
+        } else {
+          topicsContainer.innerHTML = '<p style="font-size: 0.9rem; color: #666; margin: 5px 0;">No hay topics disponibles.</p>';
+        }
+      } catch (error) {
+        topicsContainer.innerHTML = '<p style="font-size: 0.9rem; color: #d9534f; margin: 5px 0;">Error al cargar topics.</p>';
+      }
+    }
+
+    loadAvailableTopics();
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -338,6 +382,9 @@ window.addEventListener('load', async () => {
         finalMetadata = finalMetadata ? `${finalMetadata}\n${manualMetadata}` : manualMetadata;
       }
 
+      const selectedTopics = Array.from(form.querySelectorAll('input[name="topics"]:checked'))
+        .map(cb => cb.value);
+
       const formData = {
         name: form.name.value.trim(),
         email: email,
@@ -345,6 +392,8 @@ window.addEventListener('load', async () => {
         shortDescription: form.shortDescription.value.trim(),
         startDate: form.startDate.value,
         endDate: form.endDate.value,
+        eventDate: form.eventDate.value,
+        topics: selectedTopics,
         metadata: finalMetadata.trim(),
         body: easyMDE.value().trim() // Obtener el valor del editor
       };
