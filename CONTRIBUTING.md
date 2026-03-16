@@ -84,7 +84,6 @@ Revisa el proceso de divulgación responsable en [SECURITY.md](SECURITY.md).
 
 ## Código de conducta
 
-Este proyecto sigue el [Código de Conducta](CODE_OF_CONDUCT.md) basado en el Contributor Covenant.
 Se espera un trato respetuoso, colaborativo y constructivo en todos los espacios del proyecto.
 
 ---
