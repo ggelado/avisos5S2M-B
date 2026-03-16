@@ -1,0 +1,56 @@
+name: Validar metadatos de avisos
+
+on:
+  pull_request:
+    paths:
+      - "_posts/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "_posts/**"
+
+jobs:
+  validate:
+    name: Validar YAML de posts
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # necesario para comparar con la rama base en PRs
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install PyYAML
+
+      - name: Detectar posts modificados (en PRs)
+        if: github.event_name == 'pull_request'
+        id: changed
+        run: |
+          # Obtiene la lista de archivos .md en _posts/ añadidos o modificados en esta PR
+          FILES=$(git diff --name-only --diff-filter=AM \
+            origin/${{ github.base_ref }}...HEAD \
+            -- '_posts/**/*.md' | tr '\n' ' ')
+          echo "files=${FILES}" >> "$GITHUB_OUTPUT"
+
+      - name: Validar posts modificados (en PRs)
+        if: github.event_name == 'pull_request' && steps.changed.outputs.files != ''
+        run: |
+          echo "🔍 Validando: ${{ steps.changed.outputs.files }}"
+          python scripts/validate_posts.py ${{ steps.changed.outputs.files }}
+
+      - name: Sin posts nuevos o modificados (en PRs)
+        if: github.event_name == 'pull_request' && steps.changed.outputs.files == ''
+        run: echo "ℹ️ No hay posts nuevos o modificados en esta PR."
+
+      - name: Validar todos los posts (en push a main)
+        if: github.event_name == 'push'
+        run: python scripts/validate_posts.py
