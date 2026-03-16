@@ -1,0 +1,9 @@
+# Dependencias de los scripts de automatización
+
+# importer.py – importar RSS de UPM como posts Jekyll
+feedparser>=6.0
+python-frontmatter>=1.1
+
+# caducidad.py, calfile.py – parseo de front matter y fechas con zona horaria
+PyYAML>=6.0
+pytz>=2024.1
