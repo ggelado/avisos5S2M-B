@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Vulnerabilidad de seguridad
+    url: https://github.com/ggelado/avisos5S2M-B/security/advisories/new
+    about: Reporta vulnerabilidades de forma segura y confidencial.
