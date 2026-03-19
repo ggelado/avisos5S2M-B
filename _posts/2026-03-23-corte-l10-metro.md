@@ -7,7 +7,7 @@ author: Gonzalo
 published: true
 expires: 2026-03-30 23:59:59 +0200
 excerpt: "Entre N. Ministerios y Cuzco"
-image: "https://static.eldiario.es/clip/d1c50657-4a2f-4f04-a360-fa8c18aed95c_16-9-discover-aspect-ratio_default_0.jpg"
+image: "https://www.metromadrid.es/sites/default/files/Cortel10_PlzCastilla_NMinisterios.webp"
 
 categories:
   - incidencias-de-servicio
