@@ -1,21 +1,15 @@
 [
   {
-    "title": "Corte L10 Metro",
-    "date": "2026-03-23T00:00:00+01:00",
-    "excerpt": "Entre N. Ministerios y Cuzco",
-    "expires": "2026-03-30 23:59:59 +0200"
+    "title": "Cierre STG Méndez Cavanillas",
+    "date": "2026-03-22T00:00:00+01:00",
+    "excerpt": "Martes de 8 a 12 por Junta de Escuela.",
+    "expires": "2026-03-24 12:00:00 +0100"
   },
   {
     "title": "Clase práctica SOS",
     "date": "2026-03-23T00:00:00+01:00",
     "excerpt": "Jueves 26 de marzo",
     "expires": "2026-03-26 12:00:00 +0100"
-  },
-  {
-    "title": "Cierre STG Méndez Cavanillas",
-    "date": "2026-03-23T00:00:00+01:00",
-    "excerpt": "Martes de 8 a 12 por Junta de Escuela.",
-    "expires": "2026-03-24 12:00:00 +0100"
   },
   {
     "title": "Reunión Prácticum 1er cuatrimestre",
@@ -28,6 +22,12 @@
     "date": "2026-03-24T00:00:00+01:00",
     "excerpt": "27 de marzo D2.4",
     "expires": "2026-03-27 23:59:59 +0100"
+  },
+  {
+    "title": "Corte L10 Metro",
+    "date": "2026-03-25T00:00:00+01:00",
+    "excerpt": "Entre N. Ministerios y Cuzco",
+    "expires": "2026-03-30 23:59:59 +0200"
   },
   {
     "title": "Periodo Vacacional S Santa",
