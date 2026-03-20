@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cierre STG Méndez Cavanillas"
-date: 2026-03-23 00:00:00 +0100
+date: 2026-03-22 00:00:00 +0100
 event_date: 2026-03-24 08:00:00 +0100
 author: Gonzalo
 published: true
