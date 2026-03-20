@@ -4,7 +4,7 @@ title: "Congreso TryIT! + Semana UPM Conecta"
 date: 2026-03-13 00:00:00 +0100
 event_date: 2026-03-16 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-20 21:00:00 +0100
 excerpt: "17 a 20 de marzo. DOCENCIA SUSPENDIDA."
 image: "https://tryit.upm.es/img/imagotipo_claro_2.png"
