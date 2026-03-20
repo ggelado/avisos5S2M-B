@@ -4,7 +4,7 @@ title: "Enunciado práctica ProDelLog"
 date: 2026-03-17 21:58:13 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-20 23:59:59 +0100
 excerpt: "Publicado en Moodle"
 image: "https://dia.fi.upm.es/wp-content/uploads/2023/11/logo-dia-actualizado.svg"
