@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Corte L10 Metro"
-date: 2026-03-23 00:00:00 +0100
+date: 2026-03-25 00:00:00 +0100
 event_date: 2026-03-28 00:00:00 +0100
 author: Gonzalo
 published: true
