@@ -7,7 +7,7 @@ author: Gonzalo
 published: true
 expires: 2026-03-29 03:00:01 +0200
 excerpt: "En la madrugada del sábado al domingo a las 2 serán las 3."
-image: "https://imagenes.20minutos.es/files/image_640_360/files/fp/uploads/imagenes/2020/10/23/5f92c14261f12.r_d.328-185.jpeg"
+image: "https://as.com/deporteyvida/imagenes/2019/03/30/portada/1553944528_233917_1553944931_sumario_normal.jpg"
 
 
 ---
