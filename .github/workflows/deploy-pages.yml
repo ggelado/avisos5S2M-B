@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "0 23 * * *" # A medianoche peninsular (invierno)
   workflow_dispatch:
 
 permissions:
