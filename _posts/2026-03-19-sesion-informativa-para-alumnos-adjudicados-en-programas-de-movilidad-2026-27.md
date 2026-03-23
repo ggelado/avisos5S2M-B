@@ -4,7 +4,7 @@ title: "Sesión Informativa para alumnos adjudicados en programas de movilidad 2
 date: 2026-03-19 13:07:53 +0100
 event_date: 2026-03-23 14:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-23 15:30:00 +0100
 excerpt: "Salón de Actos 23 de marzo 14:00"
 image: "https://www.fi.upm.es/web/orex/wp-content/uploads/sites/30/2022/06/2orex-1.png"
