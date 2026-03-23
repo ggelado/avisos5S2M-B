@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cambio de hora"
-date: 2026-03-27 00:00:00 +0100
+date: 2026-03-28 00:00:00 +0100
 event_date: 2026-03-29 01:59:59 +0200
 author: Gonzalo
 published: true
