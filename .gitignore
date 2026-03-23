@@ -4,6 +4,8 @@
 SETUP.md
 _site/*
 Gemfile.lock
+_data/future_posts.json
+assets/avisos.ics
 
 # Python
 __pycache__/
