@@ -4,7 +4,7 @@ title: "Cierre STG Méndez Cavanillas"
 date: 2026-03-22 00:00:00 +0100
 event_date: 2026-03-24 08:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-24 12:00:00 +0100
 excerpt: "Martes de 8 a 12 por Junta de Escuela."
 
