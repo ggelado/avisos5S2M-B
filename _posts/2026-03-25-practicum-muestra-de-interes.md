@@ -15,11 +15,11 @@ categories:
 
 Estimado estudiante,
 
-Desde la Oficina de Relaciones Externas (OREX) queremos recordarte que, si deseas realizar el practicum en el primer semestre (de septiembre a diciembre de 2026), es ahora, cuando debes comenzar a realizar las gestiones. Debes de entregar la Muestra de Interés junto con tu CV, a través del siguiente enlace: https://short.upm.es/3vo6s
+Desde la Oficina de Relaciones Externas (OREX) queremos recordarte que, si deseas realizar el practicum en el primer semestre (de septiembre a diciembre de 2026), es ahora, cuando debes comenzar a realizar las gestiones. Debes de entregar la Muestra de Interés junto con tu CV, a través del siguiente enlace: [https://short.upm.es/3vo6s](https://short.upm.es/3vo6s)
 
 Plazo  para entregarlo: del 1 al 30 de abril.
 
-Funcionamiento del Prácticum lo tienes en http://www.fi.upm.es/?pagina=1649
+Funcionamiento del Prácticum lo tienes en [http://www.fi.upm.es/?pagina=1649](http://www.fi.upm.es/?pagina=1649)
 
 
 Saludos
