@@ -11,3 +11,6 @@ image: https://www.tradicionesyfiestas.com/wp-content/uploads/2015/03/7.jurament
 ---
 
 Hasta el próximo día lunes 6 de abril (incluido) se suspende la docencia por periodo vacacional. El martes 7 de abril la docencia continuará en su horario habitual.
+
+<img width="820" height="748" alt="Horario 591" src="https://github.com/user-attachments/assets/ab1850af-1c7e-4bd2-b75f-abc11860d332" />
+<img width="812" height="615" alt="Horario 571" src="https://github.com/user-attachments/assets/f93a031f-0250-40c9-9d09-2bf3c8ee44f9" />
