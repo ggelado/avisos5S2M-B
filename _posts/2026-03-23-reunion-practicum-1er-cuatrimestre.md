@@ -4,7 +4,7 @@ title: "Reunión Prácticum 1er cuatrimestre"
 date: 2026-03-23 00:00:00 +0100
 event_date: 2026-03-27 14:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-27 15:00:00 +0100
 excerpt: "Alumnos con intención de llevarlas a cabo en septiembre de 2026."
 
