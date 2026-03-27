@@ -4,7 +4,7 @@ title: "Practicum - Muestra de Interés"
 date: 2026-03-25 13:24:56 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-27 23:59:59 +0100
 excerpt: "Muestra de interés hasta 30 abril"
 
