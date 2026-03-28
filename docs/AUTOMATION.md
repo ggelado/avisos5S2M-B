@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ### `scripts/importer.py` — Importador RSS de la UPM
 
-**Propósito:** Descarga el tablón de anuncios oficial de la ETSISI desde su feed RSS y genera posts Jekyll.
+**Propósito:** Descarga el tablón de anuncios oficial de la ETSINF desde su feed RSS y genera posts Jekyll.
 
 **Fuente:** `https://fi.upm.es/GestorTablon/rss2b.php`
 
