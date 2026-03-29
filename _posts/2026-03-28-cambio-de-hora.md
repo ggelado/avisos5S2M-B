@@ -4,7 +4,7 @@ title: "Cambio de hora"
 date: 2026-03-28 00:00:00 +0100
 event_date: 2026-03-29 01:59:59 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-29 03:00:01 +0200
 excerpt: "En la madrugada del sábado al domingo a las 2 serán las 3."
 image: "https://as.com/deporteyvida/imagenes/2019/03/30/portada/1553944528_233917_1553944931_sumario_normal.jpg"
