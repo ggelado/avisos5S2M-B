@@ -42,6 +42,12 @@ jobs:
       - name: Build con Jekyll
         uses: actions/jekyll-build-pages@v1
 
+      - name: Fix sitemap namespace
+        run: |
+          if [ -f ./_site/sitemap.xml ]; then
+            sed -i 's/ xmlns:xsi="[^"]*" xsi:schemaLocation="[^"]*"//g' ./_site/sitemap.xml
+          fi
+
       - name: Subir artefacto de Pages
         uses: actions/upload-pages-artifact@v3
 
