@@ -21,3 +21,12 @@ exclude:
 
 authors:
   enabled: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "sitemap"
+    values:
+      layout: sitemap
+      permalink: /sitemap.xml
