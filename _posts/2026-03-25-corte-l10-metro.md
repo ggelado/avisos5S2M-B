@@ -4,7 +4,7 @@ title: "Corte L10 Metro"
 date: 2026-03-25 00:00:00 +0100
 event_date: 2026-03-28 00:00:00 +0100
 author: Gonzalo
-published: true
+published: false
 expires: 2026-03-30 23:59:59 +0200
 excerpt: "Entre N. Ministerios y Cuzco"
 image: "https://www.metromadrid.es/sites/default/files/Cortel10_PlzCastilla_NMinisterios.webp"
