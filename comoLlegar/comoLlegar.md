@@ -1,4 +1,6 @@
 ---
+title: "Cómo llegar al campus"
+excerpt: "Información sobre cómo llegar desde los principales orígenes al campus."
 layout: default
 permalink: /comoLlegar
 ---
