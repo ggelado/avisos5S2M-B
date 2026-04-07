@@ -1,3 +1,9 @@
+---
+title: "Cómo llegar desde El Barrial"
+excerpt: "Información sobre cómo llegar desde El Barrial al campus."
+author: Gonzalo
+---
+
 <section class="container-lg my-4">
   <div id="status" class="text-small color-fg-muted mb-2"></div>
 

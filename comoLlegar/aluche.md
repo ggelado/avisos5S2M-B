@@ -1,3 +1,9 @@
+---
+title: "Cómo llegar desde Aluche"
+excerpt: "Información sobre cómo llegar desde Aluche al campus."
+author: Gonzalo
+---
+
 <link
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
