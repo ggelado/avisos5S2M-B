@@ -1,3 +1,9 @@
+---
+title: "Cómo llegar desde Campamento"
+excerpt: "Información sobre cómo llegar desde Campamento al campus."
+author: Gonzalo
+---
+
 <link
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
