@@ -3,7 +3,7 @@ layout: post
 title: Examen IngSoft I
 date: 2026-04-03 00:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 event_date: 2026-04-08 12:00:00 +0200
 expires: 2026-04-08 14:00:00 +0200
 categories:
