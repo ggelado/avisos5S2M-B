@@ -5,7 +5,7 @@ date: 2026-04-09 17:10:09 +0200
 
 author: Gonzalo
 published: true
-expires: 2026-04-12 23:59:59 +0200
+expires: 2026-04-11 23:59:59 +0200
 excerpt: "Se recomienda encarecidamente su lectura"
 
 
