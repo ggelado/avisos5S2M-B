@@ -3,7 +3,7 @@ layout: post
 title: Caída de Cloudflare
 date: 2025-11-18 11:48:00 +0000
 author: Gonzalo
-expires: 2025-11-18 19:45:31 2025 +0100
+expires: 2025-11-18 19:45:31 +0100
 published: false
 categories:
   - Incidencias de Servicio
