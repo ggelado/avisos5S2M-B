@@ -3,7 +3,7 @@ layout: post
 title: Entrega D2.3
 date: 2026-04-07 00:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 event_date: 2026-04-10 23:59:59 +0200
 expires: 2026-04-10 23:59:59 +0200
 categories:

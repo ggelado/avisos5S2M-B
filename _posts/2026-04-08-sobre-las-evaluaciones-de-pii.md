@@ -4,7 +4,7 @@ title: "Sobre las evaluaciones de PII"
 date: 2026-04-08 18:38:34 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-10 23:59:59 +0200
 excerpt: "AVISO ESPECIAL PARA USUARIOS DE IOS"
 image: "https://www.sublimesolutions.es/imgs/articulos/articulos34_11587.jpg"
