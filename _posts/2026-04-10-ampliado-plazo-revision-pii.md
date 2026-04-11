@@ -4,7 +4,7 @@ title: "Ampliado plazo revisión PII"
 date: 2026-04-10 21:23:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-11 23:59:00 +0200
 excerpt: "Se amplía 1 día el plazo de revisión (fase de evaluación de taller D2.4), hasta mañana 23:59h."
 
