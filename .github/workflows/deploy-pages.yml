@@ -16,7 +16,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install PyYAML
+
+      - name: Validar posts
+        run: python scripts/validate_posts.py
+
   build:
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
