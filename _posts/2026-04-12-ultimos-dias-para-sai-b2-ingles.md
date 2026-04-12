@@ -7,7 +7,7 @@ author: Gonzalo
 published: true
 expires: 2026-04-15 23:59:59 +0200
 excerpt: "Cierra el 15 de abril."
-image: "https://capman.es/sites/default/files/styles/max_1300x1300/public/images/blog/sai%20upm%20mayo%2026.png.webp?itok=bYI8NZ_X"
+image: "https://github.com/user-attachments/assets/3187c27c-6cc8-4cfb-b436-b46a802f2021"
 categories:
   - Convocatorias de Examen
   - SAI
