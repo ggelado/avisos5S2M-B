@@ -4,11 +4,6 @@ on:
   pull_request:
     paths:
       - "_posts/**"
-  push:
-    branches:
-      - main
-    paths:
-      - "_posts/**"
 
 jobs:
   validate:
