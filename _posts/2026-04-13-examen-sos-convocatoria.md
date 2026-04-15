@@ -13,6 +13,7 @@ categories:
   - SOS
 excerpt: CONVOCATORIA ACTUALIZADA. Examen 16 de abril SOS.
 last_modified_at: 2026-04-15 12:38:00 +0200
+redirect_from: convocatorias%20de%20examen/sos/2026/04/13/examen-sos.html
 ---
 
 <div class="d-flex border p-2 mb-2 forumpost focus-target  firstpost starter" aria-label="Examen parcial por AZQUETA ALZUAZ AINHOA" data-post-id="45413" data-content="forum-post">
