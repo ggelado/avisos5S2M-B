@@ -4,7 +4,7 @@ title: "Últimos días para SAI B2 Inglés."
 date: 2026-04-12 00:00:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-15 23:59:59 +0200
 excerpt: "Cierra el 15 de abril."
 image: "https://github.com/user-attachments/assets/3187c27c-6cc8-4cfb-b436-b46a802f2021"
