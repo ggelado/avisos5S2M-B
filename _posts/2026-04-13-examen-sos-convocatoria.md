@@ -11,7 +11,7 @@ expires: 2026-04-16 14:50:00 +0200
 categories:
   - Convocatorias de Examen
   - SOS
-excerpt: Examen 16 de abril SOS
+excerpt: CONVOCATORIA ACTUALIZADA. Examen 16 de abril SOS.
 last_modified_at: 2026-04-15 12:38:00 +0200
 ---
 
