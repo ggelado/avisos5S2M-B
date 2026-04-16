@@ -4,7 +4,7 @@ title: "Enunciado práctica prodelog"
 date: 2026-04-13 00:03:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-16 23:59:00 +0200
 excerpt: "Ya disponible"
 image: "https://dia.fi.upm.es/wp-content/uploads/2023/11/logo-dia-actualizado.svg"
