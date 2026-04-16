@@ -5,7 +5,7 @@ date: 2026-04-13 00:00:00 +0200
 author:
   name: AZQUETA ALZUAZ AINHOA
   email: ainhoa.azqueta@upm.es
-published: true
+published: false
 event_date: 2026-04-16 14:00:00 +0200
 expires: 2026-04-16 14:50:00 +0200
 categories:
