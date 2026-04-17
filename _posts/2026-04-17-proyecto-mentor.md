@@ -3,7 +3,9 @@ layout: post
 title: "Proyecto Mentor"
 date: 2026-04-17 11:35:12 +0200
 
-author: Gonzalo
+author:
+  name: Subdirección de Estudiantes y Extensión Universitaria ETSIInf
+  email: estudiantes.etsiinf@upm.es
 published: true
 expires: 2026-04-23 23:59:59 +0200
 excerpt: "Inscripción hasta 24 abril"
