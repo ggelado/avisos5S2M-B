@@ -4,7 +4,7 @@ title: "Notas ProDeLog"
 date: 2026-04-19 18:44:54 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-19 23:59:59 +0200
 excerpt: "De la 1era práctica"
 
