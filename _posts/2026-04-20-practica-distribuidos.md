@@ -3,7 +3,9 @@ layout: post
 title: "Práctica Distribuidos"
 date: 2026-04-20 09:13:00 +0200
 
-author: Fernando Pérez Costoya
+author: 
+  name: Fernando Pérez Costoya
+  email: fernando.perez@upm.es
 published: true
 expires: 2026-04-23 23:59:59 +0200
 excerpt: "Enunciado ya disponible"
