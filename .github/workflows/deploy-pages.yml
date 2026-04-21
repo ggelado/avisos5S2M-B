@@ -12,6 +12,11 @@ on:
       timezone: 'Europe/Madrid'
     - cron: 0 15 * * 1-5
       timezone: 'Europe/Madrid'
+    - cron: 0 14 * * 1-5
+      timezone: 'Europe/Madrid'
+    - cron: 0 17 * * 1-5
+      timezone: 'Europe/Madrid'
+      # The change of day is handled through triqui
   
 
 permissions:
@@ -65,12 +70,6 @@ jobs:
 
       - name: Build con Jekyll
         uses: actions/jekyll-build-pages@v1
-
-      - name: Fix sitemap namespace
-        run: |
-          if [ -f ./_site/sitemap.xml ]; then
-            sudo sed -i 's/ xmlns:xsi="[^"]*" xsi:schemaLocation="[^"]*"//g' ./_site/sitemap.xml
-          fi
 
       - name: Subir artefacto de Pages
         uses: actions/upload-pages-artifact@v3
