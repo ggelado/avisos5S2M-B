@@ -6,7 +6,7 @@ date: 2026-04-17 11:35:12 +0200
 author:
   name: Subdirección de Estudiantes y Extensión Universitaria ETSIInf
   email: estudiantes.etsiinf@upm.es
-published: true
+published: false
 expires: 2026-04-21 23:59:59 +0200
 excerpt: "Inscripción hasta 24 abril"
 image: "https://github.com/user-attachments/assets/1c289fdf-10d9-4006-8e8a-56948d4e0a56"
