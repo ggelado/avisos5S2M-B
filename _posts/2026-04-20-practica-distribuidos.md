@@ -6,7 +6,7 @@ date: 2026-04-20 09:13:00 +0200
 author: 
   name: Fernando Pérez Costoya
   email: fernando.perez@upm.es
-published: true
+published: false
 expires: 2026-04-23 23:59:59 +0200
 excerpt: "Enunciado ya disponible"
 image: "https://www.datsi.fi.upm.es/icons/datsi_small.gif"
