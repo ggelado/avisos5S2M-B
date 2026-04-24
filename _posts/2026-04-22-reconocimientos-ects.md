@@ -4,7 +4,7 @@ title: "Reconocimientos ECTS"
 date: 2026-04-22 10:56:42 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-24 23:59:59 +0200
 excerpt: "Novedades, leer detenidamente."
 

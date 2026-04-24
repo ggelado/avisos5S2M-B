@@ -4,7 +4,7 @@ title: "Encuestas"
 date: 2026-04-21 00:00:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-24 23:59:59 +0200
 excerpt: "Disponibles hasta el 29 de mayo"
 

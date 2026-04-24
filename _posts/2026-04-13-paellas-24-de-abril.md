@@ -4,7 +4,7 @@ title: "Paellas 24 de abril"
 date: 2026-04-13 13:02:21 +0200
 image: "https://github.com/user-attachments/assets/5533ad7c-f69c-4c44-9d5f-21a966864e50"
 author: Gonzalo
-published: true
+published: false
 event_date: 2026-04-24 09:00:00 +0200
 expires: 2026-04-24 19:00:00 +0200
 last_modified_at: 2026-04-14 20:21:00 +0200
