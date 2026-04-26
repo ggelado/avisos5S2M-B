@@ -4,7 +4,7 @@ title: "Formación SAI"
 date: 2026-04-20 00:00:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-26 23:59:59 +0200
 excerpt: "Puedes solicitarla sin coste hasta el 26 de abril."
 image: "https://capman.es/sites/default/files/styles/max_1300x1300/public/images/blog/sai%20upm%20mayo%2026.png.webp?itok=bYI8NZ_X"
