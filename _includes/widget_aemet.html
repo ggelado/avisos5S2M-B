@@ -93,12 +93,10 @@
     }
 
     async function loadNowData() {
-      var widget = document.getElementById('widget-aemet');
-      if (!widget) return null;
       try {
         var now = new Date();
         var endIso = now.toISOString();
-        var start = new Date(now.getTime() - 10 * 60 * 1000); // last 10 minutes
+        var start = new Date(now.getTime() - 2 * 60 * 60 * 1000); // last 2 hours
         var startIso = start.toISOString();
         var picoUrl = buildPicoUrl(startIso, endIso);
         var res = await fetch(picoUrl);
@@ -108,39 +106,22 @@
         // try common shapes
         if (!Array.isArray(entries) && json && json.data && Array.isArray(json.data)) entries = json.data;
         if (!entries || entries.length === 0) return null;
-        var last = entries[entries.length - 1];
-        // support either object with fields or array of {fields: {...}}
-        var point = last.fields || last;
+        var points = entries.map(function (entry) { return entry.fields || entry; }).filter(function (point) {
+          return point && typeof point.temperature === 'number';
+        });
+        if (!points.length) return null;
+
+        var last = points[points.length - 1];
 
         return {
-          temperature: (point.temperature != null) ? Math.round(point.temperature * 10) / 10 : '—',
-          humidity: (point.humidity != null) ? Math.round(point.humidity) : '—',
-          pressure: (point.pressure != null) ? Math.round(point.pressure) : '—',
-          windSpeed: (point.wind_speed != null) ? (Math.round(point.wind_speed * 10) / 10) : '—',
-          windDirection: (point.wind_direction != null) ? Math.round(point.wind_direction) + '°' : '',
-          gustSpeed: (point.gust_speed != null) ? (Math.round(point.gust_speed * 10) / 10) : '—',
-          stamp: point.period_end || point.period_start || ''
+          currentTemperature: Math.round(last.temperature * 10) / 10,
+          stamp: last.period_end || last.period_start || ''
         };
       } catch (e) {
         // don't break the whole widget on picoWeather errors
         console.warn('picoWeather error', e);
         return null;
       }
-    }
-
-    function buildNowHTML(nowData) {
-      if (!nowData) return '';
-      return (
-        '<div class="col-now">' +
-        '<span class="label-when">ahora</span>' +
-        '<span class="now-temp">' + nowData.temperature + '°C</span>' +
-        '<span class="now-details">' + nowData.humidity + '% · ' + nowData.pressure + ' hPa</span>' +
-        (nowData.windSpeed !== '—' ? '<span class="now-wind">· ' + nowData.windSpeed + ' m/s ' + nowData.windDirection + '</span>' : '') +
-        (nowData.gustSpeed !== '—' ? '<span class="now-gust">· racha ' + nowData.gustSpeed + ' m/s</span>' : '') +
-        (nowData.stamp ? '<span class="now-stamp">· ' + nowData.stamp + '</span>' : '') +
-        '</div>' +
-        '<div class="sep"></div>'
-      );
     }
 
     async function loadWeather() {
@@ -213,7 +194,8 @@
       }
     }
 
-    function buildForecastHTML(forecastData) {
+    function buildForecastHTML(forecastData, nowData) {
+      var currentHTML = nowData ? '<span class="now-temp now-temp--current">' + nowData.currentTemperature.toFixed(1) + '°C actual</span>' : '';
       return (
         '<div class="col-date">' +
         '<span class="label-when">' + (forecastData.isTomorrow ? 'mañana' : 'hoy') + '</span>' +
@@ -227,6 +209,7 @@
         '<span class="temp-unit">°C</span>' +
         '<span class="temp-sep">/</span>' +
         '<span class="temp-min">' + forecastData.tempMin + '°</span>' +
+        (currentHTML ? '<span class="now-line">' + currentHTML + '</span>' : '') +
         '</div>' +
         (forecastData.skyDesc ? '<span class="sky-desc">' + forecastData.skyDesc + '</span>' : '') +
         '</div>' +
@@ -251,7 +234,7 @@
         return;
       }
 
-      widget.innerHTML = buildNowHTML(resultNow) + buildForecastHTML(forecastData);
+      widget.innerHTML = buildForecastHTML(forecastData, resultNow);
       widget.classList.add('ready');
     }
 
