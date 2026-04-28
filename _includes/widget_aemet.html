@@ -96,44 +96,37 @@
       try {
         var now = new Date();
         var endIso = now.toISOString();
-        var start = new Date(now.getTime() - 2 * 60 * 60 * 1000); // last 2 hours
+        var start = new Date(now.getTime() - 2 * 60 * 60 * 1000);
         var startIso = start.toISOString();
         var picoUrl = buildPicoUrl(startIso, endIso);
+
         var res = await fetch(picoUrl);
-        if (!res.ok) throw new Error('error de red picoWeather');
-        var json = await res.json();
-        var entries = json && (json.data || json.results || json.items || json.records || []);
-        // try common shapes
-        if (!Array.isArray(entries) && json && json.data && Array.isArray(json.data)) entries = json.data;
-        if (!entries || entries.length === 0) return null;
+        if (!res.ok) throw new Error('Error en PicoWeather');
 
-        var points = entries
-          .map(function (entry) { return entry.fields || entry; })
-          .filter(function (p) {
-            return p && typeof p.temperature === 'number';
-          });
-        if (!points.length) return null;
+        var entries = await res.json(); // 'entries' ya es el array directamente
 
-        var last = points[points.length - 1];
+        if (!Array.isArray(entries) || entries.length === 0) return null;
 
-        // lluvia reciente (últimos 3 registros)
-        var lastPoints = points.slice(-3);
+        // Tomamos el último registro (el más reciente)
+        var last = entries[entries.length - 1];
 
-        var rainSum = lastPoints.reduce(function (acc, p) {
+        // Verificamos que tenga temperatura
+        if (typeof last.temperature !== 'number') return null;
+
+        // Lógica de lluvia: sumamos la lluvia de los últimos 3 registros para mayor precisión
+        var last3 = entries.slice(-3);
+        var rainSum = last3.reduce(function (acc, p) {
           return acc + (p.rainfall || 0);
         }, 0);
 
-        var isRainingNow =
-          (last.rainfall && last.rainfall >= 0.1) || rainSum >= 0.2;
+        var isRainingNow = (last.rainfall && last.rainfall >= 0.1) || rainSum >= 0.2;
 
         return {
           currentTemperature: Math.round(last.temperature * 10) / 10,
-          stamp: last.period_end || last.period_start || '',
           isRainingNow: isRainingNow
         };
       } catch (e) {
-        // don't break the whole widget on picoWeather errors
-        console.warn('picoWeather error', e);
+        console.warn('Error cargando datos en tiempo real:', e);
         return null;
       }
     }
@@ -230,9 +223,9 @@
         (forecastData.skyDesc ? '<span class="sky-desc">' + forecastData.skyDesc + '</span>' : '') +
         (nowTemp
           ? '<div class="now-mini">' +
-              'Ahora: ' + nowTemp + '°C' +
-              (nowData && nowData.isRainingNow ? ' · Lloviendo' : '') +
-            '</div>'
+          'Ahora: ' + nowTemp + '°C' +
+          (nowData && nowData.isRainingNow ? ' · Lloviendo' : '') +
+          '</div>'
           : '') +
         '</div>' +
         forecastData.precipHTML
