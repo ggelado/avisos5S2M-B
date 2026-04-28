@@ -195,7 +195,6 @@
     }
 
     function buildForecastHTML(forecastData, nowData) {
-      var currentHTML = nowData ? '<span class="now-temp now-temp--current">' + nowData.currentTemperature.toFixed(1) + '°C actual</span>' : '';
       return (
         '<div class="col-date">' +
         '<span class="label-when">' + (forecastData.isTomorrow ? 'mañana' : 'hoy') + '</span>' +
@@ -209,11 +208,21 @@
         '<span class="temp-unit">°C</span>' +
         '<span class="temp-sep">/</span>' +
         '<span class="temp-min">' + forecastData.tempMin + '°</span>' +
-        (currentHTML ? '<span class="now-line">' + currentHTML + '</span>' : '') +
         '</div>' +
         (forecastData.skyDesc ? '<span class="sky-desc">' + forecastData.skyDesc + '</span>' : '') +
         '</div>' +
         forecastData.precipHTML
+      );
+    }
+
+    function buildNowHTML(nowData) {
+      if (!nowData) return '';
+      return (
+        '<div class="col-now">' +
+        '<span class="label-when">actual</span>' +
+        '<span class="now-temp now-temp--current">' + nowData.currentTemperature.toFixed(1) + '°C</span>' +
+        '<span class="now-stamp">última medición' + (nowData.stamp ? ' · ' + nowData.stamp : '') + '</span>' +
+        '</div>'
       );
     }
 
@@ -234,7 +243,7 @@
         return;
       }
 
-      widget.innerHTML = buildForecastHTML(forecastData, resultNow);
+      widget.innerHTML = buildForecastHTML(forecastData, resultNow) + buildNowHTML(resultNow);
       widget.classList.add('ready');
     }
 
