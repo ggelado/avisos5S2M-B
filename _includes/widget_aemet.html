@@ -83,7 +83,7 @@
     function buildPicoUrl(startIso, endIso) {
       var base = 'https://api.picoweather.net/stations/83b2635b-2f70-4137-8e3b-ff7e907a10f9/data';
       var params = new URLSearchParams({
-        timezone: 'Europe/Madrid',
+        timezone: 'UTC',
         start_time: startIso,
         end_time: endIso,
         granularity: 'raw',
