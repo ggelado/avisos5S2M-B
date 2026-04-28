@@ -82,10 +82,17 @@
     // --- picoWeather: now/current observations ---
     function buildPicoUrl(startIso, endIso) {
       var base = 'https://api.picoweather.net/stations/83b2635b-2f70-4137-8e3b-ff7e907a10f9/data';
+
+      // Adjust start and end times to have seconds and milliseconds set to 0
+      var start = new Date(startIso);
+      start.setSeconds(0, 0);
+      var end = new Date(endIso);
+      end.setSeconds(0, 0);
+
       var params = new URLSearchParams({
-        timezone: 'UTC',
-        start_time: startIso,
-        end_time: endIso,
+        timezone: 'Europe/Madrid',
+        start_time: start.toISOString(),
+        end_time: end.toISOString(),
         granularity: 'raw',
         fields: 'temperature,humidity,pressure,lux,uvi,wind_speed,wind_direction,gust_speed,gust_direction,rainfall,solar_irradiance'
       });
