@@ -106,16 +106,30 @@
         // try common shapes
         if (!Array.isArray(entries) && json && json.data && Array.isArray(json.data)) entries = json.data;
         if (!entries || entries.length === 0) return null;
-        var points = entries.map(function (entry) { return entry.fields || entry; }).filter(function (point) {
-          return point && typeof point.temperature === 'number';
-        });
+
+        var points = entries
+          .map(function (entry) { return entry.fields || entry; })
+          .filter(function (p) {
+            return p && typeof p.temperature === 'number';
+          });
         if (!points.length) return null;
 
         var last = points[points.length - 1];
 
+        // lluvia reciente (últimos 3 registros)
+        var lastPoints = points.slice(-3);
+
+        var rainSum = lastPoints.reduce(function (acc, p) {
+          return acc + (p.rainfall || 0);
+        }, 0);
+
+        var isRainingNow =
+          (last.rainfall && last.rainfall >= 0.1) || rainSum >= 0.2;
+
         return {
           currentTemperature: Math.round(last.temperature * 10) / 10,
-          stamp: last.period_end || last.period_start || ''
+          stamp: last.period_end || last.period_start || '',
+          isRainingNow: isRainingNow
         };
       } catch (e) {
         // don't break the whole widget on picoWeather errors
@@ -195,6 +209,10 @@
     }
 
     function buildForecastHTML(forecastData, nowData) {
+      var nowTemp = (nowData && typeof nowData.currentTemperature === 'number')
+        ? nowData.currentTemperature.toFixed(1)
+        : null;
+
       return (
         '<div class="col-date">' +
         '<span class="label-when">' + (forecastData.isTomorrow ? 'mañana' : 'hoy') + '</span>' +
@@ -210,19 +228,14 @@
         '<span class="temp-min">' + forecastData.tempMin + '°</span>' +
         '</div>' +
         (forecastData.skyDesc ? '<span class="sky-desc">' + forecastData.skyDesc + '</span>' : '') +
+        (nowTemp
+          ? '<div class="now-mini">' +
+              'Ahora: ' + nowTemp + '°C' +
+              (nowData && nowData.isRainingNow ? ' · Lloviendo' : '') +
+            '</div>'
+          : '') +
         '</div>' +
         forecastData.precipHTML
-      );
-    }
-
-    function buildNowHTML(nowData) {
-      if (!nowData) return '';
-      return (
-        '<div class="col-now">' +
-        '<span class="label-when">actual</span>' +
-        '<span class="now-temp now-temp--current">' + nowData.currentTemperature.toFixed(1) + '°C</span>' +
-        '<span class="now-stamp">última medición' + (nowData.stamp ? ' · ' + nowData.stamp : '') + '</span>' +
-        '</div>'
       );
     }
 
@@ -243,7 +256,7 @@
         return;
       }
 
-      widget.innerHTML = buildForecastHTML(forecastData, resultNow) + buildNowHTML(resultNow);
+      widget.innerHTML = buildForecastHTML(forecastData, resultNow);
       widget.classList.add('ready');
     }
 
