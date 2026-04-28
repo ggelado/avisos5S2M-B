@@ -9,7 +9,7 @@
 
     try {
       const res = await fetch(
-        "https://notifierpushrss.onrender.com/api/cors-proxy?url=https://hayahora.futbol/estado/data.json",
+        "https://notifierpushrss.onrender.com/api/cors-proxy?url=" + encodeURIComponent("https://hayahora.futbol/estado/data.json"),
         { signal: controller.signal }
       );
 

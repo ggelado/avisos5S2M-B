@@ -94,7 +94,7 @@
 
     async function loadNowData() {
       var widget = document.getElementById('widget-aemet');
-      if (!widget) return;
+      if (!widget) return null;
       try {
         var now = new Date();
         var endIso = now.toISOString();
@@ -107,39 +107,45 @@
         var entries = json && (json.data || json.results || json.items || json.records || []);
         // try common shapes
         if (!Array.isArray(entries) && json && json.data && Array.isArray(json.data)) entries = json.data;
-        if (!entries || entries.length === 0) return;
+        if (!entries || entries.length === 0) return null;
         var last = entries[entries.length - 1];
         // support either object with fields or array of {fields: {...}}
         var point = last.fields || last;
 
-        var t = (point.temperature != null) ? Math.round(point.temperature * 10) / 10 : '—';
-        var h = (point.humidity != null) ? Math.round(point.humidity) : '—';
-        var p = (point.pressure != null) ? Math.round(point.pressure) : '—';
-        var ws = (point.wind_speed != null) ? (Math.round(point.wind_speed * 10) / 10) : '—';
-        var wd = (point.wind_direction != null) ? Math.round(point.wind_direction) + '°' : '';
-        var gust = (point.gust_speed != null) ? (Math.round(point.gust_speed * 10) / 10) : '—';
-
-        var nowHTML =
-          '<div class="col-now">' +
-          '<span class="label-when">ahora</span>' +
-          '<span class="now-temp">' + t + '°C</span>' +
-          '<span class="now-details">' + h + '% · ' + p + ' hPa</span>' +
-          (ws !== '—' ? '<span class="now-wind">· ' + ws + ' m/s ' + wd + '</span>' : '') +
-          (gust !== '—' ? '<span class="now-gust">· racha ' + gust + ' m/s</span>' : '') +
-          '</div>' +
-          '<div class="sep"></div>';
-        // store HTML for later combination (don't overwrite forecast yet)
-        widget._nowHTML = nowHTML;
-        widget.classList.add('now-available');
+        return {
+          temperature: (point.temperature != null) ? Math.round(point.temperature * 10) / 10 : '—',
+          humidity: (point.humidity != null) ? Math.round(point.humidity) : '—',
+          pressure: (point.pressure != null) ? Math.round(point.pressure) : '—',
+          windSpeed: (point.wind_speed != null) ? (Math.round(point.wind_speed * 10) / 10) : '—',
+          windDirection: (point.wind_direction != null) ? Math.round(point.wind_direction) + '°' : '',
+          gustSpeed: (point.gust_speed != null) ? (Math.round(point.gust_speed * 10) / 10) : '—',
+          stamp: point.period_end || point.period_start || ''
+        };
       } catch (e) {
         // don't break the whole widget on picoWeather errors
         console.warn('picoWeather error', e);
+        return null;
       }
+    }
+
+    function buildNowHTML(nowData) {
+      if (!nowData) return '';
+      return (
+        '<div class="col-now">' +
+        '<span class="label-when">ahora</span>' +
+        '<span class="now-temp">' + nowData.temperature + '°C</span>' +
+        '<span class="now-details">' + nowData.humidity + '% · ' + nowData.pressure + ' hPa</span>' +
+        (nowData.windSpeed !== '—' ? '<span class="now-wind">· ' + nowData.windSpeed + ' m/s ' + nowData.windDirection + '</span>' : '') +
+        (nowData.gustSpeed !== '—' ? '<span class="now-gust">· racha ' + nowData.gustSpeed + ' m/s</span>' : '') +
+        (nowData.stamp ? '<span class="now-stamp">· ' + nowData.stamp + '</span>' : '') +
+        '</div>' +
+        '<div class="sep"></div>'
+      );
     }
 
     async function loadWeather() {
       var widget = document.getElementById('widget-aemet');
-      if (!widget) return;
+      if (!widget) return null;
 
       var targetDate = getTargetDate();
       var isTomorrow = new Date().getHours() >= 20;
@@ -192,39 +198,67 @@
           (slotLabels.length ? '<span class="precip-hours">' + slotLabels.join('\n') + '</span>' : '') +
           '</div>';
 
-        var forecastHTML =
-          '<div class="col-date">' +
-          '<span class="label-when">' + (isTomorrow ? 'mañana' : 'hoy') + '</span>' +
-          '<span class="date-text">' + formatDate(targetDate) + '</span>' +
-          '</div>' +
-          '<div class="sep"></div>' +
-          '<div class="col-sky-temp">' +
-          '<div class="col-icon">' + getIcon(skyCode) + '</div>' +
-          '<div class="col-temp">' +
-          '<span class="temp-max">' + tempMax + '</span>' +
-          '<span class="temp-unit">°C</span>' +
-          '<span class="temp-sep">/</span>' +
-          '<span class="temp-min">' + tempMin + '°</span>' +
-          '</div>' +
-          (skyDesc ? '<span class="sky-desc">' + skyDesc + '</span>' : '') +
-          '</div>' +
-          precipHTML;
-
-        // combine now (if available) with forecast into the same widget
-        var nowPart = (widget._nowHTML && widget.classList.contains('now-available')) ? widget._nowHTML : '';
-        widget.innerHTML = nowPart + forecastHTML;
+        return {
+          targetDate: targetDate,
+          isTomorrow: isTomorrow,
+          tempMin: tempMin,
+          tempMax: tempMax,
+          skyCode: skyCode,
+          skyDesc: skyDesc,
+          precipHTML: precipHTML
+        };
 
       } catch (e) {
-        widget.innerHTML = '<span class="state-msg">No se pudo cargar el tiempo · ' + e.message + '</span>';
+        return { error: e.message };
       }
+    }
+
+    function buildForecastHTML(forecastData) {
+      return (
+        '<div class="col-date">' +
+        '<span class="label-when">' + (forecastData.isTomorrow ? 'mañana' : 'hoy') + '</span>' +
+        '<span class="date-text">' + formatDate(forecastData.targetDate) + '</span>' +
+        '</div>' +
+        '<div class="sep"></div>' +
+        '<div class="col-sky-temp">' +
+        '<div class="col-icon">' + getIcon(forecastData.skyCode) + '</div>' +
+        '<div class="col-temp">' +
+        '<span class="temp-max">' + forecastData.tempMax + '</span>' +
+        '<span class="temp-unit">°C</span>' +
+        '<span class="temp-sep">/</span>' +
+        '<span class="temp-min">' + forecastData.tempMin + '°</span>' +
+        '</div>' +
+        (forecastData.skyDesc ? '<span class="sky-desc">' + forecastData.skyDesc + '</span>' : '') +
+        '</div>' +
+        forecastData.precipHTML
+      );
+    }
+
+    async function loadWidget() {
+      var widget = document.getElementById('widget-aemet');
+      if (!widget) return;
+
+      var resultNow = await loadNowData();
+      var forecastData = await loadWeather();
+
+      if (forecastData && forecastData.error) {
+        widget.innerHTML = '<span class="state-msg">No se pudo cargar el tiempo · ' + forecastData.error + '</span>';
+        return;
+      }
+
+      if (!forecastData) {
+        widget.innerHTML = '<span class="state-msg">No se pudo cargar el tiempo</span>';
+        return;
+      }
+
+      widget.innerHTML = buildNowHTML(resultNow) + buildForecastHTML(forecastData);
       widget.classList.add('ready');
     }
 
-    // call both loaders in parallel and combine results when ready
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function () { Promise.all([loadNowData(), loadWeather()]); });
+      document.addEventListener('DOMContentLoaded', loadWidget);
     } else {
-      Promise.all([loadNowData(), loadWeather()]);
+      loadWidget();
     }
   })();
 </script>
