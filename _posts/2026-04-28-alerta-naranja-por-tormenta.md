@@ -4,7 +4,7 @@ title: "Alerta naranja por tormenta"
 date: 2026-04-28 23:15:00 +0200
 event_date: 2026-04-29 12:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-29 22:00:00 +0200
 excerpt: "Mañana INUNCAM activado"
 image: "https://www.rivasciudad.es/wp-content/uploads/2026/04/Captura-de-pantalla-46.png"
