@@ -51,14 +51,7 @@
         div.classList.remove("alerta-bloqueos--active");
       }
 
-    } catch (e) {
-      if (e instanceof TypeError) {
-        div.innerHTML = `
-        <strong>AVISO:</strong> Tu conexión a varios servicios (alojados en Cloudflare) en los que se sustenta esta web ha fallado, por lo que tú navegación no está operando con normalidad. Recomendamos acceder a esta página con una VPN, y ver si este aviso desaparece o cambia.`;
-        div.classList.add("alerta-bloqueos", "alerta-bloqueos--active");
-        div.style.display = "block";
-      }
-    }
+    } catch (e) {}
   }
 
 

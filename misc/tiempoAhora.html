@@ -1,0 +1,78 @@
+---
+layout: default
+title: Tiempo Actual
+permalink: /tiempo.html
+---
+
+<div class="tiempo-actual">
+  <h2>Tiempo Actual</h2>
+  <div id="widget-aemet"></div>
+  <div class="camera-feed">
+    <h2>Vista en tiempo real</h2>
+    <img src="https://ofs.fi.upm.es/camera/cgi-bin/faststream.jpg" alt="Vista en tiempo real desde la cámara" />
+  </div>
+</div>
+
+<script>
+  (function() {
+    async function loadNowData() {
+      try {
+        const now = new Date();
+        const endIso = now.toISOString();
+        const start = new Date(now.getTime() - 2 * 60 * 60 * 1000).toISOString();
+
+        const url = `https://api.picoweather.net/stations/83b2635b-2f70-4137-8e3b-ff7e907a10f9/data?timezone=UTC&start_time=${start}&end_time=${endIso}&granularity=raw&fields=temperature,humidity,pressure,lux,uvi,wind_speed,wind_direction,gust_speed,gust_direction,rainfall,solar_irradiance`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Error al obtener datos de PicoWeather');
+
+        const data = await response.json();
+        if (!Array.isArray(data) || data.length === 0) return null;
+
+        const latest = data[data.length - 1];
+        return {
+          temperature: latest.temperature?.toFixed(1) || 'N/A',
+          humidity: latest.humidity?.toFixed(0) || 'N/A',
+          pressure: latest.pressure?.toFixed(1) || 'N/A',
+          lux: latest.lux?.toFixed(0) || 'N/A',
+          uvi: latest.uvi?.toFixed(1) || 'N/A',
+          windSpeed: latest.wind_speed?.toFixed(1) || 'N/A',
+          windDirection: latest.wind_direction?.toFixed(0) || 'N/A',
+          gustSpeed: latest.gust_speed?.toFixed(1) || 'N/A',
+          gustDirection: latest.gust_direction?.toFixed(0) || 'N/A',
+          rainfall: latest.rainfall?.toFixed(1) || 'N/A',
+          solarIrradiance: latest.solar_irradiance?.toFixed(1) || 'N/A'
+        };
+      } catch (error) {
+        console.error('Error cargando datos de PicoWeather:', error);
+        return null;
+      }
+    }
+
+    async function displayNowData() {
+      const widget = document.getElementById('widget-aemet');
+      if (!widget) return;
+
+      const nowData = await loadNowData();
+      if (!nowData) {
+        widget.innerHTML = '<p>No se pudo cargar el tiempo actual.</p>';
+        return;
+      }
+
+      widget.innerHTML = `
+        <div class="now-data">
+          <p>Temperatura: ${nowData.temperature}°C - ${nowData.temperature > 30 ? 'Calor' : nowData.temperature < 15 ? 'Frío' : 'Agradable'}</p>
+          <p>Humedad: ${nowData.humidity}% - ${nowData.humidity > 70 ? 'Alta humedad' : nowData.humidity < 30 ? 'Baja humedad' : 'Nivel cómodo'}</p>
+          <p>Presión: ${nowData.pressure} hPa - ${nowData.pressure > 1015 ? 'Alta presión (Estable)' : nowData.pressure < 1005 ? 'Baja presión (Inestable)' : 'Presión normal'}</p>
+          <p>Luz: ${nowData.lux} lux - ${nowData.lux > 10000 ? 'Muy iluminado' : nowData.lux < 1000 ? 'Poca luz' : 'Iluminación moderada'}</p>
+          <p>Índice UV: ${nowData.uvi} - ${nowData.uvi > 7 ? 'Alto (Protección necesaria)' : nowData.uvi < 3 ? 'Bajo' : 'Moderado'}</p>
+          <p>Viento: ${nowData.windSpeed} m/s, ${nowData.windDirection}° - ${nowData.windSpeed > 10 ? 'Viento fuerte' : nowData.windSpeed < 2 ? 'Viento leve' : 'Viento moderado'}</p>
+          <p>Ráfagas: ${nowData.gustSpeed} m/s, ${nowData.gustDirection}° - ${nowData.gustSpeed > 15 ? 'Ráfagas intensas' : 'Ráfagas normales'}</p>
+          <p>Precipitación: ${nowData.rainfall} mm - ${nowData.rainfall > 0 ? 'Lluvia reciente' : 'Sin lluvia'}</p>
+          <p>Radiación Solar: ${nowData.solarIrradiance} W/m² - ${nowData.solarIrradiance > 800 ? 'Alta radiación' : nowData.solarIrradiance < 200 ? 'Baja radiación' : 'Radiación moderada'}</p>
+        </div>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', displayNowData);
+  })();
+</script>

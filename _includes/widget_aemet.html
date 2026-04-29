@@ -98,6 +98,7 @@
         var endIso = now.toISOString();
         var start = new Date(now.getTime() - 2 * 60 * 60 * 1000);
         var startIso = start.toISOString();
+
         var picoUrl = buildPicoUrl(startIso, endIso);
 
         var res = await fetch(picoUrl);
@@ -110,8 +111,8 @@
         // Tomamos el último registro (el más reciente)
         var last = entries[entries.length - 1];
 
-        // Verificamos que tenga temperatura
-        if (typeof last.temperature !== 'number') return null;
+        // Verificamos que tenga temperatura y humedad
+        if (typeof last.temperature !== 'number' || typeof last.humidity !== 'number') return null;
 
         // Lógica de lluvia: sumamos la lluvia de los últimos 3 registros para mayor precisión
         var last3 = entries.slice(-3);
@@ -123,6 +124,7 @@
 
         return {
           currentTemperature: Math.round(last.temperature * 10) / 10,
+          currentHumidity: Math.round(last.humidity),
           isRainingNow: isRainingNow
         };
       } catch (e) {
@@ -201,36 +203,45 @@
       }
     }
 
-    function buildForecastHTML(forecastData, nowData) {
-      var nowTemp = (nowData && typeof nowData.currentTemperature === 'number')
-        ? nowData.currentTemperature.toFixed(1)
-        : null;
+function buildForecastHTML(forecastData, nowData) {
+  var nowTemp = (nowData && typeof nowData.currentTemperature === 'number')
+    ? nowData.currentTemperature.toFixed(1)
+    : null;
 
-      return (
-        '<div class="col-date">' +
-        '<span class="label-when">' + (forecastData.isTomorrow ? 'mañana' : 'hoy') + '</span>' +
-        '<span class="date-text">' + formatDate(forecastData.targetDate) + '</span>' +
-        '</div>' +
-        '<div class="sep"></div>' +
-        '<div class="col-sky-temp">' +
-        '<div class="col-icon">' + getIcon(forecastData.skyCode) + '</div>' +
-        '<div class="col-temp">' +
-        '<span class="temp-max">' + forecastData.tempMax + '</span>' +
-        '<span class="temp-unit">°C</span>' +
-        '<span class="temp-sep">/</span>' +
-        '<span class="temp-min">' + forecastData.tempMin + '°</span>' +
-        '</div>' +
-        (forecastData.skyDesc ? '<span class="sky-desc">' + forecastData.skyDesc + '</span>' : '') +
-        (nowTemp
-          ? '<div class="now-mini">' +
-          'Ahora: ' + nowTemp + '°C' +
-          (nowData && nowData.isRainingNow ? ' · Lloviendo' : '') +
-          '</div>'
-          : '') +
-        '</div>' +
-        forecastData.precipHTML
-      );
-    }
+  var nowHumidity = (nowData && typeof nowData.currentHumidity === 'number')
+    ? nowData.currentHumidity
+    : null;
+
+  return (
+    '<div class="col-date">' +
+    '<span class="label-when">' + (forecastData.isTomorrow ? 'mañana' : 'hoy') + '</span>' +
+    '<span class="date-text">' + formatDate(forecastData.targetDate) + '</span>' +
+    '</div>' +
+    '<div class="sep"></div>' +
+    '<div class="col-sky-temp">' +
+    '<div class="col-icon">' + getIcon(forecastData.skyCode) + '</div>' +
+    '<div class="col-temp">' +
+    '<span class="temp-max">' + forecastData.tempMax + '</span>' +
+    '<span class="temp-unit">°C</span>' +
+    '<span class="temp-sep">/</span>' +
+    '<span class="temp-min">' + forecastData.tempMin + '°</span>' +
+    '</div>' +
+    (forecastData.skyDesc ? '<span class="sky-desc">' + forecastData.skyDesc + '</span>' : '') +
+
+    (nowTemp
+      ? '<a href="{{ site.baseurl }}/tiempo.html" class="now-mini-link">' +
+          '<div class="now-mini">' +
+            'Ahora: ' + nowTemp + '°C' +
+            (nowHumidity !== null ? ' · ' + nowHumidity + '%' : '') +
+            (nowData && nowData.isRainingNow ? ' · Lloviendo' : '') +
+          '</div>' +
+        '</a>'
+      : '') +
+
+    '</div>' +
+    forecastData.precipHTML
+  );
+}
 
     async function loadWidget() {
       var widget = document.getElementById('widget-aemet');
