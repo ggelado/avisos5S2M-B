@@ -5,7 +5,7 @@ date: 2026-04-28 00:00:00 +0200
 event_date: 2026-05-01 00:00:00 +0200
 author: Gonzalo
 published: true
-expires: 2026-05-01 23:59:59 +0200
+expires: 2026-05-01 19:00:00 +0200
 excerpt: "No hay clase el viernes"
 
 
