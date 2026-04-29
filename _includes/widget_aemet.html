@@ -231,7 +231,7 @@ function buildForecastHTML(forecastData, nowData) {
     (nowTemp
       ? '<a href="{{ site.baseurl }}/tiempo.html" class="now-mini-link">' +
           '<div class="now-mini">' +
-            'Ahora: ' + nowTemp + '°C' +
+             nowTemp + '°C' +
             (nowHumidity !== null ? ' · ' + nowHumidity + '%' : '') +
             (nowData && nowData.isRainingNow ? ' · Lloviendo' : '') +
           '</div>' +
