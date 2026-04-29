@@ -4,7 +4,7 @@ FROM ruby:3.2-slim
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     git \
-    python3.12 \
+    python3 \
     python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
@@ -21,13 +21,10 @@ RUN bundle install
 COPY . .
 
 # Instalar dependencias Python
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Ejecutar scripts Python
-RUN python3 caducidad.py && python3 calfile.py
+RUN pip install --no-cache-dir --break-system-packages -r requirements.txt
 
 # Exponer puerto
 EXPOSE 4000
 
 # Comando por defecto
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "4000", "--livereload"]
+CMD ["sh", "-c", "python3 caducidad.py && python3 calfile.py && bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload"]
