@@ -89,20 +89,19 @@ permalink: /tiempo.html
     }
 
     function classifyPressure(p, alt = 0) {
-      if (p == null) return 'N/A';
+  if (p == null) return 'N/A';
 
-      const correction = (alt / 1000) * 12;
-      const pAdj = p + correction;
+  const pAdj = p * Math.exp(alt / 8434);
 
-      if (pAdj >= 1030) return 'Anticiclón fuerte';
-      if (pAdj >= 1020) return 'Alta presión estable';
-      if (pAdj >= 1015) return 'Ligera estabilidad';
-      if (pAdj >= 1010) return 'Normal alta';
-      if (pAdj >= 1005) return 'Normal';
-      if (pAdj >= 1000) return 'Ligera inestabilidad';
-      if (pAdj >= 995) return 'Baja presión';
-      return 'Borrasca';
-    }
+  if (pAdj >= 1030) return 'Anticiclón fuerte';
+  if (pAdj >= 1020) return 'Alta presión estable';
+  if (pAdj >= 1015) return 'Ligera estabilidad';
+  if (pAdj >= 1010) return 'Normal alta';
+  if (pAdj >= 1005) return 'Normal';
+  if (pAdj >= 1000) return 'Ligera inestabilidad';
+  if (pAdj >= 995) return 'Baja presión';
+  return 'Borrasca';
+}
 
     function classifyWind(ws) {
       if (ws == null) return 'N/A';
