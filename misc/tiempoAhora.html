@@ -14,159 +14,179 @@ permalink: /tiempo.html
 </div>
 
 <p>Agradecimientos al OBSERVATORIO
-FRANCISCO SÁNCHEZ y a manuel@picoweather.net</p>
+  FRANCISCO SÁNCHEZ y a manuel@picoweather.net</p>
 <script>
-(function() {
+  (function () {
 
-  async function loadNowData() {
-    try {
-      const now = new Date();
-      const endIso = now.toISOString();
-      const start = new Date(now.getTime() - 60 * 60 * 1000).toISOString();
-
-      const url = `https://api.picoweather.net/stations/83b2635b-2f70-4137-8e3b-ff7e907a10f9/data?timezone=UTC&start_time=${start}&end_time=${endIso}&granularity=raw&fields=temperature,humidity,pressure,lux,uvi,wind_speed,wind_direction,gust_speed,gust_direction,rainfall,solar_irradiance`;
-
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Error al obtener datos');
-
-      const data = await response.json();
-      if (!Array.isArray(data) || data.length === 0) return null;
-
-      const latest = data[data.length - 1];
-
-      return {
-        temperature: latest.temperature,
-        humidity: latest.humidity,
-        pressure: latest.pressure,
-        lux: latest.lux,
-        uvi: latest.uvi,
-        windSpeed: latest.wind_speed,
-        windDirection: latest.wind_direction,
-        gustSpeed: latest.gust_speed,
-        gustDirection: latest.gust_direction,
-        rainfall: latest.rainfall,
-        solarIrradiance: latest.solar_irradiance
-      };
-
-    } catch (e) {
-      console.error(e);
-      return null;
-    }
-  }
-
-  function classifyTemperature(t) {
-    if (t == null) return 'N/A';
-    if (t >= 40) return 'Ola de calor extrema';
-    if (t >= 35) return 'Muy caluroso';
-    if (t >= 30) return 'Caluroso';
-    if (t >= 25) return 'Cálido';
-    if (t >= 18) return 'Templado';
-    if (t >= 10) return 'Fresco';
-    if (t >= 0) return 'Frío';
-    return 'Heladas';
-  }
-
-  function classifyHumidity(h) {
-    if (h == null) return 'N/A';
-    if (h >= 90) return 'Saturación de humedad';
-    if (h >= 75) return 'Humedad muy alta';
-    if (h >= 60) return 'Alta humedad';
-    if (h >= 40) return 'Humedad moderada';
-    if (h >= 25) return 'Ambiente seco';
-    return 'Muy seco';
-  }
-
-  function classifyPressure(p) {
-    if (p == null) return 'N/A';
-    if (p >= 1030) return 'Anticiclón fuerte';
-    if (p >= 1020) return 'Alta presión estable';
-    if (p >= 1015) return 'Ligera estabilidad';
-    if (p >= 1010) return 'Normal alta';
-    if (p >= 1005) return 'Normal';
-    if (p >= 1000) return 'Ligera inestabilidad';
-    if (p >= 995) return 'Baja presión';
-    return 'Borrasca';
-  }
-
-function classifyWind(ws) {
-  if (ws == null) return 'N/A';
-  if (ws >= 75) return 'Vendaval';              // ~Bft 9+
-  if (ws >= 50) return 'Viento fuerte';         // ~Bft 7–8
-  if (ws >= 30) return 'Viento moderado-fuerte';// ~Bft 5–6
-  if (ws >= 20) return 'Viento moderado';       // ~Bft 4
-  if (ws >= 10) return 'Brisa';                 // ~Bft 2–3
-  if (ws >= 2) return 'Viento débil';           // ~Bft 1
-  return 'Calma';                               // ~Bft 0
-}
-
-function classifyGust(gs) {
-  if (gs == null) return 'N/A';
-  if (gs >= 90) return 'Ráfagas extremas';
-  if (gs >= 70) return 'Ráfagas muy fuertes';
-  if (gs >= 50) return 'Ráfagas fuertes';
-  if (gs >= 30) return 'Ráfagas moderadas';
-  return 'Ráfagas débiles';
-}
-
-  function classifyUVI(uvi) {
-    if (uvi == null) return 'N/A';
-    if (uvi >= 11) return 'Extremo';
-    if (uvi >= 8) return 'Muy alto';
-    if (uvi >= 6) return 'Alto';
-    if (uvi >= 3) return 'Moderado';
-    if (uvi >= 1) return 'Bajo';
-    return 'Mínimo';
-  }
-
-  function classifyRain(r) {
-    if (r == null) return 'N/A';
-    if (r >= 20) return 'Muy intensa';
-    if (r >= 10) return 'Fuerte';
-    if (r >= 2) return 'Moderada';
-    if (r > 0) return 'Débil';
-    return 'Sin precipitación';
-  }
-
-  function classifySolar(irr) {
-    if (irr == null) return 'N/A';
-    if (irr >= 1000) return 'Extrema';
-    if (irr >= 800) return 'Muy alta';
-    if (irr >= 600) return 'Alta';
-    if (irr >= 400) return 'Moderada';
-    if (irr >= 200) return 'Baja';
-    return 'Muy baja';
-  }
-
-  function thermalComfort(t, h) {
-    if (t == null || h == null) return 'N/A';
-
-    const index = t + (h * 0.05);
-
-    if (index >= 40) return 'Muy incómodo';
-    if (index >= 35) return 'Incómodo';
-    if (index >= 30) return 'Algo incómodo';
-    if (index >= 25) return 'Aceptable';
-    return 'Cómodo';
-  }
-
-  async function displayNowData() {
-    const widget = document.getElementById('widget-aemet');
-    if (!widget) return;
-
-    const d = await loadNowData();
-    if (!d) {
-      widget.innerHTML = '<p>No se pudo cargar el tiempo actual.</p>';
-      return;
+    async function loadStationMeta() {
+      const res = await fetch('https://api.picoweather.net/stations/83b2635b-2f70-4137-8e3b-ff7e907a10f9');
+      if (!res.ok) throw new Error('Error estación');
+      return await res.json();
     }
 
-    widget.innerHTML = `
+    async function loadNowData() {
+      try {
+        const now = new Date();
+        const endIso = now.toISOString();
+        const start = new Date(now.getTime() - 60 * 60 * 1000).toISOString();
+
+        const url = `https://api.picoweather.net/stations/83b2635b-2f70-4137-8e3b-ff7e907a10f9/data?timezone=UTC&start_time=${start}&end_time=${endIso}&granularity=raw&fields=temperature,humidity,pressure,lux,uvi,wind_speed,wind_direction,gust_speed,gust_direction,rainfall,solar_irradiance`;
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Error al obtener datos');
+
+        const data = await response.json();
+        if (!Array.isArray(data) || data.length === 0) return null;
+
+        const latest = data[data.length - 1];
+
+        const station = await loadStationMeta();
+
+        return {
+          temperature: latest.temperature,
+          humidity: latest.humidity,
+          pressure: latest.pressure,
+          lux: latest.lux,
+          uvi: latest.uvi,
+          windSpeed: latest.wind_speed,
+          windDirection: latest.wind_direction,
+          gustSpeed: latest.gust_speed,
+          gustDirection: latest.gust_direction,
+          rainfall: latest.rainfall,
+          solarIrradiance: latest.solar_irradiance,
+          stationName: station.name,
+          lat: station.lat,
+          lon: station.lon,
+          alt: station.alt
+        };
+
+      } catch (e) {
+        console.error(e);
+        return null;
+      }
+    }
+
+    function classifyTemperature(t) {
+      if (t == null) return 'N/A';
+      if (t >= 40) return 'Ola de calor extrema';
+      if (t >= 35) return 'Muy caluroso';
+      if (t >= 30) return 'Caluroso';
+      if (t >= 25) return 'Cálido';
+      if (t >= 18) return 'Templado';
+      if (t >= 10) return 'Fresco';
+      if (t >= 0) return 'Frío';
+      return 'Heladas';
+    }
+
+    function classifyHumidity(h) {
+      if (h == null) return 'N/A';
+      if (h >= 90) return 'Saturación de humedad';
+      if (h >= 75) return 'Humedad muy alta';
+      if (h >= 60) return 'Alta humedad';
+      if (h >= 40) return 'Humedad moderada';
+      if (h >= 25) return 'Ambiente seco';
+      return 'Muy seco';
+    }
+
+    function classifyPressure(p, alt = 0) {
+      if (p == null) return 'N/A';
+
+      const correction = (alt / 1000) * 12;
+      const pAdj = p + correction;
+
+      if (pAdj >= 1030) return 'Anticiclón fuerte';
+      if (pAdj >= 1020) return 'Alta presión estable';
+      if (pAdj >= 1015) return 'Ligera estabilidad';
+      if (pAdj >= 1010) return 'Normal alta';
+      if (pAdj >= 1005) return 'Normal';
+      if (pAdj >= 1000) return 'Ligera inestabilidad';
+      if (pAdj >= 995) return 'Baja presión';
+      return 'Borrasca';
+    }
+
+    function classifyWind(ws) {
+      if (ws == null) return 'N/A';
+      if (ws >= 75) return 'Vendaval';              // ~Bft 9+
+      if (ws >= 50) return 'Viento fuerte';         // ~Bft 7–8
+      if (ws >= 30) return 'Viento moderado-fuerte';// ~Bft 5–6
+      if (ws >= 20) return 'Viento moderado';       // ~Bft 4
+      if (ws >= 10) return 'Brisa';                 // ~Bft 2–3
+      if (ws >= 2) return 'Viento débil';           // ~Bft 1
+      return 'Calma';                               // ~Bft 0
+    }
+
+    function classifyGust(gs) {
+      if (gs == null) return 'N/A';
+      if (gs >= 90) return 'Ráfagas extremas';
+      if (gs >= 70) return 'Ráfagas muy fuertes';
+      if (gs >= 50) return 'Ráfagas fuertes';
+      if (gs >= 30) return 'Ráfagas moderadas';
+      return 'Ráfagas débiles';
+    }
+
+    function classifyUVI(uvi) {
+      if (uvi == null) return 'N/A';
+      if (uvi >= 11) return 'Extremo';
+      if (uvi >= 8) return 'Muy alto';
+      if (uvi >= 6) return 'Alto';
+      if (uvi >= 3) return 'Moderado';
+      if (uvi >= 1) return 'Bajo';
+      return 'Mínimo';
+    }
+
+    function classifyRain(r) {
+      if (r == null) return 'N/A';
+
+      // Acumulado en 10 minutos (mm)
+      if (r === 0) return 'Sin precipitación';
+      if (r < 0.1) return 'Llovizna muy débil';
+      if (r < 0.3) return 'Llovizna débil';
+      if (r < 0.8) return 'Lluvia ligera';
+      if (r < 1.5) return 'Lluvia moderada';
+      if (r < 3) return 'Lluvia fuerte';
+      return 'Lluvia muy intensa';
+    }
+
+    function classifySolar(irr) {
+      if (irr == null) return 'N/A';
+      if (irr >= 1000) return 'Extrema';
+      if (irr >= 800) return 'Muy alta';
+      if (irr >= 600) return 'Alta';
+      if (irr >= 400) return 'Moderada';
+      if (irr >= 200) return 'Baja';
+      return 'Muy baja';
+    }
+
+    function thermalComfort(t, h) {
+      if (t == null || h == null) return 'N/A';
+
+      const index = t + (h * 0.05);
+
+      if (index >= 40) return 'Muy incómodo';
+      if (index >= 35) return 'Incómodo';
+      if (index >= 30) return 'Algo incómodo';
+      if (index >= 25) return 'Aceptable';
+      return 'Cómodo';
+    }
+
+    async function displayNowData() {
+      const widget = document.getElementById('widget-aemet');
+      if (!widget) return;
+
+      const d = await loadNowData();
+      if (!d) {
+        widget.innerHTML = '<p>No se pudo cargar el tiempo actual.</p>';
+        return;
+      }
+
+      widget.innerHTML = `
       <div class="now-data">
 
         <p>Temperatura: ${d.temperature}°C — ${classifyTemperature(d.temperature)}</p>
 
         <p>Humedad: ${d.humidity}% — ${classifyHumidity(d.humidity)}</p>
 
-        <p>Presión: ${d.pressure} hPa — ${classifyPressure(d.pressure)}</p>
+        <p> Presión: ${d.pressure} hPa — ${classifyPressure(d.pressure, d.alt)}</p>
 
         <p>Viento: ${d.windSpeed} km/h, ${d.windDirection}° — ${classifyWind(d.windSpeed)}</p>
 
@@ -184,11 +204,18 @@ function classifyGust(gs) {
 
         <p>Confort térmico: ${thermalComfort(d.temperature, d.humidity)}</p>
 
+        <hr>
+
+        <p>
+          Coordenadas: ${d.lat.toFixed(5)}, ${d.lon.toFixed(5)} · 
+          Altitud: ${d.alt} m
+        </p>
+
       </div>
     `;
-  }
+    }
 
-  document.addEventListener('DOMContentLoaded', displayNowData);
+    document.addEventListener('DOMContentLoaded', displayNowData);
 
-})();
+  })();
 </script>
