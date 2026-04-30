@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Elecciones delegado centro"
-date: 2026-01-28 00:00:00 +0100
+date: 2026-04-28 00:00:00 +0100
 
 author: Gonzalo
 published: true
