@@ -4,7 +4,7 @@ title: "Elecciones delegado centro"
 date: 2026-04-28 00:00:00 +0100
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-04-30 23:59:59 +0200
 excerpt: "Más info en el aviso"
 
