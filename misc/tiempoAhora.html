@@ -88,25 +88,25 @@ FRANCISCO SÁNCHEZ y a manuel@picoweather.net</p>
     return 'Borrasca';
   }
 
-  function classifyWind(ws) {
-    if (ws == null) return 'N/A';
-    if (ws >= 25) return 'Vendaval';
-    if (ws >= 17) return 'Viento fuerte';
-    if (ws >= 11) return 'Viento moderado-fuerte';
-    if (ws >= 6) return 'Viento moderado';
-    if (ws >= 3) return 'Brisa';
-    if (ws >= 0.5) return 'Viento débil';
-    return 'Calma';
-  }
+function classifyWind(ws) {
+  if (ws == null) return 'N/A';
+  if (ws >= 75) return 'Vendaval';              // ~Bft 9+
+  if (ws >= 50) return 'Viento fuerte';         // ~Bft 7–8
+  if (ws >= 30) return 'Viento moderado-fuerte';// ~Bft 5–6
+  if (ws >= 20) return 'Viento moderado';       // ~Bft 4
+  if (ws >= 10) return 'Brisa';                 // ~Bft 2–3
+  if (ws >= 2) return 'Viento débil';           // ~Bft 1
+  return 'Calma';                               // ~Bft 0
+}
 
-  function classifyGust(gs) {
-    if (gs == null) return 'N/A';
-    if (gs >= 35) return 'Ráfagas extremas';
-    if (gs >= 25) return 'Ráfagas muy fuertes';
-    if (gs >= 18) return 'Ráfagas fuertes';
-    if (gs >= 12) return 'Ráfagas moderadas';
-    return 'Ráfagas débiles';
-  }
+function classifyGust(gs) {
+  if (gs == null) return 'N/A';
+  if (gs >= 90) return 'Ráfagas extremas';
+  if (gs >= 70) return 'Ráfagas muy fuertes';
+  if (gs >= 50) return 'Ráfagas fuertes';
+  if (gs >= 30) return 'Ráfagas moderadas';
+  return 'Ráfagas débiles';
+}
 
   function classifyUVI(uvi) {
     if (uvi == null) return 'N/A';
@@ -168,9 +168,9 @@ FRANCISCO SÁNCHEZ y a manuel@picoweather.net</p>
 
         <p>Presión: ${d.pressure} hPa — ${classifyPressure(d.pressure)}</p>
 
-        <p>Viento: ${d.windSpeed} m/s, ${d.windDirection}° — ${classifyWind(d.windSpeed)}</p>
+        <p>Viento: ${d.windSpeed} km/h, ${d.windDirection}° — ${classifyWind(d.windSpeed)}</p>
 
-        <p>Ráfagas: ${d.gustSpeed} m/s, ${d.gustDirection}° — ${classifyGust(d.gustSpeed)}</p>
+        <p>Ráfagas: ${d.gustSpeed} km/h, ${d.gustDirection}° — ${classifyGust(d.gustSpeed)}</p>
 
         <p>Índice UV: ${d.uvi} — ${classifyUVI(d.uvi)}</p>
 
