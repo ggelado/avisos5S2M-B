@@ -4,7 +4,7 @@ title: "1 mayo festivo"
 date: 2026-04-28 00:00:00 +0200
 event_date: 2026-05-01 00:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-01 19:00:00 +0200
 excerpt: "No hay clase el viernes"
 
