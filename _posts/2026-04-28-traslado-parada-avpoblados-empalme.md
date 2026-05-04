@@ -4,7 +4,7 @@ title: "Traslado parada av.poblados empalme"
 date: 2026-04-28 21:52:00 +0200
 event_date: 2026-04-29 06:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-04 19:00:00 +0200
 excerpt: "Por obras av. Poblados"
 
