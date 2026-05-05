@@ -4,7 +4,7 @@ title: "[URGENTE] + info en el aviso"
 date: 2026-05-05 12:41:37 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-05 19:00:00 +0200
 excerpt: "Leed el aviso"
 
