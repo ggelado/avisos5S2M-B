@@ -2,7 +2,7 @@
 layout: post
 title: "[DA] Información de interés"
 date: 2026-05-05 20:03:40 +0200
-
+last_modified_at: 2026-05-06 10:18:00 +0200
 author: Gonzalo
 published: true
 expires: 2026-05-08 23:59:59 +0200
@@ -20,6 +20,12 @@ A falta de la resolución de posibles alegaciones, la publicación de las actas,
 ÁLVARO HERRERO VIDAL
 
 Con (PROVISIONALMENTE) 19 votos a favor, 1 en blanco y 1 nulo.
+
+<embed 
+  src="https://fi.upm.es/docs/estructura/delegacion_de_alumnos/16_6%20-%20Resultado%20Centro%20Provisional.pdf"
+  type="application/pdf"
+  width="100%" 
+  height="600px" />
 
 ---
 
