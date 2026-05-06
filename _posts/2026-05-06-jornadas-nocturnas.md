@@ -56,3 +56,6 @@ Para más información y participar, rellena este forms: [https://forms.gle/mqic
 El evento empezara a las 21:00 y terminara a las 7:00. De todas formas se permitirá la salida temprana a las 1:50 y otra a las 4:15. No se permitirá la salida del recinto de la universidad fuera de estas horas a excepción de casos especiales.
 
 Más info contacta con la organización del evento.
+
+<img width="1131" height="1600" alt="Cartel del evento" src="https://github.com/user-attachments/assets/ca552582-5a90-46a8-9bb6-45c3375ddbd4" />
+
