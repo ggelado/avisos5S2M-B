@@ -7,7 +7,8 @@ author: Gonzalo
 published: true
 expires: 2026-05-08 23:59:59 +0200
 excerpt: "https://forms.gle/mqicVM6qBAtZFSUL8"
-image: "https://github.com/user-attachments/assets/0661c09c-a39e-4f56-955e-e267a6667366"
+image: "https://github.com/user-attachments/assets/bef30161-ac0c-4641-821b-596b481c8427"
+
 
 categories:
   - acm
