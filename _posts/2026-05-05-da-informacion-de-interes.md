@@ -2,7 +2,7 @@
 layout: post
 title: "[DA] Información de interés"
 date: 2026-05-05 20:03:40 +0200
-last_modified_at: 2026-05-06 10:18:00 +0200
+last_modified_at: 2026-05-06 10:25:00 +0200
 author: Gonzalo
 published: true
 expires: 2026-05-08 23:59:59 +0200
@@ -52,7 +52,7 @@ La sesión se desarrollará conforme al siguiente orden del día:
 7. Ruegos y Preguntas
 
 >[!info] Recuerda
->Puedes asistir o contactar con el Equipo de Delegados para consultar la documentación relativa a esta JD. No voy a subirla a internet públicamente, pero pedidmela. Ya sabéis cómo contactarme.
+>Puedes asistir o contactar con el Equipo de Delegados para consultar la documentación relativa a esta JD. No voy a subirla a internet públicamente, pero pedidmela pero está disponible [aquí](https://upm365-my.sharepoint.com/:f:/g/personal/gonzalo_gelado_alumnos_upm_es/IgBHGy5dpz3_Sb7nujF1tj4KAeUtw4Mp7z_YeBSxTXHJTnk?e=ShaP20) (hay que iniciar sesión con credenciales UPM).
 
 Madrid, a 5 de mayo de 2026
 
