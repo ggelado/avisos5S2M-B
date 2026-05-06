@@ -8,7 +8,7 @@ author:
 published: true
 event_date: 2026-05-11 10:00:00 +0200
 last_modified_at: 2026-05-06 10:28:00 +0200
-expires: 2026-05-11 12:00:00 +0200
+expires: 2026-05-11 11:00:00 +0200
 categories:
   - Convocatorias de Examen
   - IngSoftI
