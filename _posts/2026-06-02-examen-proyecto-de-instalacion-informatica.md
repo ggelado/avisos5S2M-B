@@ -36,7 +36,7 @@ Proyecto de Instalación Informática
 
 ---
 
-Rogamos colabores para incluir la convocatoria de este examen, utilizando el botón "Editar Aviso" situado en la parte inferior de este aviso, en su versión web.
+Rogamos colabores para incluir la convocatoria de este examen, utilizando el botón "Editar Aviso" situado en la parte inferior de este aviso, en su versión web, o pulsando <a href="https://github.com/ggelado/avisos5S2M-B/edit/main/{{ page.path }}">aquí</a>.
 
 >[!caution] Circunstancias especiales
 > La necesidad o no de acudir a este examen viene determinada por lo indicado en la Guía de Aprendizaje, por lo que deberá consultarse de acuerdo a conocer si debe o no asistir a la prueba. **ES POSIBLE QUE NO TENGA QUE PRESENTARSE A LA MISMA**.

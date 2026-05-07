@@ -24,4 +24,4 @@ Sistemas Inteligentes
 
 ---
 
-Rogamos colabores para incluir la convocatoria de este examen, utilizando el botón "Editar Aviso" situado en la parte inferior de este aviso, en su versión web.
+Rogamos colabores para incluir la convocatoria de este examen, utilizando el botón "Editar Aviso" situado en la parte inferior de este aviso, en su versión web, o pulsando <a href="https://github.com/ggelado/avisos5S2M-B/edit/main/{{ page.path }}">aquí</a>.
