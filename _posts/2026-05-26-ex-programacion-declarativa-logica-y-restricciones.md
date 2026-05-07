@@ -35,7 +35,3 @@ tendrá lugar el examen de Programación Declarativa: Lógica y Restricciones.
 ---
 
 Este aviso se modificará para incluir la convocatoria de este examen.
-
-Tendrá lugar el examen de 
-
-Programación Declarativa, Lógica y Restricciones
