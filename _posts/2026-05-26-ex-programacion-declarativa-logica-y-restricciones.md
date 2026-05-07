@@ -30,6 +30,8 @@ Recuerda que, de acuerdo al calendario oficial de exámenes para la convocatoria
 
 2 de junio 15 horas
 
+tendrá lugar el examen de Programación Declarativa: Lógica y Restricciones.
+
 ---
 
 Este aviso se modificará para incluir la convocatoria de este examen.
