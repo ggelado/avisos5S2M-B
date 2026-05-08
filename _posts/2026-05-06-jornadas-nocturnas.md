@@ -4,7 +4,7 @@ title: "Jornadas nocturnas"
 date: 2026-05-06 16:08:56 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-08 23:59:59 +0200
 excerpt: "https://forms.gle/mqicVM6qBAtZFSUL8"
 image: "https://github.com/user-attachments/assets/bef30161-ac0c-4641-821b-596b481c8427"

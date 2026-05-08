@@ -4,7 +4,7 @@ title: "[DA] Información de interés"
 date: 2026-05-05 20:03:40 +0200
 last_modified_at: 2026-05-06 10:18:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-08 23:59:59 +0200
 excerpt: "Nuevo delegado, JD y cuentas DA"
 
