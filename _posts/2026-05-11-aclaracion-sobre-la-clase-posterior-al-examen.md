@@ -5,7 +5,7 @@ date: 2026-05-11 00:00:00 +0200
 author:
   name: RODRIGUEZ TIBOCHA FRANCY DIOMAR
   email: francydiomar.rodriguez@upm.es
-published: true
+published: false
 event_date: 2026-05-11 11:00:00 +0200
 expires: 2026-05-11 12:00:00 +0200
 excerpt: "A las 11:00 hay clase normal"
