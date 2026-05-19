@@ -5,7 +5,7 @@ date: 2026-05-13 00:00:00 +0200
 author:
   name: Fernando Pérez Costoya
   email: fernando.perez@upm.es
-published: true
+published: false
 event_date: 2026-05-19 10:00:00 +0200
 expires: 2026-05-19 12:00:00 +0200
 categories:
