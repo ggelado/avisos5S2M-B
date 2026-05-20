@@ -133,5 +133,3 @@ image: https://www.dlsiis.fi.upm.es/imagenes/lsiis.png
         </div>
     </article>
 
-<nav class="discussion-nav clearfix" aria-label="Mostrar discusiones"><ul><li class="prev-discussion"><a aria-label="Debate anterior: Encuesta ABET" class="btn btn-link" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=36892">◄ Encuesta ABET</a></li></ul></nav>
-</div>
