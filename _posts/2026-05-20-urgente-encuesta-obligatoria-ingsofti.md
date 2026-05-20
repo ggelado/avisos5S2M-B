@@ -6,7 +6,7 @@ date: 2026-05-19 19:30:46 +0200
 author: Gonzalo
 published: true
 expires: 2026-05-22 23:59:59 +0200
-excerpt: "Es obligatorio realizarla"
+excerpt: "Si ya la habías hecho hay que volver a hacerla"
 
 
 categories:
