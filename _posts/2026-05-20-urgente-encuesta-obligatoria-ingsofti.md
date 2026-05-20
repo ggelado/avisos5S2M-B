@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[URGENTE] Encuesta obligatoria ingsofti"
-date: 2026-05-19 19:30:46 +0200
+date: 2026-05-20 14:26:46 +0200
 
 author: Gonzalo
 published: true
