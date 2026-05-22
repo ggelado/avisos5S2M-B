@@ -4,7 +4,7 @@ title: "Clases online distribuidos"
 date: 2026-05-20 14:24:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-22 23:59:59 +0200
 excerpt: "Vía Zoom"
 image: "https://www.datsi.fi.upm.es/icons/datsi_medium.gif"

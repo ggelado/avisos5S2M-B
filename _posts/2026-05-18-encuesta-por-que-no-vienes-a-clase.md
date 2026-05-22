@@ -4,7 +4,7 @@ title: "[ENCUESTA] ¿Por qué no vienes a clase?"
 date: 2026-05-18 13:17:13 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-22 23:59:59 +0200
 excerpt: "Completamente anónima, agradecemos participación."
 image: "https://avatars.githubusercontent.com/u/38535660?s=280&v=4"

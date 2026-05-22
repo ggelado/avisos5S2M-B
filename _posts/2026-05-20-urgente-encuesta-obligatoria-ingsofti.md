@@ -4,7 +4,7 @@ title: "[URGENTE] Encuesta obligatoria ingsofti"
 date: 2026-05-20 14:26:46 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-22 23:59:59 +0200
 excerpt: "Si ya la habías hecho hay que volver a hacerla"
 
