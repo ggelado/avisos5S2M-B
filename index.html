@@ -6,10 +6,6 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
 ---
 <h1>Últimos avisos</h1>
 
-<!-- MODO OSCURO TEMPORALMENTE DESHABILITADO
-<div id="aviso-modo-oscuro" class="aviso-modo-oscuro" style="display: none;">
-</div>
--->
 
 {% include avisos.html %}
 
@@ -48,22 +44,6 @@ Informática de la Escuela Técnica Superior de Ingenieros Informáticos de la U
 
 
 
-<!-- MODO OSCURO TEMPORALMENTE DESHABILITADO
-<script>
-  // Aviso condicional para modo oscuro
-  document.addEventListener("DOMContentLoaded", () => {
-    const aviso = document.getElementById("aviso-modo-oscuro");
-    if (!aviso) return;
-
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      aviso.textContent = "Modo oscuro en beta. Podría haber errores o no cumplir contrastes WCAG.";
-      aviso.style.display = "block";
-    } else {
-      aviso.style.display = "none";
-    }
-  });
-</script>
--->
 {% include proximos_buses.html %}
 {% include popup_notis.html %}
 {% include service-status.html %}
