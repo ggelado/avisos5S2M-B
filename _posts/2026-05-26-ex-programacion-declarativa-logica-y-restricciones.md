@@ -7,6 +7,7 @@ author: Gonzalo
 published: true
 expires: 2026-06-02 17:00:00 +0200
 excerpt: "2 junio 15 horas"
+last_modified_at: 2026-05-29 09:37:00 +0200
 
 tags:
   - convocatorias_junio_bas_obl
@@ -90,6 +91,75 @@ categories:
                                 <div class="d-flex flex-wrap">
                                         <div class="post-actions d-flex align-self-end justify-content-end flex-wrap ms-auto p-1" data-region="post-actions-container" role="menubar" aria-label="Información sobre el examen de evaluación ordinaria, Martes 2 de junio, 15:00 horas por Hermenegildo Salinas Manuel De" aria-controls="p56328">
                                                     <a data-region="post-action" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=38108#p56328" class="btn btn-link" title="Enlace permanente a esta publicación" aria-label="Enlace permanente a esta publicación" role="menuitem" tabindex="0">
+                                                        Enlace permanente
+                                                    </a>
+                                        </div>
+                                </div>
+    
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="d-flex border p-2 mb-2 forumpost focus-target  firstpost starter" aria-label="Asignación aulas examen por Hermenegildo Salinas Manuel De" data-post-id="56859" data-content="forum-post">
+            
+    
+            <div class="d-flex flex-column w-100" data-region-content="forum-post-core">
+                <header id="post-header-56859-6a1941bf94cb76a1941bf740575" class="mb-2 header row d-flex">
+                            <div class="me-2" style="width: 45px;">
+                                    <img class="rounded-circle w-100" src="https://moodle.upm.es/titulaciones/oficiales/theme/image.php/boost/core/1779340435/u/f1" alt="Imagen de Hermenegildo Salinas Manuel De" aria-hidden="true" title="Imagen de Hermenegildo Salinas Manuel De">
+                            </div>
+                    <div class="d-flex flex-column">
+                            <h3 class="h6 font-weight-bold mb-0" data-region-content="forum-post-core-subject" data-reply-subject="Re: Asignación aulas examen">Asignación aulas examen</h3>
+                            <div class="mb-3" tabindex="-1">
+                                de <a href="https://moodle.upm.es/titulaciones/oficiales/user/view.php?id=1623&amp;course=20234">Hermenegildo Salinas Manuel De</a> - <time datetime="2026-05-29T09:00:20+02:00">viernes, 29 de mayo de 2026, 09:00</time>
+                        </div>
+                            <span class="sr-only">Número de respuestas: 0</span>
+                    </div>
+                </header>
+    
+                <div class="d-flex body-content-container">
+                            <div class="me-2 author-groups-container" style="width: 45px; flex-shrink: 0">
+                            </div>
+    
+                    <div class="no-overflow w-100 content-alignment-container">
+                        <div id="post-content-56859" class="post-content-container">
+                            <p>Enviamos la asignación de aulas para el examen del martes (está también en Moodle):&nbsp;</p>
+<ul>
+<li>Asignación de aulas<strong> por primer apellido</strong>:</li>
+</ul>
+<center>
+<table style="border-collapse:collapse;width:34.7566%;height:163.325px;border-width:1px;margin-left:0px;margin-right:auto;" border="1"><colgroup><col style="width:23.2005%;"><col style="width:17.3342%;"><col style="width:59.4058%;"></colgroup>
+<tbody>
+<tr style="height:44.7625px;">
+<td style="text-align:left;"><strong>A-L</strong></td>
+<td><strong>3001</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr style="height:73.775px;">
+<td><strong>M-ROC</strong></td>
+<td><strong>5001</strong></td>
+<td>+ alumnos con necesidades especiales</td>
+</tr>
+<tr style="height:44.7875px;">
+<td><span style="background-color:#ffffff;color:#000000;"><strong>ROD-Z</strong></span></td>
+<td><span style="background-color:#ffffff;color:#000000;"><strong>5002</strong></span></td>
+<td><span style="background-color:#ffffff;color:#000000;">+ alumnos Erasmus</span></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</center>
+                        </div>
+    
+    
+    
+                            
+    
+    
+                                <div class="d-flex flex-wrap">
+                                        <div class="post-actions d-flex align-self-end justify-content-end flex-wrap ms-auto p-1" data-region="post-actions-container" role="menubar" aria-label="Asignación aulas examen por Hermenegildo Salinas Manuel De" aria-controls="p56859">
+                                                    <a data-region="post-action" href="https://moodle.upm.es/titulaciones/oficiales/mod/forum/discuss.php?d=38544#p56859" class="btn btn-link" title="Enlace permanente a esta publicación" aria-label="Enlace permanente a esta publicación" role="menuitem" tabindex="0">
                                                         Enlace permanente
                                                     </a>
                                         </div>
