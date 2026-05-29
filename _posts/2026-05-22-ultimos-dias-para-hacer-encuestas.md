@@ -4,7 +4,7 @@ title: "Últimos días para hacer encuestas"
 date: 2026-05-22 00:00:00 +0200
 event_date: 2026-05-29 23:59:58 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-05-29 23:59:59 +0200
 excerpt: "Termina el 29 de mayo"
 
