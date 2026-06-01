@@ -7,7 +7,7 @@ author: Gonzalo
 published: true
 expires: 2026-06-01 17:00:00 +0200
 excerpt: "1 de junio 15 horas"
-
+last_modified_at: 2026-06-01 08:31:00 +0200
 tags:
   - ex_opt_junio
 categories:
@@ -36,4 +36,4 @@ Programming Project
 
 ---
 
-Rogamos colabores para incluir la convocatoria de este examen, utilizando el botón "Editar Aviso" situado en la parte inferior de este aviso, en su versión web, o pulsando <a href="https://github.com/ggelado/avisos5S2M-B/edit/main/{{ page.path }}">aquí</a>.
+Será en el aula 3001 y durará 40 minutos 
