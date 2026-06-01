@@ -4,7 +4,7 @@ title: "Examen ProgProj"
 date: 2026-05-25 00:00:00 +0200
 event_date: 2026-06-01 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-01 17:00:00 +0200
 excerpt: "1 de junio 15 horas"
 last_modified_at: 2026-06-01 08:31:00 +0200
