@@ -4,7 +4,7 @@ title: "Ex Programación Declarativa, Lógica y Restricciones"
 date: 2026-05-26 00:00:00 +0200
 event_date: 2026-06-02 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-02 17:00:00 +0200
 excerpt: "2 junio 15 horas"
 last_modified_at: 2026-05-29 09:37:00 +0200
