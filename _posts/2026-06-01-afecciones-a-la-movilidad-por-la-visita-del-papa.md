@@ -2,7 +2,7 @@
 layout: post
 title: "Afecciones a la movilidad por la visita del Papa"
 date: 2026-06-01 17:01:34 +0200
-
+last_modified_at: 2026-06-02 10:12:00 +0200
 author: Gonzalo
 published: true
 expires: 2026-06-09 15:00:00 +0200
@@ -20,6 +20,9 @@ Sed especialmente previsores si hacéis uso de alguno de estos itinerarios:
 
 * PLAZA LIMA/S.BERNABEU
 * CIBELES
+* Atocha (EMT)
+
+---
 
 * [Plan de movilidad general CRTM (Interurbanos)](https://www.crtm.es/comunicacion/visita-del-papa-leon-xiv/plan-especial-de-movilidad-durante-la-visita-del-papa/). Nota: Consultar web empresas prestadoras del servicio.
 * [Plan específico Metro de Madrid](https://www.metromadrid.es/es/nota-de-prensa/2026-06-01/la-comunidad-de-madrid-actualiza-el-plan-de-movilidad-con-motivo-de-la-visita-del-papa-para-garantizar-la-fluidez-de-los-desplazamientos).
