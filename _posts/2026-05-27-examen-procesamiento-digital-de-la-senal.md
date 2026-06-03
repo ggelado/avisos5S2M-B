@@ -4,7 +4,7 @@ title: "Examen Procesamiento Digital de la Señal"
 date: 2026-05-27 00:00:00 +0200
 event_date: 2026-06-03 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-03 17:00:00 +0200
 excerpt: "3 de junio 15 horas"
 
