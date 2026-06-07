@@ -28,7 +28,7 @@ categories:
 
 Recuerda que, de acuerdo al calendario oficial de exámenes para la convocatoria ordinaria del 2º cuatrimestre, el próximo
 
-10 de junio 15 horas
+10 de junio a las 15 horas en el aula 3001 - Antigua Biblioteca (Pendiente de cambios)
 
 Tendrá lugar el examen de 
 
