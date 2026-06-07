@@ -5,7 +5,7 @@ date: 2026-06-01 00:00:00 +0200
 event_date: 2026-06-08 10:00:00 +0200
 author: Gonzalo
 published: true
-expires: 2026-06-08 12:00:00 +0200
+expires: 2026-06-08 10:45:00 +0200
 excerpt: "8 de junio 10 horas"
 last_modified_at: 2026-06-04 17:51:00 +0200
 categories:
