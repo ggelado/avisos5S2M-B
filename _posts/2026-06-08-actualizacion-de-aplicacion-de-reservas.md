@@ -7,9 +7,9 @@ published: true
 expires: 2026-06-10 23:59:59 +0200
 excerpt: "Cambios en la interfaz y terminología"
 image: "https://opengraph.githubassets.com/1a3a695e17e1fb7dcd7dd697fa45060106266bf15b16f4127690829c95551c2f/LibreBooking/librebooking"
-
+redirect_from: /mantis/2026/06/08/actualizacion-de-aplicacion-de-reservas.html
 categories:
-  - mantis
+  - booking
 ---
 
 Hola, buenos días, han salido varias versiones nuevas d ela aplicación de reservas y dado que alguno de los problemas que se resolvían era relativa o a cuestiones de seguridad, nos ha aprecido mas que recomendable actualizar.
