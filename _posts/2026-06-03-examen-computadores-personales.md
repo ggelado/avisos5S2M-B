@@ -28,11 +28,23 @@ categories:
 
 Recuerda que, de acuerdo al calendario oficial de exámenes para la convocatoria ordinaria del 2º cuatrimestre, el próximo
 
-10 de junio a las 15 horas en el aula 3001 - Antigua Biblioteca (Pendiente de cambios)
+10 de junio a las 15 horas en el aula 3001 - Antigua Biblioteca
 
 Tendrá lugar el examen de 
 
 Computadores Personales
+
+Mensaje del profesor:
+```text
+Convocatoria Examen Computadores personales (10-junio, 15h, Aula de exámenes 3001).
+Instrucciones:
+- Al entrar, colocarse en un sitio disponible lo más a la *derecha* posible, pero sin ocupar los sitios junto a la *pared*.
+- En la mesa, tener solo 2 bolígrafos (azul o negro) y carnet. No se necesita papel, se responde en la hoja del enunciado.
+- La cajonera debe estar *vacía*. 
+- Rostro y orejas deben estar a la vista (pelo largo recogido, etc.) 
+- No portar *ningún* dispositivo electrónico (smartwatches, auriculares, etc.)
+- Dejar en el suelo *cualquier* otro objeto (mochila, móvil, etc.)
+```
 
 ---
 
