@@ -2,12 +2,11 @@
 layout: post
 title: "Actualización de aplicación de reservas"
 date: 2026-06-08 21:32:37 +0200
-
 author: Gonzalo
 published: true
 expires: 2026-06-10 23:59:59 +0200
 excerpt: "Cambios en la interfaz y terminología"
-image: "https://testeandosoftware.com/wp-content/uploads/2015/03/mantis_logo.png"
+image: "https://opengraph.githubassets.com/1a3a695e17e1fb7dcd7dd697fa45060106266bf15b16f4127690829c95551c2f/LibreBooking/librebooking"
 
 categories:
   - mantis
