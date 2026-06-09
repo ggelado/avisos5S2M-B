@@ -4,7 +4,7 @@ title: "Afecciones a la movilidad por la visita del Papa"
 date: 2026-06-01 17:01:34 +0200
 last_modified_at: 2026-06-02 10:25:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-09 15:00:00 +0200
 excerpt: "Especial interés para exámenes de SSII, PyEII, Multimedia, IPO, PII, IPC y Computabilidad"
 image: "https://www.servimedia.es/sites/default/files/noticias/A/A1-1412915012-1.jpg"

@@ -4,7 +4,7 @@ title: "Examen Proyecto de Instalación Informática"
 date: 2026-06-02 00:00:00 +0200
 event_date: 2026-06-09 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-09 17:00:00 +0200
 excerpt: "VER AVISO PARA MÁS INFO"
 
