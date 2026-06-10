@@ -3,7 +3,7 @@ layout: post
 title: "Actualización de aplicación de reservas"
 date: 2026-06-08 21:32:37 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-10 23:59:59 +0200
 excerpt: "Cambios en la interfaz y terminología"
 image: "https://opengraph.githubassets.com/1a3a695e17e1fb7dcd7dd697fa45060106266bf15b16f4127690829c95551c2f/LibreBooking/librebooking"
