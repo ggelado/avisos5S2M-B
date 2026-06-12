@@ -4,7 +4,7 @@ title: "Examen Español Profesional y Académico"
 date: 2026-06-05 00:00:00 +0200
 event_date: 2026-06-12 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-12 17:00:00 +0200
 excerpt: "12 de junio 15 horas"
 
