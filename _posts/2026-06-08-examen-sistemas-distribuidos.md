@@ -4,7 +4,7 @@ title: "Examen Sistemas Distribuidos"
 date: 2026-06-08 00:00:00 +0200
 event_date: 2026-06-15 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-15 17:00:00 +0200
 excerpt: "CONDICIONES ESPECIALES VER AVISO."
 
