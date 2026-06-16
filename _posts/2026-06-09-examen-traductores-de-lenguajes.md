@@ -4,7 +4,7 @@ title: "Examen Traductores de Lenguajes"
 date: 2026-06-09 00:00:00 +0200
 event_date: 2026-06-16 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-16 17:00:00 +0200
 excerpt: "16 de junio 15 horas"
 
