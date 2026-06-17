@@ -4,7 +4,7 @@ title: "Degradación servicios web escuela"
 date: 2026-06-17 01:21:21 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-17 12:00:00 +0200
 excerpt: "Consultar aviso. Afectado Gitlab Pproject y Deliverit."
 
