@@ -2,7 +2,7 @@
 layout: post
 title: "Aviso bus linea 591: HORARIOS NO LECTIVOS 591"
 date: 2026-06-11T16:00:57+02:00
-published: true
+published: false
 author: Empresa Boadilla (auto ggelado)
 expires: 2026-06-18T23:59:59+02:00
 excerpt: "[591]: HORARIOS NO LECTIVOS 591"
