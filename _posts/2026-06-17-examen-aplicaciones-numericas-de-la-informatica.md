@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Aplicaciones Numéricas de la Informática"
 date: 2026-06-17 00:00:00 +0200
 event_date: 2026-06-24 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-24 17:00:00 +0200
 excerpt: "24 de junio 15 horas"
 
