@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Ecuaciones Diferenciales: Métodos y Modelo"
 date: 2026-06-19 00:00:00 +0200
 event_date: 2026-06-26 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-26 17:00:00 +0200
 excerpt: "26 de junio 15 horas"
 
