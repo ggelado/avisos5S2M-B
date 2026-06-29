@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Diseño con Microcontroladores"
 date: 2026-06-22 00:00:00 +0200
 event_date: 2026-06-29 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-29 17:00:00 +0200
 excerpt: "29 de junio 15 horas"
 

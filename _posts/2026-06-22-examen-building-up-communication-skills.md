@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Building up Communication Skills"
 date: 2026-06-22 00:00:00 +0200
 event_date: 2026-06-29 10:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-29 12:00:00 +0200
 excerpt: "29 de junio 10 horas"
 

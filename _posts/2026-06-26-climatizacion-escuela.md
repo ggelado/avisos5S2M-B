@@ -4,7 +4,7 @@ title: "Climatización escuela"
 date: 2026-06-26 01:13:15 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-29 23:59:59 +0200
 excerpt: "3001 y 3204 con aire, resto mala suerte"
 image: "https://www.isglobal.org/-/mortalidad-por-altas-temperaturas"
