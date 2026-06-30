@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Investigación Operativa"
 date: 2026-06-23 00:00:00 +0200
 event_date: 2026-06-30 10:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-06-30 12:00:00 +0200
 excerpt: "30 de junio 10 horas"
 
