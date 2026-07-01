@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Seguridad de las Tecnologías de la Información"
 date: 2026-06-24 00:00:00 +0200
 event_date: 2026-07-01 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-01 17:00:00 +0200
 excerpt: "1 de julio 15 horas"
 
