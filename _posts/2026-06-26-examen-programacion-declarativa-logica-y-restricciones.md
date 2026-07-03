@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Programación Declarativa: Lógica y Restricciones"
 date: 2026-06-26 00:00:00 +0200
 event_date: 2026-07-03 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-03 17:00:00 +0200
 excerpt: "3 de julio 15 horas"
 
