@@ -4,7 +4,7 @@ title: "Información varia"
 date: 2026-07-02 00:03:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-05 23:59:00 +0200
 excerpt: "Leer aviso"
 

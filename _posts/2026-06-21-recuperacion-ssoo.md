@@ -4,7 +4,7 @@ title: "Recuperación SSOO"
 date: 2026-06-21 01:17:00 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-05 23:59:59 +0200
 excerpt: "Hay que inscribirse para poder asistir"
 image: "https://www.datsi.fi.upm.es/icons/datsi_small.gif"
