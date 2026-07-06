@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Sistemas Orientados a Servicios"
 date: 2026-06-29 00:00:00 +0200
 event_date: 2026-07-06 15:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-06 17:00:00 +0200
 excerpt: "6 de julio 15 horas"
 
