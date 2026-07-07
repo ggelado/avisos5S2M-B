@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Proyecto de Instalación Informática"
 date: 2026-06-30 00:00:00 +0200
 event_date: 2026-07-07 10:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-07 12:00:00 +0200
 excerpt: "7 de julio 10 horas"
 
