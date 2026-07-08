@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Sistemas Inteligentes"
 date: 2026-07-01 00:00:00 +0200
 event_date: 2026-07-08 12:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-08 14:00:00 +0200
 excerpt: "8 de julio 12 horas"
 
