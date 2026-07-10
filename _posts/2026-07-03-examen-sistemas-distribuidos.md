@@ -4,7 +4,7 @@ title: "[EXTRA] Examen Sistemas Distribuidos"
 date: 2026-07-03 00:00:00 +0200
 event_date: 2026-07-10 10:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-10 12:00:00 +0200
 excerpt: "10 de julio 10 horas"
 
