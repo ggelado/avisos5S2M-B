@@ -6,16 +6,16 @@ locale: es_ES.UTF-8
 lang: es-ES
 timezone: Europe/Madrid
 plugins:
-  - jekyll-feed # plugin para generar RSS automáticamente
+#  - jekyll-feed # plugin para generar RSS automáticamente
   - jekyll-redirect-from
   - jekyll-last-modified-at
   - jekyll-seo-tag
-  - jekyll-sitemap
+#  - jekyll-sitemap
 feed:
   posts_limit: 100
 
-include:
-  - .well-known
+#include:
+#  - .well-known
 exclude:
   - "*.py"
 
