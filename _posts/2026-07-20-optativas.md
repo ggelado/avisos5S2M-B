@@ -4,7 +4,7 @@ title: "Optativas"
 date: 2026-07-20 22:24:08 +0200
 
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-30 22:59:59 +0200
 excerpt: "Asignación en correo UPM"
 

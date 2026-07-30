@@ -4,7 +4,7 @@ title: "MATRICULACIÓN"
 date: 2026-07-22 00:00:00 +0200
 event_date: 2026-07-22 09:00:00 +0200
 author: Gonzalo
-published: true
+published: false
 expires: 2026-07-30 22:59:00 +0200
 excerpt: "Toda la info y links"
 
